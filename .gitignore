@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+
+*test.R
+
+*.pdf
+*.doc
+*.docx
+*.html
+
+*.tiff
+
+audiofiles/*
+*.wav
