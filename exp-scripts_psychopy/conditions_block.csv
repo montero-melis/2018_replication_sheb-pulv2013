@@ -1,0 +1,5 @@
+BlockType,BlockInstructions,BlockPrompt
+CONTROL,wait silently,(remain silent)
+ARM,perform a simple drumming exercise with your arms,(arm paradiddle)
+LEGS,perform a simple drumming exercise with your legs,(leg paradiddle)
+ARTICULATION,"repeat the syllable ""bla"" continuously","(repeat ""bla"")"
