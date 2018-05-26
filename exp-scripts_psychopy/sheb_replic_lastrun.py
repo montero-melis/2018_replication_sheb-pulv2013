@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 26, 2018, at 14:33
+    on maj 26, 2018, at 14:39
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -84,6 +84,8 @@ sess = int(expInfo['session'])  # session converted to int
 
 myBlockCount = 0  # count blocks to use in text displays
 
+path2stimuli = "stimuli/presentation_lists/"
+print(path2stimuli)
 
 ## Duration-related variables (set here rather than in individ elements)
 
@@ -535,10 +537,10 @@ for thisBlock in block:
     continueRoutine = True
     # update component parameters for each repeat
     myBlockCount += 1
-    
     print("Block " + `myBlockCount`)
     
-    print("p" + `pptID` + "b" + `myBlockCount`)
+    curr_list = "p" + `pptID` + "b" + `myBlockCount`
+    print(curr_list)
     block_intro.setText("Part " + `myBlockCount` + "\n\nBlock type: " + BlockType + "\n\nReady?\n\nThen press SPACE BAR!")
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
