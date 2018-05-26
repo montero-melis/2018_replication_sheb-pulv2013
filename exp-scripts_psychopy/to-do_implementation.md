@@ -56,10 +56,12 @@ There are different options for the same PsychoPy script: from builder, directly
 
 ## During pilot, reconsider the following
 
-- Length of presentation: 100 ms enough?
+- Length of presentation: 100 ms enough? Seemed very short when I piloted with my wife (and with myself)... maybe 200 ms?
 - Length of beep (current 250 ms)
 - "fixation point": is this an actual point or perhaps a crosshair? What size? --> careful how size is defined if it's relative to the current monitor!
 - Font size okay? Change font so there is difference between instructions and presented words?
 
 
 ## Other
+
+- Set a maximum speed for drumming, e.g. 200 bpm? (Minimum = 100 bpm)
