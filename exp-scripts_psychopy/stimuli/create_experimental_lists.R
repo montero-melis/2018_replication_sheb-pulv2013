@@ -78,7 +78,6 @@ train <- data.frame(
   type = "training",
   matrix(tra, ncol = 4))
 names(train)[3:6] <- paste("word", 1:4, sep = "")  # sensible names to columns
-
 train
 
 # save this list to experiment folder
@@ -97,31 +96,22 @@ write.csv(train, "exp-scripts_psychopy/conditions_training.csv",
 # constraint that not more than three trials of the same word category appeared
 # consecutively." (Shebani & Pulvermüller, 2013:225)
 
-as.matrix(items[1:3, 3:6])
-as.vector(t(as.matrix(items[1:3, 3:6])))
+# NB: I've factored out the functions into a separate script to keep this tidy.
+source("Rfunctions/randomise.R")
 
-# function to shuffle the order of the 4 words of an item
-shuffle_words <- function(df) {
-  # check the provided df has the expected format
-  if(sum(names(df)[3:6] != paste("word", 1:4, sep = ""))) {
-    stop("I'm expecting something else; check the input!")
-  }
-  # read the words row by row and save as vector
-  shuffle <- as.vector(t(as.matrix(df[, 3:6])))
-  nb_items <- length(shuffle) / 4  # number of items
-  # index the position directly before the first word of each item
-  item_index <- 4 * (0 : (length(shuffle) - 1)) %/% 4
-  reshuffle <- replicate(nb_items, sample(4))  # reshuffle 1:4 nb_items times
-  myindex <- item_index + as.vector(reshuffle)
-  shuffled <- matrix(shuffle[myindex], ncol = 4, byrow = TRUE)
-  print(df)  # before
-  df[, 3:6] <- shuffled
-  df
-}
-shuffle_words(items[15:18,])
+## Level 1 - words within items
 
-rep(sample(4), 4)
+# function works with target as well as training items
+shuffle_words(items)
+shuffle_words(train)
 
-shuffle_words(items[, 6:1])
-shuffle_words(items[, c(1:5, 1)])
+## Level 2 - items within blocks
+
+# Function takes the "items" dataframe by default and shuffles the rows until
+# it finds an order that works. It returns the reordered data frame.
+# (Note that training items can be randomised in Psychopy, as no constraints apply)
+
+valid_seq()  # the function is wordy...
+x <- valid_seq()  
+x  # but it only returns the valid data frame!
 
