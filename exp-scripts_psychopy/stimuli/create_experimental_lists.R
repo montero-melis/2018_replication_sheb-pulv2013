@@ -130,6 +130,8 @@ gener_lists <- function(pptID = 100:102, ite =items, tra = train) {
   }
 }
 # Uncomment and run following line
-# gener_lists(pptID = c(100:499, 995:999))
+# gener_lists(pptID = c(100:499, 900:999))
+
+gener_lists(pptID = c(900:999))
 
 getwd()
