@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 26, 2018, at 14:39
+    on maj 26, 2018, at 15:30
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -84,17 +84,17 @@ sess = int(expInfo['session'])  # session converted to int
 
 myBlockCount = 0  # count blocks to use in text displays
 
-path2stimuli = "stimuli/presentation_lists/"
+path2stimuli = u'stimuli\\presentation_lists\\'
 print(path2stimuli)
 
 ## Duration-related variables (set here rather than in individ elements)
 
 # If session = 9, then speed through the screens
 if sess == 9: 
-    fix_point_duration = .1  # orig = 3
+    fix_point_duration = .05  # orig = 3
     word_duration = .1  # how long is each word shown for (orig = .1)
-    SOA = .2  # stimulus onset asynchrony (orig = .5)
-    mem_per = .1 # time during which words have to be kept in memory (orig = 6)
+    SOA = .15  # stimulus onset asynchrony (orig = .5)
+    mem_per = .05 # time during which words have to be kept in memory (orig = 6)
 else:  # otherwise use the standard duration
     fix_point_duration = 3  # orig = 3
     word_duration = .1  # how long is each word shown for (orig = .1)
@@ -537,10 +537,16 @@ for thisBlock in block:
     continueRoutine = True
     # update component parameters for each repeat
     myBlockCount += 1
-    print("Block " + `myBlockCount`)
     
-    curr_list = "p" + `pptID` + "b" + `myBlockCount`
-    print(curr_list)
+    curr_ppt_block = "p" + `pptID` + "_b" + `myBlockCount`
+    print(curr_ppt_block)
+    
+    curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'
+    print(curr_list_training)
+    
+    curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
+    print(curr_list_targets)
+    
     block_intro.setText("Part " + `myBlockCount` + "\n\nBlock type: " + BlockType + "\n\nReady?\n\nThen press SPACE BAR!")
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
@@ -787,7 +793,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions('conditions_training.csv'),
+            trialList=data.importConditions(curr_list_training),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1220,9 +1226,9 @@ for thisBlock in block:
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    word_presentation = data.TrialHandler(nReps=1, method='random', 
+    word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('conditions_exp-trials_allitems_test.csv'),
+        trialList=data.importConditions(curr_list_targets),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
