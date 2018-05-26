@@ -100,18 +100,36 @@ write.csv(train, "exp-scripts_psychopy/conditions_training.csv",
 source("Rfunctions/randomise.R")
 
 ## Level 1 - words within items
-
 # function works with target as well as training items
 shuffle_words(items)
 shuffle_words(train)
 
 ## Level 2 - items within blocks
-
 # Function takes the "items" dataframe by default and shuffles the rows until
 # it finds an order that works. It returns the reordered data frame.
-# (Note that training items can be randomised in Psychopy, as no constraints apply)
+# (Note that training items can be randomised in Psychopy, as no constraints apply,
+# so these will not be randomised by this function)
 
 valid_seq()  # the function is wordy...
 x <- valid_seq()  
 x  # but it only returns the valid data frame!
+shuffle_words(valid_seq())  # the two can be applied in sequence
 
+# wrap into a function that applies the 2 functions in sequence and saves
+# with participant ID and block number (4 lists per participant)
+# NB: Probably not very efficient; 200 participants take about a minute.
+gener_lists <- function(pptID = 100:102, ite =items, tra = train) {
+  for (ppt in pptID) {
+    for (block in 1:4) {
+      targets <- shuffle_words(valid_seq(ite))
+      training <- shuffle_words(tra)
+      fname_lead <- paste("exp-scripts_psychopy/stimuli/presentation_lists/p", ppt, "_b", block, sep = "")
+      write.csv(targets, paste(fname_lead, "_targets.csv", sep = ""), row.names = FALSE)
+      write.csv(training, paste(fname_lead, "_training.csv", sep = ""), row.names = FALSE)
+    }
+  }
+}
+# Uncomment and run following line
+# gener_lists(pptID = c(100:499, 995:999))
+
+getwd()

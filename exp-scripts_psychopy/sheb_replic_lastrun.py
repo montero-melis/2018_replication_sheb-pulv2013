@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 25, 2018, at 15:01
+    on maj 26, 2018, at 14:33
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -77,8 +77,8 @@ else:
 instr_welcomeClock = core.Clock()
 ## Set global (experiment-level) variables
 
-pptID = expInfo['participant']  # participant ID (NB: not int type!)
-print("participant ID is " + pptID)
+pptID = int(expInfo['participant'])  # participant ID
+print("participant ID is " + `pptID`)
 
 sess = int(expInfo['session'])  # session converted to int
 
@@ -108,27 +108,27 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
 text_7 = visual.TextStim(win=win, name='text_7',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp2"
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "block_instr"
@@ -136,27 +136,27 @@ block_instrClock = core.Clock()
 
 block_intro = visual.TextStim(win=win, name='block_intro',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "block_instr2"
 block_instr2Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "train"
 trainClock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -173,9 +173,9 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
@@ -240,9 +240,9 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
@@ -536,6 +536,9 @@ for thisBlock in block:
     # update component parameters for each repeat
     myBlockCount += 1
     
+    print("Block " + `myBlockCount`)
+    
+    print("p" + `pptID` + "b" + `myBlockCount`)
     block_intro.setText("Part " + `myBlockCount` + "\n\nBlock type: " + BlockType + "\n\nReady?\n\nThen press SPACE BAR!")
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
@@ -782,7 +785,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions(u'conditions_training.csv'),
+            trialList=data.importConditions('conditions_training.csv'),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1217,7 +1220,7 @@ for thisBlock in block:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='random', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(u'conditions_exp-trials_allitems_test.csv'),
+        trialList=data.importConditions('conditions_exp-trials_allitems_test.csv'),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
