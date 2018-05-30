@@ -13,9 +13,16 @@ TO DO's and questions regarding implementation of the Shebani & Pulvermüller pa
 Is working now, but needs to be adjusted once we have final item lists (training + target)
 
 
-## Python crashes after each experiment run
+## Problems with PsychoPy crashing
 
-Right now Python seems to crash at the end of every complete run of an experiment. The data file is still stored (apparently), but this is still not optimal.
+### On my hp elite notebook:
+
+- Right now Python seems to crash at the end of every complete run of an experiment. The data file is still stored (apparently), but this is still not optimal.
+
+### On DELL project computer:
+
+- Some problem related to microphone? Error message: 
+	- most recent call calls "C:\Program Files (x86)\PsychoPy2\lib\site-packages\psychopy\microphone.py" line 170; AttributeError: pyo server not created
 
 
 ## Instructions

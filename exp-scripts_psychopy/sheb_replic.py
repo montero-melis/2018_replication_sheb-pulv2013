@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 26, 2018, at 22:29
+    on maj 30, 2018, at 10:42
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -157,15 +157,15 @@ block_intro = visual.TextStim(win=win, name='block_intro',
 block_instr2Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "block_instr3"
 block_instr3Clock = core.Clock()
 text_11 = visual.TextStim(win=win, name='text_11',
-    text='You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.',
+    text='default text',
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -632,7 +632,7 @@ for thisBlock in block:
     curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
     print(curr_list_targets)
     
-    block_intro.setText("Part " + `myBlockCount` + ": " + BlockLabel + cont)
+    block_intro.setText("Part " + `myBlockCount` + ": Memorizing " + BlockLabel + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instrComponents = [block_intro, key_resp_4]
@@ -704,7 +704,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_2.setText("In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to" + BlockInstructions + " until you hear a beep. At the beep, you will have to repeat the four words." + cont)
+    text_2.setText("In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you will have to repeat the four words." + cont)
     key_resp_5 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr2Components = [text_2, key_resp_5]
@@ -783,6 +783,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
+    text_11.setText("You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(" + BlockType + ")")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr3Components = [text_11, key_resp_15]

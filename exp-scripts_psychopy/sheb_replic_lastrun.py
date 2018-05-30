@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 26, 2018, at 22:36
+    on maj 30, 2018, at 11:57
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -148,24 +148,24 @@ block_instrClock = core.Clock()
 
 block_intro = visual.TextStim(win=win, name='block_intro',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "block_instr2"
 block_instr2Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "block_instr3"
 block_instr3Clock = core.Clock()
 text_11 = visual.TextStim(win=win, name='text_11',
-    text='You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.',
+    text='default text',
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -783,6 +783,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
+    text_11.setText("You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(" + BlockType + ")")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr3Components = [text_11, key_resp_15]

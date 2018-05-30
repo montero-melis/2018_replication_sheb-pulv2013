@@ -1,5 +1,5 @@
 BlockType,BlockLabel,BlockInstructions
-CONTROL,while you wait silently,wait silently
-ARM,with hand drumming,perform a simple drumming exercise with your hands
-LEGS,with foot drumming,perform a simple drumming exercise with your feet
+SILENT,while you wait silently,wait silently
+HANDS,with hand drumming,perform a simple drumming exercise with your hands
+FEET,with foot drumming,perform a simple drumming exercise with your feet
 ARTICULATION,while repeating a syllable,"repeat the syllable ""bla"" continuously"
