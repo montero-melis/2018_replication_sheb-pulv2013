@@ -15,4 +15,4 @@ audiofiles/*
 *.wav
 
 # Use participant ID 999 for testing -- these will not be recorded
-exp-scripts_psychopy/data/999*
+exp-scripts_psychopy/data/99[0-9]*
