@@ -1,8 +1,12 @@
+# R-specific
 .Rproj.user
 .Rhistory
 .RData
 
 *test.R
+
+# psychopy-specific
+*_lastrun.py
 
 *.pdf
 *.doc
