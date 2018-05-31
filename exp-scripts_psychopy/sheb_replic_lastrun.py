@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 30, 2018, at 11:57
+    on maj 31, 2018, at 16:11
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -1164,9 +1164,6 @@ for thisBlock in block:
                     # keyboard checking is just starting
                     win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                     event.clearEvents(eventType='keyboard')
-                frameRemains = min_response_time + max_response_time- win.monitorFramePeriod * 0.75  # most of one frame period left
-                if key_resp_2.status == STARTED and t >= frameRemains:
-                    key_resp_2.status = STOPPED
                 if key_resp_2.status == STARTED:
                     theseKeys = event.getKeys(keyList=['space'])
                     
@@ -1599,9 +1596,6 @@ for thisBlock in block:
                 # keyboard checking is just starting
                 win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                 event.clearEvents(eventType='keyboard')
-            frameRemains = min_response_time + max_response_time- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if key_resp_2.status == STARTED and t >= frameRemains:
-                key_resp_2.status = STOPPED
             if key_resp_2.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
                 
