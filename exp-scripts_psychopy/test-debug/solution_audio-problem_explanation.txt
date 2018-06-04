@@ -1,0 +1,15 @@
+Solution audio capture problem
+=============================
+
+Using the AudioCapture element in PsychoPy causes computers to crash. Gunnar has come up with a solution, which is schematically illustrated in "solution_audio-problem.jpg".
+The basic idea is that PsychoPy does not try to record sound; instead there is a division of labour. See the image to follow these explanations:
+
+
+Recording response and markers:
+
+Stim CPU runs the PsychoPy script. At the beginning and end of each memory-phase, it plays a stereo sound file. One channel of this file goes to the speakers and plays a "beep" to mark the end of the memory phase; in the other channel it plays a marker that identifies the beginning of response to a target trial (e.g., a short A). This latter channel is not played by the speakers; instead it goes into a stereo input jack connected to the recording computer (REC CPU); it provides the sound for one of the channels of the recorded audio file. Through the other channel comes the recording from the mic.
+
+
+Slicing the sound file:
+
+This will require a set of 6 files (see schematic image) to act as markers that will allow us to slice one big sound file per participant into several files, one per trial. This can be done with a python script that creates a new file ranging from the start marker to the finish marker in every trial. Block markers will allow us to loop through blocks. A series of loops should make this possible.
