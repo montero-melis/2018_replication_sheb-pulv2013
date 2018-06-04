@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 04, 2018, at 23:06
+    on juni 04, 2018, at 23:33
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -222,39 +222,30 @@ point = visual.Polygon(
 
 # Initialize components for Routine "display_words"
 display_wordsClock = core.Clock()
-
-# Initialize components for Routine "display_words_training"
-display_words_trainingClock = core.Clock()
-wt1 = visual.TextStim(win=win, name='wt1',
+w1 = visual.TextStim(win=win, name='w1',
     text='default text',
     font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
-wt2 = visual.TextStim(win=win, name='wt2',
+w2 = visual.TextStim(win=win, name='w2',
     text='default text',
     font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
-wt3 = visual.TextStim(win=win, name='wt3',
+w3 = visual.TextStim(win=win, name='w3',
     text='default text',
     font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
-wt4 = visual.TextStim(win=win, name='wt4',
+w4 = visual.TextStim(win=win, name='w4',
     text='default text',
     font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
-memory_period = visual.TextStim(win=win, name='memory_period',
-    text=None,
-    font=u'Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
-    depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
@@ -1190,8 +1181,12 @@ for thisExperimental_block in experimental_blocks:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
+        w1.setText(word1)
+        w2.setText(word2)
+        w3.setText(word3)
+        w4.setText(word4)
         # keep track of which components have finished
-        display_wordsComponents = []
+        display_wordsComponents = [w1, w2, w3, w4]
         for thisComponent in display_wordsComponents:
             if hasattr(thisComponent, 'status'):
                 thisComponent.status = NOT_STARTED
@@ -1202,6 +1197,46 @@ for thisExperimental_block in experimental_blocks:
             t = display_wordsClock.getTime()
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
+            
+            # *w1* updates
+            if t >= 0 and w1.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w1.tStart = t
+                w1.frameNStart = frameN  # exact frame index
+                w1.setAutoDraw(True)
+            frameRemains = 0 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w1.status == STARTED and t >= frameRemains:
+                w1.setAutoDraw(False)
+            
+            # *w2* updates
+            if t >= SOA and w2.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w2.tStart = t
+                w2.frameNStart = frameN  # exact frame index
+                w2.setAutoDraw(True)
+            frameRemains = SOA + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w2.status == STARTED and t >= frameRemains:
+                w2.setAutoDraw(False)
+            
+            # *w3* updates
+            if t >= SOA * 2 and w3.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w3.tStart = t
+                w3.frameNStart = frameN  # exact frame index
+                w3.setAutoDraw(True)
+            frameRemains = SOA * 2 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w3.status == STARTED and t >= frameRemains:
+                w3.setAutoDraw(False)
+            
+            # *w4* updates
+            if t >= SOA * 3 and w4.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w4.tStart = t
+                w4.frameNStart = frameN  # exact frame index
+                w4.setAutoDraw(True)
+            frameRemains = SOA * 3 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w4.status == STARTED and t >= frameRemains:
+                w4.setAutoDraw(False)
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1225,103 +1260,6 @@ for thisExperimental_block in experimental_blocks:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         # the Routine "display_words" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
-        
-        # ------Prepare to start Routine "display_words_training"-------
-        t = 0
-        display_words_trainingClock.reset()  # clock
-        frameN = -1
-        continueRoutine = True
-        # update component parameters for each repeat
-        wt1.setText(word1)
-        wt2.setText(word2)
-        wt3.setText(word3)
-        wt4.setText(word4)
-        # keep track of which components have finished
-        display_words_trainingComponents = [wt1, wt2, wt3, wt4, memory_period]
-        for thisComponent in display_words_trainingComponents:
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        
-        # -------Start Routine "display_words_training"-------
-        while continueRoutine:
-            # get current time
-            t = display_words_trainingClock.getTime()
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            
-            # *wt1* updates
-            if t >= 0.0 and wt1.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                wt1.tStart = t
-                wt1.frameNStart = frameN  # exact frame index
-                wt1.setAutoDraw(True)
-            frameRemains = 0.0 + 0.200- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if wt1.status == STARTED and t >= frameRemains:
-                wt1.setAutoDraw(False)
-            
-            # *wt2* updates
-            if t >= 0.5 and wt2.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                wt2.tStart = t
-                wt2.frameNStart = frameN  # exact frame index
-                wt2.setAutoDraw(True)
-            frameRemains = 0.5 + 0.2- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if wt2.status == STARTED and t >= frameRemains:
-                wt2.setAutoDraw(False)
-            
-            # *wt3* updates
-            if t >= 1 and wt3.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                wt3.tStart = t
-                wt3.frameNStart = frameN  # exact frame index
-                wt3.setAutoDraw(True)
-            frameRemains = 1 + 0.2- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if wt3.status == STARTED and t >= frameRemains:
-                wt3.setAutoDraw(False)
-            
-            # *wt4* updates
-            if t >= 1.5 and wt4.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                wt4.tStart = t
-                wt4.frameNStart = frameN  # exact frame index
-                wt4.setAutoDraw(True)
-            frameRemains = 1.5 + 0.2- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if wt4.status == STARTED and t >= frameRemains:
-                wt4.setAutoDraw(False)
-            
-            # *memory_period* updates
-            if t >= 1.7 and memory_period.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                memory_period.tStart = t
-                memory_period.frameNStart = frameN  # exact frame index
-                memory_period.setAutoDraw(True)
-            frameRemains = 1.7 + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if memory_period.status == STARTED and t >= frameRemains:
-                memory_period.setAutoDraw(False)
-            
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in display_words_trainingComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # check for quit (the Esc key)
-            if endExpNow or event.getKeys(keyList=["escape"]):
-                core.quit()
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        
-        # -------Ending Routine "display_words_training"-------
-        for thisComponent in display_words_trainingComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        # the Routine "display_words_training" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
         # ------Prepare to start Routine "repeat_words"-------
