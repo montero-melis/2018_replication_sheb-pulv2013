@@ -20,4 +20,5 @@ audiofiles/*
 
 # Use participant ID's in range 990-999 for testing -- these will not be tracked by git
 exp-scripts_psychopy/data/99[0-9]*
+exp-scripts_psychopy/pilot/data/99[0-9]*
 exp-scripts_psychopy/test-debug/data/99[0-9]*
