@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 04, 2018, at 23:33
+    on juni 05, 2018, at 12:03
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -75,7 +75,7 @@ sess = int(expInfo['session'])  # session converted to int
 
 myBlockCount = 0  # count blocks to use in text displays
 
-path2stimuli = u'stimuli\\presentation_lists\\'
+path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\'
 print(path2stimuli)
 
 ## Duration-related variables (set here rather than in individ elements)
@@ -91,9 +91,6 @@ else:  # otherwise use the standard duration
 #    word_duration = .2  # how long is each word shown for (orig = .1)
 #    SOA = .5  # stimulus onset asynchrony (orig = .5)
     mem_per = 6 # time during which words have to be kept in memory (orig = 6)
-
-max_response_time = 120  # max time to repeat words before moving to next trial
-min_response_time = 0  # minimum time before participants can press SPACE to move on
 
 
 ## Other
@@ -147,38 +144,38 @@ point = visual.Polygon(
 display_words_trainingClock = core.Clock()
 wt1 = visual.TextStim(win=win, name='wt1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 wt2 = visual.TextStim(win=win, name='wt2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 wt3 = visual.TextStim(win=win, name='wt3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 wt4 = visual.TextStim(win=win, name='wt4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound('880', secs=0.25)
+sound_2 = sound.Sound(u'880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -224,32 +221,32 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound('880', secs=0.25)
+sound_2 = sound.Sound(u'880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "end_block"
@@ -565,7 +562,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-training_block = data.TrialHandler(nReps=20, method='random', 
+training_block = data.TrialHandler(nReps=5, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=[None],
     seed=None, name='training_block')
@@ -773,7 +770,7 @@ for thisTraining_block in training_block:
             # update/draw components on each frame
             
             # *key_resp_2* updates
-            if t >= min_response_time and key_resp_2.status == NOT_STARTED:
+            if t >= 0 and key_resp_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 key_resp_2.tStart = t
                 key_resp_2.frameNStart = frameN  # exact frame index
@@ -781,9 +778,6 @@ for thisTraining_block in training_block:
                 # keyboard checking is just starting
                 win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                 event.clearEvents(eventType='keyboard')
-            frameRemains = min_response_time + max_response_time- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if key_resp_2.status == STARTED and t >= frameRemains:
-                key_resp_2.status = STOPPED
             if key_resp_2.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
                 
@@ -919,7 +913,7 @@ for thisTraining_block in training_block:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 20 repeats of 'training_block'
+# completed 5 repeats of 'training_block'
 
 
 # ------Prepare to start Routine "instr_start_real_thing"-------
@@ -1031,10 +1025,7 @@ for thisExperimental_block in experimental_blocks:
     curr_ppt_block = "p" + `pptID` + "_b" + `myBlockCount`
     print(curr_ppt_block)
     
-    curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'
-    print(curr_list_training)
-    
-    curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
+    curr_list_targets = path2stimuli + curr_ppt_block + '_pilot_targets.csv'
     print(curr_list_targets)
     
     block_intro.setText("Part " + `myBlockCount` + cont)
@@ -1106,7 +1097,7 @@ for thisExperimental_block in experimental_blocks:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('..\\conditions_exp-trials_test.csv'),
+        trialList=data.importConditions(curr_list_targets),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
@@ -1283,7 +1274,7 @@ for thisExperimental_block in experimental_blocks:
             # update/draw components on each frame
             
             # *key_resp_2* updates
-            if t >= min_response_time and key_resp_2.status == NOT_STARTED:
+            if t >= 0 and key_resp_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 key_resp_2.tStart = t
                 key_resp_2.frameNStart = frameN  # exact frame index
@@ -1291,9 +1282,6 @@ for thisExperimental_block in experimental_blocks:
                 # keyboard checking is just starting
                 win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
                 event.clearEvents(eventType='keyboard')
-            frameRemains = min_response_time + max_response_time- win.monitorFramePeriod * 0.75  # most of one frame period left
-            if key_resp_2.status == STARTED and t >= frameRemains:
-                key_resp_2.status = STOPPED
             if key_resp_2.status == STARTED:
                 theseKeys = event.getKeys(keyList=['space'])
                 
