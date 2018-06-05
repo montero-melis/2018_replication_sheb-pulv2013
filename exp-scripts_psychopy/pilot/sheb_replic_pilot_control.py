@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 05, 2018, at 12:03
+    on juni 05, 2018, at 15:59
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -92,9 +92,9 @@ else:  # otherwise use the standard duration
 #    SOA = .5  # stimulus onset asynchrony (orig = .5)
     mem_per = 6 # time during which words have to be kept in memory (orig = 6)
 
+min_response_time = 0
 
 ## Other
-
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order you saw them." + cont,
@@ -168,14 +168,14 @@ wt4 = visual.TextStim(win=win, name='wt4',
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound(u'880', secs=0.25)
+sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -243,10 +243,16 @@ w4 = visual.TextStim(win=win, name='w4',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
+memory_period2 = visual.TextStim(win=win, name='memory_period2',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound(u'880', secs=0.25)
+sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "end_block"
@@ -1177,7 +1183,7 @@ for thisExperimental_block in experimental_blocks:
         w3.setText(word3)
         w4.setText(word4)
         # keep track of which components have finished
-        display_wordsComponents = [w1, w2, w3, w4]
+        display_wordsComponents = [w1, w2, w3, w4, memory_period2]
         for thisComponent in display_wordsComponents:
             if hasattr(thisComponent, 'status'):
                 thisComponent.status = NOT_STARTED
@@ -1228,6 +1234,16 @@ for thisExperimental_block in experimental_blocks:
             frameRemains = SOA * 3 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
             if w4.status == STARTED and t >= frameRemains:
                 w4.setAutoDraw(False)
+            
+            # *memory_period2* updates
+            if t >= SOA * 3 + word_duration and memory_period2.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                memory_period2.tStart = t
+                memory_period2.frameNStart = frameN  # exact frame index
+                memory_period2.setAutoDraw(True)
+            frameRemains = SOA * 3 + word_duration + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if memory_period2.status == STARTED and t >= frameRemains:
+                memory_period2.setAutoDraw(False)
             
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
