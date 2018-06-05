@@ -1,0 +1,2325 @@
+12.3919 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1366, 768]. Using actual size
+13.4878 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x14AD2770>, multiSample=False, name='window1', numSamples=2, pos=[0, 0], screen=0, size=array([1366,  768]), stereo=False, units=u'norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType=u'pyglet')
+13.4879 	EXP 	window1: recordFrameIntervals = False
+13.6550 	EXP 	window1: recordFrameIntervals = True
+13.8397 	EXP 	window1: recordFrameIntervals = False
+14.0461 	EXP 	Created text_7 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_7', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.2425 	EXP 	Created text_8 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_8', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.4748 	EXP 	Created text_9 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_9', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.5843 	EXP 	Created text_10 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_10', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.5946 	EXP 	Created block_intro = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='block_intro', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6044 	EXP 	Created text_2 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_2', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6145 	EXP 	Created text_11 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_11', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6242 	EXP 	Created text_4 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_4', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6506 	EXP 	Created point = Polygon(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0.0, fillColor=array([ 1.,  1.,  1.]), fillColorSpace='rgb', fillRGB=array([ 1.,  1.,  1.]), interpolate=True, lineColor=array([ 1.,  1.,  1.]), lineColorSpace='rgb', lineRGB=array([ 1.,  1.,  1.]), lineWidth=1, name='point', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 0.035,  0.05 ]), units=u'norm', vertices=ndarray(...), win=Window(...))
+14.6609 	EXP 	Created w1 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w1', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6708 	EXP 	Created w2 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w2', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6807 	EXP 	Created w3 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w3', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6907 	EXP 	Created w4 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w4', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.6913 	EXP 	Created memory_period = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='memory_period', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+14.7144 	EXP 	Sound  set volume 1.000
+14.7733 	EXP 	Created text_5 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_5', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.7996 	EXP 	Created text_3 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_3', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Ready?\n\nPress space bar to continue', units=u'norm', win=Window(...), wrapWidth=1)
+14.8160 	EXP 	Created point = Polygon(autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0.0, fillColor=array([ 1.,  1.,  1.]), fillColorSpace='rgb', fillRGB=array([ 1.,  1.,  1.]), interpolate=True, lineColor=array([ 1.,  1.,  1.]), lineColorSpace='rgb', lineRGB=array([ 1.,  1.,  1.]), lineWidth=1, name='point', opacity=1.0, ori=array(0.0), pos=array([ 0.,  0.]), size=array([ 0.035,  0.05 ]), units=u'norm', vertices=ndarray(...), win=Window(...))
+14.8267 	EXP 	Created w1 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w1', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.8372 	EXP 	Created w2 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w2', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.8475 	EXP 	Created w3 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w3', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.8583 	EXP 	Created w4 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='w4', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.8590 	EXP 	Created memory_period = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='memory_period', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+14.8592 	EXP 	Sound  set volume 1.000
+14.8696 	EXP 	Created text_6 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_6', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+14.9035 	EXP 	Created text = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+14.9127 	EXP 	text_7: autoDraw = True
+4694.8260 	DATA 	Keypress: space
+4694.8416 	EXP 	text_7: autoDraw = False
+4694.8416 	EXP 	text_8: autoDraw = True
+4717.1139 	DATA 	Keypress: space
+4717.1304 	EXP 	text_8: autoDraw = False
+4717.1304 	EXP 	text_9: autoDraw = True
+4737.4403 	DATA 	Keypress: space
+4737.4567 	EXP 	text_9: autoDraw = False
+4737.4567 	EXP 	text_10: autoDraw = True
+4744.9037 	DATA 	Keypress: space
+4744.9070 	EXP 	Imported conditions_block.csv as conditions, 4 conditions, 3 params
+4744.9074 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+4744.9078 	EXP 	New trial (rep=0, index=0): OrderedDict([('BlockType', u'ARTICULATION'), ('BlockLabel', u'while repeating a syllable'), ('BlockInstructions', u'repeat the syllable "bla" continuously')])
+4744.9703 	EXP 	text_10: autoDraw = False
+4744.9703 	EXP 	block_intro: text = u'Part 1: Memorizing while repeating a syllable\n\nPress space bar to continue'
+4744.9703 	EXP 	block_intro: autoDraw = True
+4810.3600 	DATA 	Keypress: space
+4810.5616 	EXP 	block_intro: autoDraw = False
+4810.5616 	EXP 	text_2: text = u'In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to repeat the syllable "bla" continuously until you hear a beep. At the beep, you will have to repeat the four words.\n\nPress space bar to continue'
+4810.5616 	EXP 	text_2: autoDraw = True
+4826.1086 	DATA 	Keypress: space
+4826.2089 	EXP 	text_2: autoDraw = False
+4826.2089 	EXP 	text_11: text = u'You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(ARTICULATION)'
+4826.2089 	EXP 	text_11: autoDraw = True
+4830.7702 	DATA 	Keypress: space
+4833.5884 	DATA 	Keypress: return
+4833.6551 	EXP 	text_11: autoDraw = False
+4833.6551 	EXP 	text_4: text = 'Now you will first do some practice trials before starting the real task.\n\nPress space bar to continue'
+4833.6551 	EXP 	text_4: autoDraw = True
+4838.8377 	DATA 	Keypress: space
+4838.8396 	EXP 	Created sequence: random, trialTypes=1, nReps=20, seed=None
+4838.8400 	EXP 	New trial (rep=0, index=0): None
+4839.1471 	EXP 	Imported stimuli\presentation_lists\p952_b1_training.csv as conditions, 4 conditions, 6 params
+4839.1474 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+4839.1478 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 4), ('type', u'training'), ('word1', u'save'), ('word2', u'look'), ('word3', u'print'), ('word4', u'stay')])
+4839.1717 	EXP 	text_4: autoDraw = False
+4839.1717 	EXP 	point: autoDraw = True
+4842.1749 	EXP 	point: autoDraw = False
+4842.1749 	EXP 	point: autoDraw = False
+4842.1749 	EXP 	w1: text = u'save'
+4842.1749 	EXP 	w2: text = u'look'
+4842.1749 	EXP 	w3: text = u'print'
+4842.1749 	EXP 	w4: text = u'stay'
+4842.1749 	EXP 	w1: autoDraw = True
+4842.3588 	EXP 	w1: autoDraw = False
+4842.6613 	EXP 	w2: autoDraw = True
+4842.8625 	EXP 	w2: autoDraw = False
+4843.1644 	EXP 	w3: autoDraw = True
+4843.3484 	EXP 	w3: autoDraw = False
+4843.6675 	EXP 	w4: autoDraw = True
+4843.8519 	EXP 	w4: autoDraw = False
+4843.8683 	EXP 	memory_period: autoDraw = True
+4849.8560 	EXP 	memory_period: autoDraw = False
+4849.8560 	EXP 	w1: autoDraw = False
+4849.8560 	EXP 	w2: autoDraw = False
+4849.8560 	EXP 	w3: autoDraw = False
+4849.8560 	EXP 	w4: autoDraw = False
+4849.8560 	EXP 	memory_period: autoDraw = False
+4875.1133 	DATA 	Keypress: space
+4875.1141 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 1), ('type', u'training'), ('word1', u'wait'), ('word2', u'blush'), ('word3', u'sigh'), ('word4', u'bless')])
+4875.1298 	EXP 	point: autoDraw = True
+4878.1487 	EXP 	point: autoDraw = False
+4878.1487 	EXP 	point: autoDraw = False
+4878.1487 	EXP 	w1: text = u'wait'
+4878.1487 	EXP 	w2: text = u'blush'
+4878.1487 	EXP 	w3: text = u'sigh'
+4878.1487 	EXP 	w4: text = u'bless'
+4878.1487 	EXP 	w1: autoDraw = True
+4878.3328 	EXP 	w1: autoDraw = False
+4878.6345 	EXP 	w2: autoDraw = True
+4878.8363 	EXP 	w2: autoDraw = False
+4879.1380 	EXP 	w3: autoDraw = True
+4879.3226 	EXP 	w3: autoDraw = False
+4879.6413 	EXP 	w4: autoDraw = True
+4879.8258 	EXP 	w4: autoDraw = False
+4879.8422 	EXP 	memory_period: autoDraw = True
+4885.8297 	EXP 	memory_period: autoDraw = False
+4885.8297 	EXP 	w1: autoDraw = False
+4885.8297 	EXP 	w2: autoDraw = False
+4885.8297 	EXP 	w3: autoDraw = False
+4885.8297 	EXP 	w4: autoDraw = False
+4885.8297 	EXP 	memory_period: autoDraw = False
+4899.7498 	DATA 	Keypress: space
+4899.7505 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 3), ('type', u'training'), ('word1', u'chew'), ('word2', u'lick'), ('word3', u'ruin'), ('word4', u'soothe')])
+4899.7659 	EXP 	point: autoDraw = True
+4899.7836 	DATA 	Keypress: n
+4902.7850 	EXP 	point: autoDraw = False
+4902.7850 	EXP 	point: autoDraw = False
+4902.7850 	EXP 	w1: text = u'chew'
+4902.7850 	EXP 	w2: text = u'lick'
+4902.7850 	EXP 	w3: text = u'ruin'
+4902.7850 	EXP 	w4: text = u'soothe'
+4902.7850 	EXP 	w1: autoDraw = True
+4902.9687 	EXP 	w1: autoDraw = False
+4903.2716 	EXP 	w2: autoDraw = True
+4903.4555 	EXP 	w2: autoDraw = False
+4903.7747 	EXP 	w3: autoDraw = True
+4903.9593 	EXP 	w3: autoDraw = False
+4904.2780 	EXP 	w4: autoDraw = True
+4904.4623 	EXP 	w4: autoDraw = False
+4904.4792 	EXP 	memory_period: autoDraw = True
+4910.4653 	EXP 	memory_period: autoDraw = False
+4910.4653 	EXP 	w1: autoDraw = False
+4910.4653 	EXP 	w2: autoDraw = False
+4910.4653 	EXP 	w3: autoDraw = False
+4910.4653 	EXP 	w4: autoDraw = False
+4910.4653 	EXP 	memory_period: autoDraw = False
+4924.5375 	DATA 	Keypress: space
+4924.5382 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 2), ('type', u'training'), ('word1', u'yell'), ('word2', u'stare'), ('word3', u'like'), ('word4', u'thank')])
+4924.5541 	EXP 	point: autoDraw = True
+4927.5728 	EXP 	point: autoDraw = False
+4927.5728 	EXP 	point: autoDraw = False
+4927.5728 	EXP 	w1: text = u'yell'
+4927.5728 	EXP 	w2: text = u'stare'
+4927.5728 	EXP 	w3: text = u'like'
+4927.5728 	EXP 	w4: text = u'thank'
+4927.5728 	EXP 	w1: autoDraw = True
+4927.7572 	EXP 	w1: autoDraw = False
+4928.0592 	EXP 	w2: autoDraw = True
+4928.2437 	EXP 	w2: autoDraw = False
+4928.5624 	EXP 	w3: autoDraw = True
+4928.7467 	EXP 	w3: autoDraw = False
+4929.0652 	EXP 	w4: autoDraw = True
+4929.2499 	EXP 	w4: autoDraw = False
+4929.2667 	EXP 	memory_period: autoDraw = True
+4935.2537 	EXP 	memory_period: autoDraw = False
+4935.2537 	EXP 	w1: autoDraw = False
+4935.2537 	EXP 	w2: autoDraw = False
+4935.2537 	EXP 	w3: autoDraw = False
+4935.2537 	EXP 	w4: autoDraw = False
+4935.2537 	EXP 	memory_period: autoDraw = False
+4943.5726 	DATA 	Keypress: space
+4943.5891 	EXP 	text_5: autoDraw = True
+4972.2337 	DATA 	Keypress: s
+4972.2508 	EXP 	text_5: autoDraw = False
+4972.2508 	EXP 	text_3: autoDraw = True
+4974.1964 	DATA 	Keypress: space
+4974.2026 	EXP 	Imported stimuli\presentation_lists\p952_b1_targets.csv as conditions, 18 conditions, 6 params
+4974.2029 	EXP 	Created sequence: sequential, trialTypes=18, nReps=1, seed=None
+4974.2033 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 15), ('type', u'leg'), ('word1', u'sprint'), ('word2', u'trot'), ('word3', u'crawl'), ('word4', u'slide')])
+4974.2125 	EXP 	text_3: autoDraw = False
+4974.2125 	EXP 	point: autoDraw = True
+4977.2315 	EXP 	point: autoDraw = False
+4977.2315 	EXP 	point: autoDraw = False
+4977.2315 	EXP 	w1: text = u'sprint'
+4977.2315 	EXP 	w2: text = u'trot'
+4977.2315 	EXP 	w3: text = u'crawl'
+4977.2315 	EXP 	w4: text = u'slide'
+4977.2315 	EXP 	w1: autoDraw = True
+4977.4162 	EXP 	w1: autoDraw = False
+4977.7181 	EXP 	w2: autoDraw = True
+4977.9024 	EXP 	w2: autoDraw = False
+4978.2212 	EXP 	w3: autoDraw = True
+4978.4057 	EXP 	w3: autoDraw = False
+4978.7243 	EXP 	w4: autoDraw = True
+4978.9088 	EXP 	w4: autoDraw = False
+4978.9256 	EXP 	memory_period: autoDraw = True
+4984.9118 	EXP 	memory_period: autoDraw = False
+4984.9118 	EXP 	w1: autoDraw = False
+4984.9118 	EXP 	w2: autoDraw = False
+4984.9118 	EXP 	w3: autoDraw = False
+4984.9118 	EXP 	w4: autoDraw = False
+4984.9118 	EXP 	memory_period: autoDraw = False
+4993.9021 	DATA 	Keypress: space
+4993.9030 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 5), ('type', u'arm'), ('word1', u'scratch'), ('word2', u'hack'), ('word3', u'clean'), ('word4', u'stab')])
+4993.9189 	EXP 	point: autoDraw = True
+4996.9373 	EXP 	point: autoDraw = False
+4996.9373 	EXP 	point: autoDraw = False
+4996.9373 	EXP 	w1: text = u'scratch'
+4996.9373 	EXP 	w2: text = u'hack'
+4996.9373 	EXP 	w3: text = u'clean'
+4996.9373 	EXP 	w4: text = u'stab'
+4996.9373 	EXP 	w1: autoDraw = True
+4997.1220 	EXP 	w1: autoDraw = False
+4997.4240 	EXP 	w2: autoDraw = True
+4997.6253 	EXP 	w2: autoDraw = False
+4997.9270 	EXP 	w3: autoDraw = True
+4998.1114 	EXP 	w3: autoDraw = False
+4998.4301 	EXP 	w4: autoDraw = True
+4998.6147 	EXP 	w4: autoDraw = False
+4998.6313 	EXP 	memory_period: autoDraw = True
+5004.6188 	EXP 	memory_period: autoDraw = False
+5004.6188 	EXP 	w1: autoDraw = False
+5004.6188 	EXP 	w2: autoDraw = False
+5004.6188 	EXP 	w3: autoDraw = False
+5004.6188 	EXP 	w4: autoDraw = False
+5004.6188 	EXP 	memory_period: autoDraw = False
+5007.4701 	DATA 	Keypress: space
+5007.4709 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 11), ('type', u'leg'), ('word1', u'pace'), ('word2', u'skip'), ('word3', u'strut'), ('word4', u'dance')])
+5007.4865 	EXP 	point: autoDraw = True
+5010.5054 	EXP 	point: autoDraw = False
+5010.5054 	EXP 	point: autoDraw = False
+5010.5054 	EXP 	w1: text = u'pace'
+5010.5054 	EXP 	w2: text = u'skip'
+5010.5054 	EXP 	w3: text = u'strut'
+5010.5054 	EXP 	w4: text = u'dance'
+5010.5054 	EXP 	w1: autoDraw = True
+5010.6898 	EXP 	w1: autoDraw = False
+5010.9914 	EXP 	w2: autoDraw = True
+5011.1763 	EXP 	w2: autoDraw = False
+5011.4949 	EXP 	w3: autoDraw = True
+5011.6793 	EXP 	w3: autoDraw = False
+5011.9980 	EXP 	w4: autoDraw = True
+5012.1825 	EXP 	w4: autoDraw = False
+5012.1992 	EXP 	memory_period: autoDraw = True
+5018.1865 	EXP 	memory_period: autoDraw = False
+5018.1865 	EXP 	w1: autoDraw = False
+5018.1865 	EXP 	w2: autoDraw = False
+5018.1865 	EXP 	w3: autoDraw = False
+5018.1865 	EXP 	w4: autoDraw = False
+5018.1865 	EXP 	memory_period: autoDraw = False
+5025.2299 	DATA 	Keypress: space
+5025.2306 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 9), ('type', u'arm'), ('word1', u'toss'), ('word2', u'scrape'), ('word3', u'whip'), ('word4', u'throw')])
+5025.2470 	EXP 	point: autoDraw = True
+5028.2659 	EXP 	point: autoDraw = False
+5028.2659 	EXP 	point: autoDraw = False
+5028.2659 	EXP 	w1: text = u'toss'
+5028.2659 	EXP 	w2: text = u'scrape'
+5028.2659 	EXP 	w3: text = u'whip'
+5028.2659 	EXP 	w4: text = u'throw'
+5028.2659 	EXP 	w1: autoDraw = True
+5028.4498 	EXP 	w1: autoDraw = False
+5028.7521 	EXP 	w2: autoDraw = True
+5028.9535 	EXP 	w2: autoDraw = False
+5029.2554 	EXP 	w3: autoDraw = True
+5029.4396 	EXP 	w3: autoDraw = False
+5029.7585 	EXP 	w4: autoDraw = True
+5029.9430 	EXP 	w4: autoDraw = False
+5029.9592 	EXP 	memory_period: autoDraw = True
+5035.9461 	EXP 	memory_period: autoDraw = False
+5035.9461 	EXP 	w1: autoDraw = False
+5035.9461 	EXP 	w2: autoDraw = False
+5035.9461 	EXP 	w3: autoDraw = False
+5035.9461 	EXP 	w4: autoDraw = False
+5035.9461 	EXP 	memory_period: autoDraw = False
+5041.8507 	DATA 	Keypress: space
+5041.8514 	EXP 	New trial (rep=0, index=4): OrderedDict([('item', 8), ('type', u'arm'), ('word1', u'clap'), ('word2', u'click'), ('word3', u'wipe'), ('word4', u'grab')])
+5041.8669 	EXP 	point: autoDraw = True
+5044.8855 	EXP 	point: autoDraw = False
+5044.8855 	EXP 	point: autoDraw = False
+5044.8855 	EXP 	w1: text = u'clap'
+5044.8855 	EXP 	w2: text = u'click'
+5044.8855 	EXP 	w3: text = u'wipe'
+5044.8855 	EXP 	w4: text = u'grab'
+5044.8855 	EXP 	w1: autoDraw = True
+5045.0706 	EXP 	w1: autoDraw = False
+5045.3722 	EXP 	w2: autoDraw = True
+5045.5736 	EXP 	w2: autoDraw = False
+5045.8754 	EXP 	w3: autoDraw = True
+5046.0597 	EXP 	w3: autoDraw = False
+5046.3782 	EXP 	w4: autoDraw = True
+5046.5631 	EXP 	w4: autoDraw = False
+5046.5796 	EXP 	memory_period: autoDraw = True
+5052.5671 	EXP 	memory_period: autoDraw = False
+5052.5671 	EXP 	w1: autoDraw = False
+5052.5671 	EXP 	w2: autoDraw = False
+5052.5671 	EXP 	w3: autoDraw = False
+5052.5671 	EXP 	w4: autoDraw = False
+5052.5671 	EXP 	memory_period: autoDraw = False
+5056.8774 	DATA 	Keypress: space
+5056.8788 	EXP 	New trial (rep=0, index=5): OrderedDict([('item', 10), ('type', u'leg'), ('word1', u'limp'), ('word2', u'stride'), ('word3', u'hop'), ('word4', u'mount')])
+5056.8940 	EXP 	point: autoDraw = True
+5056.9113 	DATA 	Keypress: n
+5059.9127 	EXP 	point: autoDraw = False
+5059.9127 	EXP 	point: autoDraw = False
+5059.9127 	EXP 	w1: text = u'limp'
+5059.9127 	EXP 	w2: text = u'stride'
+5059.9127 	EXP 	w3: text = u'hop'
+5059.9127 	EXP 	w4: text = u'mount'
+5059.9127 	EXP 	w1: autoDraw = True
+5060.0960 	EXP 	w1: autoDraw = False
+5060.3985 	EXP 	w2: autoDraw = True
+5060.5836 	EXP 	w2: autoDraw = False
+5060.9022 	EXP 	w3: autoDraw = True
+5061.0868 	EXP 	w3: autoDraw = False
+5061.4053 	EXP 	w4: autoDraw = True
+5061.5899 	EXP 	w4: autoDraw = False
+5061.6066 	EXP 	memory_period: autoDraw = True
+5067.5938 	EXP 	memory_period: autoDraw = False
+5067.5938 	EXP 	w1: autoDraw = False
+5067.5938 	EXP 	w2: autoDraw = False
+5067.5938 	EXP 	w3: autoDraw = False
+5067.5938 	EXP 	w4: autoDraw = False
+5067.5938 	EXP 	memory_period: autoDraw = False
+5072.1387 	DATA 	Keypress: space
+5072.1394 	EXP 	New trial (rep=0, index=6): OrderedDict([('item', 13), ('type', u'leg'), ('word1', u'hike'), ('word2', u'tiptoe'), ('word3', u'wade'), ('word4', u'tread')])
+5072.1555 	EXP 	point: autoDraw = True
+5075.1743 	EXP 	point: autoDraw = False
+5075.1743 	EXP 	point: autoDraw = False
+5075.1743 	EXP 	w1: text = u'hike'
+5075.1743 	EXP 	w2: text = u'tiptoe'
+5075.1743 	EXP 	w3: text = u'wade'
+5075.1743 	EXP 	w4: text = u'tread'
+5075.1743 	EXP 	w1: autoDraw = True
+5075.3588 	EXP 	w1: autoDraw = False
+5075.6607 	EXP 	w2: autoDraw = True
+5075.8620 	EXP 	w2: autoDraw = False
+5076.1638 	EXP 	w3: autoDraw = True
+5076.3477 	EXP 	w3: autoDraw = False
+5076.6668 	EXP 	w4: autoDraw = True
+5076.8515 	EXP 	w4: autoDraw = False
+5076.8679 	EXP 	memory_period: autoDraw = True
+5082.8555 	EXP 	memory_period: autoDraw = False
+5082.8555 	EXP 	w1: autoDraw = False
+5082.8555 	EXP 	w2: autoDraw = False
+5082.8555 	EXP 	w3: autoDraw = False
+5082.8555 	EXP 	w4: autoDraw = False
+5082.8555 	EXP 	memory_period: autoDraw = False
+5089.4464 	DATA 	Keypress: space
+5089.4472 	EXP 	New trial (rep=0, index=7): OrderedDict([('item', 2), ('type', u'arm'), ('word1', u'dunk'), ('word2', u'chop'), ('word3', u'switch'), ('word4', u'rub')])
+5089.4632 	EXP 	point: autoDraw = True
+5092.4820 	EXP 	point: autoDraw = False
+5092.4820 	EXP 	point: autoDraw = False
+5092.4820 	EXP 	w1: text = u'dunk'
+5092.4820 	EXP 	w2: text = u'chop'
+5092.4820 	EXP 	w3: text = u'switch'
+5092.4820 	EXP 	w4: text = u'rub'
+5092.4820 	EXP 	w1: autoDraw = True
+5092.6662 	EXP 	w1: autoDraw = False
+5092.9683 	EXP 	w2: autoDraw = True
+5093.1529 	EXP 	w2: autoDraw = False
+5093.4715 	EXP 	w3: autoDraw = True
+5093.6558 	EXP 	w3: autoDraw = False
+5093.9746 	EXP 	w4: autoDraw = True
+5094.1590 	EXP 	w4: autoDraw = False
+5094.1757 	EXP 	memory_period: autoDraw = True
+5100.1631 	EXP 	memory_period: autoDraw = False
+5100.1631 	EXP 	w1: autoDraw = False
+5100.1631 	EXP 	w2: autoDraw = False
+5100.1631 	EXP 	w3: autoDraw = False
+5100.1631 	EXP 	w4: autoDraw = False
+5100.1631 	EXP 	memory_period: autoDraw = False
+5183.6494 	DATA 	Keypress: space
+5183.6502 	EXP 	New trial (rep=0, index=8): OrderedDict([('item', 1), ('type', u'arm'), ('word1', u'pull'), ('word2', u'braid'), ('word3', u'pat'), ('word4', u'peel')])
+5183.6659 	EXP 	point: autoDraw = True
+5186.6846 	EXP 	point: autoDraw = False
+5186.6846 	EXP 	point: autoDraw = False
+5186.6846 	EXP 	w1: text = u'pull'
+5186.6846 	EXP 	w2: text = u'braid'
+5186.6846 	EXP 	w3: text = u'pat'
+5186.6846 	EXP 	w4: text = u'peel'
+5186.6846 	EXP 	w1: autoDraw = True
+5186.8692 	EXP 	w1: autoDraw = False
+5187.1710 	EXP 	w2: autoDraw = True
+5187.3556 	EXP 	w2: autoDraw = False
+5187.6744 	EXP 	w3: autoDraw = True
+5187.8587 	EXP 	w3: autoDraw = False
+5188.1774 	EXP 	w4: autoDraw = True
+5188.3616 	EXP 	w4: autoDraw = False
+5188.3786 	EXP 	memory_period: autoDraw = True
+5194.3658 	EXP 	memory_period: autoDraw = False
+5194.3658 	EXP 	w1: autoDraw = False
+5194.3658 	EXP 	w2: autoDraw = False
+5194.3658 	EXP 	w3: autoDraw = False
+5194.3658 	EXP 	w4: autoDraw = False
+5194.3658 	EXP 	memory_period: autoDraw = False
+5211.6912 	DATA 	Keypress: space
+5211.6919 	EXP 	New trial (rep=0, index=9): OrderedDict([('item', 4), ('type', u'arm'), ('word1', u'grasp'), ('word2', u'seize'), ('word3', u'catch'), ('word4', u'grip')])
+5211.7070 	EXP 	point: autoDraw = True
+5214.7258 	EXP 	point: autoDraw = False
+5214.7258 	EXP 	point: autoDraw = False
+5214.7258 	EXP 	w1: text = u'grasp'
+5214.7258 	EXP 	w2: text = u'seize'
+5214.7258 	EXP 	w3: text = u'catch'
+5214.7258 	EXP 	w4: text = u'grip'
+5214.7258 	EXP 	w1: autoDraw = True
+5214.9100 	EXP 	w1: autoDraw = False
+5215.2119 	EXP 	w2: autoDraw = True
+5215.4134 	EXP 	w2: autoDraw = False
+5215.7153 	EXP 	w3: autoDraw = True
+5215.8998 	EXP 	w3: autoDraw = False
+5216.2184 	EXP 	w4: autoDraw = True
+5216.4028 	EXP 	w4: autoDraw = False
+5216.4196 	EXP 	memory_period: autoDraw = True
+5222.4069 	EXP 	memory_period: autoDraw = False
+5222.4069 	EXP 	w1: autoDraw = False
+5222.4069 	EXP 	w2: autoDraw = False
+5222.4069 	EXP 	w3: autoDraw = False
+5222.4069 	EXP 	w4: autoDraw = False
+5222.4069 	EXP 	memory_period: autoDraw = False
+5233.8114 	DATA 	Keypress: space
+5233.8121 	EXP 	New trial (rep=0, index=10): OrderedDict([('item', 14), ('type', u'leg'), ('word1', u'climb'), ('word2', u'kneel'), ('word3', u'stamp'), ('word4', u'wander')])
+5233.8277 	EXP 	point: autoDraw = True
+5236.8468 	EXP 	point: autoDraw = False
+5236.8468 	EXP 	point: autoDraw = False
+5236.8468 	EXP 	w1: text = u'climb'
+5236.8468 	EXP 	w2: text = u'kneel'
+5236.8468 	EXP 	w3: text = u'stamp'
+5236.8468 	EXP 	w4: text = u'wander'
+5236.8468 	EXP 	w1: autoDraw = True
+5237.0312 	EXP 	w1: autoDraw = False
+5237.3331 	EXP 	w2: autoDraw = True
+5237.5344 	EXP 	w2: autoDraw = False
+5237.8362 	EXP 	w3: autoDraw = True
+5238.0206 	EXP 	w3: autoDraw = False
+5238.3392 	EXP 	w4: autoDraw = True
+5238.5238 	EXP 	w4: autoDraw = False
+5238.5406 	EXP 	memory_period: autoDraw = True
+5244.5278 	EXP 	memory_period: autoDraw = False
+5244.5278 	EXP 	w1: autoDraw = False
+5244.5278 	EXP 	w2: autoDraw = False
+5244.5278 	EXP 	w3: autoDraw = False
+5244.5278 	EXP 	w4: autoDraw = False
+5244.5278 	EXP 	memory_period: autoDraw = False
+5254.7080 	DATA 	Keypress: space
+5254.7088 	EXP 	New trial (rep=0, index=11): OrderedDict([('item', 17), ('type', u'leg'), ('word1', u'kick'), ('word2', u'run'), ('word3', u'flee'), ('word4', u'jog')])
+5254.7247 	EXP 	point: autoDraw = True
+5257.7434 	EXP 	point: autoDraw = False
+5257.7434 	EXP 	point: autoDraw = False
+5257.7434 	EXP 	w1: text = u'kick'
+5257.7434 	EXP 	w2: text = u'run'
+5257.7434 	EXP 	w3: text = u'flee'
+5257.7434 	EXP 	w4: text = u'jog'
+5257.7434 	EXP 	w1: autoDraw = True
+5257.9277 	EXP 	w1: autoDraw = False
+5258.2291 	EXP 	w2: autoDraw = True
+5258.4142 	EXP 	w2: autoDraw = False
+5258.7327 	EXP 	w3: autoDraw = True
+5258.9172 	EXP 	w3: autoDraw = False
+5259.2360 	EXP 	w4: autoDraw = True
+5259.4204 	EXP 	w4: autoDraw = False
+5259.4373 	EXP 	memory_period: autoDraw = True
+5265.4245 	EXP 	memory_period: autoDraw = False
+5265.4245 	EXP 	w1: autoDraw = False
+5265.4245 	EXP 	w2: autoDraw = False
+5265.4245 	EXP 	w3: autoDraw = False
+5265.4245 	EXP 	w4: autoDraw = False
+5265.4245 	EXP 	memory_period: autoDraw = False
+5275.8568 	DATA 	Keypress: space
+5275.8575 	EXP 	New trial (rep=0, index=12): OrderedDict([('item', 3), ('type', u'arm'), ('word1', u'bind'), ('word2', u'fold'), ('word3', u'lift'), ('word4', u'brush')])
+5275.8728 	EXP 	point: autoDraw = True
+5276.4937 	DATA 	Keypress: space
+5278.8916 	EXP 	point: autoDraw = False
+5278.8916 	EXP 	point: autoDraw = False
+5278.8916 	EXP 	w1: text = u'bind'
+5278.8916 	EXP 	w2: text = u'fold'
+5278.8916 	EXP 	w3: text = u'lift'
+5278.8916 	EXP 	w4: text = u'brush'
+5278.8916 	EXP 	w1: autoDraw = True
+5279.0759 	EXP 	w1: autoDraw = False
+5279.3778 	EXP 	w2: autoDraw = True
+5279.5625 	EXP 	w2: autoDraw = False
+5279.8811 	EXP 	w3: autoDraw = True
+5280.0655 	EXP 	w3: autoDraw = False
+5280.3842 	EXP 	w4: autoDraw = True
+5280.5685 	EXP 	w4: autoDraw = False
+5280.5855 	EXP 	memory_period: autoDraw = True
+5286.5728 	EXP 	memory_period: autoDraw = False
+5286.5728 	EXP 	w1: autoDraw = False
+5286.5728 	EXP 	w2: autoDraw = False
+5286.5728 	EXP 	w3: autoDraw = False
+5286.5728 	EXP 	w4: autoDraw = False
+5286.5728 	EXP 	memory_period: autoDraw = False
+5295.7297 	DATA 	Keypress: space
+5295.7304 	EXP 	New trial (rep=0, index=13): OrderedDict([('item', 7), ('type', u'arm'), ('word1', u'scrub'), ('word2', u'knock'), ('word3', u'nip'), ('word4', u'dig')])
+5295.7463 	EXP 	point: autoDraw = True
+5298.7652 	EXP 	point: autoDraw = False
+5298.7652 	EXP 	point: autoDraw = False
+5298.7652 	EXP 	w1: text = u'scrub'
+5298.7652 	EXP 	w2: text = u'knock'
+5298.7652 	EXP 	w3: text = u'nip'
+5298.7652 	EXP 	w4: text = u'dig'
+5298.7652 	EXP 	w1: autoDraw = True
+5298.9497 	EXP 	w1: autoDraw = False
+5299.2516 	EXP 	w2: autoDraw = True
+5299.4357 	EXP 	w2: autoDraw = False
+5299.7547 	EXP 	w3: autoDraw = True
+5299.9393 	EXP 	w3: autoDraw = False
+5300.2572 	EXP 	w4: autoDraw = True
+5300.4424 	EXP 	w4: autoDraw = False
+5300.4590 	EXP 	memory_period: autoDraw = True
+5306.4454 	EXP 	memory_period: autoDraw = False
+5306.4454 	EXP 	w1: autoDraw = False
+5306.4454 	EXP 	w2: autoDraw = False
+5306.4454 	EXP 	w3: autoDraw = False
+5306.4454 	EXP 	w4: autoDraw = False
+5306.4454 	EXP 	memory_period: autoDraw = False
+5310.2201 	DATA 	Keypress: space
+5310.2208 	EXP 	New trial (rep=0, index=14): OrderedDict([('item', 18), ('type', u'leg'), ('word1', u'stray'), ('word2', u'slip'), ('word3', u'skate'), ('word4', u'leap')])
+5310.2363 	EXP 	point: autoDraw = True
+5313.2554 	EXP 	point: autoDraw = False
+5313.2554 	EXP 	point: autoDraw = False
+5313.2554 	EXP 	w1: text = u'stray'
+5313.2554 	EXP 	w2: text = u'slip'
+5313.2554 	EXP 	w3: text = u'skate'
+5313.2554 	EXP 	w4: text = u'leap'
+5313.2554 	EXP 	w1: autoDraw = True
+5313.4399 	EXP 	w1: autoDraw = False
+5313.7418 	EXP 	w2: autoDraw = True
+5313.9430 	EXP 	w2: autoDraw = False
+5314.2448 	EXP 	w3: autoDraw = True
+5314.4293 	EXP 	w3: autoDraw = False
+5314.7478 	EXP 	w4: autoDraw = True
+5314.9325 	EXP 	w4: autoDraw = False
+5314.9492 	EXP 	memory_period: autoDraw = True
+5320.9355 	EXP 	memory_period: autoDraw = False
+5320.9355 	EXP 	w1: autoDraw = False
+5320.9355 	EXP 	w2: autoDraw = False
+5320.9355 	EXP 	w3: autoDraw = False
+5320.9355 	EXP 	w4: autoDraw = False
+5320.9355 	EXP 	memory_period: autoDraw = False
+5331.5527 	DATA 	Keypress: space
+5331.5534 	EXP 	New trial (rep=0, index=15): OrderedDict([('item', 6), ('type', u'arm'), ('word1', u'carve'), ('word2', u'bash'), ('word3', u'stir'), ('word4', u'wash')])
+5331.5693 	EXP 	point: autoDraw = True
+5334.5881 	EXP 	point: autoDraw = False
+5334.5881 	EXP 	point: autoDraw = False
+5334.5881 	EXP 	w1: text = u'carve'
+5334.5881 	EXP 	w2: text = u'bash'
+5334.5881 	EXP 	w3: text = u'stir'
+5334.5881 	EXP 	w4: text = u'wash'
+5334.5881 	EXP 	w1: autoDraw = True
+5334.7726 	EXP 	w1: autoDraw = False
+5335.0742 	EXP 	w2: autoDraw = True
+5335.2590 	EXP 	w2: autoDraw = False
+5335.5777 	EXP 	w3: autoDraw = True
+5335.7621 	EXP 	w3: autoDraw = False
+5336.0807 	EXP 	w4: autoDraw = True
+5336.2650 	EXP 	w4: autoDraw = False
+5336.2820 	EXP 	memory_period: autoDraw = True
+5342.2692 	EXP 	memory_period: autoDraw = False
+5342.2692 	EXP 	w1: autoDraw = False
+5342.2692 	EXP 	w2: autoDraw = False
+5342.2692 	EXP 	w3: autoDraw = False
+5342.2692 	EXP 	w4: autoDraw = False
+5342.2692 	EXP 	memory_period: autoDraw = False
+5361.9250 	DATA 	Keypress: space
+5361.9257 	EXP 	New trial (rep=0, index=16): OrderedDict([('item', 12), ('type', u'leg'), ('word1', u'stroll'), ('word2', u'step'), ('word3', u'jump'), ('word4', u'walk')])
+5361.9416 	EXP 	point: autoDraw = True
+5364.9604 	EXP 	point: autoDraw = False
+5364.9604 	EXP 	point: autoDraw = False
+5364.9604 	EXP 	w1: text = u'stroll'
+5364.9604 	EXP 	w2: text = u'step'
+5364.9604 	EXP 	w3: text = u'jump'
+5364.9604 	EXP 	w4: text = u'walk'
+5364.9604 	EXP 	w1: autoDraw = True
+5365.1446 	EXP 	w1: autoDraw = False
+5365.4467 	EXP 	w2: autoDraw = True
+5365.6480 	EXP 	w2: autoDraw = False
+5365.9499 	EXP 	w3: autoDraw = True
+5366.1341 	EXP 	w3: autoDraw = False
+5366.4525 	EXP 	w4: autoDraw = True
+5366.6374 	EXP 	w4: autoDraw = False
+5366.6541 	EXP 	memory_period: autoDraw = True
+5372.6415 	EXP 	memory_period: autoDraw = False
+5372.6415 	EXP 	w1: autoDraw = False
+5372.6415 	EXP 	w2: autoDraw = False
+5372.6415 	EXP 	w3: autoDraw = False
+5372.6415 	EXP 	w4: autoDraw = False
+5372.6415 	EXP 	memory_period: autoDraw = False
+5380.1549 	DATA 	Keypress: space
+5380.1555 	EXP 	New trial (rep=0, index=17): OrderedDict([('item', 16), ('type', u'leg'), ('word1', u'glide'), ('word2', u'stumble'), ('word3', u'creep'), ('word4', u'stomp')])
+5380.1716 	EXP 	point: autoDraw = True
+5383.1903 	EXP 	point: autoDraw = False
+5383.1903 	EXP 	point: autoDraw = False
+5383.1903 	EXP 	w1: text = u'glide'
+5383.1903 	EXP 	w2: text = u'stumble'
+5383.1903 	EXP 	w3: text = u'creep'
+5383.1903 	EXP 	w4: text = u'stomp'
+5383.1903 	EXP 	w1: autoDraw = True
+5383.3748 	EXP 	w1: autoDraw = False
+5383.6767 	EXP 	w2: autoDraw = True
+5383.8613 	EXP 	w2: autoDraw = False
+5384.1799 	EXP 	w3: autoDraw = True
+5384.3644 	EXP 	w3: autoDraw = False
+5384.6823 	EXP 	w4: autoDraw = True
+5384.8676 	EXP 	w4: autoDraw = False
+5384.8846 	EXP 	memory_period: autoDraw = True
+5390.8713 	EXP 	memory_period: autoDraw = False
+5390.8713 	EXP 	w1: autoDraw = False
+5390.8713 	EXP 	w2: autoDraw = False
+5390.8713 	EXP 	w3: autoDraw = False
+5390.8713 	EXP 	w4: autoDraw = False
+5390.8713 	EXP 	memory_period: autoDraw = False
+5412.7411 	DATA 	Keypress: space
+5412.8081 	EXP 	text_6: text = 'End of part 1.\nYou may take a short break now.\n\nPress space bar to continue'
+5412.8081 	EXP 	text_6: autoDraw = True
+5508.1346 	DATA 	Keypress: space
+5508.1351 	EXP 	New trial (rep=0, index=1): OrderedDict([('BlockType', u'HANDS'), ('BlockLabel', u'with hand drumming'), ('BlockInstructions', u'perform a simple drumming exercise with your hands')])
+5508.2015 	EXP 	text_6: autoDraw = False
+5508.2015 	EXP 	block_intro: text = u'Part 2: Memorizing with hand drumming\n\nPress space bar to continue'
+5508.2015 	EXP 	block_intro: autoDraw = True
+5515.6144 	DATA 	Keypress: space
+5515.8321 	EXP 	block_intro: autoDraw = False
+5515.8321 	EXP 	text_2: text = u'In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to perform a simple drumming exercise with your hands until you hear a beep. At the beep, you will have to repeat the four words.\n\nPress space bar to continue'
+5515.8321 	EXP 	text_2: autoDraw = True
+5521.4340 	DATA 	Keypress: space
+5521.5344 	EXP 	text_2: autoDraw = False
+5521.5344 	EXP 	text_11: text = u'You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(HANDS)'
+5521.5344 	EXP 	text_11: autoDraw = True
+5526.8174 	DATA 	Keypress: space
+5787.1704 	DATA 	Keypress: space
+5788.3108 	DATA 	Keypress: space
+5788.5453 	DATA 	Keypress: space
+5788.7467 	DATA 	Keypress: space
+5788.9646 	DATA 	Keypress: space
+5792.0674 	DATA 	Keypress: s
+5792.1680 	DATA 	Mouse: Left button down, pos=(122,735)
+5792.3523 	DATA 	Mouse:  Left button up, pos=(122,735)
+5793.0905 	DATA 	Mouse: Left button down, pos=(122,735)
+5793.2582 	DATA 	Mouse:  Left button up, pos=(122,735)
+5793.3754 	DATA 	Keypress: space
+5793.5930 	DATA 	Keypress: space
+5793.7613 	DATA 	Keypress: space
+5794.0626 	DATA 	Keypress: return
+5794.0798 	EXP 	text_11: autoDraw = False
+5794.0798 	EXP 	text_4: text = 'Now you will first do some practice trials before starting the real task.\n\nPress space bar to continue'
+5794.0798 	EXP 	text_4: autoDraw = True
+5799.1783 	DATA 	Keypress: space
+5799.1794 	EXP 	Created sequence: random, trialTypes=1, nReps=20, seed=None
+5799.1797 	EXP 	New trial (rep=0, index=0): None
+5799.1843 	EXP 	Imported stimuli\presentation_lists\p952_b2_training.csv as conditions, 4 conditions, 6 params
+5799.1847 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+5799.1851 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 2), ('type', u'training'), ('word1', u'stare'), ('word2', u'like'), ('word3', u'thank'), ('word4', u'yell')])
+5799.1952 	EXP 	text_4: autoDraw = False
+5799.1952 	EXP 	point: autoDraw = True
+5802.2133 	EXP 	point: autoDraw = False
+5802.2133 	EXP 	point: autoDraw = False
+5802.2133 	EXP 	w1: text = u'stare'
+5802.2133 	EXP 	w2: text = u'like'
+5802.2133 	EXP 	w3: text = u'thank'
+5802.2133 	EXP 	w4: text = u'yell'
+5802.2133 	EXP 	w1: autoDraw = True
+5802.3982 	EXP 	w1: autoDraw = False
+5802.7001 	EXP 	w2: autoDraw = True
+5802.9011 	EXP 	w2: autoDraw = False
+5803.2026 	EXP 	w3: autoDraw = True
+5803.3876 	EXP 	w3: autoDraw = False
+5803.7057 	EXP 	w4: autoDraw = True
+5803.8908 	EXP 	w4: autoDraw = False
+5803.9075 	EXP 	memory_period: autoDraw = True
+5809.8945 	EXP 	memory_period: autoDraw = False
+5809.8945 	EXP 	w1: autoDraw = False
+5809.8945 	EXP 	w2: autoDraw = False
+5809.8945 	EXP 	w3: autoDraw = False
+5809.8945 	EXP 	w4: autoDraw = False
+5809.8945 	EXP 	memory_period: autoDraw = False
+5817.0727 	DATA 	Keypress: space
+5817.0735 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 3), ('type', u'training'), ('word1', u'chew'), ('word2', u'lick'), ('word3', u'soothe'), ('word4', u'ruin')])
+5817.0896 	EXP 	point: autoDraw = True
+5820.1083 	EXP 	point: autoDraw = False
+5820.1083 	EXP 	point: autoDraw = False
+5820.1083 	EXP 	w1: text = u'chew'
+5820.1083 	EXP 	w2: text = u'lick'
+5820.1083 	EXP 	w3: text = u'soothe'
+5820.1083 	EXP 	w4: text = u'ruin'
+5820.1083 	EXP 	w1: autoDraw = True
+5820.2925 	EXP 	w1: autoDraw = False
+5820.5946 	EXP 	w2: autoDraw = True
+5820.7960 	EXP 	w2: autoDraw = False
+5821.0978 	EXP 	w3: autoDraw = True
+5821.2817 	EXP 	w3: autoDraw = False
+5821.6007 	EXP 	w4: autoDraw = True
+5821.7854 	EXP 	w4: autoDraw = False
+5821.8016 	EXP 	memory_period: autoDraw = True
+5827.7895 	EXP 	memory_period: autoDraw = False
+5827.7895 	EXP 	w1: autoDraw = False
+5827.7895 	EXP 	w2: autoDraw = False
+5827.7895 	EXP 	w3: autoDraw = False
+5827.7895 	EXP 	w4: autoDraw = False
+5827.7895 	EXP 	memory_period: autoDraw = False
+5844.1582 	DATA 	Keypress: space
+5844.1589 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 4), ('type', u'training'), ('word1', u'stay'), ('word2', u'save'), ('word3', u'print'), ('word4', u'look')])
+5844.1746 	EXP 	point: autoDraw = True
+5847.1935 	EXP 	point: autoDraw = False
+5847.1935 	EXP 	point: autoDraw = False
+5847.1935 	EXP 	w1: text = u'stay'
+5847.1935 	EXP 	w2: text = u'save'
+5847.1935 	EXP 	w3: text = u'print'
+5847.1935 	EXP 	w4: text = u'look'
+5847.1935 	EXP 	w1: autoDraw = True
+5847.3780 	EXP 	w1: autoDraw = False
+5847.6794 	EXP 	w2: autoDraw = True
+5847.8807 	EXP 	w2: autoDraw = False
+5848.1830 	EXP 	w3: autoDraw = True
+5848.3675 	EXP 	w3: autoDraw = False
+5848.6861 	EXP 	w4: autoDraw = True
+5848.8700 	EXP 	w4: autoDraw = False
+5848.8874 	EXP 	memory_period: autoDraw = True
+5854.8747 	EXP 	memory_period: autoDraw = False
+5854.8747 	EXP 	w1: autoDraw = False
+5854.8747 	EXP 	w2: autoDraw = False
+5854.8747 	EXP 	w3: autoDraw = False
+5854.8747 	EXP 	w4: autoDraw = False
+5854.8747 	EXP 	memory_period: autoDraw = False
+5872.4173 	DATA 	Keypress: space
+5872.4184 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 1), ('type', u'training'), ('word1', u'blush'), ('word2', u'sigh'), ('word3', u'bless'), ('word4', u'wait')])
+5872.4339 	EXP 	point: autoDraw = True
+5875.4526 	EXP 	point: autoDraw = False
+5875.4526 	EXP 	point: autoDraw = False
+5875.4526 	EXP 	w1: text = u'blush'
+5875.4526 	EXP 	w2: text = u'sigh'
+5875.4526 	EXP 	w3: text = u'bless'
+5875.4526 	EXP 	w4: text = u'wait'
+5875.4526 	EXP 	w1: autoDraw = True
+5875.6371 	EXP 	w1: autoDraw = False
+5875.9384 	EXP 	w2: autoDraw = True
+5876.1234 	EXP 	w2: autoDraw = False
+5876.4421 	EXP 	w3: autoDraw = True
+5876.6266 	EXP 	w3: autoDraw = False
+5876.9452 	EXP 	w4: autoDraw = True
+5877.1291 	EXP 	w4: autoDraw = False
+5877.1465 	EXP 	memory_period: autoDraw = True
+5883.1337 	EXP 	memory_period: autoDraw = False
+5883.1337 	EXP 	w1: autoDraw = False
+5883.1337 	EXP 	w2: autoDraw = False
+5883.1337 	EXP 	w3: autoDraw = False
+5883.1337 	EXP 	w4: autoDraw = False
+5883.1337 	EXP 	memory_period: autoDraw = False
+5896.2154 	DATA 	Keypress: space
+5896.2318 	EXP 	text_5: autoDraw = True
+5899.1004 	DATA 	Keypress: s
+5899.1332 	EXP 	text_5: autoDraw = False
+5899.1332 	EXP 	text_3: autoDraw = True
+5900.3912 	DATA 	Keypress: space
+5900.3978 	EXP 	Imported stimuli\presentation_lists\p952_b2_targets.csv as conditions, 18 conditions, 6 params
+5900.3981 	EXP 	Created sequence: sequential, trialTypes=18, nReps=1, seed=None
+5900.3985 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 1), ('type', u'arm'), ('word1', u'braid'), ('word2', u'peel'), ('word3', u'pat'), ('word4', u'pull')])
+5900.4076 	EXP 	text_3: autoDraw = False
+5900.4076 	EXP 	point: autoDraw = True
+5903.4267 	EXP 	point: autoDraw = False
+5903.4267 	EXP 	point: autoDraw = False
+5903.4267 	EXP 	w1: text = u'braid'
+5903.4267 	EXP 	w2: text = u'peel'
+5903.4267 	EXP 	w3: text = u'pat'
+5903.4267 	EXP 	w4: text = u'pull'
+5903.4267 	EXP 	w1: autoDraw = True
+5903.6111 	EXP 	w1: autoDraw = False
+5903.9130 	EXP 	w2: autoDraw = True
+5904.1143 	EXP 	w2: autoDraw = False
+5904.4161 	EXP 	w3: autoDraw = True
+5904.6005 	EXP 	w3: autoDraw = False
+5904.9193 	EXP 	w4: autoDraw = True
+5905.1037 	EXP 	w4: autoDraw = False
+5905.1204 	EXP 	memory_period: autoDraw = True
+5911.1068 	EXP 	memory_period: autoDraw = False
+5911.1068 	EXP 	w1: autoDraw = False
+5911.1068 	EXP 	w2: autoDraw = False
+5911.1068 	EXP 	w3: autoDraw = False
+5911.1068 	EXP 	w4: autoDraw = False
+5911.1068 	EXP 	memory_period: autoDraw = False
+5921.4054 	DATA 	Keypress: space
+5921.4063 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 10), ('type', u'leg'), ('word1', u'limp'), ('word2', u'hop'), ('word3', u'stride'), ('word4', u'mount')])
+5921.4219 	EXP 	point: autoDraw = True
+5924.4406 	EXP 	point: autoDraw = False
+5924.4406 	EXP 	point: autoDraw = False
+5924.4406 	EXP 	w1: text = u'limp'
+5924.4406 	EXP 	w2: text = u'hop'
+5924.4406 	EXP 	w3: text = u'stride'
+5924.4406 	EXP 	w4: text = u'mount'
+5924.4406 	EXP 	w1: autoDraw = True
+5924.6251 	EXP 	w1: autoDraw = False
+5924.9264 	EXP 	w2: autoDraw = True
+5925.1116 	EXP 	w2: autoDraw = False
+5925.4301 	EXP 	w3: autoDraw = True
+5925.6147 	EXP 	w3: autoDraw = False
+5925.9333 	EXP 	w4: autoDraw = True
+5926.1178 	EXP 	w4: autoDraw = False
+5926.1346 	EXP 	memory_period: autoDraw = True
+5932.1218 	EXP 	memory_period: autoDraw = False
+5932.1218 	EXP 	w1: autoDraw = False
+5932.1218 	EXP 	w2: autoDraw = False
+5932.1218 	EXP 	w3: autoDraw = False
+5932.1218 	EXP 	w4: autoDraw = False
+5932.1218 	EXP 	memory_period: autoDraw = False
+5940.7256 	DATA 	Keypress: space
+5940.7263 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 9), ('type', u'arm'), ('word1', u'whip'), ('word2', u'toss'), ('word3', u'throw'), ('word4', u'scrape')])
+5940.7421 	EXP 	point: autoDraw = True
+5943.7608 	EXP 	point: autoDraw = False
+5943.7608 	EXP 	point: autoDraw = False
+5943.7608 	EXP 	w1: text = u'whip'
+5943.7608 	EXP 	w2: text = u'toss'
+5943.7608 	EXP 	w3: text = u'throw'
+5943.7608 	EXP 	w4: text = u'scrape'
+5943.7608 	EXP 	w1: autoDraw = True
+5943.9451 	EXP 	w1: autoDraw = False
+5944.2472 	EXP 	w2: autoDraw = True
+5944.4484 	EXP 	w2: autoDraw = False
+5944.7503 	EXP 	w3: autoDraw = True
+5944.9346 	EXP 	w3: autoDraw = False
+5945.2535 	EXP 	w4: autoDraw = True
+5945.4379 	EXP 	w4: autoDraw = False
+5945.4546 	EXP 	memory_period: autoDraw = True
+5951.4420 	EXP 	memory_period: autoDraw = False
+5951.4420 	EXP 	w1: autoDraw = False
+5951.4420 	EXP 	w2: autoDraw = False
+5951.4420 	EXP 	w3: autoDraw = False
+5951.4420 	EXP 	w4: autoDraw = False
+5951.4420 	EXP 	memory_period: autoDraw = False
+5968.4144 	DATA 	Keypress: space
+5968.4151 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 16), ('type', u'leg'), ('word1', u'stumble'), ('word2', u'creep'), ('word3', u'glide'), ('word4', u'stomp')])
+5968.4310 	EXP 	point: autoDraw = True
+5971.4497 	EXP 	point: autoDraw = False
+5971.4497 	EXP 	point: autoDraw = False
+5971.4497 	EXP 	w1: text = u'stumble'
+5971.4497 	EXP 	w2: text = u'creep'
+5971.4497 	EXP 	w3: text = u'glide'
+5971.4497 	EXP 	w4: text = u'stomp'
+5971.4497 	EXP 	w1: autoDraw = True
+5971.6341 	EXP 	w1: autoDraw = False
+5971.9361 	EXP 	w2: autoDraw = True
+5972.1374 	EXP 	w2: autoDraw = False
+5972.4392 	EXP 	w3: autoDraw = True
+5972.6237 	EXP 	w3: autoDraw = False
+5972.9424 	EXP 	w4: autoDraw = True
+5973.1268 	EXP 	w4: autoDraw = False
+5973.1434 	EXP 	memory_period: autoDraw = True
+5979.1309 	EXP 	memory_period: autoDraw = False
+5979.1309 	EXP 	w1: autoDraw = False
+5979.1309 	EXP 	w2: autoDraw = False
+5979.1309 	EXP 	w3: autoDraw = False
+5979.1309 	EXP 	w4: autoDraw = False
+5979.1309 	EXP 	memory_period: autoDraw = False
+6001.3192 	DATA 	Keypress: space
+6001.3199 	EXP 	New trial (rep=0, index=4): OrderedDict([('item', 4), ('type', u'arm'), ('word1', u'grip'), ('word2', u'seize'), ('word3', u'catch'), ('word4', u'grasp')])
+6001.3357 	EXP 	point: autoDraw = True
+6004.3544 	EXP 	point: autoDraw = False
+6004.3544 	EXP 	point: autoDraw = False
+6004.3544 	EXP 	w1: text = u'grip'
+6004.3544 	EXP 	w2: text = u'seize'
+6004.3544 	EXP 	w3: text = u'catch'
+6004.3544 	EXP 	w4: text = u'grasp'
+6004.3544 	EXP 	w1: autoDraw = True
+6004.5390 	EXP 	w1: autoDraw = False
+6004.8408 	EXP 	w2: autoDraw = True
+6005.0418 	EXP 	w2: autoDraw = False
+6005.3440 	EXP 	w3: autoDraw = True
+6005.5285 	EXP 	w3: autoDraw = False
+6005.8471 	EXP 	w4: autoDraw = True
+6006.0314 	EXP 	w4: autoDraw = False
+6006.0484 	EXP 	memory_period: autoDraw = True
+6012.0356 	EXP 	memory_period: autoDraw = False
+6012.0356 	EXP 	w1: autoDraw = False
+6012.0356 	EXP 	w2: autoDraw = False
+6012.0356 	EXP 	w3: autoDraw = False
+6012.0356 	EXP 	w4: autoDraw = False
+6012.0356 	EXP 	memory_period: autoDraw = False
+6028.5714 	DATA 	Keypress: space
+6028.5721 	EXP 	New trial (rep=0, index=5): OrderedDict([('item', 15), ('type', u'leg'), ('word1', u'sprint'), ('word2', u'crawl'), ('word3', u'slide'), ('word4', u'trot')])
+6028.5885 	EXP 	point: autoDraw = True
+6031.6074 	EXP 	point: autoDraw = False
+6031.6074 	EXP 	point: autoDraw = False
+6031.6074 	EXP 	w1: text = u'sprint'
+6031.6074 	EXP 	w2: text = u'crawl'
+6031.6074 	EXP 	w3: text = u'slide'
+6031.6074 	EXP 	w4: text = u'trot'
+6031.6074 	EXP 	w1: autoDraw = True
+6031.7912 	EXP 	w1: autoDraw = False
+6032.0935 	EXP 	w2: autoDraw = True
+6032.2950 	EXP 	w2: autoDraw = False
+6032.5968 	EXP 	w3: autoDraw = True
+6032.7807 	EXP 	w3: autoDraw = False
+6033.1000 	EXP 	w4: autoDraw = True
+6033.2844 	EXP 	w4: autoDraw = False
+6033.3007 	EXP 	memory_period: autoDraw = True
+6039.2884 	EXP 	memory_period: autoDraw = False
+6039.2884 	EXP 	w1: autoDraw = False
+6039.2884 	EXP 	w2: autoDraw = False
+6039.2884 	EXP 	w3: autoDraw = False
+6039.2884 	EXP 	w4: autoDraw = False
+6039.2884 	EXP 	memory_period: autoDraw = False
+6052.5546 	DATA 	Keypress: space
+6052.5554 	EXP 	New trial (rep=0, index=6): OrderedDict([('item', 5), ('type', u'arm'), ('word1', u'clean'), ('word2', u'hack'), ('word3', u'scratch'), ('word4', u'stab')])
+6052.5705 	EXP 	point: autoDraw = True
+6055.5896 	EXP 	point: autoDraw = False
+6055.5896 	EXP 	point: autoDraw = False
+6055.5896 	EXP 	w1: text = u'clean'
+6055.5896 	EXP 	w2: text = u'hack'
+6055.5896 	EXP 	w3: text = u'scratch'
+6055.5896 	EXP 	w4: text = u'stab'
+6055.5896 	EXP 	w1: autoDraw = True
+6055.7744 	EXP 	w1: autoDraw = False
+6056.0762 	EXP 	w2: autoDraw = True
+6056.2601 	EXP 	w2: autoDraw = False
+6056.5792 	EXP 	w3: autoDraw = True
+6056.7638 	EXP 	w3: autoDraw = False
+6057.0823 	EXP 	w4: autoDraw = True
+6057.2670 	EXP 	w4: autoDraw = False
+6057.2836 	EXP 	memory_period: autoDraw = True
+6063.2700 	EXP 	memory_period: autoDraw = False
+6063.2700 	EXP 	w1: autoDraw = False
+6063.2700 	EXP 	w2: autoDraw = False
+6063.2700 	EXP 	w3: autoDraw = False
+6063.2700 	EXP 	w4: autoDraw = False
+6063.2700 	EXP 	memory_period: autoDraw = False
+6078.7173 	DATA 	Keypress: space
+6078.7180 	EXP 	New trial (rep=0, index=7): OrderedDict([('item', 14), ('type', u'leg'), ('word1', u'wander'), ('word2', u'stamp'), ('word3', u'climb'), ('word4', u'kneel')])
+6078.7338 	EXP 	point: autoDraw = True
+6081.7525 	EXP 	point: autoDraw = False
+6081.7525 	EXP 	point: autoDraw = False
+6081.7525 	EXP 	w1: text = u'wander'
+6081.7525 	EXP 	w2: text = u'stamp'
+6081.7525 	EXP 	w3: text = u'climb'
+6081.7525 	EXP 	w4: text = u'kneel'
+6081.7525 	EXP 	w1: autoDraw = True
+6081.9371 	EXP 	w1: autoDraw = False
+6082.2388 	EXP 	w2: autoDraw = True
+6082.4233 	EXP 	w2: autoDraw = False
+6082.7421 	EXP 	w3: autoDraw = True
+6082.9266 	EXP 	w3: autoDraw = False
+6083.2453 	EXP 	w4: autoDraw = True
+6083.4297 	EXP 	w4: autoDraw = False
+6083.4464 	EXP 	memory_period: autoDraw = True
+6089.4334 	EXP 	memory_period: autoDraw = False
+6089.4334 	EXP 	w1: autoDraw = False
+6089.4334 	EXP 	w2: autoDraw = False
+6089.4334 	EXP 	w3: autoDraw = False
+6089.4334 	EXP 	w4: autoDraw = False
+6089.4334 	EXP 	memory_period: autoDraw = False
+6209.4135 	EXP 	New trial (rep=0, index=8): OrderedDict([('item', 2), ('type', u'arm'), ('word1', u'switch'), ('word2', u'dunk'), ('word3', u'chop'), ('word4', u'rub')])
+6209.4302 	EXP 	point: autoDraw = True
+6212.4489 	EXP 	point: autoDraw = False
+6212.4489 	EXP 	point: autoDraw = False
+6212.4489 	EXP 	w1: text = u'switch'
+6212.4489 	EXP 	w2: text = u'dunk'
+6212.4489 	EXP 	w3: text = u'chop'
+6212.4489 	EXP 	w4: text = u'rub'
+6212.4489 	EXP 	w1: autoDraw = True
+6212.6331 	EXP 	w1: autoDraw = False
+6212.9353 	EXP 	w2: autoDraw = True
+6213.1366 	EXP 	w2: autoDraw = False
+6213.4384 	EXP 	w3: autoDraw = True
+6213.6227 	EXP 	w3: autoDraw = False
+6213.9414 	EXP 	w4: autoDraw = True
+6214.1261 	EXP 	w4: autoDraw = False
+6214.1422 	EXP 	memory_period: autoDraw = True
+6220.1301 	EXP 	memory_period: autoDraw = False
+6220.1301 	EXP 	w1: autoDraw = False
+6220.1301 	EXP 	w2: autoDraw = False
+6220.1301 	EXP 	w3: autoDraw = False
+6220.1301 	EXP 	w4: autoDraw = False
+6220.1301 	EXP 	memory_period: autoDraw = False
+6237.3206 	DATA 	Keypress: space
+6237.3213 	EXP 	New trial (rep=0, index=9): OrderedDict([('item', 7), ('type', u'arm'), ('word1', u'nip'), ('word2', u'knock'), ('word3', u'scrub'), ('word4', u'dig')])
+6237.3371 	EXP 	point: autoDraw = True
+6240.3559 	EXP 	point: autoDraw = False
+6240.3559 	EXP 	point: autoDraw = False
+6240.3559 	EXP 	w1: text = u'nip'
+6240.3559 	EXP 	w2: text = u'knock'
+6240.3559 	EXP 	w3: text = u'scrub'
+6240.3559 	EXP 	w4: text = u'dig'
+6240.3559 	EXP 	w1: autoDraw = True
+6240.5401 	EXP 	w1: autoDraw = False
+6240.8420 	EXP 	w2: autoDraw = True
+6241.0268 	EXP 	w2: autoDraw = False
+6241.3454 	EXP 	w3: autoDraw = True
+6241.5299 	EXP 	w3: autoDraw = False
+6241.8485 	EXP 	w4: autoDraw = True
+6242.0330 	EXP 	w4: autoDraw = False
+6242.0503 	EXP 	memory_period: autoDraw = True
+6248.0370 	EXP 	memory_period: autoDraw = False
+6248.0370 	EXP 	w1: autoDraw = False
+6248.0370 	EXP 	w2: autoDraw = False
+6248.0370 	EXP 	w3: autoDraw = False
+6248.0370 	EXP 	w4: autoDraw = False
+6248.0370 	EXP 	memory_period: autoDraw = False
+6266.7872 	DATA 	Keypress: space
+6266.7879 	EXP 	New trial (rep=0, index=10): OrderedDict([('item', 13), ('type', u'leg'), ('word1', u'hike'), ('word2', u'wade'), ('word3', u'tiptoe'), ('word4', u'tread')])
+6266.8038 	EXP 	point: autoDraw = True
+6269.8224 	EXP 	point: autoDraw = False
+6269.8224 	EXP 	point: autoDraw = False
+6269.8224 	EXP 	w1: text = u'hike'
+6269.8224 	EXP 	w2: text = u'wade'
+6269.8224 	EXP 	w3: text = u'tiptoe'
+6269.8224 	EXP 	w4: text = u'tread'
+6269.8224 	EXP 	w1: autoDraw = True
+6270.0070 	EXP 	w1: autoDraw = False
+6270.3086 	EXP 	w2: autoDraw = True
+6270.5095 	EXP 	w2: autoDraw = False
+6270.8119 	EXP 	w3: autoDraw = True
+6270.9962 	EXP 	w3: autoDraw = False
+6271.3152 	EXP 	w4: autoDraw = True
+6271.4990 	EXP 	w4: autoDraw = False
+6271.5164 	EXP 	memory_period: autoDraw = True
+6277.5037 	EXP 	memory_period: autoDraw = False
+6277.5037 	EXP 	w1: autoDraw = False
+6277.5037 	EXP 	w2: autoDraw = False
+6277.5037 	EXP 	w3: autoDraw = False
+6277.5037 	EXP 	w4: autoDraw = False
+6277.5037 	EXP 	memory_period: autoDraw = False
+6291.8935 	DATA 	Keypress: space
+6291.8942 	EXP 	New trial (rep=0, index=11): OrderedDict([('item', 3), ('type', u'arm'), ('word1', u'brush'), ('word2', u'bind'), ('word3', u'fold'), ('word4', u'lift')])
+6291.9098 	EXP 	point: autoDraw = True
+6294.9281 	EXP 	point: autoDraw = False
+6294.9281 	EXP 	point: autoDraw = False
+6294.9281 	EXP 	w1: text = u'brush'
+6294.9281 	EXP 	w2: text = u'bind'
+6294.9281 	EXP 	w3: text = u'fold'
+6294.9281 	EXP 	w4: text = u'lift'
+6294.9281 	EXP 	w1: autoDraw = True
+6295.1134 	EXP 	w1: autoDraw = False
+6295.4150 	EXP 	w2: autoDraw = True
+6295.5996 	EXP 	w2: autoDraw = False
+6295.9179 	EXP 	w3: autoDraw = True
+6296.1027 	EXP 	w3: autoDraw = False
+6296.4214 	EXP 	w4: autoDraw = True
+6296.6058 	EXP 	w4: autoDraw = False
+6296.6226 	EXP 	memory_period: autoDraw = True
+6302.6097 	EXP 	memory_period: autoDraw = False
+6302.6097 	EXP 	w1: autoDraw = False
+6302.6097 	EXP 	w2: autoDraw = False
+6302.6097 	EXP 	w3: autoDraw = False
+6302.6097 	EXP 	w4: autoDraw = False
+6302.6097 	EXP 	memory_period: autoDraw = False
+6324.0772 	DATA 	Keypress: space
+6324.0780 	EXP 	New trial (rep=0, index=12): OrderedDict([('item', 12), ('type', u'leg'), ('word1', u'stroll'), ('word2', u'jump'), ('word3', u'step'), ('word4', u'walk')])
+6324.0935 	EXP 	point: autoDraw = True
+6327.1122 	EXP 	point: autoDraw = False
+6327.1122 	EXP 	point: autoDraw = False
+6327.1122 	EXP 	w1: text = u'stroll'
+6327.1122 	EXP 	w2: text = u'jump'
+6327.1122 	EXP 	w3: text = u'step'
+6327.1122 	EXP 	w4: text = u'walk'
+6327.1122 	EXP 	w1: autoDraw = True
+6327.2961 	EXP 	w1: autoDraw = False
+6327.5986 	EXP 	w2: autoDraw = True
+6327.7997 	EXP 	w2: autoDraw = False
+6328.1017 	EXP 	w3: autoDraw = True
+6328.2860 	EXP 	w3: autoDraw = False
+6328.6048 	EXP 	w4: autoDraw = True
+6328.7893 	EXP 	w4: autoDraw = False
+6328.8058 	EXP 	memory_period: autoDraw = True
+6334.7933 	EXP 	memory_period: autoDraw = False
+6334.7933 	EXP 	w1: autoDraw = False
+6334.7933 	EXP 	w2: autoDraw = False
+6334.7933 	EXP 	w3: autoDraw = False
+6334.7933 	EXP 	w4: autoDraw = False
+6334.7933 	EXP 	memory_period: autoDraw = False
+6339.6066 	DATA 	Keypress: space
+6339.6074 	EXP 	New trial (rep=0, index=13): OrderedDict([('item', 17), ('type', u'leg'), ('word1', u'jog'), ('word2', u'kick'), ('word3', u'flee'), ('word4', u'run')])
+6339.6234 	EXP 	point: autoDraw = True
+6342.6422 	EXP 	point: autoDraw = False
+6342.6422 	EXP 	point: autoDraw = False
+6342.6422 	EXP 	w1: text = u'jog'
+6342.6422 	EXP 	w2: text = u'kick'
+6342.6422 	EXP 	w3: text = u'flee'
+6342.6422 	EXP 	w4: text = u'run'
+6342.6422 	EXP 	w1: autoDraw = True
+6342.8261 	EXP 	w1: autoDraw = False
+6343.1286 	EXP 	w2: autoDraw = True
+6343.3298 	EXP 	w2: autoDraw = False
+6343.6317 	EXP 	w3: autoDraw = True
+6343.8160 	EXP 	w3: autoDraw = False
+6344.1337 	EXP 	w4: autoDraw = True
+6344.3193 	EXP 	w4: autoDraw = False
+6344.3358 	EXP 	memory_period: autoDraw = True
+6350.3233 	EXP 	memory_period: autoDraw = False
+6350.3233 	EXP 	w1: autoDraw = False
+6350.3233 	EXP 	w2: autoDraw = False
+6350.3233 	EXP 	w3: autoDraw = False
+6350.3233 	EXP 	w4: autoDraw = False
+6350.3233 	EXP 	memory_period: autoDraw = False
+6357.5518 	DATA 	Keypress: space
+6357.5526 	EXP 	New trial (rep=0, index=14): OrderedDict([('item', 11), ('type', u'leg'), ('word1', u'dance'), ('word2', u'pace'), ('word3', u'skip'), ('word4', u'strut')])
+6357.5684 	EXP 	point: autoDraw = True
+6360.5871 	EXP 	point: autoDraw = False
+6360.5871 	EXP 	point: autoDraw = False
+6360.5871 	EXP 	w1: text = u'dance'
+6360.5871 	EXP 	w2: text = u'pace'
+6360.5871 	EXP 	w3: text = u'skip'
+6360.5871 	EXP 	w4: text = u'strut'
+6360.5871 	EXP 	w1: autoDraw = True
+6360.7717 	EXP 	w1: autoDraw = False
+6361.0731 	EXP 	w2: autoDraw = True
+6361.2579 	EXP 	w2: autoDraw = False
+6361.5766 	EXP 	w3: autoDraw = True
+6361.7612 	EXP 	w3: autoDraw = False
+6362.0798 	EXP 	w4: autoDraw = True
+6362.2640 	EXP 	w4: autoDraw = False
+6362.2810 	EXP 	memory_period: autoDraw = True
+6368.2681 	EXP 	memory_period: autoDraw = False
+6368.2681 	EXP 	w1: autoDraw = False
+6368.2681 	EXP 	w2: autoDraw = False
+6368.2681 	EXP 	w3: autoDraw = False
+6368.2681 	EXP 	w4: autoDraw = False
+6368.2681 	EXP 	memory_period: autoDraw = False
+6379.9076 	DATA 	Keypress: space
+6379.9084 	EXP 	New trial (rep=0, index=15): OrderedDict([('item', 6), ('type', u'arm'), ('word1', u'bash'), ('word2', u'wash'), ('word3', u'carve'), ('word4', u'stir')])
+6379.9237 	EXP 	point: autoDraw = True
+6382.9425 	EXP 	point: autoDraw = False
+6382.9425 	EXP 	point: autoDraw = False
+6382.9425 	EXP 	w1: text = u'bash'
+6382.9425 	EXP 	w2: text = u'wash'
+6382.9425 	EXP 	w3: text = u'carve'
+6382.9425 	EXP 	w4: text = u'stir'
+6382.9425 	EXP 	w1: autoDraw = True
+6383.1273 	EXP 	w1: autoDraw = False
+6383.4293 	EXP 	w2: autoDraw = True
+6383.6135 	EXP 	w2: autoDraw = False
+6383.9324 	EXP 	w3: autoDraw = True
+6384.1169 	EXP 	w3: autoDraw = False
+6384.4355 	EXP 	w4: autoDraw = True
+6384.6200 	EXP 	w4: autoDraw = False
+6384.6367 	EXP 	memory_period: autoDraw = True
+6390.6234 	EXP 	memory_period: autoDraw = False
+6390.6234 	EXP 	w1: autoDraw = False
+6390.6234 	EXP 	w2: autoDraw = False
+6390.6234 	EXP 	w3: autoDraw = False
+6390.6234 	EXP 	w4: autoDraw = False
+6390.6234 	EXP 	memory_period: autoDraw = False
+6404.1417 	DATA 	Keypress: space
+6404.1424 	EXP 	New trial (rep=0, index=16): OrderedDict([('item', 8), ('type', u'arm'), ('word1', u'clap'), ('word2', u'grab'), ('word3', u'wipe'), ('word4', u'click')])
+6404.1582 	EXP 	point: autoDraw = True
+6407.1768 	EXP 	point: autoDraw = False
+6407.1768 	EXP 	point: autoDraw = False
+6407.1768 	EXP 	w1: text = u'clap'
+6407.1768 	EXP 	w2: text = u'grab'
+6407.1768 	EXP 	w3: text = u'wipe'
+6407.1768 	EXP 	w4: text = u'click'
+6407.1768 	EXP 	w1: autoDraw = True
+6407.3614 	EXP 	w1: autoDraw = False
+6407.6626 	EXP 	w2: autoDraw = True
+6407.8646 	EXP 	w2: autoDraw = False
+6408.1664 	EXP 	w3: autoDraw = True
+6408.3508 	EXP 	w3: autoDraw = False
+6408.6696 	EXP 	w4: autoDraw = True
+6408.8534 	EXP 	w4: autoDraw = False
+6408.8707 	EXP 	memory_period: autoDraw = True
+6414.8581 	EXP 	memory_period: autoDraw = False
+6414.8581 	EXP 	w1: autoDraw = False
+6414.8581 	EXP 	w2: autoDraw = False
+6414.8581 	EXP 	w3: autoDraw = False
+6414.8581 	EXP 	w4: autoDraw = False
+6414.8581 	EXP 	memory_period: autoDraw = False
+6428.7280 	DATA 	Keypress: space
+6428.7287 	EXP 	New trial (rep=0, index=17): OrderedDict([('item', 18), ('type', u'leg'), ('word1', u'leap'), ('word2', u'skate'), ('word3', u'slip'), ('word4', u'stray')])
+6428.7443 	EXP 	point: autoDraw = True
+6431.7632 	EXP 	point: autoDraw = False
+6431.7632 	EXP 	point: autoDraw = False
+6431.7632 	EXP 	w1: text = u'leap'
+6431.7632 	EXP 	w2: text = u'skate'
+6431.7632 	EXP 	w3: text = u'slip'
+6431.7632 	EXP 	w4: text = u'stray'
+6431.7632 	EXP 	w1: autoDraw = True
+6431.9477 	EXP 	w1: autoDraw = False
+6432.2496 	EXP 	w2: autoDraw = True
+6432.4508 	EXP 	w2: autoDraw = False
+6432.7523 	EXP 	w3: autoDraw = True
+6432.9372 	EXP 	w3: autoDraw = False
+6433.2559 	EXP 	w4: autoDraw = True
+6433.4403 	EXP 	w4: autoDraw = False
+6433.4571 	EXP 	memory_period: autoDraw = True
+6439.4446 	EXP 	memory_period: autoDraw = False
+6439.4446 	EXP 	w1: autoDraw = False
+6439.4446 	EXP 	w2: autoDraw = False
+6439.4446 	EXP 	w3: autoDraw = False
+6439.4446 	EXP 	w4: autoDraw = False
+6439.4446 	EXP 	memory_period: autoDraw = False
+6458.6139 	DATA 	Keypress: space
+6458.6803 	EXP 	text_6: text = 'End of part 2.\nYou may take a short break now.\n\nPress space bar to continue'
+6458.6803 	EXP 	text_6: autoDraw = True
+6503.0235 	DATA 	Keypress: space
+6503.0240 	EXP 	New trial (rep=0, index=2): OrderedDict([('BlockType', u'SILENT'), ('BlockLabel', u'while you wait silently'), ('BlockInstructions', u'wait silently')])
+6503.0905 	EXP 	text_6: autoDraw = False
+6503.0905 	EXP 	block_intro: text = u'Part 3: Memorizing while you wait silently\n\nPress space bar to continue'
+6503.0905 	EXP 	block_intro: autoDraw = True
+6510.8555 	DATA 	Keypress: space
+6511.0396 	EXP 	block_intro: autoDraw = False
+6511.0396 	EXP 	text_2: text = u'In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to wait silently until you hear a beep. At the beep, you will have to repeat the four words.\n\nPress space bar to continue'
+6511.0396 	EXP 	text_2: autoDraw = True
+6519.7609 	DATA 	Keypress: space
+6519.8611 	EXP 	text_2: autoDraw = False
+6519.8611 	EXP 	text_11: text = u'You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(SILENT)'
+6519.8611 	EXP 	text_11: autoDraw = True
+6536.0287 	DATA 	Keypress: space
+6537.1858 	DATA 	Keypress: space
+6537.4542 	DATA 	Keypress: space
+6537.6723 	DATA 	Keypress: space
+6538.5443 	DATA 	Keypress: return
+6538.5610 	EXP 	text_11: autoDraw = False
+6538.5610 	EXP 	text_4: text = 'Now you will first do some practice trials before starting the real task.\n\nPress space bar to continue'
+6538.5610 	EXP 	text_4: autoDraw = True
+6541.4123 	DATA 	Keypress: space
+6541.4132 	EXP 	Created sequence: random, trialTypes=1, nReps=20, seed=None
+6541.4135 	EXP 	New trial (rep=0, index=0): None
+6541.4180 	EXP 	Imported stimuli\presentation_lists\p952_b3_training.csv as conditions, 4 conditions, 6 params
+6541.4184 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+6541.4188 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 3), ('type', u'training'), ('word1', u'ruin'), ('word2', u'soothe'), ('word3', u'lick'), ('word4', u'chew')])
+6541.4287 	EXP 	text_4: autoDraw = False
+6541.4287 	EXP 	point: autoDraw = True
+6544.4480 	EXP 	point: autoDraw = False
+6544.4480 	EXP 	point: autoDraw = False
+6544.4480 	EXP 	w1: text = u'ruin'
+6544.4480 	EXP 	w2: text = u'soothe'
+6544.4480 	EXP 	w3: text = u'lick'
+6544.4480 	EXP 	w4: text = u'chew'
+6544.4480 	EXP 	w1: autoDraw = True
+6544.6321 	EXP 	w1: autoDraw = False
+6544.9338 	EXP 	w2: autoDraw = True
+6545.1184 	EXP 	w2: autoDraw = False
+6545.4366 	EXP 	w3: autoDraw = True
+6545.6215 	EXP 	w3: autoDraw = False
+6545.9402 	EXP 	w4: autoDraw = True
+6546.1247 	EXP 	w4: autoDraw = False
+6546.1414 	EXP 	memory_period: autoDraw = True
+6552.1286 	EXP 	memory_period: autoDraw = False
+6552.1286 	EXP 	w1: autoDraw = False
+6552.1286 	EXP 	w2: autoDraw = False
+6552.1286 	EXP 	w3: autoDraw = False
+6552.1286 	EXP 	w4: autoDraw = False
+6552.1286 	EXP 	memory_period: autoDraw = False
+6564.8580 	DATA 	Keypress: space
+6564.8589 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 4), ('type', u'training'), ('word1', u'look'), ('word2', u'print'), ('word3', u'stay'), ('word4', u'save')])
+6564.8744 	EXP 	point: autoDraw = True
+6567.8934 	EXP 	point: autoDraw = False
+6567.8934 	EXP 	point: autoDraw = False
+6567.8934 	EXP 	w1: text = u'look'
+6567.8934 	EXP 	w2: text = u'print'
+6567.8934 	EXP 	w3: text = u'stay'
+6567.8934 	EXP 	w4: text = u'save'
+6567.8934 	EXP 	w1: autoDraw = True
+6568.0777 	EXP 	w1: autoDraw = False
+6568.3797 	EXP 	w2: autoDraw = True
+6568.5810 	EXP 	w2: autoDraw = False
+6568.8829 	EXP 	w3: autoDraw = True
+6569.0672 	EXP 	w3: autoDraw = False
+6569.3860 	EXP 	w4: autoDraw = True
+6569.5705 	EXP 	w4: autoDraw = False
+6569.5873 	EXP 	memory_period: autoDraw = True
+6575.5740 	EXP 	memory_period: autoDraw = False
+6575.5740 	EXP 	w1: autoDraw = False
+6575.5740 	EXP 	w2: autoDraw = False
+6575.5740 	EXP 	w3: autoDraw = False
+6575.5740 	EXP 	w4: autoDraw = False
+6575.5740 	EXP 	memory_period: autoDraw = False
+6580.1197 	DATA 	Keypress: space
+6580.1204 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 1), ('type', u'training'), ('word1', u'wait'), ('word2', u'blush'), ('word3', u'sigh'), ('word4', u'bless')])
+6580.1362 	EXP 	point: autoDraw = True
+6583.1544 	EXP 	point: autoDraw = False
+6583.1544 	EXP 	point: autoDraw = False
+6583.1544 	EXP 	w1: text = u'wait'
+6583.1544 	EXP 	w2: text = u'blush'
+6583.1544 	EXP 	w3: text = u'sigh'
+6583.1544 	EXP 	w4: text = u'bless'
+6583.1544 	EXP 	w1: autoDraw = True
+6583.3395 	EXP 	w1: autoDraw = False
+6583.6414 	EXP 	w2: autoDraw = True
+6583.8426 	EXP 	w2: autoDraw = False
+6584.1443 	EXP 	w3: autoDraw = True
+6584.3290 	EXP 	w3: autoDraw = False
+6584.6477 	EXP 	w4: autoDraw = True
+6584.8321 	EXP 	w4: autoDraw = False
+6584.8489 	EXP 	memory_period: autoDraw = True
+6590.8360 	EXP 	memory_period: autoDraw = False
+6590.8360 	EXP 	w1: autoDraw = False
+6590.8360 	EXP 	w2: autoDraw = False
+6590.8360 	EXP 	w3: autoDraw = False
+6590.8360 	EXP 	w4: autoDraw = False
+6590.8360 	EXP 	memory_period: autoDraw = False
+6608.5129 	DATA 	Keypress: space
+6608.5136 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 2), ('type', u'training'), ('word1', u'thank'), ('word2', u'stare'), ('word3', u'like'), ('word4', u'yell')])
+6608.5295 	EXP 	point: autoDraw = True
+6611.5483 	EXP 	point: autoDraw = False
+6611.5483 	EXP 	point: autoDraw = False
+6611.5483 	EXP 	w1: text = u'thank'
+6611.5483 	EXP 	w2: text = u'stare'
+6611.5483 	EXP 	w3: text = u'like'
+6611.5483 	EXP 	w4: text = u'yell'
+6611.5483 	EXP 	w1: autoDraw = True
+6611.7326 	EXP 	w1: autoDraw = False
+6612.0345 	EXP 	w2: autoDraw = True
+6612.2191 	EXP 	w2: autoDraw = False
+6612.5378 	EXP 	w3: autoDraw = True
+6612.7224 	EXP 	w3: autoDraw = False
+6613.0409 	EXP 	w4: autoDraw = True
+6613.2255 	EXP 	w4: autoDraw = False
+6613.2420 	EXP 	memory_period: autoDraw = True
+6619.2294 	EXP 	memory_period: autoDraw = False
+6619.2294 	EXP 	w1: autoDraw = False
+6619.2294 	EXP 	w2: autoDraw = False
+6619.2294 	EXP 	w3: autoDraw = False
+6619.2294 	EXP 	w4: autoDraw = False
+6619.2294 	EXP 	memory_period: autoDraw = False
+6643.7817 	DATA 	Keypress: space
+6643.7990 	EXP 	text_5: autoDraw = True
+6657.9034 	DATA 	Keypress: space
+6659.3627 	DATA 	Keypress: s
+6659.3792 	EXP 	text_5: autoDraw = False
+6659.3792 	EXP 	text_3: autoDraw = True
+6659.4634 	DATA 	Mouse: Left button down, pos=(40,709)
+6659.6303 	DATA 	Mouse:  Left button up, pos=(40,709)
+6666.3905 	DATA 	Keypress: space
+6666.3961 	EXP 	Imported stimuli\presentation_lists\p952_b3_targets.csv as conditions, 18 conditions, 6 params
+6666.3965 	EXP 	Created sequence: sequential, trialTypes=18, nReps=1, seed=None
+6666.3969 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 14), ('type', u'leg'), ('word1', u'stamp'), ('word2', u'kneel'), ('word3', u'wander'), ('word4', u'climb')])
+6666.4062 	EXP 	text_3: autoDraw = False
+6666.4062 	EXP 	point: autoDraw = True
+6669.4250 	EXP 	point: autoDraw = False
+6669.4250 	EXP 	point: autoDraw = False
+6669.4250 	EXP 	w1: text = u'stamp'
+6669.4250 	EXP 	w2: text = u'kneel'
+6669.4250 	EXP 	w3: text = u'wander'
+6669.4250 	EXP 	w4: text = u'climb'
+6669.4250 	EXP 	w1: autoDraw = True
+6669.6094 	EXP 	w1: autoDraw = False
+6669.9113 	EXP 	w2: autoDraw = True
+6670.0959 	EXP 	w2: autoDraw = False
+6670.4145 	EXP 	w3: autoDraw = True
+6670.5989 	EXP 	w3: autoDraw = False
+6670.9176 	EXP 	w4: autoDraw = True
+6671.1019 	EXP 	w4: autoDraw = False
+6671.1189 	EXP 	memory_period: autoDraw = True
+6677.1061 	EXP 	memory_period: autoDraw = False
+6677.1061 	EXP 	w1: autoDraw = False
+6677.1061 	EXP 	w2: autoDraw = False
+6677.1061 	EXP 	w3: autoDraw = False
+6677.1061 	EXP 	w4: autoDraw = False
+6677.1061 	EXP 	memory_period: autoDraw = False
+6690.5232 	DATA 	Keypress: space
+6690.5240 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 18), ('type', u'leg'), ('word1', u'stray'), ('word2', u'skate'), ('word3', u'slip'), ('word4', u'leap')])
+6690.5390 	EXP 	point: autoDraw = True
+6693.5580 	EXP 	point: autoDraw = False
+6693.5580 	EXP 	point: autoDraw = False
+6693.5580 	EXP 	w1: text = u'stray'
+6693.5580 	EXP 	w2: text = u'skate'
+6693.5580 	EXP 	w3: text = u'slip'
+6693.5580 	EXP 	w4: text = u'leap'
+6693.5580 	EXP 	w1: autoDraw = True
+6693.7429 	EXP 	w1: autoDraw = False
+6694.0434 	EXP 	w2: autoDraw = True
+6694.2291 	EXP 	w2: autoDraw = False
+6694.5479 	EXP 	w3: autoDraw = True
+6694.7324 	EXP 	w3: autoDraw = False
+6695.0511 	EXP 	w4: autoDraw = True
+6695.2356 	EXP 	w4: autoDraw = False
+6695.2523 	EXP 	memory_period: autoDraw = True
+6701.2394 	EXP 	memory_period: autoDraw = False
+6701.2394 	EXP 	w1: autoDraw = False
+6701.2394 	EXP 	w2: autoDraw = False
+6701.2394 	EXP 	w3: autoDraw = False
+6701.2394 	EXP 	w4: autoDraw = False
+6701.2394 	EXP 	memory_period: autoDraw = False
+6724.9540 	DATA 	Keypress: space
+6724.9548 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 5), ('type', u'arm'), ('word1', u'stab'), ('word2', u'clean'), ('word3', u'scratch'), ('word4', u'hack')])
+6724.9693 	EXP 	point: autoDraw = True
+6727.9891 	EXP 	point: autoDraw = False
+6727.9891 	EXP 	point: autoDraw = False
+6727.9891 	EXP 	w1: text = u'stab'
+6727.9891 	EXP 	w2: text = u'clean'
+6727.9891 	EXP 	w3: text = u'scratch'
+6727.9891 	EXP 	w4: text = u'hack'
+6727.9891 	EXP 	w1: autoDraw = True
+6728.1738 	EXP 	w1: autoDraw = False
+6728.4757 	EXP 	w2: autoDraw = True
+6728.6601 	EXP 	w2: autoDraw = False
+6728.9787 	EXP 	w3: autoDraw = True
+6729.1633 	EXP 	w3: autoDraw = False
+6729.4819 	EXP 	w4: autoDraw = True
+6729.6664 	EXP 	w4: autoDraw = False
+6729.6832 	EXP 	memory_period: autoDraw = True
+6735.6701 	EXP 	memory_period: autoDraw = False
+6735.6701 	EXP 	w1: autoDraw = False
+6735.6701 	EXP 	w2: autoDraw = False
+6735.6701 	EXP 	w3: autoDraw = False
+6735.6701 	EXP 	w4: autoDraw = False
+6735.6701 	EXP 	memory_period: autoDraw = False
+6754.1523 	DATA 	Keypress: space
+6754.1530 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 4), ('type', u'arm'), ('word1', u'seize'), ('word2', u'grasp'), ('word3', u'catch'), ('word4', u'grip')])
+6754.1688 	EXP 	point: autoDraw = True
+6757.1875 	EXP 	point: autoDraw = False
+6757.1875 	EXP 	point: autoDraw = False
+6757.1875 	EXP 	w1: text = u'seize'
+6757.1875 	EXP 	w2: text = u'grasp'
+6757.1875 	EXP 	w3: text = u'catch'
+6757.1875 	EXP 	w4: text = u'grip'
+6757.1875 	EXP 	w1: autoDraw = True
+6757.3721 	EXP 	w1: autoDraw = False
+6757.6738 	EXP 	w2: autoDraw = True
+6757.8584 	EXP 	w2: autoDraw = False
+6758.1764 	EXP 	w3: autoDraw = True
+6758.3616 	EXP 	w3: autoDraw = False
+6758.6802 	EXP 	w4: autoDraw = True
+6758.8647 	EXP 	w4: autoDraw = False
+6758.8815 	EXP 	memory_period: autoDraw = True
+6764.8687 	EXP 	memory_period: autoDraw = False
+6764.8687 	EXP 	w1: autoDraw = False
+6764.8687 	EXP 	w2: autoDraw = False
+6764.8687 	EXP 	w3: autoDraw = False
+6764.8687 	EXP 	w4: autoDraw = False
+6764.8687 	EXP 	memory_period: autoDraw = False
+6787.7444 	DATA 	Keypress: space
+6787.7451 	EXP 	New trial (rep=0, index=4): OrderedDict([('item', 9), ('type', u'arm'), ('word1', u'toss'), ('word2', u'scrape'), ('word3', u'whip'), ('word4', u'throw')])
+6787.7611 	EXP 	point: autoDraw = True
+6790.7799 	EXP 	point: autoDraw = False
+6790.7799 	EXP 	point: autoDraw = False
+6790.7799 	EXP 	w1: text = u'toss'
+6790.7799 	EXP 	w2: text = u'scrape'
+6790.7799 	EXP 	w3: text = u'whip'
+6790.7799 	EXP 	w4: text = u'throw'
+6790.7799 	EXP 	w1: autoDraw = True
+6790.9638 	EXP 	w1: autoDraw = False
+6791.2662 	EXP 	w2: autoDraw = True
+6791.4675 	EXP 	w2: autoDraw = False
+6791.7694 	EXP 	w3: autoDraw = True
+6791.9536 	EXP 	w3: autoDraw = False
+6792.2725 	EXP 	w4: autoDraw = True
+6792.4572 	EXP 	w4: autoDraw = False
+6792.4736 	EXP 	memory_period: autoDraw = True
+6798.4610 	EXP 	memory_period: autoDraw = False
+6798.4610 	EXP 	w1: autoDraw = False
+6798.4610 	EXP 	w2: autoDraw = False
+6798.4610 	EXP 	w3: autoDraw = False
+6798.4610 	EXP 	w4: autoDraw = False
+6798.4610 	EXP 	memory_period: autoDraw = False
+6806.1592 	DATA 	Keypress: space
+6806.1600 	EXP 	New trial (rep=0, index=5): OrderedDict([('item', 10), ('type', u'leg'), ('word1', u'stride'), ('word2', u'limp'), ('word3', u'hop'), ('word4', u'mount')])
+6806.1756 	EXP 	point: autoDraw = True
+6809.1942 	EXP 	point: autoDraw = False
+6809.1942 	EXP 	point: autoDraw = False
+6809.1942 	EXP 	w1: text = u'stride'
+6809.1942 	EXP 	w2: text = u'limp'
+6809.1942 	EXP 	w3: text = u'hop'
+6809.1942 	EXP 	w4: text = u'mount'
+6809.1942 	EXP 	w1: autoDraw = True
+6809.3790 	EXP 	w1: autoDraw = False
+6809.6809 	EXP 	w2: autoDraw = True
+6809.8653 	EXP 	w2: autoDraw = False
+6810.1834 	EXP 	w3: autoDraw = True
+6810.3685 	EXP 	w3: autoDraw = False
+6810.6871 	EXP 	w4: autoDraw = True
+6810.8716 	EXP 	w4: autoDraw = False
+6810.8883 	EXP 	memory_period: autoDraw = True
+6816.8756 	EXP 	memory_period: autoDraw = False
+6816.8756 	EXP 	w1: autoDraw = False
+6816.8756 	EXP 	w2: autoDraw = False
+6816.8756 	EXP 	w3: autoDraw = False
+6816.8756 	EXP 	w4: autoDraw = False
+6816.8756 	EXP 	memory_period: autoDraw = False
+6828.2801 	DATA 	Keypress: space
+6828.2809 	EXP 	New trial (rep=0, index=6): OrderedDict([('item', 6), ('type', u'arm'), ('word1', u'stir'), ('word2', u'bash'), ('word3', u'wash'), ('word4', u'carve')])
+6828.2966 	EXP 	point: autoDraw = True
+6831.3154 	EXP 	point: autoDraw = False
+6831.3154 	EXP 	point: autoDraw = False
+6831.3154 	EXP 	w1: text = u'stir'
+6831.3154 	EXP 	w2: text = u'bash'
+6831.3154 	EXP 	w3: text = u'wash'
+6831.3154 	EXP 	w4: text = u'carve'
+6831.3154 	EXP 	w1: autoDraw = True
+6831.4999 	EXP 	w1: autoDraw = False
+6831.8015 	EXP 	w2: autoDraw = True
+6831.9862 	EXP 	w2: autoDraw = False
+6832.3040 	EXP 	w3: autoDraw = True
+6832.4894 	EXP 	w3: autoDraw = False
+6832.8080 	EXP 	w4: autoDraw = True
+6832.9923 	EXP 	w4: autoDraw = False
+6833.0093 	EXP 	memory_period: autoDraw = True
+6838.9965 	EXP 	memory_period: autoDraw = False
+6838.9965 	EXP 	w1: autoDraw = False
+6838.9965 	EXP 	w2: autoDraw = False
+6838.9965 	EXP 	w3: autoDraw = False
+6838.9965 	EXP 	w4: autoDraw = False
+6838.9965 	EXP 	memory_period: autoDraw = False
+6843.7765 	DATA 	Keypress: space
+6843.7772 	EXP 	New trial (rep=0, index=7): OrderedDict([('item', 13), ('type', u'leg'), ('word1', u'wade'), ('word2', u'tiptoe'), ('word3', u'tread'), ('word4', u'hike')])
+6843.7929 	EXP 	point: autoDraw = True
+6846.8112 	EXP 	point: autoDraw = False
+6846.8112 	EXP 	point: autoDraw = False
+6846.8112 	EXP 	w1: text = u'wade'
+6846.8112 	EXP 	w2: text = u'tiptoe'
+6846.8112 	EXP 	w3: text = u'tread'
+6846.8112 	EXP 	w4: text = u'hike'
+6846.8112 	EXP 	w1: autoDraw = True
+6846.9963 	EXP 	w1: autoDraw = False
+6847.2982 	EXP 	w2: autoDraw = True
+6847.4821 	EXP 	w2: autoDraw = False
+6847.8009 	EXP 	w3: autoDraw = True
+6847.9857 	EXP 	w3: autoDraw = False
+6848.3044 	EXP 	w4: autoDraw = True
+6848.4889 	EXP 	w4: autoDraw = False
+6848.5056 	EXP 	memory_period: autoDraw = True
+6854.4923 	EXP 	memory_period: autoDraw = False
+6854.4923 	EXP 	w1: autoDraw = False
+6854.4923 	EXP 	w2: autoDraw = False
+6854.4923 	EXP 	w3: autoDraw = False
+6854.4923 	EXP 	w4: autoDraw = False
+6854.4923 	EXP 	memory_period: autoDraw = False
+6864.3544 	DATA 	Keypress: space
+6864.3552 	EXP 	New trial (rep=0, index=8): OrderedDict([('item', 7), ('type', u'arm'), ('word1', u'dig'), ('word2', u'scrub'), ('word3', u'nip'), ('word4', u'knock')])
+6864.3704 	EXP 	point: autoDraw = True
+6867.3898 	EXP 	point: autoDraw = False
+6867.3898 	EXP 	point: autoDraw = False
+6867.3898 	EXP 	w1: text = u'dig'
+6867.3898 	EXP 	w2: text = u'scrub'
+6867.3898 	EXP 	w3: text = u'nip'
+6867.3898 	EXP 	w4: text = u'knock'
+6867.3898 	EXP 	w1: autoDraw = True
+6867.5743 	EXP 	w1: autoDraw = False
+6867.8762 	EXP 	w2: autoDraw = True
+6868.0774 	EXP 	w2: autoDraw = False
+6868.3793 	EXP 	w3: autoDraw = True
+6868.5637 	EXP 	w3: autoDraw = False
+6868.8822 	EXP 	w4: autoDraw = True
+6869.0669 	EXP 	w4: autoDraw = False
+6869.0836 	EXP 	memory_period: autoDraw = True
+6875.0703 	EXP 	memory_period: autoDraw = False
+6875.0703 	EXP 	w1: autoDraw = False
+6875.0703 	EXP 	w2: autoDraw = False
+6875.0703 	EXP 	w3: autoDraw = False
+6875.0703 	EXP 	w4: autoDraw = False
+6875.0703 	EXP 	memory_period: autoDraw = False
+6901.6693 	DATA 	Keypress: space
+6901.6700 	EXP 	New trial (rep=0, index=9): OrderedDict([('item', 16), ('type', u'leg'), ('word1', u'glide'), ('word2', u'creep'), ('word3', u'stomp'), ('word4', u'stumble')])
+6901.6865 	EXP 	point: autoDraw = True
+6904.7053 	EXP 	point: autoDraw = False
+6904.7053 	EXP 	point: autoDraw = False
+6904.7053 	EXP 	w1: text = u'glide'
+6904.7053 	EXP 	w2: text = u'creep'
+6904.7053 	EXP 	w3: text = u'stomp'
+6904.7053 	EXP 	w4: text = u'stumble'
+6904.7053 	EXP 	w1: autoDraw = True
+6904.8892 	EXP 	w1: autoDraw = False
+6905.1916 	EXP 	w2: autoDraw = True
+6905.3761 	EXP 	w2: autoDraw = False
+6905.6948 	EXP 	w3: autoDraw = True
+6905.8787 	EXP 	w3: autoDraw = False
+6906.1977 	EXP 	w4: autoDraw = True
+6906.3824 	EXP 	w4: autoDraw = False
+6906.3986 	EXP 	memory_period: autoDraw = True
+6912.3864 	EXP 	memory_period: autoDraw = False
+6912.3864 	EXP 	w1: autoDraw = False
+6912.3864 	EXP 	w2: autoDraw = False
+6912.3864 	EXP 	w3: autoDraw = False
+6912.3864 	EXP 	w4: autoDraw = False
+6912.3864 	EXP 	memory_period: autoDraw = False
+6924.3775 	DATA 	Keypress: space
+6924.3783 	EXP 	New trial (rep=0, index=10): OrderedDict([('item', 2), ('type', u'arm'), ('word1', u'chop'), ('word2', u'switch'), ('word3', u'rub'), ('word4', u'dunk')])
+6924.3944 	EXP 	point: autoDraw = True
+6927.4132 	EXP 	point: autoDraw = False
+6927.4132 	EXP 	point: autoDraw = False
+6927.4132 	EXP 	w1: text = u'chop'
+6927.4132 	EXP 	w2: text = u'switch'
+6927.4132 	EXP 	w3: text = u'rub'
+6927.4132 	EXP 	w4: text = u'dunk'
+6927.4132 	EXP 	w1: autoDraw = True
+6927.5971 	EXP 	w1: autoDraw = False
+6927.8994 	EXP 	w2: autoDraw = True
+6928.0840 	EXP 	w2: autoDraw = False
+6928.4027 	EXP 	w3: autoDraw = True
+6928.5869 	EXP 	w3: autoDraw = False
+6928.9059 	EXP 	w4: autoDraw = True
+6929.0902 	EXP 	w4: autoDraw = False
+6929.1069 	EXP 	memory_period: autoDraw = True
+6935.0943 	EXP 	memory_period: autoDraw = False
+6935.0943 	EXP 	w1: autoDraw = False
+6935.0943 	EXP 	w2: autoDraw = False
+6935.0943 	EXP 	w3: autoDraw = False
+6935.0943 	EXP 	w4: autoDraw = False
+6935.0943 	EXP 	memory_period: autoDraw = False
+6953.3415 	DATA 	Keypress: space
+6953.3422 	EXP 	New trial (rep=0, index=11): OrderedDict([('item', 15), ('type', u'leg'), ('word1', u'trot'), ('word2', u'slide'), ('word3', u'sprint'), ('word4', u'crawl')])
+6953.3574 	EXP 	point: autoDraw = True
+6956.3760 	EXP 	point: autoDraw = False
+6956.3760 	EXP 	point: autoDraw = False
+6956.3760 	EXP 	w1: text = u'trot'
+6956.3760 	EXP 	w2: text = u'slide'
+6956.3760 	EXP 	w3: text = u'sprint'
+6956.3760 	EXP 	w4: text = u'crawl'
+6956.3760 	EXP 	w1: autoDraw = True
+6956.5612 	EXP 	w1: autoDraw = False
+6956.8620 	EXP 	w2: autoDraw = True
+6957.0471 	EXP 	w2: autoDraw = False
+6957.3657 	EXP 	w3: autoDraw = True
+6957.5507 	EXP 	w3: autoDraw = False
+6957.8693 	EXP 	w4: autoDraw = True
+6958.0538 	EXP 	w4: autoDraw = False
+6958.0706 	EXP 	memory_period: autoDraw = True
+6964.0575 	EXP 	memory_period: autoDraw = False
+6964.0575 	EXP 	w1: autoDraw = False
+6964.0575 	EXP 	w2: autoDraw = False
+6964.0575 	EXP 	w3: autoDraw = False
+6964.0575 	EXP 	w4: autoDraw = False
+6964.0575 	EXP 	memory_period: autoDraw = False
+6967.9320 	DATA 	Keypress: space
+6967.9328 	EXP 	New trial (rep=0, index=12): OrderedDict([('item', 12), ('type', u'leg'), ('word1', u'walk'), ('word2', u'step'), ('word3', u'jump'), ('word4', u'stroll')])
+6967.9485 	EXP 	point: autoDraw = True
+6970.9674 	EXP 	point: autoDraw = False
+6970.9674 	EXP 	point: autoDraw = False
+6970.9674 	EXP 	w1: text = u'walk'
+6970.9674 	EXP 	w2: text = u'step'
+6970.9674 	EXP 	w3: text = u'jump'
+6970.9674 	EXP 	w4: text = u'stroll'
+6970.9674 	EXP 	w1: autoDraw = True
+6971.1520 	EXP 	w1: autoDraw = False
+6971.4539 	EXP 	w2: autoDraw = True
+6971.6384 	EXP 	w2: autoDraw = False
+6971.9568 	EXP 	w3: autoDraw = True
+6972.1414 	EXP 	w3: autoDraw = False
+6972.4600 	EXP 	w4: autoDraw = True
+6972.6445 	EXP 	w4: autoDraw = False
+6972.6612 	EXP 	memory_period: autoDraw = True
+6978.6486 	EXP 	memory_period: autoDraw = False
+6978.6486 	EXP 	w1: autoDraw = False
+6978.6486 	EXP 	w2: autoDraw = False
+6978.6486 	EXP 	w3: autoDraw = False
+6978.6486 	EXP 	w4: autoDraw = False
+6978.6486 	EXP 	memory_period: autoDraw = False
+6997.6844 	DATA 	Keypress: space
+6997.6852 	EXP 	New trial (rep=0, index=13): OrderedDict([('item', 3), ('type', u'arm'), ('word1', u'lift'), ('word2', u'bind'), ('word3', u'brush'), ('word4', u'fold')])
+6997.7003 	EXP 	point: autoDraw = True
+7000.7192 	EXP 	point: autoDraw = False
+7000.7192 	EXP 	point: autoDraw = False
+7000.7192 	EXP 	w1: text = u'lift'
+7000.7192 	EXP 	w2: text = u'bind'
+7000.7192 	EXP 	w3: text = u'brush'
+7000.7192 	EXP 	w4: text = u'fold'
+7000.7192 	EXP 	w1: autoDraw = True
+7000.9033 	EXP 	w1: autoDraw = False
+7001.2051 	EXP 	w2: autoDraw = True
+7001.3901 	EXP 	w2: autoDraw = False
+7001.7088 	EXP 	w3: autoDraw = True
+7001.8930 	EXP 	w3: autoDraw = False
+7002.2117 	EXP 	w4: autoDraw = True
+7002.3961 	EXP 	w4: autoDraw = False
+7002.4131 	EXP 	memory_period: autoDraw = True
+7008.4003 	EXP 	memory_period: autoDraw = False
+7008.4003 	EXP 	w1: autoDraw = False
+7008.4003 	EXP 	w2: autoDraw = False
+7008.4003 	EXP 	w3: autoDraw = False
+7008.4003 	EXP 	w4: autoDraw = False
+7008.4003 	EXP 	memory_period: autoDraw = False
+7026.9157 	DATA 	Keypress: space
+7026.9164 	EXP 	New trial (rep=0, index=14): OrderedDict([('item', 17), ('type', u'leg'), ('word1', u'kick'), ('word2', u'run'), ('word3', u'jog'), ('word4', u'flee')])
+7026.9321 	EXP 	point: autoDraw = True
+7029.9511 	EXP 	point: autoDraw = False
+7029.9511 	EXP 	point: autoDraw = False
+7029.9511 	EXP 	w1: text = u'kick'
+7029.9511 	EXP 	w2: text = u'run'
+7029.9511 	EXP 	w3: text = u'jog'
+7029.9511 	EXP 	w4: text = u'flee'
+7029.9511 	EXP 	w1: autoDraw = True
+7030.1354 	EXP 	w1: autoDraw = False
+7030.4374 	EXP 	w2: autoDraw = True
+7030.6216 	EXP 	w2: autoDraw = False
+7030.9405 	EXP 	w3: autoDraw = True
+7031.1250 	EXP 	w3: autoDraw = False
+7031.4437 	EXP 	w4: autoDraw = True
+7031.6281 	EXP 	w4: autoDraw = False
+7031.6438 	EXP 	memory_period: autoDraw = True
+7037.6319 	EXP 	memory_period: autoDraw = False
+7037.6319 	EXP 	w1: autoDraw = False
+7037.6319 	EXP 	w2: autoDraw = False
+7037.6319 	EXP 	w3: autoDraw = False
+7037.6319 	EXP 	w4: autoDraw = False
+7037.6319 	EXP 	memory_period: autoDraw = False
+7045.7496 	DATA 	Keypress: space
+7045.7504 	EXP 	New trial (rep=0, index=15): OrderedDict([('item', 8), ('type', u'arm'), ('word1', u'clap'), ('word2', u'click'), ('word3', u'grab'), ('word4', u'wipe')])
+7045.7661 	EXP 	point: autoDraw = True
+7048.8351 	EXP 	point: autoDraw = False
+7048.8351 	EXP 	point: autoDraw = False
+7048.8351 	EXP 	w1: text = u'clap'
+7048.8351 	EXP 	w2: text = u'click'
+7048.8351 	EXP 	w3: text = u'grab'
+7048.8351 	EXP 	w4: text = u'wipe'
+7048.8351 	EXP 	w1: autoDraw = True
+7048.9695 	EXP 	w1: autoDraw = False
+7049.2710 	EXP 	w2: autoDraw = True
+7049.4556 	EXP 	w2: autoDraw = False
+7049.7747 	EXP 	w3: autoDraw = True
+7049.9588 	EXP 	w3: autoDraw = False
+7050.2775 	EXP 	w4: autoDraw = True
+7050.4614 	EXP 	w4: autoDraw = False
+7050.4787 	EXP 	memory_period: autoDraw = True
+7056.4660 	EXP 	memory_period: autoDraw = False
+7056.4660 	EXP 	w1: autoDraw = False
+7056.4660 	EXP 	w2: autoDraw = False
+7056.4660 	EXP 	w3: autoDraw = False
+7056.4660 	EXP 	w4: autoDraw = False
+7056.4660 	EXP 	memory_period: autoDraw = False
+7067.6357 	DATA 	Keypress: space
+7067.6364 	EXP 	New trial (rep=0, index=16): OrderedDict([('item', 11), ('type', u'leg'), ('word1', u'skip'), ('word2', u'pace'), ('word3', u'strut'), ('word4', u'dance')])
+7067.6521 	EXP 	point: autoDraw = True
+7070.6704 	EXP 	point: autoDraw = False
+7070.6704 	EXP 	point: autoDraw = False
+7070.6704 	EXP 	w1: text = u'skip'
+7070.6704 	EXP 	w2: text = u'pace'
+7070.6704 	EXP 	w3: text = u'strut'
+7070.6704 	EXP 	w4: text = u'dance'
+7070.6704 	EXP 	w1: autoDraw = True
+7070.8554 	EXP 	w1: autoDraw = False
+7071.1574 	EXP 	w2: autoDraw = True
+7071.3415 	EXP 	w2: autoDraw = False
+7071.6600 	EXP 	w3: autoDraw = True
+7071.8449 	EXP 	w3: autoDraw = False
+7072.1636 	EXP 	w4: autoDraw = True
+7072.3481 	EXP 	w4: autoDraw = False
+7072.3648 	EXP 	memory_period: autoDraw = True
+7078.3519 	EXP 	memory_period: autoDraw = False
+7078.3519 	EXP 	w1: autoDraw = False
+7078.3519 	EXP 	w2: autoDraw = False
+7078.3519 	EXP 	w3: autoDraw = False
+7078.3519 	EXP 	w4: autoDraw = False
+7078.3519 	EXP 	memory_period: autoDraw = False
+7081.4047 	DATA 	Keypress: space
+7081.4054 	EXP 	New trial (rep=0, index=17): OrderedDict([('item', 1), ('type', u'arm'), ('word1', u'pat'), ('word2', u'peel'), ('word3', u'braid'), ('word4', u'pull')])
+7081.4210 	EXP 	point: autoDraw = True
+7084.4398 	EXP 	point: autoDraw = False
+7084.4398 	EXP 	point: autoDraw = False
+7084.4398 	EXP 	w1: text = u'pat'
+7084.4398 	EXP 	w2: text = u'peel'
+7084.4398 	EXP 	w3: text = u'braid'
+7084.4398 	EXP 	w4: text = u'pull'
+7084.4398 	EXP 	w1: autoDraw = True
+7084.6245 	EXP 	w1: autoDraw = False
+7084.9263 	EXP 	w2: autoDraw = True
+7085.1276 	EXP 	w2: autoDraw = False
+7085.4292 	EXP 	w3: autoDraw = True
+7085.6139 	EXP 	w3: autoDraw = False
+7085.9325 	EXP 	w4: autoDraw = True
+7086.1171 	EXP 	w4: autoDraw = False
+7086.1338 	EXP 	memory_period: autoDraw = True
+7092.1206 	EXP 	memory_period: autoDraw = False
+7092.1206 	EXP 	w1: autoDraw = False
+7092.1206 	EXP 	w2: autoDraw = False
+7092.1206 	EXP 	w3: autoDraw = False
+7092.1206 	EXP 	w4: autoDraw = False
+7092.1206 	EXP 	memory_period: autoDraw = False
+7096.0121 	DATA 	Keypress: space
+7096.0792 	EXP 	text_6: text = 'End of part 3.\nYou may take a short break now.\n\nPress space bar to continue'
+7096.0792 	EXP 	text_6: autoDraw = True
+7229.0565 	DATA 	Keypress: space
+7229.0570 	EXP 	New trial (rep=0, index=3): OrderedDict([('BlockType', u'FEET'), ('BlockLabel', u'with foot drumming'), ('BlockInstructions', u'perform a simple drumming exercise with your feet')])
+7229.1065 	EXP 	text_6: autoDraw = False
+7229.1065 	EXP 	block_intro: text = u'Part 4: Memorizing with foot drumming\n\nPress space bar to continue'
+7229.1065 	EXP 	block_intro: autoDraw = True
+7310.2117 	DATA 	Mouse: Left button down, pos=(15,635)
+7310.3788 	DATA 	Mouse:  Left button up, pos=(15,635)
+7361.4299 	DATA 	Keypress: space
+7361.6309 	EXP 	block_intro: autoDraw = False
+7361.6309 	EXP 	text_2: text = u'In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to perform a simple drumming exercise with your feet until you hear a beep. At the beep, you will have to repeat the four words.\n\nPress space bar to continue'
+7361.6309 	EXP 	text_2: autoDraw = True
+7362.6207 	DATA 	Keypress: space
+7362.7212 	EXP 	text_2: autoDraw = False
+7362.7212 	EXP 	text_11: text = u'You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(FEET)'
+7362.7212 	EXP 	text_11: autoDraw = True
+7364.4325 	DATA 	Keypress: space
+7366.2601 	DATA 	Mouse: Left button down, pos=(15,635)
+7366.4445 	DATA 	Mouse:  Left button up, pos=(15,635)
+7367.0315 	DATA 	Keypress: return
+7367.0480 	EXP 	text_11: autoDraw = False
+7367.0480 	EXP 	text_4: text = 'Now you will first do some practice trials before starting the real task.\n\nPress space bar to continue'
+7367.0480 	EXP 	text_4: autoDraw = True
+7368.1049 	DATA 	Keypress: space
+7368.1059 	EXP 	Created sequence: random, trialTypes=1, nReps=20, seed=None
+7368.1063 	EXP 	New trial (rep=0, index=0): None
+7368.1100 	EXP 	Imported stimuli\presentation_lists\p952_b4_training.csv as conditions, 4 conditions, 6 params
+7368.1103 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+7368.1107 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 3), ('type', u'training'), ('word1', u'chew'), ('word2', u'soothe'), ('word3', u'ruin'), ('word4', u'lick')])
+7368.1214 	EXP 	text_4: autoDraw = False
+7368.1214 	EXP 	point: autoDraw = True
+7371.1401 	EXP 	point: autoDraw = False
+7371.1401 	EXP 	point: autoDraw = False
+7371.1401 	EXP 	w1: text = u'chew'
+7371.1401 	EXP 	w2: text = u'soothe'
+7371.1401 	EXP 	w3: text = u'ruin'
+7371.1401 	EXP 	w4: text = u'lick'
+7371.1401 	EXP 	w1: autoDraw = True
+7371.3246 	EXP 	w1: autoDraw = False
+7371.6263 	EXP 	w2: autoDraw = True
+7371.8110 	EXP 	w2: autoDraw = False
+7372.1297 	EXP 	w3: autoDraw = True
+7372.3141 	EXP 	w3: autoDraw = False
+7372.6327 	EXP 	w4: autoDraw = True
+7372.8172 	EXP 	w4: autoDraw = False
+7372.8340 	EXP 	memory_period: autoDraw = True
+7378.8212 	EXP 	memory_period: autoDraw = False
+7378.8212 	EXP 	w1: autoDraw = False
+7378.8212 	EXP 	w2: autoDraw = False
+7378.8212 	EXP 	w3: autoDraw = False
+7378.8212 	EXP 	w4: autoDraw = False
+7378.8212 	EXP 	memory_period: autoDraw = False
+7383.5006 	DATA 	Keypress: space
+7383.5015 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 2), ('type', u'training'), ('word1', u'like'), ('word2', u'thank'), ('word3', u'stare'), ('word4', u'yell')])
+7383.5170 	EXP 	point: autoDraw = True
+7386.5357 	EXP 	point: autoDraw = False
+7386.5357 	EXP 	point: autoDraw = False
+7386.5357 	EXP 	w1: text = u'like'
+7386.5357 	EXP 	w2: text = u'thank'
+7386.5357 	EXP 	w3: text = u'stare'
+7386.5357 	EXP 	w4: text = u'yell'
+7386.5357 	EXP 	w1: autoDraw = True
+7386.7205 	EXP 	w1: autoDraw = False
+7387.0222 	EXP 	w2: autoDraw = True
+7387.2062 	EXP 	w2: autoDraw = False
+7387.5249 	EXP 	w3: autoDraw = True
+7387.7099 	EXP 	w3: autoDraw = False
+7388.0285 	EXP 	w4: autoDraw = True
+7388.2131 	EXP 	w4: autoDraw = False
+7388.2298 	EXP 	memory_period: autoDraw = True
+7394.2168 	EXP 	memory_period: autoDraw = False
+7394.2168 	EXP 	w1: autoDraw = False
+7394.2168 	EXP 	w2: autoDraw = False
+7394.2168 	EXP 	w3: autoDraw = False
+7394.2168 	EXP 	w4: autoDraw = False
+7394.2168 	EXP 	memory_period: autoDraw = False
+7403.1729 	DATA 	Keypress: space
+7403.1737 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 1), ('type', u'training'), ('word1', u'wait'), ('word2', u'sigh'), ('word3', u'bless'), ('word4', u'blush')])
+7403.1895 	EXP 	point: autoDraw = True
+7406.2083 	EXP 	point: autoDraw = False
+7406.2083 	EXP 	point: autoDraw = False
+7406.2083 	EXP 	w1: text = u'wait'
+7406.2083 	EXP 	w2: text = u'sigh'
+7406.2083 	EXP 	w3: text = u'bless'
+7406.2083 	EXP 	w4: text = u'blush'
+7406.2083 	EXP 	w1: autoDraw = True
+7406.3928 	EXP 	w1: autoDraw = False
+7406.6940 	EXP 	w2: autoDraw = True
+7406.8792 	EXP 	w2: autoDraw = False
+7407.1978 	EXP 	w3: autoDraw = True
+7407.3823 	EXP 	w3: autoDraw = False
+7407.7008 	EXP 	w4: autoDraw = True
+7407.8851 	EXP 	w4: autoDraw = False
+7407.9022 	EXP 	memory_period: autoDraw = True
+7413.8894 	EXP 	memory_period: autoDraw = False
+7413.8894 	EXP 	w1: autoDraw = False
+7413.8894 	EXP 	w2: autoDraw = False
+7413.8894 	EXP 	w3: autoDraw = False
+7413.8894 	EXP 	w4: autoDraw = False
+7413.8894 	EXP 	memory_period: autoDraw = False
+7422.8118 	DATA 	Keypress: space
+7422.8131 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 4), ('type', u'training'), ('word1', u'stay'), ('word2', u'save'), ('word3', u'look'), ('word4', u'print')])
+7422.8284 	EXP 	point: autoDraw = True
+7425.8471 	EXP 	point: autoDraw = False
+7425.8471 	EXP 	point: autoDraw = False
+7425.8471 	EXP 	w1: text = u'stay'
+7425.8471 	EXP 	w2: text = u'save'
+7425.8471 	EXP 	w3: text = u'look'
+7425.8471 	EXP 	w4: text = u'print'
+7425.8471 	EXP 	w1: autoDraw = True
+7426.0317 	EXP 	w1: autoDraw = False
+7426.3333 	EXP 	w2: autoDraw = True
+7426.5180 	EXP 	w2: autoDraw = False
+7426.8366 	EXP 	w3: autoDraw = True
+7427.0207 	EXP 	w3: autoDraw = False
+7427.3395 	EXP 	w4: autoDraw = True
+7427.5240 	EXP 	w4: autoDraw = False
+7427.5410 	EXP 	memory_period: autoDraw = True
+7433.5282 	EXP 	memory_period: autoDraw = False
+7433.5282 	EXP 	w1: autoDraw = False
+7433.5282 	EXP 	w2: autoDraw = False
+7433.5282 	EXP 	w3: autoDraw = False
+7433.5282 	EXP 	w4: autoDraw = False
+7433.5282 	EXP 	memory_period: autoDraw = False
+7446.7105 	DATA 	Keypress: space
+7446.7270 	EXP 	text_5: autoDraw = True
+7448.0856 	DATA 	Keypress: space
+7449.3268 	DATA 	Keypress: space
+7449.8801 	DATA 	Keypress: space
+7450.3497 	DATA 	Keypress: s
+7450.3661 	EXP 	text_5: autoDraw = False
+7450.3661 	EXP 	text_3: autoDraw = True
+7451.1212 	DATA 	Keypress: space
+7451.1268 	EXP 	Imported stimuli\presentation_lists\p952_b4_targets.csv as conditions, 18 conditions, 6 params
+7451.1272 	EXP 	Created sequence: sequential, trialTypes=18, nReps=1, seed=None
+7451.1276 	EXP 	New trial (rep=0, index=0): OrderedDict([('item', 17), ('type', u'leg'), ('word1', u'run'), ('word2', u'kick'), ('word3', u'flee'), ('word4', u'jog')])
+7451.1378 	EXP 	text_3: autoDraw = False
+7451.1378 	EXP 	point: autoDraw = True
+7454.1566 	EXP 	point: autoDraw = False
+7454.1566 	EXP 	point: autoDraw = False
+7454.1566 	EXP 	w1: text = u'run'
+7454.1566 	EXP 	w2: text = u'kick'
+7454.1566 	EXP 	w3: text = u'flee'
+7454.1566 	EXP 	w4: text = u'jog'
+7454.1566 	EXP 	w1: autoDraw = True
+7454.3411 	EXP 	w1: autoDraw = False
+7454.6421 	EXP 	w2: autoDraw = True
+7454.8274 	EXP 	w2: autoDraw = False
+7455.1461 	EXP 	w3: autoDraw = True
+7455.3305 	EXP 	w3: autoDraw = False
+7455.6491 	EXP 	w4: autoDraw = True
+7455.8332 	EXP 	w4: autoDraw = False
+7455.8504 	EXP 	memory_period: autoDraw = True
+7461.8377 	EXP 	memory_period: autoDraw = False
+7461.8377 	EXP 	w1: autoDraw = False
+7461.8377 	EXP 	w2: autoDraw = False
+7461.8377 	EXP 	w3: autoDraw = False
+7461.8377 	EXP 	w4: autoDraw = False
+7461.8377 	EXP 	memory_period: autoDraw = False
+7478.1393 	DATA 	Keypress: space
+7478.1402 	EXP 	New trial (rep=0, index=1): OrderedDict([('item', 6), ('type', u'arm'), ('word1', u'carve'), ('word2', u'bash'), ('word3', u'stir'), ('word4', u'wash')])
+7478.1559 	EXP 	point: autoDraw = True
+7481.1746 	EXP 	point: autoDraw = False
+7481.1746 	EXP 	point: autoDraw = False
+7481.1746 	EXP 	w1: text = u'carve'
+7481.1746 	EXP 	w2: text = u'bash'
+7481.1746 	EXP 	w3: text = u'stir'
+7481.1746 	EXP 	w4: text = u'wash'
+7481.1746 	EXP 	w1: autoDraw = True
+7481.3582 	EXP 	w1: autoDraw = False
+7481.6608 	EXP 	w2: autoDraw = True
+7481.8455 	EXP 	w2: autoDraw = False
+7482.1641 	EXP 	w3: autoDraw = True
+7482.3486 	EXP 	w3: autoDraw = False
+7482.6672 	EXP 	w4: autoDraw = True
+7482.8515 	EXP 	w4: autoDraw = False
+7482.8685 	EXP 	memory_period: autoDraw = True
+7488.8558 	EXP 	memory_period: autoDraw = False
+7488.8558 	EXP 	w1: autoDraw = False
+7488.8558 	EXP 	w2: autoDraw = False
+7488.8558 	EXP 	w3: autoDraw = False
+7488.8558 	EXP 	w4: autoDraw = False
+7488.8558 	EXP 	memory_period: autoDraw = False
+7511.3626 	DATA 	Keypress: space
+7511.3634 	EXP 	New trial (rep=0, index=2): OrderedDict([('item', 1), ('type', u'arm'), ('word1', u'peel'), ('word2', u'pull'), ('word3', u'braid'), ('word4', u'pat')])
+7511.3792 	EXP 	point: autoDraw = True
+7514.3977 	EXP 	point: autoDraw = False
+7514.3977 	EXP 	point: autoDraw = False
+7514.3977 	EXP 	w1: text = u'peel'
+7514.3977 	EXP 	w2: text = u'pull'
+7514.3977 	EXP 	w3: text = u'braid'
+7514.3977 	EXP 	w4: text = u'pat'
+7514.3977 	EXP 	w1: autoDraw = True
+7514.5824 	EXP 	w1: autoDraw = False
+7514.8843 	EXP 	w2: autoDraw = True
+7515.0856 	EXP 	w2: autoDraw = False
+7515.3874 	EXP 	w3: autoDraw = True
+7515.5720 	EXP 	w3: autoDraw = False
+7515.8904 	EXP 	w4: autoDraw = True
+7516.0751 	EXP 	w4: autoDraw = False
+7516.0919 	EXP 	memory_period: autoDraw = True
+7522.0784 	EXP 	memory_period: autoDraw = False
+7522.0784 	EXP 	w1: autoDraw = False
+7522.0784 	EXP 	w2: autoDraw = False
+7522.0784 	EXP 	w3: autoDraw = False
+7522.0784 	EXP 	w4: autoDraw = False
+7522.0784 	EXP 	memory_period: autoDraw = False
+7549.7012 	DATA 	Keypress: space
+7549.7019 	EXP 	New trial (rep=0, index=3): OrderedDict([('item', 12), ('type', u'leg'), ('word1', u'walk'), ('word2', u'jump'), ('word3', u'stroll'), ('word4', u'step')])
+7549.7170 	EXP 	point: autoDraw = True
+7552.7362 	EXP 	point: autoDraw = False
+7552.7362 	EXP 	point: autoDraw = False
+7552.7362 	EXP 	w1: text = u'walk'
+7552.7362 	EXP 	w2: text = u'jump'
+7552.7362 	EXP 	w3: text = u'stroll'
+7552.7362 	EXP 	w4: text = u'step'
+7552.7362 	EXP 	w1: autoDraw = True
+7552.9209 	EXP 	w1: autoDraw = False
+7553.2228 	EXP 	w2: autoDraw = True
+7553.4241 	EXP 	w2: autoDraw = False
+7553.7255 	EXP 	w3: autoDraw = True
+7553.9104 	EXP 	w3: autoDraw = False
+7554.2291 	EXP 	w4: autoDraw = True
+7554.4136 	EXP 	w4: autoDraw = False
+7554.4302 	EXP 	memory_period: autoDraw = True
+7560.4180 	EXP 	memory_period: autoDraw = False
+7560.4180 	EXP 	w1: autoDraw = False
+7560.4180 	EXP 	w2: autoDraw = False
+7560.4180 	EXP 	w3: autoDraw = False
+7560.4180 	EXP 	w4: autoDraw = False
+7560.4180 	EXP 	memory_period: autoDraw = False
+7577.8429 	DATA 	Keypress: space
+7577.8445 	EXP 	New trial (rep=0, index=4): OrderedDict([('item', 7), ('type', u'arm'), ('word1', u'scrub'), ('word2', u'knock'), ('word3', u'dig'), ('word4', u'nip')])
+7577.8594 	EXP 	point: autoDraw = True
+7580.8782 	EXP 	point: autoDraw = False
+7580.8782 	EXP 	point: autoDraw = False
+7580.8782 	EXP 	w1: text = u'scrub'
+7580.8782 	EXP 	w2: text = u'knock'
+7580.8782 	EXP 	w3: text = u'dig'
+7580.8782 	EXP 	w4: text = u'nip'
+7580.8782 	EXP 	w1: autoDraw = True
+7581.0627 	EXP 	w1: autoDraw = False
+7581.3645 	EXP 	w2: autoDraw = True
+7581.5490 	EXP 	w2: autoDraw = False
+7581.8676 	EXP 	w3: autoDraw = True
+7582.0522 	EXP 	w3: autoDraw = False
+7582.3708 	EXP 	w4: autoDraw = True
+7582.5552 	EXP 	w4: autoDraw = False
+7582.5721 	EXP 	memory_period: autoDraw = True
+7588.5593 	EXP 	memory_period: autoDraw = False
+7588.5593 	EXP 	w1: autoDraw = False
+7588.5593 	EXP 	w2: autoDraw = False
+7588.5593 	EXP 	w3: autoDraw = False
+7588.5593 	EXP 	w4: autoDraw = False
+7588.5593 	EXP 	memory_period: autoDraw = False
+7598.2195 	DATA 	Keypress: space
+7598.2203 	EXP 	New trial (rep=0, index=5): OrderedDict([('item', 13), ('type', u'leg'), ('word1', u'hike'), ('word2', u'tread'), ('word3', u'tiptoe'), ('word4', u'wade')])
+7598.2355 	EXP 	point: autoDraw = True
+7601.2546 	EXP 	point: autoDraw = False
+7601.2546 	EXP 	point: autoDraw = False
+7601.2546 	EXP 	w1: text = u'hike'
+7601.2546 	EXP 	w2: text = u'tread'
+7601.2546 	EXP 	w3: text = u'tiptoe'
+7601.2546 	EXP 	w4: text = u'wade'
+7601.2546 	EXP 	w1: autoDraw = True
+7601.4394 	EXP 	w1: autoDraw = False
+7601.7413 	EXP 	w2: autoDraw = True
+7601.9251 	EXP 	w2: autoDraw = False
+7602.2442 	EXP 	w3: autoDraw = True
+7602.4289 	EXP 	w3: autoDraw = False
+7602.7476 	EXP 	w4: autoDraw = True
+7602.9321 	EXP 	w4: autoDraw = False
+7602.9488 	EXP 	memory_period: autoDraw = True
+7608.9358 	EXP 	memory_period: autoDraw = False
+7608.9358 	EXP 	w1: autoDraw = False
+7608.9358 	EXP 	w2: autoDraw = False
+7608.9358 	EXP 	w3: autoDraw = False
+7608.9358 	EXP 	w4: autoDraw = False
+7608.9358 	EXP 	memory_period: autoDraw = False
+7620.4922 	DATA 	Keypress: space
+7620.4929 	EXP 	New trial (rep=0, index=6): OrderedDict([('item', 4), ('type', u'arm'), ('word1', u'catch'), ('word2', u'seize'), ('word3', u'grip'), ('word4', u'grasp')])
+7620.5081 	EXP 	point: autoDraw = True
+7623.5266 	EXP 	point: autoDraw = False
+7623.5266 	EXP 	point: autoDraw = False
+7623.5266 	EXP 	w1: text = u'catch'
+7623.5266 	EXP 	w2: text = u'seize'
+7623.5266 	EXP 	w3: text = u'grip'
+7623.5266 	EXP 	w4: text = u'grasp'
+7623.5266 	EXP 	w1: autoDraw = True
+7623.7113 	EXP 	w1: autoDraw = False
+7624.0131 	EXP 	w2: autoDraw = True
+7624.1977 	EXP 	w2: autoDraw = False
+7624.5163 	EXP 	w3: autoDraw = True
+7624.7008 	EXP 	w3: autoDraw = False
+7625.0195 	EXP 	w4: autoDraw = True
+7625.2037 	EXP 	w4: autoDraw = False
+7625.2207 	EXP 	memory_period: autoDraw = True
+7631.2080 	EXP 	memory_period: autoDraw = False
+7631.2080 	EXP 	w1: autoDraw = False
+7631.2080 	EXP 	w2: autoDraw = False
+7631.2080 	EXP 	w3: autoDraw = False
+7631.2080 	EXP 	w4: autoDraw = False
+7631.2080 	EXP 	memory_period: autoDraw = False
+7642.7802 	DATA 	Keypress: space
+7642.7818 	EXP 	New trial (rep=0, index=7): OrderedDict([('item', 8), ('type', u'arm'), ('word1', u'clap'), ('word2', u'grab'), ('word3', u'click'), ('word4', u'wipe')])
+7642.7967 	EXP 	point: autoDraw = True
+7645.8155 	EXP 	point: autoDraw = False
+7645.8155 	EXP 	point: autoDraw = False
+7645.8155 	EXP 	w1: text = u'clap'
+7645.8155 	EXP 	w2: text = u'grab'
+7645.8155 	EXP 	w3: text = u'click'
+7645.8155 	EXP 	w4: text = u'wipe'
+7645.8155 	EXP 	w1: autoDraw = True
+7646.0000 	EXP 	w1: autoDraw = False
+7646.3018 	EXP 	w2: autoDraw = True
+7646.4863 	EXP 	w2: autoDraw = False
+7646.8050 	EXP 	w3: autoDraw = True
+7646.9895 	EXP 	w3: autoDraw = False
+7647.3081 	EXP 	w4: autoDraw = True
+7647.4924 	EXP 	w4: autoDraw = False
+7647.5094 	EXP 	memory_period: autoDraw = True
+7653.4966 	EXP 	memory_period: autoDraw = False
+7653.4966 	EXP 	w1: autoDraw = False
+7653.4966 	EXP 	w2: autoDraw = False
+7653.4966 	EXP 	w3: autoDraw = False
+7653.4966 	EXP 	w4: autoDraw = False
+7653.4966 	EXP 	memory_period: autoDraw = False
+7665.4881 	DATA 	Keypress: space
+7665.4888 	EXP 	New trial (rep=0, index=8): OrderedDict([('item', 10), ('type', u'leg'), ('word1', u'stride'), ('word2', u'hop'), ('word3', u'limp'), ('word4', u'mount')])
+7665.5046 	EXP 	point: autoDraw = True
+7668.5233 	EXP 	point: autoDraw = False
+7668.5233 	EXP 	point: autoDraw = False
+7668.5233 	EXP 	w1: text = u'stride'
+7668.5233 	EXP 	w2: text = u'hop'
+7668.5233 	EXP 	w3: text = u'limp'
+7668.5233 	EXP 	w4: text = u'mount'
+7668.5233 	EXP 	w1: autoDraw = True
+7668.7079 	EXP 	w1: autoDraw = False
+7669.0096 	EXP 	w2: autoDraw = True
+7669.1942 	EXP 	w2: autoDraw = False
+7669.5122 	EXP 	w3: autoDraw = True
+7669.6974 	EXP 	w3: autoDraw = False
+7670.0160 	EXP 	w4: autoDraw = True
+7670.2004 	EXP 	w4: autoDraw = False
+7670.2172 	EXP 	memory_period: autoDraw = True
+7676.2046 	EXP 	memory_period: autoDraw = False
+7676.2046 	EXP 	w1: autoDraw = False
+7676.2046 	EXP 	w2: autoDraw = False
+7676.2046 	EXP 	w3: autoDraw = False
+7676.2046 	EXP 	w4: autoDraw = False
+7676.2046 	EXP 	memory_period: autoDraw = False
+7690.0744 	DATA 	Mouse: Middle button down, pos=(15,635)
+7690.0907 	DATA 	Keypress: space
+7690.0914 	EXP 	New trial (rep=0, index=9): OrderedDict([('item', 15), ('type', u'leg'), ('word1', u'crawl'), ('word2', u'sprint'), ('word3', u'slide'), ('word4', u'trot')])
+7690.1077 	EXP 	point: autoDraw = True
+7690.1247 	DATA 	Mouse:  Middle button up, pos=(15,635)
+7693.1265 	EXP 	point: autoDraw = False
+7693.1265 	EXP 	point: autoDraw = False
+7693.1265 	EXP 	w1: text = u'crawl'
+7693.1265 	EXP 	w2: text = u'sprint'
+7693.1265 	EXP 	w3: text = u'slide'
+7693.1265 	EXP 	w4: text = u'trot'
+7693.1265 	EXP 	w1: autoDraw = True
+7693.3108 	EXP 	w1: autoDraw = False
+7693.6127 	EXP 	w2: autoDraw = True
+7693.7973 	EXP 	w2: autoDraw = False
+7694.1158 	EXP 	w3: autoDraw = True
+7694.2999 	EXP 	w3: autoDraw = False
+7694.6190 	EXP 	w4: autoDraw = True
+7694.8035 	EXP 	w4: autoDraw = False
+7694.8197 	EXP 	memory_period: autoDraw = True
+7700.8075 	EXP 	memory_period: autoDraw = False
+7700.8075 	EXP 	w1: autoDraw = False
+7700.8075 	EXP 	w2: autoDraw = False
+7700.8075 	EXP 	w3: autoDraw = False
+7700.8075 	EXP 	w4: autoDraw = False
+7700.8075 	EXP 	memory_period: autoDraw = False
+7715.2141 	DATA 	Keypress: space
+7715.2149 	EXP 	New trial (rep=0, index=10): OrderedDict([('item', 5), ('type', u'arm'), ('word1', u'stab'), ('word2', u'scratch'), ('word3', u'clean'), ('word4', u'hack')])
+7715.2303 	EXP 	point: autoDraw = True
+7718.2490 	EXP 	point: autoDraw = False
+7718.2490 	EXP 	point: autoDraw = False
+7718.2490 	EXP 	w1: text = u'stab'
+7718.2490 	EXP 	w2: text = u'scratch'
+7718.2490 	EXP 	w3: text = u'clean'
+7718.2490 	EXP 	w4: text = u'hack'
+7718.2490 	EXP 	w1: autoDraw = True
+7718.4339 	EXP 	w1: autoDraw = False
+7718.7358 	EXP 	w2: autoDraw = True
+7718.9200 	EXP 	w2: autoDraw = False
+7719.2387 	EXP 	w3: autoDraw = True
+7719.4233 	EXP 	w3: autoDraw = False
+7719.7420 	EXP 	w4: autoDraw = True
+7719.9265 	EXP 	w4: autoDraw = False
+7719.9433 	EXP 	memory_period: autoDraw = True
+7725.9293 	EXP 	memory_period: autoDraw = False
+7725.9293 	EXP 	w1: autoDraw = False
+7725.9293 	EXP 	w2: autoDraw = False
+7725.9293 	EXP 	w3: autoDraw = False
+7725.9293 	EXP 	w4: autoDraw = False
+7725.9293 	EXP 	memory_period: autoDraw = False
+7738.2909 	DATA 	Keypress: space
+7738.2916 	EXP 	New trial (rep=0, index=11): OrderedDict([('item', 14), ('type', u'leg'), ('word1', u'kneel'), ('word2', u'climb'), ('word3', u'stamp'), ('word4', u'wander')])
+7738.3073 	EXP 	point: autoDraw = True
+7741.3262 	EXP 	point: autoDraw = False
+7741.3262 	EXP 	point: autoDraw = False
+7741.3262 	EXP 	w1: text = u'kneel'
+7741.3262 	EXP 	w2: text = u'climb'
+7741.3262 	EXP 	w3: text = u'stamp'
+7741.3262 	EXP 	w4: text = u'wander'
+7741.3262 	EXP 	w1: autoDraw = True
+7741.5107 	EXP 	w1: autoDraw = False
+7741.8127 	EXP 	w2: autoDraw = True
+7741.9970 	EXP 	w2: autoDraw = False
+7742.3158 	EXP 	w3: autoDraw = True
+7742.5004 	EXP 	w3: autoDraw = False
+7742.8183 	EXP 	w4: autoDraw = True
+7743.0034 	EXP 	w4: autoDraw = False
+7743.0200 	EXP 	memory_period: autoDraw = True
+7749.0069 	EXP 	memory_period: autoDraw = False
+7749.0069 	EXP 	w1: autoDraw = False
+7749.0069 	EXP 	w2: autoDraw = False
+7749.0069 	EXP 	w3: autoDraw = False
+7749.0069 	EXP 	w4: autoDraw = False
+7749.0069 	EXP 	memory_period: autoDraw = False
+7764.3028 	DATA 	Keypress: space
+7764.3035 	EXP 	New trial (rep=0, index=12): OrderedDict([('item', 2), ('type', u'arm'), ('word1', u'switch'), ('word2', u'chop'), ('word3', u'dunk'), ('word4', u'rub')])
+7764.3191 	EXP 	point: autoDraw = True
+7767.3380 	EXP 	point: autoDraw = False
+7767.3380 	EXP 	point: autoDraw = False
+7767.3380 	EXP 	w1: text = u'switch'
+7767.3380 	EXP 	w2: text = u'chop'
+7767.3380 	EXP 	w3: text = u'dunk'
+7767.3380 	EXP 	w4: text = u'rub'
+7767.3380 	EXP 	w1: autoDraw = True
+7767.5226 	EXP 	w1: autoDraw = False
+7767.8245 	EXP 	w2: autoDraw = True
+7768.0088 	EXP 	w2: autoDraw = False
+7768.3273 	EXP 	w3: autoDraw = True
+7768.5121 	EXP 	w3: autoDraw = False
+7768.8307 	EXP 	w4: autoDraw = True
+7769.0153 	EXP 	w4: autoDraw = False
+7769.0320 	EXP 	memory_period: autoDraw = True
+7775.0191 	EXP 	memory_period: autoDraw = False
+7775.0191 	EXP 	w1: autoDraw = False
+7775.0191 	EXP 	w2: autoDraw = False
+7775.0191 	EXP 	w3: autoDraw = False
+7775.0191 	EXP 	w4: autoDraw = False
+7775.0191 	EXP 	memory_period: autoDraw = False
+7783.9416 	DATA 	Keypress: space
+7783.9424 	EXP 	New trial (rep=0, index=13): OrderedDict([('item', 11), ('type', u'leg'), ('word1', u'strut'), ('word2', u'skip'), ('word3', u'pace'), ('word4', u'dance')])
+7783.9582 	EXP 	point: autoDraw = True
+7786.9763 	EXP 	point: autoDraw = False
+7786.9763 	EXP 	point: autoDraw = False
+7786.9763 	EXP 	w1: text = u'strut'
+7786.9763 	EXP 	w2: text = u'skip'
+7786.9763 	EXP 	w3: text = u'pace'
+7786.9763 	EXP 	w4: text = u'dance'
+7786.9763 	EXP 	w1: autoDraw = True
+7787.1614 	EXP 	w1: autoDraw = False
+7787.4633 	EXP 	w2: autoDraw = True
+7787.6478 	EXP 	w2: autoDraw = False
+7787.9658 	EXP 	w3: autoDraw = True
+7788.1509 	EXP 	w3: autoDraw = False
+7788.4696 	EXP 	w4: autoDraw = True
+7788.6539 	EXP 	w4: autoDraw = False
+7788.6708 	EXP 	memory_period: autoDraw = True
+7794.6585 	EXP 	memory_period: autoDraw = False
+7794.6585 	EXP 	w1: autoDraw = False
+7794.6585 	EXP 	w2: autoDraw = False
+7794.6585 	EXP 	w3: autoDraw = False
+7794.6585 	EXP 	w4: autoDraw = False
+7794.6585 	EXP 	memory_period: autoDraw = False
+7818.0872 	DATA 	Keypress: space
+7818.0880 	EXP 	New trial (rep=0, index=14): OrderedDict([('item', 16), ('type', u'leg'), ('word1', u'stomp'), ('word2', u'stumble'), ('word3', u'creep'), ('word4', u'glide')])
+7818.1038 	EXP 	point: autoDraw = True
+7821.1227 	EXP 	point: autoDraw = False
+7821.1227 	EXP 	point: autoDraw = False
+7821.1227 	EXP 	w1: text = u'stomp'
+7821.1227 	EXP 	w2: text = u'stumble'
+7821.1227 	EXP 	w3: text = u'creep'
+7821.1227 	EXP 	w4: text = u'glide'
+7821.1227 	EXP 	w1: autoDraw = True
+7821.3071 	EXP 	w1: autoDraw = False
+7821.6090 	EXP 	w2: autoDraw = True
+7821.7935 	EXP 	w2: autoDraw = False
+7822.1122 	EXP 	w3: autoDraw = True
+7822.2968 	EXP 	w3: autoDraw = False
+7822.6144 	EXP 	w4: autoDraw = True
+7822.7998 	EXP 	w4: autoDraw = False
+7822.8167 	EXP 	memory_period: autoDraw = True
+7828.8036 	EXP 	memory_period: autoDraw = False
+7828.8036 	EXP 	w1: autoDraw = False
+7828.8036 	EXP 	w2: autoDraw = False
+7828.8036 	EXP 	w3: autoDraw = False
+7828.8036 	EXP 	w4: autoDraw = False
+7828.8036 	EXP 	memory_period: autoDraw = False
+7844.3004 	DATA 	Keypress: space
+7844.3012 	EXP 	New trial (rep=0, index=15): OrderedDict([('item', 18), ('type', u'leg'), ('word1', u'slip'), ('word2', u'stray'), ('word3', u'skate'), ('word4', u'leap')])
+7844.3170 	EXP 	point: autoDraw = True
+7847.3356 	EXP 	point: autoDraw = False
+7847.3356 	EXP 	point: autoDraw = False
+7847.3356 	EXP 	w1: text = u'slip'
+7847.3356 	EXP 	w2: text = u'stray'
+7847.3356 	EXP 	w3: text = u'skate'
+7847.3356 	EXP 	w4: text = u'leap'
+7847.3356 	EXP 	w1: autoDraw = True
+7847.5202 	EXP 	w1: autoDraw = False
+7847.8220 	EXP 	w2: autoDraw = True
+7848.0227 	EXP 	w2: autoDraw = False
+7848.3251 	EXP 	w3: autoDraw = True
+7848.5097 	EXP 	w3: autoDraw = False
+7848.8284 	EXP 	w4: autoDraw = True
+7849.0125 	EXP 	w4: autoDraw = False
+7849.0296 	EXP 	memory_period: autoDraw = True
+7855.0169 	EXP 	memory_period: autoDraw = False
+7855.0169 	EXP 	w1: autoDraw = False
+7855.0169 	EXP 	w2: autoDraw = False
+7855.0169 	EXP 	w3: autoDraw = False
+7855.0169 	EXP 	w4: autoDraw = False
+7855.0169 	EXP 	memory_period: autoDraw = False
+7872.1906 	DATA 	Keypress: space
+7872.1920 	EXP 	New trial (rep=0, index=16): OrderedDict([('item', 9), ('type', u'arm'), ('word1', u'toss'), ('word2', u'scrape'), ('word3', u'throw'), ('word4', u'whip')])
+7872.2072 	EXP 	point: autoDraw = True
+7875.2259 	EXP 	point: autoDraw = False
+7875.2259 	EXP 	point: autoDraw = False
+7875.2259 	EXP 	w1: text = u'toss'
+7875.2259 	EXP 	w2: text = u'scrape'
+7875.2259 	EXP 	w3: text = u'throw'
+7875.2259 	EXP 	w4: text = u'whip'
+7875.2259 	EXP 	w1: autoDraw = True
+7875.4104 	EXP 	w1: autoDraw = False
+7875.7116 	EXP 	w2: autoDraw = True
+7875.8967 	EXP 	w2: autoDraw = False
+7876.2154 	EXP 	w3: autoDraw = True
+7876.3998 	EXP 	w3: autoDraw = False
+7876.7185 	EXP 	w4: autoDraw = True
+7876.9027 	EXP 	w4: autoDraw = False
+7876.9198 	EXP 	memory_period: autoDraw = True
+7882.9070 	EXP 	memory_period: autoDraw = False
+7882.9070 	EXP 	w1: autoDraw = False
+7882.9070 	EXP 	w2: autoDraw = False
+7882.9070 	EXP 	w3: autoDraw = False
+7882.9070 	EXP 	w4: autoDraw = False
+7882.9070 	EXP 	memory_period: autoDraw = False
+7902.1772 	DATA 	Keypress: space
+7902.1779 	EXP 	New trial (rep=0, index=17): OrderedDict([('item', 3), ('type', u'arm'), ('word1', u'lift'), ('word2', u'brush'), ('word3', u'fold'), ('word4', u'bind')])
+7902.1936 	EXP 	point: autoDraw = True
+7905.2125 	EXP 	point: autoDraw = False
+7905.2125 	EXP 	point: autoDraw = False
+7905.2125 	EXP 	w1: text = u'lift'
+7905.2125 	EXP 	w2: text = u'brush'
+7905.2125 	EXP 	w3: text = u'fold'
+7905.2125 	EXP 	w4: text = u'bind'
+7905.2125 	EXP 	w1: autoDraw = True
+7905.3969 	EXP 	w1: autoDraw = False
+7905.6988 	EXP 	w2: autoDraw = True
+7905.8832 	EXP 	w2: autoDraw = False
+7906.2018 	EXP 	w3: autoDraw = True
+7906.3864 	EXP 	w3: autoDraw = False
+7906.7051 	EXP 	w4: autoDraw = True
+7906.8894 	EXP 	w4: autoDraw = False
+7906.9063 	EXP 	memory_period: autoDraw = True
+7912.8935 	EXP 	memory_period: autoDraw = False
+7912.8935 	EXP 	w1: autoDraw = False
+7912.8935 	EXP 	w2: autoDraw = False
+7912.8935 	EXP 	w3: autoDraw = False
+7912.8935 	EXP 	w4: autoDraw = False
+7912.8935 	EXP 	memory_period: autoDraw = False
+7930.3859 	DATA 	Keypress: space
+7930.4526 	EXP 	text_6: text = 'End of part 4.\nYou may take a short break now.\n\nPress space bar to continue'
+7930.4526 	EXP 	text_6: autoDraw = True
+7934.9808 	DATA 	Keypress: space
+7934.9977 	EXP 	text_6: autoDraw = False
+7934.9977 	EXP 	text: autoDraw = True
+7940.3659 	EXP 	window1: mouseVisible = True
