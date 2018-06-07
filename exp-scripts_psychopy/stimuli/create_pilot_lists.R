@@ -12,8 +12,16 @@ getwd()  # should be "[whatever...]/2018_replication_sheb-pulv2013"
 #  ------------------------------------------------------------------------
 
 # variables to be manipulated within subjects and between blocks:
-block_conditions <- expand.grid(SOA = c(0.5, 0.75), 
-                                word_duration = c(0.1, 0.2, 0.3))
+# In order to change as little as possible from the original, we will only
+# manipulate the time of presentation of each word only (word_duration),
+# but we will leave the blank after each word fixed (400ms as in S&P2013).
+# The variable SOA is the sum of the two and is needed for the PsychoPy
+# script.
+# Regarding the choice of values for word_duration, these are loosely based
+# on the range of values reviewed in Molinaro et al. 2011, Cortex).
+block_conditions <- data.frame(word_duration = c(0.1, seq(.2, .4, .05)),
+                               follow_blank = 0.4)
+block_conditions$SOA <- with(block_conditions, word_duration + follow_blank)
 block_conditions
 write.csv(block_conditions, 
           file = "exp-scripts_psychopy/pilot/conditions_block_pilot.csv",
