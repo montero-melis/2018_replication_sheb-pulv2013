@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 05, 2018, at 15:59
+    on juni 07, 2018, at 16:14
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -115,7 +115,7 @@ text_8 = visual.TextStim(win=win, name='text_8',
 # Initialize components for Routine "instr_exp2"
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
-    text="The experiment consists of X parts, and you will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont,
+    text="The experiment consists of X parts, and there will be a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -168,9 +168,9 @@ wt4 = visual.TextStim(win=win, name='wt4',
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
@@ -245,9 +245,9 @@ w4 = visual.TextStim(win=win, name='w4',
     depth=-3.0);
 memory_period2 = visual.TextStim(win=win, name='memory_period2',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "repeat_words"
@@ -1357,7 +1357,7 @@ for thisExperimental_block in experimental_blocks:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_6.setText("End of part " + `myBlockCount` + ".\nYou may take a short break now." + cont)
+    text_6.setText("End of part " + `myBlockCount` + ".\nTake a short break." + cont)
     key_resp_9 = event.BuilderKeyResponse()
     # keep track of which components have finished
     end_blockComponents = [text_6, key_resp_9]
