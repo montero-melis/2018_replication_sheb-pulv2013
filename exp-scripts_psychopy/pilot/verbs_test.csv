@@ -1,7 +1,7 @@
 word,target,distrOne,distrTwo,corrAns,w1,w2,w3
-bash,sla,knuffa,trycka,1,sla,knuffa,trycka
-bind,binda,linda,vinda,2,vinda,binda ,linda
-bounce,studsa,dunka,kasta,3,kasta,dunka,studsa
-jog,jogga,spurta,rusa,1,jogga ,rusa,spurta
-jump,hoppa,kliva,lyfta,2,lyfta,hoppa,kliva
-kick,sparka,knaa,nicka,2,nicka,sparka,knaa
+BASH,slå,knuffa,trycka,1,slå,knuffa,trycka
+BIND,binda,linda,vinda,2,vinda,binda ,linda
+BOUNCE,studsa,dunka,kasta,3,kasta,dunka,studsa
+JOG,jogga,spurta,rusa,1,jogga ,rusa,spurta
+JUMP,hoppa,kliva,lyfta,2,lyfta,hoppa,kliva
+KICK,sparka,knäa,nicka,2,nicka,sparka,knäa
