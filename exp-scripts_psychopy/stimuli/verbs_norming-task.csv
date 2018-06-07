@@ -1,0 +1,113 @@
+item,target,distractor_1,distractor_2
+BASH,slå,knuffa,trycka
+BIND,binda,linda,vinda
+BOUNCE,studsa,dunka,kasta
+BRAID,fläta,knyta,binda
+BRUSH,borsta,skrubba,putsa
+CARVE,tälja,hacka,klösa
+CATCH,fånga,krama,klämma
+CHOP,hacka,tälja,riva
+CLAP,klappa,knäppa,klämma
+CLAW,klösa,nypa,rispa
+CLEAN,rengöra,rensa,plocka
+CLICK,knäppa,klappa,klämma
+CLIMB,klättra,kliva,stega
+CLUTCH,gripa tag i,sätta ihop,dra isär
+CRAWL,kravla,huka,klättra
+CREEP,krypa,knäböja,klättra
+CUT,skära,sticka,bryta
+DANCE,dansa,snurra,svänga
+DELVE,gräva,plöja,rensa
+DIG,gräva,dränera,dika
+DUNK,dunka,dumpa,dunsa
+FILE,fila,putsa,riva
+FLEE,fly,lyfta,flyga
+FLIT,rusa,hasa,svassa
+FOLD,vika ihop,knyta ihop,bunta ihop
+GLIDE,glida,hasa,snava
+GRAB,gripa tag i,fästa ihop,smälla till
+GRASP,gripa,klämma,riva
+GRATE,riva,hugga,klättra
+GRIP,gripa om,hålla om,kasta om
+HACK,hacka,skära,såga
+HIKE,vandra,flanera,lunka
+HOP,skutta,kliva,studsa
+INCH,röra sig långsamt framåt,dra sig snabbt tillbaka,hasa sig bakåt
+JOG,jogga,spurta,rusa
+JUMP,hoppa,kliva,lyfta
+KICK,sparka,knäa,nicka
+KNEEL,knäböja,krypa,kräla
+KNOCK,knacka,krocka,klicka
+LEAP,hoppa,stega,kliva
+LIFT,lyfta,pressa,öka
+LIMP,halta,hasa,halka
+MARCH,marschera,trava,traska
+MOUNT,gå uppför,ströva runt,kliva över
+NIP,nypa,peta,nudda
+PACE,gå fram och tillbaka,luffa runt,rusa fram
+PAT,klappa,slå,borsta
+PEEL,skala,rensa,plocka
+PINCH,nypa,plocka,rispa
+PLOD,lunka,pulsa,vingla
+PLUCK,plocka,rensa,picka
+POKE,peta,trycka,knuffa
+POLISH,polera,sopa,tvätta
+PRANCE,kråma sig,promenera,traska
+PULL,dra,slänga,släpa
+PUNCH,slå,knuffa,kasta
+PUSH,knuffa,kasta,klämma
+RAMBLE,ströva,strutta,spurta
+ROAM,ströva omkring,ta sig fram,luffa runt
+ROLL,vingla,snubbla,svassa
+RUB,gnugga,riva,klappa
+RUN,springa,rusa,jogga
+RUSH,rusa,springa,jogga
+SCOOP,skyffla,dika,skrapa
+SCRAPE,skrapa,gnugga,klösa
+SCRATCH,repa,riva,klösa
+SCRUB,skrubba,sopa,skrapa
+SCUFF,hasa sig fram,dra sig fram,kasta sig fram
+SEIZE,fånga,klämma,fästa
+SHAKE,skaka,röra,vispa
+SKATE,åka skridskor,åka skidor,åka kälke
+SKIM,skumma,vispa,sleva
+SKIP,hoppa,kliva,stega
+SLAP,smälla till,knäppa fast,klämma åt
+SLIDE,glida,ramla,hasa
+SLIP,halka,snava,ramla
+SLITHER,hasa,snava,trilla
+SNATCH,rycka till sig,knuffa ifrån sig,plocka åt sig
+SNEAK,smyga,hasa,glida
+SPRINT,spurta,springa,jogga
+SQUEEZE,klämma,knuffa,knäppa
+STAB,sticka,hacka,skära
+STAGGER,ragla,lunka,halka
+STAMP,stampa,kliva,skutta
+STEP,gå,klampa,traska
+STIR,röra,skumma,vispa
+STOMP,stampa,stiga,kliva
+STRAY,ströva,vandra,promenera
+STRIDE,kliva,tassa,lunka
+STROLL,strosa,trava,marschera
+STRUT,svassa,lunka,strosa
+STUMBLE,snubbla,glida,hasa
+SWAY,vingla,tassa,ramla
+SWITCH,slå på/av,knäppa,nypa
+THROW,kasta,greppa,träffa
+TIPTOE,gå på tå,snava,hasa
+TOSS,slänga,fånga,gripa
+TRAIPSE,traska,stappla,vandra
+TREAD,trampa,stampa,klampa
+TRIP,snubbla,glida,stappla
+TROT,trava,promenera,flanera
+TRUDGE,släpa sig fram,kasta sig fram,ta sig fram
+TUG,rycka,pressa,slå
+TWINE,tvinna,binda,knyta
+WADE,vada,pulsa,plöja
+WALK,gå,promenera,marschera
+WANDER,vandra,marschera,spatsera
+WASH,tvätta,skura,sopa
+WHIP,piska,klappa,slå
+WIPE,torka,putsa,gnugga
+WOBBLE,vingla,ramla,glida
+WRAP,slå in,slå ihop,slå till
