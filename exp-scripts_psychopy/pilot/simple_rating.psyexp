@@ -34,7 +34,7 @@
         <Param name="name" updates="None" val="text_6" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;First, you will rate each verb twice: once for its &quot; + $firstrating + &quot;-relatedness and once for its &quot; +secondrating+ &quot;-relatedness. Use the number keys 1 to 7 to indicate your rating. Lock in your answer by pressing return.&quot;+$cont&amp;#10;&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;First, you will rate each verb twice: once for its &quot; + $firstrating + &quot;-relatedness and once for its &quot; +secondrating+ &quot;-relatedness. Use the digit keys 1 to 7 to indicate your rating. Lock in your answer by pressing return.&quot;+$cont&amp;#10;&amp;#10;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -72,7 +72,7 @@
         <Param name="name" updates="None" val="text_4" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Use the keys 1, 2 or 3 to indicate your choice.&quot; +$cont&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Choose the best option by using the keys 1, 2 or 3.&quot; +$cont&amp;#10;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -148,7 +148,7 @@
         <Param name="name" updates="None" val="text_7" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;You will read a series of English verbs. For each word, you will be asked to indicate to what extent you associate the action expressed by the verb with your feet/legs or your hands/arms. For example, the action denoted by the verb WRITE is strongly associated with your hands/arms, but not at all with your feet/legs. A verb like KICK, on the other hand, denotes an action that is strongly related to your feet/legs but not at all to your hands/arms.&quot; +$cont" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;You will read a series of English verbs. For each word, you will be asked to indicate to what extent you associate the action expressed by the verb with your feet/legs and your hands/arms. For example, the action denoted by the verb WRITE is strongly associated with your hands/arms, but not at all with your feet/legs. A verb like KICK, on the other hand, denotes an action that is strongly related to your feet/legs but not at all to your hands/arms.&quot; +$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -221,7 +221,7 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopType" updates="None" val="condition" valType="str"/>
-        <Param name="scaleDescription" updates="constant" val="Not at all related                                             Highly related" valType="str"/>
+        <Param name="scaleDescription" updates="constant" val="Not at all related                                Highly related" valType="str"/>
         <Param name="storeHistory" updates="constant" val="False" valType="bool"/>
         <Param name="categoryChoices" updates="constant" val="" valType="str"/>
         <Param name="customize_everything" updates="constant" val="" valType="str"/>

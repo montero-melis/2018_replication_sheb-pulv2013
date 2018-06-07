@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 07, 2018, at 17:39
+    on juni 07, 2018, at 19:08
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -75,7 +75,7 @@ if pptID % 2 == 0:  # if even participant number
 else:
     armlegorder_file = 'leg_first.csv'
     firstrating = "feet/legs"
-   secondrating = "hands/arms"
+    secondrating = "hands/arms"
 
 ## Other
 cont = "\n\nPress space bar to continue"  # At the end of instructions slide
@@ -89,27 +89,27 @@ instr = visual.TextStim(win=win, name='instr',
 # Initialize components for Routine "instr1"
 instr1Clock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
-    text="You will read a series of English verbs. For each word, you will be asked to indicate to what extent you associate the action expressed by the verb with your feet/legs or your hands/arms. For example, the action denoted by the verb WRITE is strongly associated with your hands/arms, but not at all with your feet/legs. A verb like KICK, on the other hand, denotes an action that is strongly related to your feet/legs but not at all to your hands/arms." +cont,
-    font=u'Arial',
+    text="You will read a series of English verbs. For each word, you will be asked to indicate to what extent you associate the action expressed by the verb with your feet/legs and your hands/arms. For example, the action denoted by the verb WRITE is strongly associated with your hands/arms, but not at all with your feet/legs. A verb like KICK, on the other hand, denotes an action that is strongly related to your feet/legs but not at all to your hands/arms." +cont,
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont1"
 instr_cont1Clock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
-    text="First, you will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Use the number keys 1 to 7 to indicate your rating. Lock in your answer by pressing return."+cont
+    text="First, you will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Use the digit keys 1 to 7 to indicate your rating. Lock in your answer by pressing return."+cont
 
 ,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont2"
 instr_cont2Clock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
-    text="After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Use the keys 1, 2 or 3 to indicate your choice." +cont
+    text="After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Choose the best option by using the keys 1, 2 or 3." +cont
 ,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
@@ -120,11 +120,11 @@ text_4 = visual.TextStim(win=win, name='text_4',
 rating_trialClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
-rating = visual.RatingScale(win=win, name='rating', marker='triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=['1', '7'], scale='Not at all related                                             Highly related')
+rating = visual.RatingScale(win=win, name='rating', marker=u'triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=[u'1', u'7'], scale=u'Not at all related                              Highly related')
 
 # Initialize components for Routine "translation"
 translationClock = core.Clock()
