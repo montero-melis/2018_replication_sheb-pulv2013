@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 07, 2018, at 19:08
+    on juni 07, 2018, at 22:23
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,8 +26,8 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'word_association_task'  # from the Builder filename that created this script
-expInfo = {'session': '001', 'participant': ''}
+expName = u'verb_norming'  # from the Builder filename that created this script
+expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -53,9 +53,9 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0,
+    size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=True, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -68,6 +68,7 @@ else:
 introClock = core.Clock()
 pptID = int(expInfo['participant'])  # participant ID
 
+# alternate between participants whether legs or arms ratings come first
 if pptID % 2 == 0:  # if even participant number
     armlegorder_file = 'arm_first.csv'
     firstrating = "hands/arms"
@@ -76,6 +77,11 @@ else:
     armlegorder_file = 'leg_first.csv'
     firstrating = "feet/legs"
     secondrating = "hands/arms"
+
+# trials loop loads a random list for the translation task
+# define its path here
+path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'
+list_norming_task = path2stimuli + `pptID` + '_norming.csv'
 
 ## Other
 cont = "\n\nPress space bar to continue"  # At the end of instructions slide
@@ -116,6 +122,15 @@ text_4 = visual.TextStim(win=win, name='text_4',
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
+# Initialize components for Routine "blank_long"
+blank_longClock = core.Clock()
+text_9 = visual.TextStim(win=win, name='text_9',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
 # Initialize components for Routine "rating_trial"
 rating_trialClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
@@ -126,32 +141,50 @@ text = visual.TextStim(win=win, name='text',
     depth=0.0);
 rating = visual.RatingScale(win=win, name='rating', marker=u'triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=[u'1', u'7'], scale=u'Not at all related                              Highly related')
 
+# Initialize components for Routine "blank"
+blankClock = core.Clock()
+text_8 = visual.TextStim(win=win, name='text_8',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
 # Initialize components for Routine "translation"
 translationClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 word1 = visual.TextStim(win=win, name='word1',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(-0.2, -0.2), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 word2 = visual.TextStim(win=win, name='word2',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(-0.2, -0.3), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 word3 = visual.TextStim(win=win, name='word3',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(-0.2, -0.4), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-4.0);
+
+# Initialize components for Routine "blank_long"
+blank_longClock = core.Clock()
+text_9 = visual.TextStim(win=win, name='text_9',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
 
 # Initialize components for Routine "end_of_experiment"
 end_of_experimentClock = core.Clock()
@@ -485,10 +518,62 @@ thisExp.nextEntry()
 # the Routine "instr_cont2" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+# ------Prepare to start Routine "blank_long"-------
+t = 0
+blank_longClock.reset()  # clock
+frameN = -1
+continueRoutine = True
+routineTimer.add(0.500000)
+# update component parameters for each repeat
+# keep track of which components have finished
+blank_longComponents = [text_9]
+for thisComponent in blank_longComponents:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "blank_long"-------
+while continueRoutine and routineTimer.getTime() > 0:
+    # get current time
+    t = blank_longClock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_9* updates
+    if t >= 0.0 and text_9.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_9.tStart = t
+        text_9.frameNStart = frameN  # exact frame index
+        text_9.setAutoDraw(True)
+    frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+    if text_9.status == STARTED and t >= frameRemains:
+        text_9.setAutoDraw(False)
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in blank_longComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "blank_long"-------
+for thisComponent in blank_longComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('verbs_test.csv'),
+    trialList=data.importConditions(list_norming_task),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -584,6 +669,58 @@ for thisTrial in trials:
         ArmLeg_loop.addData('rating.rt', rating.getRT())
         # the Routine "rating_trial" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
+        
+        # ------Prepare to start Routine "blank"-------
+        t = 0
+        blankClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        routineTimer.add(0.200000)
+        # update component parameters for each repeat
+        # keep track of which components have finished
+        blankComponents = [text_8]
+        for thisComponent in blankComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "blank"-------
+        while continueRoutine and routineTimer.getTime() > 0:
+            # get current time
+            t = blankClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *text_8* updates
+            if t >= 0.0 and text_8.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                text_8.tStart = t
+                text_8.frameNStart = frameN  # exact frame index
+                text_8.setAutoDraw(True)
+            frameRemains = 0.0 + 0.2- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if text_8.status == STARTED and t >= frameRemains:
+                text_8.setAutoDraw(False)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in blankComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "blank"-------
+        for thisComponent in blankComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
         thisExp.nextEntry()
         
     # completed 1 repeats of 'ArmLeg_loop'
@@ -704,6 +841,58 @@ for thisTrial in trials:
         trials.addData('answer.rt', answer.rt)
     # the Routine "translation" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
+    
+    # ------Prepare to start Routine "blank_long"-------
+    t = 0
+    blank_longClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    routineTimer.add(0.500000)
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    blank_longComponents = [text_9]
+    for thisComponent in blank_longComponents:
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "blank_long"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = blank_longClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_9* updates
+        if t >= 0.0 and text_9.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_9.tStart = t
+            text_9.frameNStart = frameN  # exact frame index
+            text_9.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if text_9.status == STARTED and t >= frameRemains:
+            text_9.setAutoDraw(False)
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in blank_longComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # check for quit (the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "blank_long"-------
+    for thisComponent in blank_longComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
     thisExp.nextEntry()
     
 # completed 1 repeats of 'trials'

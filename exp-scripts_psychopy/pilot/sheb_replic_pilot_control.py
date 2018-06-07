@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 07, 2018, at 16:14
+    on juni 07, 2018, at 22:26
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -76,7 +76,6 @@ sess = int(expInfo['session'])  # session converted to int
 myBlockCount = 0  # count blocks to use in text displays
 
 path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\'
-print(path2stimuli)
 
 ## Duration-related variables (set here rather than in individ elements)
 
@@ -106,7 +105,7 @@ text_7 = visual.TextStim(win=win, name='text_7',
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
-    text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words." + cont,
+    text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause. In this pause, you have to keep the four words in your memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words." + cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,

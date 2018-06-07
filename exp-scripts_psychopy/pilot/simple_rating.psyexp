@@ -4,13 +4,13 @@
     <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
     <Param name="color" updates="None" val="$[0,0,0]" valType="str"/>
     <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
-    <Param name="Experiment info" updates="None" val="{'participant':'', 'session':'001'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{u'session': u'001', u'participant': u''}" valType="code"/>
     <Param name="JS libs" updates="None" val="packaged" valType="str"/>
     <Param name="Units" updates="None" val="use prefs" valType="str"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
     <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
-    <Param name="Window size (pixels)" updates="None" val="(1024, 768)" valType="code"/>
+    <Param name="Window size (pixels)" updates="None" val="[1920, 1200]" valType="code"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
@@ -22,7 +22,7 @@
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
-    <Param name="expName" updates="None" val="word_association_task" valType="str"/>
+    <Param name="expName" updates="None" val="verb_norming" valType="str"/>
     <Param name="logging level" updates="None" val="exp" valType="code"/>
     <Param name="Screen" updates="None" val="1" valType="num"/>
   </Settings>
@@ -141,6 +141,50 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="blank">
+      <TextComponent name="text_8">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_8" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="blank_long">
+      <TextComponent name="text_9">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_9" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
     <Routine name="instr1">
       <TextComponent name="text_7">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -221,7 +265,7 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopType" updates="None" val="condition" valType="str"/>
-        <Param name="scaleDescription" updates="constant" val="Not at all related                                Highly related" valType="str"/>
+        <Param name="scaleDescription" updates="constant" val="Not at all related                              Highly related" valType="str"/>
         <Param name="storeHistory" updates="constant" val="False" valType="bool"/>
         <Param name="categoryChoices" updates="constant" val="" valType="str"/>
         <Param name="customize_everything" updates="constant" val="" valType="str"/>
@@ -231,7 +275,7 @@
     </Routine>
     <Routine name="intro">
       <CodeComponent name="code">
-        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;if pptID % 2 == 0:  # if even participant number&amp;#10;    armlegorder_file = 'arm_first.csv'&amp;#10;    firstrating = &quot;hands/arms&quot;&amp;#10;    secondrating = &quot;feet/legs&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first.csv'&amp;#10;    firstrating = &quot;feet/legs&quot;&amp;#10;    secondrating = &quot;hands/arms&quot;&amp;#10;&amp;#10;## Other&amp;#10;cont = &quot;\n\nPress space bar to continue&quot;  # At the end of instructions slide" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;# alternate between participants whether legs or arms ratings come first&amp;#10;if pptID % 2 == 0:  # if even participant number&amp;#10;    armlegorder_file = 'arm_first.csv'&amp;#10;    firstrating = &quot;hands/arms&quot;&amp;#10;    secondrating = &quot;feet/legs&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first.csv'&amp;#10;    firstrating = &quot;feet/legs&quot;&amp;#10;    secondrating = &quot;hands/arms&quot;&amp;#10;&amp;#10;# trials loop loads a random list for the translation task&amp;#10;# define its path here&amp;#10;path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'&amp;#10;list_norming_task = path2stimuli + `pptID` + '_norming.csv'&amp;#10;&amp;#10;## Other&amp;#10;cont = &quot;\n\nPress space bar to continue&quot;  # At the end of instructions slide" valType="extendedCode"/>
         <Param name="name" updates="None" val="code" valType="code"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="cont = &quot;n\n\Press space bar to continue&quot;" valType="extendedCode"/>
@@ -467,15 +511,16 @@
     <Routine name="instr1"/>
     <Routine name="instr_cont1"/>
     <Routine name="instr_cont2"/>
+    <Routine name="blank_long"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
-      <Param name="conditionsFile" updates="None" val="verbs_test.csv" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="$list_norming_task" valType="str"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="conditions" updates="None" val="[OrderedDict([('word', u'bash'), ('target', u'sla'), ('distrOne', u'knuffa'), ('distrTwo', u'trycka'), ('corrAns', 1), ('w1', u'sla'), ('w2', u'knuffa'), ('w3', u'trycka')]), OrderedDict([('word', u'bind'), ('target', u'binda'), ('distrOne', u'linda'), ('distrTwo', u'vinda'), ('corrAns', 2), ('w1', u'vinda'), ('w2', u'binda '), ('w3', u'linda')]), OrderedDict([('word', u'bounce'), ('target', u'studsa'), ('distrOne', u'dunka'), ('distrTwo', u'kasta'), ('corrAns', 3), ('w1', u'kasta'), ('w2', u'dunka'), ('w3', u'studsa')]), OrderedDict([('word', u'jog'), ('target', u'jogga'), ('distrOne', u'spurta'), ('distrTwo', u'rusa'), ('corrAns', 1), ('w1', u'jogga '), ('w2', u'rusa'), ('w3', u'spurta')]), OrderedDict([('word', u'jump'), ('target', u'hoppa'), ('distrOne', u'kliva'), ('distrTwo', u'lyfta'), ('corrAns', 2), ('w1', u'lyfta'), ('w2', u'hoppa'), ('w3', u'kliva')]), OrderedDict([('word', u'kick'), ('target', u'sparka'), ('distrOne', u'knaa'), ('distrTwo', u'nicka'), ('corrAns', 2), ('w1', u'nicka'), ('w2', u'sparka'), ('w3', u'knaa')])]" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="ArmLeg_loop">
@@ -490,8 +535,10 @@
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <Routine name="rating_trial"/>
+    <Routine name="blank"/>
     <LoopTerminator name="ArmLeg_loop"/>
     <Routine name="translation"/>
+    <Routine name="blank_long"/>
     <LoopTerminator name="trials"/>
     <Routine name="end_of_experiment"/>
   </Flow>
