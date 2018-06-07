@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maj 30, 2018, at 10:42
+    on juni 04, 2018, at 12:58
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -11,7 +11,7 @@ If you publish work using this script please cite the PsychoPy publications:
 """
 
 from __future__ import absolute_import, division
-from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock, microphone
+from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np  # whole numpy lib is available, prepend 'np.'
@@ -26,8 +26,8 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'sheb_replic_180522'  # from the Builder filename that created this script
-expInfo = {'session': '001', 'participant': ''}
+expName = u'sheb_replic_noAudioCapture'  # from the Builder filename that created this script
+expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -50,22 +50,13 @@ logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a f
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
-wavDirName = filename + '_wav'
-if not os.path.isdir(wavDirName):
-    os.makedirs(wavDirName)  # to hold .wav files
-wavDirName = filename + '_wav'
-if not os.path.isdir(wavDirName):
-    os.makedirs(wavDirName)  # to hold .wav files
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0,
+    size=[1366, 768], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
-
-# Enable sound input/output:
-microphone.switchOn()
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -1129,10 +1120,9 @@ for thisBlock in block:
             frameN = -1
             continueRoutine = True
             # update component parameters for each repeat
-            mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
             key_resp_2 = event.BuilderKeyResponse()
             # keep track of which components have finished
-            repeat_wordsComponents = [mic_1, key_resp_2, sound_2]
+            repeat_wordsComponents = [key_resp_2, sound_2]
             for thisComponent in repeat_wordsComponents:
                 if hasattr(thisComponent, 'status'):
                     thisComponent.status = NOT_STARTED
@@ -1143,17 +1133,6 @@ for thisBlock in block:
                 t = repeat_wordsClock.getTime()
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
-                
-                # *mic_1* updates
-                if t >= 0.0 and mic_1.status == NOT_STARTED:
-                    # keep track of start time/frame for later
-                    mic_1.tStart = t
-                    mic_1.frameNStart = frameN  # exact frame index
-                    mic_1.status = STARTED
-                    mic_1.record(sec=max_response_time, block=False)  # start the recording thread
-                
-                if mic_1.status == STARTED and not mic_1.recorder.running:
-                    mic_1.status = FINISHED
                 
                 # *key_resp_2* updates
                 if t >= min_response_time and key_resp_2.status == NOT_STARTED:
@@ -1206,12 +1185,6 @@ for thisBlock in block:
             for thisComponent in repeat_wordsComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            # mic_1 stop & responses
-            mic_1.stop()  # sometimes helpful
-            if not mic_1.savedFile:
-                mic_1.savedFile = None
-            # store data for word_presentation_training (TrialHandler)
-            word_presentation_training.addData('mic_1.filename', mic_1.savedFile)
             # check responses
             if key_resp_2.keys in ['', [], None]:  # No response was made
                 key_resp_2.keys=None
@@ -1564,10 +1537,9 @@ for thisBlock in block:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
         key_resp_2 = event.BuilderKeyResponse()
         # keep track of which components have finished
-        repeat_wordsComponents = [mic_1, key_resp_2, sound_2]
+        repeat_wordsComponents = [key_resp_2, sound_2]
         for thisComponent in repeat_wordsComponents:
             if hasattr(thisComponent, 'status'):
                 thisComponent.status = NOT_STARTED
@@ -1578,17 +1550,6 @@ for thisBlock in block:
             t = repeat_wordsClock.getTime()
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
-            
-            # *mic_1* updates
-            if t >= 0.0 and mic_1.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                mic_1.tStart = t
-                mic_1.frameNStart = frameN  # exact frame index
-                mic_1.status = STARTED
-                mic_1.record(sec=max_response_time, block=False)  # start the recording thread
-            
-            if mic_1.status == STARTED and not mic_1.recorder.running:
-                mic_1.status = FINISHED
             
             # *key_resp_2* updates
             if t >= min_response_time and key_resp_2.status == NOT_STARTED:
@@ -1641,12 +1602,6 @@ for thisBlock in block:
         for thisComponent in repeat_wordsComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        # mic_1 stop & responses
-        mic_1.stop()  # sometimes helpful
-        if not mic_1.savedFile:
-            mic_1.savedFile = None
-        # store data for word_presentation (TrialHandler)
-        word_presentation.addData('mic_1.filename', mic_1.savedFile)
         # check responses
         if key_resp_2.keys in ['', [], None]:  # No response was made
             key_resp_2.keys=None
