@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 08, 2018, at 09:13
+    on juni 08, 2018, at 18:20
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'sheb_replic_pilot_control'  # from the Builder filename that created this script
+expName = 'sheb_replic_pilot_control'  # from the Builder filename that created this script
 expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -94,9 +94,9 @@ min_response_time = 0
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order you saw them." + cont,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "instr_exp1"
@@ -111,10 +111,10 @@ text_8 = visual.TextStim(win=win, name='text_8',
 # Initialize components for Routine "instr_exp2"
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
-    text="The experiment consists of X parts, and there will be a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont,
-    font='Arial',
+    text="The experiment consists of four parts, and there will be a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "train"
@@ -140,9 +140,9 @@ point = visual.Polygon(
 display_words_trainingClock = core.Clock()
 wt1 = visual.TextStim(win=win, name='wt1',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 wt2 = visual.TextStim(win=win, name='wt2',
     text='default text',
