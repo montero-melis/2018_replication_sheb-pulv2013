@@ -4,18 +4,18 @@ BIND,binda,linda,vinda
 BOUNCE,studsa,dunka,kasta
 BRAID,fläta,knyta,binda
 BRUSH,borsta,skrubba,putsa
-CARVE,tälja,hacka,klösa
-CATCH,fånga,krama,klämma
+CARVE,tälja,hacka,riva
+CATCH,fånga,krama,omfamna
 CHOP,hacka,tälja,riva
 CLAP,klappa,knäppa,klämma
 CLAW,klösa,nypa,rispa
 CLEAN,rengöra,rensa,plocka
-CLICK,knäppa,klappa,klämma
-CLIMB,klättra,kliva,stega
-CLUTCH,gripa tag i,sätta ihop,dra isär
+CLICK,klicka,klappa,klämma
+CLIMB,klättra,kliva,krypa
+CLUTCH,gripa tag i,sätta ihop,dra ut
 CRAWL,kravla,huka,klättra
 CREEP,krypa,knäböja,klättra
-CUT,skära,sticka,bryta
+CUT,skära,sticka,spetsa
 DANCE,dansa,snurra,svänga
 DELVE,gräva,plöja,rensa
 DIG,gräva,dränera,dika
@@ -26,16 +26,16 @@ FLIT,rusa,hasa,svassa
 FOLD,vika ihop,knyta ihop,bunta ihop
 GLIDE,glida,hasa,snava
 GRAB,gripa tag i,fästa ihop,smälla till
-GRASP,gripa,klämma,riva
-GRATE,riva,hugga,klättra
+GRASP,gripa,klämma,omfamna
+GRATE,riva,hugga,rispa
 GRIP,gripa om,hålla om,kasta om
-HACK,hacka,skära,såga
+HACK,hacka,skära,kåpa
 HIKE,vandra,flanera,lunka
 HOP,skutta,kliva,studsa
 INCH,röra sig långsamt framåt,dra sig snabbt tillbaka,hasa sig bakåt
 JOG,jogga,spurta,rusa
 JUMP,hoppa,kliva,lyfta
-KICK,sparka,knäa,nicka
+KICK,sparka,knäa,tåa
 KNEEL,knäböja,krypa,kräla
 KNOCK,knacka,krocka,klicka
 LEAP,hoppa,stega,kliva
@@ -47,7 +47,7 @@ NIP,nypa,peta,nudda
 PACE,gå fram och tillbaka,luffa runt,rusa fram
 PAT,klappa,slå,borsta
 PEEL,skala,rensa,plocka
-PINCH,nypa,plocka,rispa
+PINCH,nypa,plocka,pensla
 PLOD,lunka,pulsa,vingla
 PLUCK,plocka,rensa,picka
 POKE,peta,trycka,knuffa
@@ -61,9 +61,9 @@ ROAM,ströva omkring,ta sig fram,luffa runt
 ROLL,vingla,snubbla,svassa
 RUB,gnugga,riva,klappa
 RUN,springa,rusa,jogga
-RUSH,rusa,springa,jogga
+RUSH,rusa,springa,löpa
 SCOOP,skyffla,dika,skrapa
-SCRAPE,skrapa,gnugga,klösa
+SCRAPE,skrapa,rispa,klösa
 SCRATCH,repa,riva,klösa
 SCRUB,skrubba,sopa,skrapa
 SCUFF,hasa sig fram,dra sig fram,kasta sig fram
@@ -71,34 +71,34 @@ SEIZE,fånga,klämma,fästa
 SHAKE,skaka,röra,vispa
 SKATE,åka skridskor,åka skidor,åka kälke
 SKIM,skumma,vispa,sleva
-SKIP,hoppa,kliva,stega
+SKIP,hoppa,kliva,strutta
 SLAP,smälla till,knäppa fast,klämma åt
 SLIDE,glida,ramla,hasa
 SLIP,halka,snava,ramla
-SLITHER,hasa,snava,trilla
+SLITHER,hasa,glida,trilla
 SNATCH,rycka till sig,knuffa ifrån sig,plocka åt sig
 SNEAK,smyga,hasa,glida
-SPRINT,spurta,springa,jogga
+SPRINT,spurta,springa,löpa
 SQUEEZE,klämma,knuffa,knäppa
 STAB,sticka,hacka,skära
 STAGGER,ragla,lunka,halka
 STAMP,stampa,kliva,skutta
 STEP,gå,klampa,traska
-STIR,röra,skumma,vispa
+STIR,röra,sleva,vispa
 STOMP,stampa,stiga,kliva
 STRAY,ströva,vandra,promenera
 STRIDE,kliva,tassa,lunka
 STROLL,strosa,trava,marschera
 STRUT,svassa,lunka,strosa
-STUMBLE,snubbla,glida,hasa
+STUMBLE,snubbla,glida,svaja
 SWAY,vingla,tassa,ramla
 SWITCH,slå på/av,knäppa,nypa
 THROW,kasta,greppa,träffa
-TIPTOE,gå på tå,snava,hasa
+TIPTOE,gå på tå,snava,sparka
 TOSS,slänga,fånga,gripa
 TRAIPSE,traska,stappla,vandra
 TREAD,trampa,stampa,klampa
-TRIP,snubbla,glida,stappla
+TRIP,snubbla,stampa,stappla
 TROT,trava,promenera,flanera
 TRUDGE,släpa sig fram,kasta sig fram,ta sig fram
 TUG,rycka,pressa,slå
