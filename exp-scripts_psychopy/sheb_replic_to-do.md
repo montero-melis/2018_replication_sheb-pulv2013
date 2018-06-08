@@ -1,74 +1,71 @@
 TO DO's and questions regarding implementation of the Shebani & Pulvermüller paradigm
 ================================================================================
 
+# Higher prio
 
-## Choice of words
+## Add training in control condition at the beginning of experiment
+
+In addition to the block-specific training, all participants could start out with a few trials of training in the basic working memory task (control condition). This will allow them to focus on condition-specific instructions.
+
+
+## Do we need the articulation condition?
+
+We are interested in the interaction effect arising in the hand vs feet condition. Do we really need the Articulation condition?
+
+
+## Choice of words/stimuli
 
 - Target verbs -> Can we get 10 items per category?
 - Training verbs -> At least 5 items?
 
 
-## Create pseudo random presentation lists
+## Create presentation lists with final set of target verbs
 
-Is working now, but needs to be adjusted once we have final item lists (training + target)
-
-
-## Problems with PsychoPy crashing
-
-### On my hp elite notebook:
-
-- Right now Python seems to crash at the end of every complete run of an experiment. The data file is still stored (apparently), but this is still not optimal.
-
-### On DELL project computer:
-
-- Some problem related to microphone? Error message: 
-	- most recent call calls "C:\Program Files (x86)\PsychoPy2\lib\site-packages\psychopy\microphone.py" line 170; AttributeError: pyo server not created
+Is working now, but needs to be adjusted once we have final item lists (training + target); this choice will be based on our norming tasks in the pilot.
 
 
 ## Instructions
 
-Update based on suggestions by Rita+Pia
+Edit as necessary based on pilot. Make sure that the actual study integrates the changes made in the pilot.
 
 
-## Save data after every trial 
+## Sound recording
 
-If Python crashes in the middle of the experiment, all data seems to be lost. This hurts if it happens at the end of the experiment. See suggestion by Chuck Theobald in the following link to prevent losing all data:
-https://groups.google.com/forum/#!topic/psychopy-users/t-5X-vyh6vg
-Or is the data actually retrievable from the .log file???
-Check with Gunnar...
+Agree on convention for file naming and where to put backups of sound files
 
 
-## Simplify output data file
+## Max speed for drumming?
 
-Right now there are many unnecessary (completely uninformative) columns in data files. Remove them! (ask Gunnar?)
+Set a maximum speed for drumming, e.g. 200 bpm? (Minimum = 100 bpm)
 
+
+# Lower prio
 
 ## Best way to call the experiment?
 
 There are different options for the same PsychoPy script: from builder, directly call ".py" executable, etc. What's the best option?
 
 
-## Sound recording
+## Simplify output data file
 
-- Check it works on project cpu
-- Think of how it will work if we have to rely on Zoom recording
-
-
-## Training phase
-
-- "Train now" and "Ready - press space bar" as 2 separate slides
-- Increase to 5-6 items (20-24 words)
-- Before starting: "remember the memory phase starts after the 4th word is presented"
+Remove unnecessary (uninformative) columns in generated data files?
 
 
 ## During pilot, reconsider the following
 
-- Length of presentation: 100 ms enough? Seemed very short when I piloted with my wife (and with myself)... maybe 200 ms?
 - Length of beep (current 250 ms)
 - "fixation point": is this an actual point or perhaps a crosshair? What size? --> careful how size is defined if it's relative to the current monitor!
 - Font size okay? Change font so there is difference between instructions and presented words?
 
 
-## Other
 
-- Set a maximum speed for drumming, e.g. 200 bpm? (Minimum = 100 bpm)
+# SOLVED
+
+## Problems with PsychoPy crashing
+
+We avoid this by not recording audio through PsychoPy. We use an external recorder. This is perfect low-tech solution.
+
+
+## Save data after every trial
+
+This seems to be working now. PsychoPy hasn't crashed, but when we interrupt the experiment, there is a data csv file for the experiment up to that point.
