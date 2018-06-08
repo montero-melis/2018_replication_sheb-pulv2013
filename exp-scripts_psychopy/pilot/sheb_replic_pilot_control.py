@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 07, 2018, at 22:26
+    on juni 08, 2018, at 09:13
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,8 +26,8 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'sheb_replic_180522'  # from the Builder filename that created this script
-expInfo = {'session': '001', 'participant': ''}
+expName = u'sheb_replic_pilot_control'  # from the Builder filename that created this script
+expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -53,9 +53,9 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(1024, 768), fullscr=True, screen=0,
+    size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -75,21 +75,18 @@ sess = int(expInfo['session'])  # session converted to int
 
 myBlockCount = 0  # count blocks to use in text displays
 
-path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\'
+# define path to stimuli list; block info is specified in block loop
+path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p' + `pptID` + '_b'
 
 ## Duration-related variables (set here rather than in individ elements)
 
 # If session = 9, then speed through the screens
-if sess == 9: 
-    fix_point_duration = .05  # orig = 3
-#    word_duration = .1  # how long is each word shown for (orig = .1)
-#    SOA = .15  # stimulus onset asynchrony (orig = .5)
-    mem_per = .05 # time during which words have to be kept in memory (orig = 6)
-else:  # otherwise use the standard duration
+if sess != 9: 
     fix_point_duration = 3  # orig = 3
-#    word_duration = .2  # how long is each word shown for (orig = .1)
-#    SOA = .5  # stimulus onset asynchrony (orig = .5)
     mem_per = 6 # time during which words have to be kept in memory (orig = 6)
+else:  # otherwise use the standard duration
+    fix_point_duration = .75  # orig = 3
+    mem_per = 1.0 # time during which words have to be kept in memory (orig = 6)
 
 min_response_time = 0
 
@@ -1027,10 +1024,14 @@ for thisExperimental_block in experimental_blocks:
     # update component parameters for each repeat
     myBlockCount += 1
     
-    curr_ppt_block = "p" + `pptID` + "_b" + `myBlockCount`
-    print(curr_ppt_block)
     
-    curr_list_targets = path2stimuli + curr_ppt_block + '_pilot_targets.csv'
+    # If session != 9, load a randomized list (normal case)
+    if sess != 9: 
+        curr_list_targets = path2stimuli + `myBlockCount` + '_pilot_targets.csv'
+    else:  # otherwise (if sess==9) use a minimal list
+        curr_list_targets = 'minilist_4test.csv'
+    
+    #curr_list_targets = path2stimuli + `myBlockCount` + '_pilot_targets.csv'
     print(curr_list_targets)
     
     block_intro.setText("Part " + `myBlockCount` + cont)
