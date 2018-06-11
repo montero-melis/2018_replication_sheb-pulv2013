@@ -19,7 +19,7 @@ getwd()  # should be "[whatever...]/2018_replication_sheb-pulv2013"
 # script.
 # Regarding the choice of values for word_duration, these are loosely based
 # on the range of values reviewed in Molinaro et al. 2011, Cortex).
-block_conditions <- data.frame(word_duration = c(0.1, seq(.2, .4, .05)),
+block_conditions <- data.frame(word_duration = seq(.1, .4, .1),
                                follow_blank = 0.4)
 block_conditions$SOA <- with(block_conditions, word_duration + follow_blank)
 block_conditions
