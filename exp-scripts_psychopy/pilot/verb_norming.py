@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on juni 07, 2018, at 22:23
+    on juni 12, 2018, at 17:27
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'verb_norming'  # from the Builder filename that created this script
+expName = 'verb_norming'  # from the Builder filename that created this script
 expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=True, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -104,7 +104,7 @@ text_7 = visual.TextStim(win=win, name='text_7',
 # Initialize components for Routine "instr_cont1"
 instr_cont1Clock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
-    text="First, you will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Use the digit keys 1 to 7 to indicate your rating. Lock in your answer by pressing return."+cont
+    text="First, you will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Use the number keys 1 to 7 to indicate your rating. Lock in your answer by pressing return."+cont
 
 ,
     font='Arial',
@@ -115,8 +115,17 @@ text_6 = visual.TextStim(win=win, name='text_6',
 # Initialize components for Routine "instr_cont2"
 instr_cont2Clock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
-    text="After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Choose the best option by using the keys 1, 2 or 3." +cont
+    text="After the ratings, you will be asked to choose the best Swedish translation from three alternatives. Use the keys 1, 2 or 3 to indicate your choice." +cont
 ,
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "instr_cont3"
+instr_cont3Clock = core.Clock()
+text_10 = visual.TextStim(win=win, name='text_10',
+    text="If you have any additional questions, you may ask the experiment leader now. \n\nAre you ready to start?" +cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -126,9 +135,9 @@ text_4 = visual.TextStim(win=win, name='text_4',
 blank_longClock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "rating_trial"
@@ -139,51 +148,51 @@ text = visual.TextStim(win=win, name='text',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
-rating = visual.RatingScale(win=win, name='rating', marker=u'triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=[u'1', u'7'], scale=u'Not at all related                              Highly related')
+rating = visual.RatingScale(win=win, name='rating', marker='triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=['1', '7'], scale='Not at all related                              Highly related')
 
 # Initialize components for Routine "blank"
 blankClock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "translation"
 translationClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 word1 = visual.TextStim(win=win, name='word1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(-0.2, -0.2), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 word2 = visual.TextStim(win=win, name='word2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(-0.2, -0.3), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 word3 = visual.TextStim(win=win, name='word3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(-0.2, -0.4), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-4.0);
 
 # Initialize components for Routine "blank_long"
 blank_longClock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "end_of_experiment"
@@ -518,6 +527,85 @@ thisExp.nextEntry()
 # the Routine "instr_cont2" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+# ------Prepare to start Routine "instr_cont3"-------
+t = 0
+instr_cont3Clock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+key_resp_8 = event.BuilderKeyResponse()
+# keep track of which components have finished
+instr_cont3Components = [text_10, key_resp_8]
+for thisComponent in instr_cont3Components:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "instr_cont3"-------
+while continueRoutine:
+    # get current time
+    t = instr_cont3Clock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_10* updates
+    if t >= 0.0 and text_10.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_10.tStart = t
+        text_10.frameNStart = frameN  # exact frame index
+        text_10.setAutoDraw(True)
+    
+    # *key_resp_8* updates
+    if t >= 0.0 and key_resp_8.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_8.tStart = t
+        key_resp_8.frameNStart = frameN  # exact frame index
+        key_resp_8.status = STARTED
+        # keyboard checking is just starting
+        win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
+        event.clearEvents(eventType='keyboard')
+    if key_resp_8.status == STARTED:
+        theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            key_resp_8.keys = theseKeys[-1]  # just the last key pressed
+            key_resp_8.rt = key_resp_8.clock.getTime()
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in instr_cont3Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "instr_cont3"-------
+for thisComponent in instr_cont3Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# check responses
+if key_resp_8.keys in ['', [], None]:  # No response was made
+    key_resp_8.keys=None
+thisExp.addData('key_resp_8.keys',key_resp_8.keys)
+if key_resp_8.keys != None:  # we had a response
+    thisExp.addData('key_resp_8.rt', key_resp_8.rt)
+thisExp.nextEntry()
+# the Routine "instr_cont3" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # ------Prepare to start Routine "blank_long"-------
 t = 0
 blank_longClock.reset()  # clock
@@ -614,7 +702,7 @@ for thisTrial in trials:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        text.setText(category + "-relatedness\n\nHow " + category_lowercase + "-related is the word " + word + "?")
+        text.setText(category + "-relatedness\n\nHow " + category_lowercase + "-related is the verb " + word + "?")
         rating.reset()
         # keep track of which components have finished
         rating_trialComponents = [text, rating]
