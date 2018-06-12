@@ -8,42 +8,109 @@
 
 getwd()  # should be "[whatever...]/2018_replication_sheb-pulv2013"
 
-# function to process all raw data files and save into right folder
-process_raw_data <- function(pptID = -9, saveToDisk = FALSE) {
-  if (pptID == -9) {
-    stop("No pptID provided. Set pptID = 'all' to preprocess data for all participants.")
-  }
-  path_input <- "exp-scripts_psychopy/pilot/data/"
-  path_output <- "analysis/data_coding/"
-  # First, pilot control experiment
-  control_file <- paste(path_input, pptID, "_sheb_replic_pilot_control_2018_Jun_08_1031.csv", sep = "")
-  control_exp <- read.csv(control_file, fileEncoding = "UTF-8")
+
+#  ------------------------------------------------------------------------
+#  Define functions
+#  ------------------------------------------------------------------------
+
+# gets name of data files in "mypath" that contain "expname" in their name
+get_data_filenames <- function(mypath = NULL, expname = NULL) {
+  myfiles <- list.files(mypath)
+  # match only csv files for the right experiment
+  mymatch <- paste(".*", expname, ".*\\.csv", sep ="")
+  myfiles <- myfiles[grep(mymatch, myfiles)]  
+  # Exclude participant numbers in range 990-999 (used for testing only)
+  myfiles <- myfiles[grep("^(?!99[0-9])", myfiles, perl = TRUE)]   
+  myfiles
+}
+# example:
+get_data_filenames("exp-scripts_psychopy/pilot/data", "sheb_replic_pilot")
+get_data_filenames("exp-scripts_psychopy/pilot/data", "verb_norming_2")
+
+
+# reads CSV data files generated from "sheb_replic_pilot_control" experiment,
+# processes them and saves them to disk to path_output
+process_control <- function(filename, path_output) {
+  df <- read.csv(filename, fileEncoding = "UTF-8")
+  # extract participant number using some arcane regex functions in R
+  match <- regexpr("\\d\\d\\d", filename)  # assumes first 3 digits of filename are ppt ID
+  pptID <- regmatches(filename, match)
+  # define the filename for output, including path to right folder
+  output_filename <- paste(path_output, "TOCODE_", pptID, "_sheb_replic_pilot_control.csv", sep = "")
   # relevant columns to keep
   keep_cols <- c('expName', 'date', 'participant', 'experimental_blocks.thisN',
-            'word_duration', 'SOA', 'word_presentation.thisN',
-            'type', 'key_resp_2.rt', paste('word', 1:4, sep = ""))
+                 'word_duration', 'SOA', 'word_presentation.thisN',
+                 'type', 'key_resp_2.rt', paste('word', 1:4, sep = ""))
   # select the relevant rows and columns to keep
-  control_exp <- control_exp[control_exp$type %in% c("arm", "leg"), keep_cols]
+  df <- df[df$type %in% c("arm", "leg"), keep_cols]
   # rename some of the columns
-  names(control_exp)[c(4, 7, 9)] <- c("block", "trial", "trialRT")
+  names(df)[c(4, 7, 9)] <- c("block", "trial", "trialRT")
   # add columns for coding
   newcols <- data.frame(w1 = "", w2 = "", w3 = "", w4 = "", error = "", score = "",
                         comment = "", coder = "")
-  control_exp <- cbind(control_exp, newcols)
-  if (saveToDisk) {
-    write.csv(control_exp, 
-              paste(path_output, "TOCODE_", pptID,
-                    "_sheb_replic_pilot_control.csv", sep = ""),
-              row.names = FALSE, fileEncoding = "UTF-8")
-  } else control_exp
+  df <- cbind(df, newcols)
+  write.csv(df, output_filename, row.names = FALSE, fileEncoding = "UTF-8")
 }
-# # TO DO
-# - Read all data files from an experiment in the folder
-# - experiments: control, verb_norming, verb_norming_oral_input
+# Uncomment and run following line for running function with data from ppt 900
+# process_control("exp-scripts_psychopy/pilot/data/900_sheb_replic_pilot_control_2018_Jun_08_1031.csv", "analysis/data_coding/")
 
-process_raw_data(900, saveToDisk = TRUE)
 
-p900 <- process_raw_data(900)
-head(p900)
-tail(p900)
-names(p900)
+# reads CSV data files generated from "verb_norming" experiment, processes them
+# and saves them to disk to path_output. Output is saved as two different files,
+# one for verb ratings, the other for multiple choice translation
+verb_norming <- function(filename, path_output) {
+  df <- read.csv(filename, fileEncoding = "UTF-8")
+  # extract participant number using some arcane regex functions in R
+  match <- regexpr("\\d\\d\\d", filename)  # assumes first 3 digits are ppt ID
+  pptID <- regmatches(filename, match)
+  # define the filename for output, including path to right folder
+  out_filename_rating <- paste(path_output, pptID, "_verb_rating.csv", sep = "")
+  out_filename_transl <- paste(path_output, pptID,
+                               "_verb_translation_multiple-choice.csv", sep = "")
+  # relevant columns to keep for rating and translation, respectively
+  cols_rat <- c('expName', 'date', 'participant', 'trials.thisN',
+                 'word', 'category', 'rating.response')
+  cols_tra <- c('expName', 'date', 'participant', 'trials.thisN',
+                'word', 'target', 'distrOne', 'distrTwo', 'w1', 'w2', 'w3',
+                'corrAns', 'answer.keys', 'answer.corr')
+  # select the relevant rows and columns to keep for each of the data frames
+  rat <- df[df$category %in% c("Arm", "Leg"), cols_rat]  # ratings
+  tra <- df[df$answer.corr %in% c(0, 1), cols_tra]  # translations
+  # rename some of the columns
+  names(rat)[4:7] <- c("trial", "verb", "rated_category", "rating")
+  names(tra)[c(4, 5, 12:14)] <- c("trial", "verb", "corr_answer", "answer", "correct")
+  # write to disk
+  write.csv(rat, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(tra, out_filename_transl, row.names = FALSE, fileEncoding = "UTF-8")
+}
+
+# Uncomment and run following line for running function with data from ppt 900
+# verb_norming("exp-scripts_psychopy/pilot/data/900_verb_norming_2018_Jun_08_1140.csv", "analysis/data_coding/")
+
+
+#  ------------------------------------------------------------------------
+#  Read, process and save to disk
+#  ------------------------------------------------------------------------
+
+# wrapper function to combine the above
+process_raw_data <- function() {
+  path_input <- "exp-scripts_psychopy/pilot/data/"
+  path_output <- "analysis/data_coding/"
+  
+  # First, for pilot-control experiment
+  control_files <- get_data_filenames(path_input, "sheb_replic_pilot_control")
+  for (myfile in control_files) {
+    process_control(paste(path_input, myfile, sep=""), path_output)
+  }
+  
+  # Then for verb_norming task - multiple choice translation (NB: the expname
+  # argument passed to the call below ensures that data files for psychopy exp
+  # "verb_norming_oral_input" are excluded
+  verbnorming_files <- get_data_filenames(path_input, "verb_norming_2")
+  for (myfile in verbnorming_files) {
+    verb_norming(paste(path_input, myfile, sep=""), path_output)
+  }
+  
+}
+# uncomment and run
+# process_raw_data()
