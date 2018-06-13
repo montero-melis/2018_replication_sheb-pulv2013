@@ -15,8 +15,9 @@
 
 *.tiff
 
-audiofiles/*
+analysis/audiorecordings/*
 *.wav
+*.mp3
 
 # Use participant ID's in range 990-999 for testing -- these will not be tracked by git
 exp-scripts_psychopy/data/99[0-9]*
