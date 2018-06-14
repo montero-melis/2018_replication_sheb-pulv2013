@@ -26,6 +26,7 @@ get_data_filenames <- function(mypath = NULL, expname = NULL) {
 # example:
 get_data_filenames("exp-scripts_psychopy/pilot/data", "sheb_replic_pilot")
 get_data_filenames("exp-scripts_psychopy/pilot/data", "verb_norming_2")
+get_data_filenames("exp-scripts_psychopy/pilot/data", "verb_norming_oral")
 
 
 # reads CSV data files generated from "sheb_replic_pilot_control" experiment,
@@ -84,8 +85,39 @@ verb_norming <- function(filename, path_output) {
   write.csv(tra, out_filename_transl, row.names = FALSE, fileEncoding = "UTF-8")
 }
 
-# Uncomment and run following line for running function with data from ppt 900
-# verb_norming("exp-scripts_psychopy/pilot/data/900_verb_norming_2018_Jun_08_1140.csv", "analysis/data_coding/")
+
+# similar to "verb_norming" but for "verb_norming_oral_input" experiment
+# (participants say their translation instead of multiple choice)
+verb_norming_oral <- function(filename, path_output) {
+  df <- read.csv(filename, fileEncoding = "UTF-8")
+  # extract participant number using some arcane regex functions in R
+  match <- regexpr("\\d\\d\\d", filename)  # assumes first 3 digits are ppt ID
+  pptID <- regmatches(filename, match)
+  # define the filename for output, including path to right folder
+  out_filename_rating <- paste(path_output, pptID, "_verb_rating.csv", sep = "")
+  out_filename_transl <- paste(path_output, "TOCODE_", pptID,
+                               "_verb_translation_oral-input.csv", sep = "")
+  # relevant columns to keep for rating and translation, respectively
+  cols_rat <- c('expName', 'date', 'participant', 'trials.thisN',
+                'word', 'category', 'rating.response')
+  cols_tra <- c('expName', 'date', 'participant', 'trials.thisN', 'key_resp_7.rt',
+                'target', 'word')
+  # select the relevant rows and columns to keep for each of the data frames
+  rat <- df[df$category %in% c("Arm", "Leg"), cols_rat]  # ratings
+  tra <- df[df$key_resp_7.keys == "return", cols_tra]  # translations
+  # rename some of the columns
+  names(rat)[4:7] <- c("trial", "verb", "rated_category", "rating")
+  names(tra)[4:7] <- c("trial", "resp_time", "our_transl", "verb")
+  # add columns for coding
+  tra$ppt_translation <- ""
+  tra$score <- ""
+  # write to disk
+  write.csv(rat, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(tra, out_filename_transl, row.names = FALSE, fileEncoding = "UTF-8")
+}
+
+# Uncomment and run following line for running function with data from ppt 905
+# verb_norming_oral("exp-scripts_psychopy/pilot/data/905_verb_norming_oral_input_2018_Jun_13_1344.csv", "analysis/data_coding/")
 
 
 #  ------------------------------------------------------------------------
@@ -109,6 +141,12 @@ process_raw_data <- function() {
   verbnorming_files <- get_data_filenames(path_input, "verb_norming_2")
   for (myfile in verbnorming_files) {
     verb_norming(paste(path_input, myfile, sep=""), path_output)
+  }
+  
+  # for verb_norming_oral_input task - translation is free and spoken
+  verbnormingoral_files <- get_data_filenames(path_input, "verb_norming_oral")
+  for (myfile in verbnormingoral_files) {
+    verb_norming_oral(paste(path_input, myfile, sep=""), path_output)
   }
   
 }
