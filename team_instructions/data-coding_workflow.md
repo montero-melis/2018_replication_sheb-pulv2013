@@ -47,6 +47,15 @@ For `sheb_replic_pilot_control`, there are the following columns:
 - `score`: this column is left blank (it will be filled in by a script as a function of `error`)
 - `comment`: Write in any comment that might seem relevant; for example, if the participants hesitates a lot. Take note of any coding difficulty you notice, so we can discuss it later.
 
+
+For `verb_translation_oral-input`, code the following columns:
+
+- `ppt_translation`: the participant response; if they give several alternatives, write them separated by commas, e.g. "knuffa, trycka"; you don't need to transcribe long digressions, just note if they say they don't know it.
+- `score`: One of 1, 0 or -99. Code 1 if they say our target translation, or a complete synonym that means the same thing, or if they describe it exactly in a way that conveys that they really know the word; code 0 if they say another word or express that they don't know; code -99 if you are uncertain and would need a second opinion.
+- `comment`: add any relevant comment about the trial.
+
+
+
 #### Types of errors
 
 The first three error types were in the original study (Shebani & Pulvermüller, 2013); "additions" were not.
