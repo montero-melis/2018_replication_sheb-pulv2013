@@ -111,6 +111,7 @@ verb_norming_oral <- function(filename, path_output) {
   # add columns for coding
   tra$ppt_translation <- ""
   tra$score <- ""
+  tra$comment <- ""
   # write to disk
   write.csv(rat, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
   write.csv(tra, out_filename_transl, row.names = FALSE, fileEncoding = "UTF-8")
