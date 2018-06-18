@@ -74,7 +74,7 @@ b) Click on View > Show Console
 c) A small white console shows up at the bottom of the screen.
 d) In the lowest row (the one that accepts written input), type in the command "view.encoding()" and press return
 e) Sublime will tell you the encoding of the file
-f) Use this information when you open the file in Excel, i.e. if the file encoding is Western (Windows 1252), then use this option when you import the file as text in Excel (see Step 4 above under "When you start coding the data from a new participant")
+f) Use this information when you open the file in Excel, i.e. if the file encoding is Western (Windows 1252), then use this option when you import the file as text in Excel (see Step 4 above under "When you start coding the data from a new participant" -- in Excel it might show up as "1252: Western European (Windows)")
 g) You can also, in Sublime, go to File > Save with encoding > UTF-8. That will save the file in UTF-8 format
 
 NB: For some reason the data files in `analysis/data_coding/`, which are created with the R script `analysis/pilot-data_preprocess.R`, are not recognized by Sublime as being encoded in UTF-8 format, even though the R-script does specify that. GMM doesn't understand why, so let us just be pragmatic about this:
