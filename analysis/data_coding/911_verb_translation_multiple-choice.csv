@@ -1,0 +1,113 @@
+"expName","date","participant","trial","verb","target","distrOne","distrTwo","w1","w2","w3","corr_answer","answer","correct"
+"verb_norming","2018_Jun_19_1257",911,0,"NIP","nypa","peta","nudda","nudda","nypa","peta",2,2,1
+"verb_norming","2018_Jun_19_1257",911,1,"STRIDE","kliva","tassa","lunka","kliva","tassa","lunka",1,1,1
+"verb_norming","2018_Jun_19_1257",911,2,"KICK","sparka","knäa","tåa","knäa","sparka","tåa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,3,"PLOD","lunka","pulsa","vingla","lunka","pulsa","vingla",1,1,1
+"verb_norming","2018_Jun_19_1257",911,4,"MOUNT","gå uppför","ströva runt","kliva över","ströva runt","kliva över","gå uppför",3,3,1
+"verb_norming","2018_Jun_19_1257",911,5,"FLEE","fly","lyfta","flyga","fly","lyfta","flyga",1,1,1
+"verb_norming","2018_Jun_19_1257",911,6,"GRIP","gripa om","hålla om","kasta om","hålla om","kasta om","gripa om",3,3,1
+"verb_norming","2018_Jun_19_1257",911,7,"STIR","röra","sleva","vispa","sleva","vispa","röra",3,3,1
+"verb_norming","2018_Jun_19_1257",911,8,"SEIZE","fånga","klämma","fästa","fästa","klämma","fånga",3,3,1
+"verb_norming","2018_Jun_19_1257",911,9,"CATCH","fånga","krama","omfamna","omfamna","fånga","krama",2,2,1
+"verb_norming","2018_Jun_19_1257",911,10,"RAMBLE","ströva","strutta","spurta","strutta","spurta","ströva",3,3,1
+"verb_norming","2018_Jun_19_1257",911,11,"WANDER","vandra","marschera","spatsera","vandra","spatsera","marschera",1,2,0
+"verb_norming","2018_Jun_19_1257",911,12,"BOUNCE","studsa","dunka","kasta","dunka","studsa","kasta",2,2,1
+"verb_norming","2018_Jun_19_1257",911,13,"TIPTOE","gå på tå","snava","sparka","sparka","gå på tå","snava",2,2,1
+"verb_norming","2018_Jun_19_1257",911,14,"HIKE","vandra","flanera","lunka","lunka","vandra","flanera",2,2,1
+"verb_norming","2018_Jun_19_1257",911,15,"GRAB","gripa tag i","fästa ihop","smälla till","smälla till","gripa tag i","fästa ihop",2,2,1
+"verb_norming","2018_Jun_19_1257",911,16,"PINCH","nypa","plocka","pensla","pensla","nypa","plocka",2,2,1
+"verb_norming","2018_Jun_19_1257",911,17,"DELVE","gräva","plöja","rensa","plöja","rensa","gräva",3,2,0
+"verb_norming","2018_Jun_19_1257",911,18,"DUNK","dunka","dumpa","dunsa","dunsa","dumpa","dunka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,19,"SHAKE","skaka","röra","vispa","skaka","röra","vispa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,20,"LEAP","hoppa","stega","kliva","stega","hoppa","kliva",2,2,1
+"verb_norming","2018_Jun_19_1257",911,21,"FOLD","vika ihop","knyta ihop","bunta ihop","bunta ihop","knyta ihop","vika ihop",3,3,1
+"verb_norming","2018_Jun_19_1257",911,22,"TRUDGE","släpa sig fram","kasta sig fram","ta sig fram","ta sig fram","kasta sig fram","släpa sig fram",3,1,0
+"verb_norming","2018_Jun_19_1257",911,23,"TROT","trava","promenera","flanera","promenera","trava","flanera",2,1,0
+"verb_norming","2018_Jun_19_1257",911,24,"PRANCE","kråma sig","promenera","traska","kråma sig","traska","promenera",1,2,0
+"verb_norming","2018_Jun_19_1257",911,25,"SPRINT","spurta","springa","löpa","löpa","spurta","springa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,26,"FILE","fila","putsa","riva","riva","fila","putsa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,27,"WRAP","slå in","slå ihop","slå till","slå ihop","slå in","slå till",2,2,1
+"verb_norming","2018_Jun_19_1257",911,28,"POKE","peta","trycka","knuffa","trycka","peta","knuffa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,29,"RUN","springa","rusa","jogga","rusa","springa","jogga",2,2,1
+"verb_norming","2018_Jun_19_1257",911,30,"CARVE","tälja","hacka","riva","riva","hacka","tälja",3,3,1
+"verb_norming","2018_Jun_19_1257",911,31,"JOG","jogga","spurta","rusa","jogga","rusa","spurta",1,1,1
+"verb_norming","2018_Jun_19_1257",911,32,"TRIP","snubbla","stampa","stappla","snubbla","stappla","stampa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,33,"CLICK","klicka","klappa","klämma","klicka","klappa","klämma",1,1,1
+"verb_norming","2018_Jun_19_1257",911,34,"SLIDE","glida","ramla","hasa","hasa","glida","ramla",2,2,1
+"verb_norming","2018_Jun_19_1257",911,35,"SKATE","åka skridskor","åka skidor","åka kälke","åka skridskor","åka kälke","åka skidor",1,1,1
+"verb_norming","2018_Jun_19_1257",911,36,"STROLL","strosa","trava","marschera","trava","marschera","strosa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,37,"WOBBLE","vingla","ramla","glida","ramla","vingla","glida",2,2,1
+"verb_norming","2018_Jun_19_1257",911,38,"CLEAN","rengöra","rensa","plocka","rengöra","rensa","plocka",1,1,1
+"verb_norming","2018_Jun_19_1257",911,39,"PLUCK","plocka","rensa","picka","plocka","rensa","picka",1,3,0
+"verb_norming","2018_Jun_19_1257",911,40,"ROAM","ströva omkring","ta sig fram","luffa runt","ta sig fram","ströva omkring","luffa runt",2,1,0
+"verb_norming","2018_Jun_19_1257",911,41,"STRAY","ströva","vandra","promenera","vandra","promenera","ströva",3,3,1
+"verb_norming","2018_Jun_19_1257",911,42,"TOSS","slänga","fånga","gripa","slänga","gripa","fånga",1,1,1
+"verb_norming","2018_Jun_19_1257",911,43,"CLUTCH","gripa tag i","sätta ihop","dra ut","sätta ihop","dra ut","gripa tag i",3,3,1
+"verb_norming","2018_Jun_19_1257",911,44,"PUNCH","slå","knuffa","kasta","knuffa","slå","kasta",2,2,1
+"verb_norming","2018_Jun_19_1257",911,45,"CLAW","klösa","nypa","rispa","nypa","rispa","klösa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,46,"THROW","kasta","greppa","träffa","kasta","träffa","greppa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,47,"HACK","hacka","skära","kåpa","kåpa","hacka","skära",2,2,1
+"verb_norming","2018_Jun_19_1257",911,48,"DANCE","dansa","snurra","svänga","dansa","snurra","svänga",1,1,1
+"verb_norming","2018_Jun_19_1257",911,49,"STAB","sticka","hacka","skära","skära","hacka","sticka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,50,"DIG","gräva","dränera","dika","gräva","dika","dränera",1,1,1
+"verb_norming","2018_Jun_19_1257",911,51,"WADE","vada","pulsa","plöja","plöja","pulsa","vada",3,3,1
+"verb_norming","2018_Jun_19_1257",911,52,"SLITHER","hasa","glida","trilla","glida","hasa","trilla",2,2,1
+"verb_norming","2018_Jun_19_1257",911,53,"LIMP","halta","hasa","halka","hasa","halka","halta",3,3,1
+"verb_norming","2018_Jun_19_1257",911,54,"SCOOP","skyffla","dika","skrapa","skrapa","skyffla","dika",2,2,1
+"verb_norming","2018_Jun_19_1257",911,55,"JUMP","hoppa","kliva","lyfta","kliva","lyfta","hoppa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,56,"SWITCH","slå på/av","knäppa","nypa","nypa","slå på/av","knäppa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,57,"SWAY","vingla","tassa","ramla","ramla","vingla","tassa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,58,"SLAP","smälla till","knäppa fast","klämma åt","klämma åt","smälla till","knäppa fast",2,2,1
+"verb_norming","2018_Jun_19_1257",911,59,"SNEAK","smyga","hasa","glida","smyga","hasa","glida",1,1,1
+"verb_norming","2018_Jun_19_1257",911,60,"RUSH","rusa","springa","löpa","springa","rusa","löpa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,61,"MARCH","marschera","trava","traska","traska","marschera","trava",2,2,1
+"verb_norming","2018_Jun_19_1257",911,62,"PAT","klappa","slå","borsta","borsta","slå","klappa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,63,"PEEL","skala","rensa","plocka","skala","rensa","plocka",1,1,1
+"verb_norming","2018_Jun_19_1257",911,64,"STEP","gå","klampa","traska","gå","traska","klampa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,65,"KNOCK","knacka","krocka","klicka","krocka","klicka","knacka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,66,"SNATCH","rycka till sig","knuffa ifrån sig","plocka åt sig","rycka till sig","knuffa ifrån sig","plocka åt sig",1,1,1
+"verb_norming","2018_Jun_19_1257",911,67,"SCRATCH","repa","riva","klösa","klösa","riva","repa",3,2,0
+"verb_norming","2018_Jun_19_1257",911,68,"TWINE","tvinna","binda","knyta","binda","knyta","tvinna",3,3,1
+"verb_norming","2018_Jun_19_1257",911,69,"SCRUB","skrubba","sopa","skrapa","sopa","skrapa","skrubba",3,3,1
+"verb_norming","2018_Jun_19_1257",911,70,"GLIDE","glida","hasa","snava","glida","hasa","snava",1,1,1
+"verb_norming","2018_Jun_19_1257",911,71,"BRUSH","borsta","skrubba","putsa","putsa","skrubba","borsta",3,3,1
+"verb_norming","2018_Jun_19_1257",911,72,"STRUT","svassa","lunka","strosa","lunka","svassa","strosa",2,1,0
+"verb_norming","2018_Jun_19_1257",911,73,"CHOP","hacka","tälja","riva","riva","hacka","tälja",2,2,1
+"verb_norming","2018_Jun_19_1257",911,74,"CRAWL","kravla","huka","klättra","huka","klättra","kravla",3,3,1
+"verb_norming","2018_Jun_19_1257",911,75,"WASH","tvätta","skura","sopa","skura","tvätta","sopa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,76,"KNEEL","knäböja","krypa","kräla","kräla","knäböja","krypa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,77,"LIFT","lyfta","pressa","öka","lyfta","öka","pressa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,78,"BIND","binda","linda","vinda","vinda","linda","binda",3,3,1
+"verb_norming","2018_Jun_19_1257",911,79,"CREEP","krypa","knäböja","klättra","krypa","klättra","knäböja",1,1,1
+"verb_norming","2018_Jun_19_1257",911,80,"HOP","skutta","kliva","studsa","skutta","kliva","studsa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,81,"GRASP","gripa","klämma","omfamna","omfamna","klämma","gripa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,82,"STOMP","stampa","stiga","kliva","kliva","stiga","stampa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,83,"BRAID","fläta","knyta","binda","knyta","binda","fläta",3,3,1
+"verb_norming","2018_Jun_19_1257",911,84,"TREAD","trampa","stampa","klampa","klampa","stampa","trampa",3,3,1
+"verb_norming","2018_Jun_19_1257",911,85,"CUT","skära","sticka","spetsa","sticka","spetsa","skära",3,3,1
+"verb_norming","2018_Jun_19_1257",911,86,"SQUEEZE","klämma","knuffa","knäppa","klämma","knuffa","knäppa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,87,"WALK","gå","promenera","marschera","gå","promenera","marschera",1,1,1
+"verb_norming","2018_Jun_19_1257",911,88,"STAMP","stampa","kliva","skutta","stampa","skutta","kliva",1,1,1
+"verb_norming","2018_Jun_19_1257",911,89,"WHIP","piska","klappa","slå","klappa","slå","piska",3,3,1
+"verb_norming","2018_Jun_19_1257",911,90,"STAGGER","ragla","lunka","halka","halka","lunka","ragla",3,3,1
+"verb_norming","2018_Jun_19_1257",911,91,"SKIM","skumma","vispa","sleva","sleva","skumma","vispa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,92,"TUG","rycka","pressa","slå","pressa","slå","rycka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,93,"SCUFF","hasa sig fram","dra sig fram","kasta sig fram","hasa sig fram","kasta sig fram","dra sig fram",1,3,0
+"verb_norming","2018_Jun_19_1257",911,94,"CLIMB","klättra","kliva","krypa","krypa","kliva","klättra",3,3,1
+"verb_norming","2018_Jun_19_1257",911,95,"PULL","dra","slänga","släpa","dra","släpa","slänga",1,1,1
+"verb_norming","2018_Jun_19_1257",911,96,"SCRAPE","skrapa","rispa","klösa","skrapa","rispa","klösa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,97,"BASH","slå","knuffa","trycka","slå","trycka","knuffa",1,1,1
+"verb_norming","2018_Jun_19_1257",911,98,"INCH","röra sig långsamt framåt","dra sig snabbt tillbaka","hasa sig bakåt","dra sig snabbt tillbaka","röra sig långsamt framåt","hasa sig bakåt",2,2,1
+"verb_norming","2018_Jun_19_1257",911,99,"GRATE","riva","hugga","rispa","riva","rispa","hugga",1,2,0
+"verb_norming","2018_Jun_19_1257",911,100,"ROLL","vingla","snubbla","svassa","svassa","vingla","snubbla",2,1,0
+"verb_norming","2018_Jun_19_1257",911,101,"RUB","gnugga","riva","klappa","klappa","riva","gnugga",3,3,1
+"verb_norming","2018_Jun_19_1257",911,102,"SLIP","halka","snava","ramla","ramla","snava","halka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,103,"WIPE","torka","putsa","gnugga","gnugga","putsa","torka",3,3,1
+"verb_norming","2018_Jun_19_1257",911,104,"CLAP","klappa","knäppa","klämma","klämma","klappa","knäppa",2,2,1
+"verb_norming","2018_Jun_19_1257",911,105,"POLISH","polera","sopa","tvätta","tvätta","sopa","polera",3,3,1
+"verb_norming","2018_Jun_19_1257",911,106,"SKIP","hoppa","kliva","strutta","kliva","strutta","hoppa",3,2,0
+"verb_norming","2018_Jun_19_1257",911,107,"PACE","gå fram och tillbaka","luffa runt","rusa fram","luffa runt","gå fram och tillbaka","rusa fram",2,2,1
+"verb_norming","2018_Jun_19_1257",911,108,"FLIT","rusa","hasa","svassa","rusa","hasa","svassa",1,3,0
+"verb_norming","2018_Jun_19_1257",911,109,"PUSH","knuffa","kasta","klämma","klämma","knuffa","kasta",2,2,1
+"verb_norming","2018_Jun_19_1257",911,110,"STUMBLE","snubbla","glida","svaja","glida","snubbla","svaja",2,2,1
+"verb_norming","2018_Jun_19_1257",911,111,"TRAIPSE","traska","stappla","vandra","vandra","stappla","traska",3,2,0
