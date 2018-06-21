@@ -19,6 +19,8 @@ analysis/audiorecordings/*
 *.wav
 *.mp3
 
+*.xlsx
+*lbq_pilot-ppts.csv
 
 # Use participant ID's in range 990-999 for testing -- these will not be tracked by git
 exp-scripts_psychopy/data/99[0-9]*
