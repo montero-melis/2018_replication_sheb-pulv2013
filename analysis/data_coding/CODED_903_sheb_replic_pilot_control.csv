@@ -14,7 +14,7 @@ sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;11;leg;6.07143986048;st
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;12;arm;6.33981337849;scoop;claw;throw;shake;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;13;arm;8.10093215926;peel;scrape;fold;knock;1;1;0;0;O;;;
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;14;leg;7.81584639128;prance;tread;skip;hike;1;0;1;1;R,S;;;
-sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;15;arm;5.95426564009;dig;chop;clap;clean;1;1;1;1;;;"He pronounced ""chop"" almost like ""shop"" but I think it´s typical Swedish";
+sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;15;arm;5.95426564009;dig;chop;clap;clean;1;1;1;1;;;"He pronounced ""chop"" almost like ""shop"" but I think itÂ´s typical Swedish";
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;16;arm;6.94427511501;pinch;bind;grip;stab;1;1;0;0;R;;;
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;17;leg;7.31321175331;slide;pace;stagger;trip;1;0;0;1;O;;;
 sheb_replic_pilot_control;2018_Jun_12_1200;903;0;0.1;0.5;18;leg;6.23899066655;jump;roam;run;scuff;1;1;1;1;;;;
