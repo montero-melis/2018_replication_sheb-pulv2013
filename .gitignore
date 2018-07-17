@@ -9,6 +9,10 @@
 *_lastrun.py
 
 *.pdf
+# exceptions:
+!pilot_analysis/protocol_pilot.pdf
+!pilot_analysis/LBQ_pilot.pdf
+
 *.doc
 *.docx
 *.html
