@@ -89,7 +89,7 @@ sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;2;leg;7.36322483166;ram
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;3;leg;5.60246560707;inch;skate;stomp;step;1;1;1;0;R;;;
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;4;arm;5.08249522502;tug;clean;grab;lift;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;5;leg;5.31535605149;kneel;tiptoe;roam;limp;1;1;1;1;;;;
-sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;6;leg;8.06768625207;prance;hike;pace;dance;1;1;0;1;;;;
+sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;6;leg;8.06768625207;prance;hike;pace;dance;1;1;0;1;O;;;
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;7;arm;4.82888129036;skim;brush;scrape;hack;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;8;arm;8.75421648759;braid;slap;grasp;shake;1;0;0;1;O,R;;;
 sheb_replic_pilot_control;2018_Jun_19_0936;910;3;0.2;0.6;9;arm;10.8013507459;clutch;dunk;scrub;scratch;0;1;0;1;O;;;

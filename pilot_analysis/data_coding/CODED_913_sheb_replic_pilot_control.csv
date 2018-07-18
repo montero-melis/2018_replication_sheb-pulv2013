@@ -95,11 +95,11 @@ sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;8;leg;21.4170696465;ste
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;9;arm;12.9806830435;cut;snatch;switch;throw;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;10;arm;12.1090078497;carve;squeeze;pat;bash;1;1;0;1;R;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;11;leg;24.6705366431;crawl;traipse;flee;stray;1;1;0;1;O;;;
-sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;12;leg;23.6139801188;scuff;tiptoe;prance;mount;1;1;1;0;;;;
+sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;12;leg;23.6139801188;scuff;tiptoe;prance;mount;1;1;1;0;O;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;13;leg;12.293541878;stumble;creep;wander;trip;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;14;arm;7.98356577031;slap;scrub;skim;grate;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;15;leg;25.7105427753;run;flit;roll;march;1;0;1;0;R,S;;;
-sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;16;leg;14.5911206008;leap;skip;hike;hop;1;1;1;1;;;NOT CLEAR;
+sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;16;leg;14.5911206008;leap;skip;hike;hop;1;1;1;1;;;NOT CLEAR 1:00:20;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;17;arm;21.2324850441;toss;delve;twine;whip;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;18;leg;11.9580819278;trudge;plod;bounce;slither;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_20_1145;913;3;0.2;0.6;19;arm;14.6077926871;brush;chop;poke;clean;1;1;1;1;;;;
