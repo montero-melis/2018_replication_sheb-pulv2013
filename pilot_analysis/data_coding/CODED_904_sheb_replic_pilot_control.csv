@@ -44,8 +44,8 @@ sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;13;arm;4.67932370248;ca
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;14;arm;8.06647047806;bash;switch;claw;peel;0;0;0;0;O;;;
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;15;leg;5.38405182667;slip;stamp;prance;tiptoe;0;1;1;1;R;;;
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;16;arm;4.83045583029;bind;snatch;scoop;brush;1;1;1;1;;;;
-sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;17;arm;9.79484159379;nip;toss;slap;scrub;1;1;0;0;O,R;;;
-sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;18;leg;5.24954225733;glide;plod;skate;slither;0;1;1;1;;;"""PLOT""";
+sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;17;arm;9.79484159379;nip;toss;slap;scrub;1;1;0;1;O;;perhaps SCRAP instead of SCRUB?;
+sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;18;leg;5.24954225733;glide;plod;skate;slither;0;1;1;1;O;;"""PLOT""";
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;19;leg;3.94156421949;hike;skip;stumble;wade;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;20;leg;5.80304263545;stagger;wobble;step;flit;1;1;1;0;R;;;
 sheb_replic_pilot_control;2018_Jun_12_1333;904;1;0.3;0.7;21;arm;4.36000621122;pinch;seize;carve;clap;1;1;1;1;;;;
