@@ -103,7 +103,7 @@ sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;16;arm;4.27721788413;to
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;17;arm;14.3227911244;bind;scratch;grip;brush;1;1;0;0;R;;;
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;18;arm;6.77590749987;throw;wipe;scoop;scrape;0;1;1;1;R,S;;;
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;19;leg;8.80445582012;limp;slither;stride;wobble;0;0;0;1;O;;;
-sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;20;arm;13.1995644301;pat;peel;chop;slap;1;1;1;O;R;;;
+sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;20;arm;13.1995644301;pat;peel;chop;slap;1;1;1;0;R;;;
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;21;arm;9.87849440741;fold;carve;switch;punch;1;1;0;0;O;;;
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;22;leg;8.1517133773;sway;scuff;trip;skip;0;0;1;0;O,R;;;
 sheb_replic_pilot_control;2018_Jun_20_0957;912;3;0.1;0.5;23;arm;4.93092321144;dunk;knock;grate;click;1;0;1;0;O,R;;;
