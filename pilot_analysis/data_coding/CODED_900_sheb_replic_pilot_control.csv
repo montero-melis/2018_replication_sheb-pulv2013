@@ -1,5 +1,5 @@
 expName;date;participant;block;word_duration;SOA;trial;type;trialRT;word1;word2;word3;word4;w1;w2;w3;w4;error;score;comment;coder
-sheb_replic_pilot_control;2018_Jun_08_1031;900;0;0.35;0.75;0;arm;4.22692402822;delve;clean;braid;polish;1;1;1;1; ;;;PJ
+sheb_replic_pilot_control;2018_Jun_08_1031;900;0;0.35;0.75;0;arm;4.22692402822;delve;clean;braid;polish;1;1;1;1;;;;PJ
 sheb_replic_pilot_control;2018_Jun_08_1031;900;0;0.35;0.75;1;leg;5.65220315089;stumble;wander;kneel;dance;1;1;0;1;R;;;
 sheb_replic_pilot_control;2018_Jun_08_1031;900;0;0.35;0.75;2;leg;10.2807872567;slide;roam;stroll;strut;1;0;0;0;O;;;
 sheb_replic_pilot_control;2018_Jun_08_1031;900;0;0.35;0.75;3;leg;5.43393866216;inch;scuff;traipse;stamp;1;0;0;1;O;;;

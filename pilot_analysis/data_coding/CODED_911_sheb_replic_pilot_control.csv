@@ -1,6 +1,6 @@
 expName;date;participant;block;word_duration;SOA;trial;type;trialRT;word1;word2;word3;word4;w1;w2;w3;w4;error;score;comment;coder
 sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;0;arm;6.05409739942;claw;scratch;stir;clap;1;1;1;1;;;;RS
-sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;1;arm;10.3147025285;chop;scrape;fold;throw;1;0;0;0;O,R,S;;;
+sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;1;arm;10.3147025285;chop;scrape;fold;throw;1;0;0;0;O,R,S;;x;
 sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;2;leg;7.54795728631;trudge;trip;skate;hop;1;1;1;1;;;;
 sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;3;leg;5.24970386005;wander;slip;crawl;sneak;1;0;1;1;R;;;
 sheb_replic_pilot_control;2018_Jun_19_1202;911;0;0.4;0.8;4;leg;12.9134651021;stumble;skip;march;jump;1;0;0;0;O,R;;;
