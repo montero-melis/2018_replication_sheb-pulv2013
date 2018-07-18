@@ -114,6 +114,11 @@ mem <- mem[!mymatch,]
 rm(myregex, mymatch)
 
 
+# For plotting and analyses, express word_duration in ms rather than seconds
+mem$word_duration <- mem$word_duration * 1000
+mem$SOA <- mem$SOA * 1000
+
+
 ## Save a wide version (1 trial per row) and a long version (1 verb per row) to disk
 
 ## wide format
