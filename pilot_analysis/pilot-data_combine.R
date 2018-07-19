@@ -1,6 +1,8 @@
-## This script takes the pilot data after coding and combines it into single
-## data files for each task, saving it to disk after some processing. Tasks:
-## 1. Memory task, 2. Verb ratings, 3. Verb understanding.
+## Process and combine individual participant data
+
+# This script takes the pilot data after coding and combines it into single
+# data files for each task, saving it to disk after some processing. 
+# Tasks: 1. Memory task, 2. Verb ratings, 3. Verb understanding.
 
 
 #  ------------------------------------------------------------------------
@@ -21,7 +23,7 @@ get_data_filenames <- function(mypath = NULL, expname = NULL) {
 }
 # example:
 get_data_filenames("pilot_analysis/data_coding", "sheb_replic_pilot")
-
+length(get_data_filenames("pilot_analysis/data_coding", "sheb_replic_pilot"))
 
 
 #  ------------------------------------------------------------------------
@@ -88,16 +90,21 @@ mem[mem$participant == 901, 3:7]  # after
 unique(mem[mem$participant %in% c(900, 901), c("participant", "block", "word_duration")])
 table(mem$word_duration)  # Only our 4 word_durations left in the data
 
+# Files whose "comment" column is completely empty gets this column filled with NAs
+head(mem[is.na(mem$comment),])
+# replace them by empty characters instead
+mem[is.na(mem$comment), "comment"] <- ""
+
 
 # Trials where all individual words were remembered, yet there is an error?
 correct4but_error <- which(with(mem, score == 1 & error != ""))
 mem[correct4but_error, ]
-# All but one case involve shifts/transpositions -- we will treat them all as errors
+# All but one case involve shifts/transpositions -- we will treat them all as 
+# errors at the item level
 mem$score[correct4but_error] <- 0
 rm(correct4but_error)
 # And viceversa?
 mem[with(mem, score == 0 & error == ""), ]  # these I corrected manually
-
 
 # What comments are there?
 mem$comment[mem$comment != ""]
@@ -162,8 +169,7 @@ mem_long <- reshape(mem[, c(3:8, 10:17)],
                     timevar = 'wordInTrial',
                     times = 1:4,
                     v.names = c('verb', 'correct'),
-                    idvar = c('participant', 'block', 'trial')
-)
+                    idvar = c('participant', 'block', 'trial'))
 # reorder rows in a more sensible format (follows the order of wide format)
 mem_long <- mem_long[with(mem_long, order(participant, block, trial, wordInTrial)), ]
 head(mem_long)
