@@ -1,0 +1,113 @@
+expName;date;participant;trial;resp_time;our_transl;verb;ppt_translation;score;comment
+verb_norming_oral_input;2018_Jun_21_1704;915;0;19.0017333234;skumma;SKIM;bläddra;0;AP coder
+verb_norming_oral_input;2018_Jun_21_1704;915;1;3.62280914556;slänga;TOSS;kasta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;2;17.1401988798;vingla;WOBBLE;dallra;-99;might be correct, but not what we chose as target and not that leg-related
+verb_norming_oral_input;2018_Jun_21_1704;915;3;5.28330256786;gripa tag i;GRAB;ta tag;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;4;22.3224293711;halta;LIMP;halta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;5;2.24781941828;sparka;KICK;sparka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;6;2.44898884857;riva;GRATE;skrapa;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;7;2.48257194063;hoppa;JUMP;hoppa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;8;2.18044027284;peta;POKE;peta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;9;2.44898489752;skutta;HOP;skutta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;10;2.5327174181;klappa;CLAP;klappa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;11;2.6502673277;krypa;CREEP;krypa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;12;2.38182029383;dunka;DUNK;dunka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;13;1.86201686622;stampa;STOMP;stampa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;14;2.51573385129;åka skridskor;SKATE;skejta;-99;correct but not target
+verb_norming_oral_input;2018_Jun_21_1704;915;15;1.61028235748;tvätta;WASH;tvätta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;16;2.28119547558;marschera;MARCH;marschera;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;17;29.8354946866;gå fram och tillbaka;PACE;gå runt;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;18;9.15732507934;gå på tå;TIPTOE;smyga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;19;20.1421906016;traska;TRAIPSE;gå försiktigt;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;20;15.1445450293;klösa;CLAW;klösa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;21;13.6518765883;rycka;TUG;omsluta;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;22;9.03991701225;glida;SLIDE;glida;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;23;25.8945726866;knäböja;KNEEL;gå ner på knäna;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;24;2.41544447676;fånga;CATCH;fånga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;25;3.87447214039;hoppa;SKIP;hoppa över;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;26;8.218073186;knuffa;PUSH;putta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;27;47.528765978;svassa;STRUT;promenera;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;28;3.06935427282;klättra;CLIMB;klättra;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;29;1.72770346301;skrapa;SCRAPE;skrapa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;30;16.771249115;gå uppför;MOUNT;hoppa på;-99;unsure of correctness (together with the phrase 'en häst', it would have been correct)
+verb_norming_oral_input;2018_Jun_21_1704;915;31;1.74440176438;kasta;THROW;kasta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;32;15.7817379541;tvinna;TWINE;räcka ut;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;33;2.01293888208;springa;RUN;springa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;34;5.16583404979;rycka till sig;SNATCH;fånga;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;35;18.7837620744;strosa;STROLL;promenera;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;36;4.79687638287;dansa;DANCE;dansa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;37;30.6069133014;vingla;SWAY;svinga;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;38;30.2548550441;röra;STIR;vispa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;39;8.73788965205;skyffla;SCOOP;skopa;-99;correct but not what we chose as target
+verb_norming_oral_input;2018_Jun_21_1704;915;40;14.5239654584;fläta;BRAID;fläta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;41;5.75271752873;vika ihop;FOLD;vika;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;42;20.7122947827;stampa;STAMP;stämpla;-99;correct but not what we chose as target and not at all leg-related
+verb_norming_oral_input;2018_Jun_21_1704;915;43;3.52230839012;snubbla;TRIP;snubbla;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;44;29.9865530135;ströva;RAMBLE;rambla;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;45;1.40918167537;gräva;DIG;gräva;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;46;39.1098833019;gräva;DELVE;gräva sig ner;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;47;6.02116337729;hasa;SLITHER;krypa;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;48;1.39245295096;skrubba;SCRUB;skrubba;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;49;6.80928819554;kravla;CRAWL;crawla;-99;correct but not what we chose as target
+verb_norming_oral_input;2018_Jun_21_1704;915;50;3.58942321065;skära;CUT;skära;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;51;3.52152173707;spurta;SPRINT;sprinta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;52;1.24146811349;nypa;NIP;nypa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;53;23.8148267704;fly;FLEE;fly;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;54;97.5560925904;vada;WADE;smeka;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;55;31.4457252854;vandra;HIKE;vandra;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;56;6.60800339474;gripa;GRASP;fatta tag;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;57;1.14084606097;klicka;CLICK;klicka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;58;50.3632456412;lunka;PLOD;ploda;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;59;3.60618551895;snubbla;STUMBLE;stambla;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;60;13.1990575968;plocka;PLUCK;plocka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;61;33.1395536742;rusa;FLIT;korsa;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;62;13.2506183385;smyga;SNEAK;smyga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;63;7.17827312468;smälla till;SLAP;klappa till;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;64;7.48040637288;slå;BASH;smälla;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;65;11.9917138685;gripa tag i;CLUTCH;greppa tag i;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;66;8.60384650032;studsa;BOUNCE;studsa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;67;40.7366711498;slå på/av;SWITCH;ändra;-99;correct but not what we chose as target and not arm-related
+verb_norming_oral_input;2018_Jun_21_1704;915;68;1.32496041053;vandra;WANDER;vandra;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;69;4.26000246545;skala;PEEL;skala;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;70;13.1655491794;gripa om;GRIP;greppa tag i;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;71;1.89517838178;gå;WALK;gå;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;72;4.27709152517;repa;SCRATCH;klia;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;73;18.3141784039;slå;PUNCH;slå;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;74;9.8112696446;torka;WIPE;torka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;75;15.563789226;röra sig långsamt framåt;INCH;flytta;-99;unsure of correctness (without the phrase 'långsamt'?)
+verb_norming_oral_input;2018_Jun_21_1704;915;76;55.7299583244;gnugga;RUB;gnida;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;77;26.3976959876;polera;POLISH;göra rent;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;78;15.4630115023;halka;SLIP;snubbla;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;79;8.41932124208;dra;PULL;dra;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;80;10.0461418836;ströva omkring;ROAM;vandra;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;81;47.5455729331;tälja;CARVE;gräva;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;82;2.61665736854;trampa;TREAD;träda;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;83;6.10501561453;knacka;KNOCK;knacka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;84;46.0530601634;borsta;BRUSH;tvätta;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;85;62.7232241633;ragla;STAGGER;gå klumpigt;-99;unsure of correctness
+verb_norming_oral_input;2018_Jun_21_1704;915;86;5.08195336503;sticka;STAB;hugga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;87;1.54327382006;glida;GLIDE;glida;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;88;5.04851013996;slå in;WRAP;knyta;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;89;20.5446819725;fila;FILE;skicka iväg;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;90;36.0073801569;ströva;STRAY;vandra mållöst;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;91;14.121340147;kråma sig;PRANCE;tassa iväg;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;92;2.43213843197;vingla;ROLL;rulla;-99;correct but not at all foot-related
+verb_norming_oral_input;2018_Jun_21_1704;915;93;1.69427643723;jogga;JOG;jogga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;94;21.9366410428;kliva;STRIDE;gå beslutsamt;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;95;33.7265315831;fånga;SEIZE;ta tag;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;96;30.2046755876;släpa sig fram;TRUDGE;gå klumpigt;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;97;1.47618626174;hacka;HACK;hacka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;98;62.8070491384;hasa sig fram;SCUFF;hoppa;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;99;1.34211545269;lyfta;LIFT;lyfta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;100;18.196774683;klappa;PAT;klappa till försiktigt;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;101;4.36085407369;klämma;SQUEEZE;klämma;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;102;14.9768480618;trava;TROT;gå på tårna;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;103;4.00864014514;skaka;SHAKE;skaka;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;104;7.99993243713;piska;WHIP;vispa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;105;1.72780539997;nypa;PINCH;nypa;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;106;33.2904748998;gå;STEP;stiga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;107;2.16389527202;binda;BIND;binda;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;108;2.28127489158;hacka;CHOP;hugga;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;109;2.86827255572;rengöra;CLEAN;tvätta;1;
+verb_norming_oral_input;2018_Jun_21_1704;915;110;4.15960048614;rusa;RUSH;springa;0;
+verb_norming_oral_input;2018_Jun_21_1704;915;111;13.2158368945;hoppa;LEAP;ta stort steg;-99;unsure of correctness
