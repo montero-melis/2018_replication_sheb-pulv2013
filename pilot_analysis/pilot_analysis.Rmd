@@ -2,17 +2,30 @@
 title: "Analysis of pilot study"
 author: '[Guillermo Montero-Melis](http://www.biling.su.se/montero_melis_guillermo)'
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
-output: html_document
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  word_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
 library(knitr)
 library(ggplot2)
+library(GGally)
 library(dplyr)
+library(tidyr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Memory task
+Memory task
+===========
 
 ```{r cars}
 memw <- read.csv("data_pilot_memory-task_wide.csv")
@@ -30,9 +43,9 @@ table(unique(meml[, c("type", "verb")])$type)
 
 Each participant carried out 4 blocks in which they had to memorize 28 items, 14 quadruples of arm-related, and 14 quadruples of leg-related verbs.
 This means there were 56 verbs of each type.
-What varied between the blocks was the time for which each word was shown (in seconds): 
-`r sort(unique(memw$word_duration))`.
-The time between the offset of a verb and the onset of the next verb was held constant at 0.4 seconds.
+What varied between the blocks was the time for which each word was shown: 
+`r sort(unique(memw$word_duration))` ms.
+The time between the offset of a verb and the onset of the next verb was held constant at 400 ms.
 
 We will analyze the data in two ways:
 
@@ -40,9 +53,9 @@ We will analyze the data in two ways:
 2. By verbs, by looking whether each individual verb in a quadruple was remembered.
 
 
-### Analysis by items/quadruples
+## By-subject analysis at the level of item (quadruples)
 
-#### Nature of the data
+### Nature of the data (wide format)
 
 Here is an example of the data set when analyzed by items:
 
@@ -50,21 +63,28 @@ Here is an example of the data set when analyzed by items:
 kable(head(memw[, c(3:5, 7:8, 10:13, 18:19)]))
 ```
 
-A few columns are omitted here, but these are the most important ones.
-The `score` column rates items (quadruples) as either correct if all verbs are remembered in the right order, or as wrong if some error is made by a participant.
+A few columns from the data file are omitted here, but these are the most important ones.
+Glossing over the first row:
+
+- It corresponds to `participant`'s 900 first target item (`trial` = 1) in the first block (`block` = 1)
+- In that block each word was shown for 200 ms (`word_duration` = 200).
+- It was an item of arm-related verbs (`type` = arm) and the four words shown were *grab*, *dunk*, *lift* and *file* (`word1`--`word4`).
+- The participant did not make any error (`error` is blank) and thus achieved a `score` of 1.
+
+The `score` column rates items (quadruples) as either correct (=1) if all verbs are remembered in the right order, or as wrong (=0) if some error is made by the participant.
 The `error`  column contains abbreviations for the types of error coded for (following Shebani & Pulvermüller, 2013):
 
 - *Omission* (O): At least one target word is omitted
 - *Replacement* (R): One target word is replaced by a non-target word
 - *Shift/transposition* (S): Two target words are shuffled
-- *Addition* (A): This was not in the original. It is the case where none of the previous errors have occurred (all 4 target verbs were retrieved in the right order), but the participant added at least one more verb that is not a target.
+- *Addition* (A): It is the case where none of the previous errors have occurred (all 4 target verbs were retrieved in the right order), but the participant added at least one more verb that is not a target. NB: This was not in the original S&P.
 
 
-#### Error rates by word duration
+### Error rates by word duration
 
-The goal was to find a setting of word duration that would leave participants at approximately 30% error rates in this control condition (see S&P, p.X).
+The goal was to find a setting of word duration that would leave participants at approximately 30% error rates in the control condition tested here (see S&P, p.X).
 
-The following figure shows mean error rates (red dots) and confidence intervals of by-subject means (red lines) for each word duration setting on the x-axis. The smaller grayish dots show actyal by-subject means.
+The following figure shows mean error rates (red dots) and confidence intervals of by-subject means (red lines) for each word duration setting (x-axis). The smaller grayish dots show individual by-subject means.
 
 
 ```{r}
@@ -80,7 +100,12 @@ ggplot(ppt_mean, aes(x = word_duration, y = error_rate)) +
   ylim(ylims)
 ```
 
-The plot below now breaks down observations by the type of verbs (arm- vs leg-related):
+We see that L2 speakers on average had error rates at or above 50%.
+Even when each word was shown for 400 ms, error rates were around 50%.
+Overall, word duration did not seem to have a very strong effect.
+We will follow up with more detailed analyses below.
+
+We can also break down observations by the type of verbs (arm- vs leg-related):
 
 ```{r}
 ppt_mean_ty <- memw %>% 
@@ -95,36 +120,41 @@ ggplot(ppt_mean_ty, aes(x = word_duration, y = error_rate, colour = type)) +
   ylim(ylims)
 ```
 
-It seems like word duration had no effect on the error rates.
+It seems like both types of verbs were of comparable difficulty.
 
 
-#### Error rates by block
+### Error rates by block
 
-Perhaps what is more important is the block number, e.g. because error rates dropped as participants proceded into the experiment.
-
+Perhaps more important than the word duration was the actual block number, because error rates could drop as participants proceded into the experiment and already had encountered the verbs (since the same verbs were shown in all blocks).
 
 ```{r}
 ggplot(ppt_mean, aes(x = block, y = error_rate)) +
   stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
   stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
-  geom_jitter(width = .4, height = 0, alpha = .4) +
+  geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") +
   ylim(ylims)
 ```
 
-The plot below now breaks down observations by the type of verbs (arm- vs leg-related):
+Indeed there seems to be a drop of error rates from the 1st to the 2nd block, perhaps because participants needed a block to get familiarized with the task.
+Error rates did not drop much in subsequent blocks after the 2nd.
+
+Again, the patterns were similar if we break down the verbs by type (arm- vs leg-related), as below:
 
 ```{r}
 ggplot(ppt_mean_ty, aes(x = block, y = error_rate, colour = type)) +
   stat_summary(fun.y = "mean", size = 1, geom = "point") +
   stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = .5)) +
-  geom_jitter(width = .4, height = 0, alpha = .4) +
+  geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") + 
   ylim(ylims)
 ```
 
 
-#### Participant variability
+### Participant variability
+
+The plots in the previous section suggest substantial individual variability.
+Let us look at this by plotting each participant's mean error rate (averaged across blocks).
 
 ```{r}
 ppt_mean_simp <- memw %>% 
@@ -137,17 +167,317 @@ ggplot(ppt_mean_simp, aes(x = participant, y = error_rate)) +
   ylim(ylims)
 ```
 
+Variability is quite large (range: `r round(range(ppt_mean_simp$error_rate), 2)`).
 
-Are error rates for the two types of verbs correlated (by participants)?
+
+#### Within participant correlation between types
+
+We can ask if error rates for the two types of verbs were correlated (by participants)?
 
 ```{r}
 ppt_mean_simp_type <- memw %>% 
   group_by(participant, type) %>%
-  summarise(error_rate = 1 - mean(score))
-ppt_mean_simp_type$participant <- factor(ppt_mean_simp_type$participant, levels = ppt_mean_simp$participant[order(ppt_mean_simp$error_rate)])
-ggplot(ppt_mean_simp_type, aes(x = participant, y = error_rate)) +
-  geom_bar(stat = "identity") +
-  ylab("Error rate") + facet_grid(. ~ type) +
+  summarise(error_rate = 1 - mean(score)) %>%
+  spread(type, error_rate)  # reshape to wide format for correlation plot
+ggplot(ppt_mean_simp_type, aes(x = arm, y = leg)) +
+  geom_point() +
+  xlab("Error rate for arm items") + ylab("Error rate for leg items") + 
+  geom_smooth(method = "lm")
+```
+
+The correlation is indeed high (*r* = `r round(with(ppt_mean_simp_type, cor(arm, leg)), 2)`), again suggesting that there were no marked differences between the number of errors a participant made for either type of items:
+
+```{r}
+with(ppt_mean_simp_type, cor.test(arm, leg))
+```
+
+
+#### Within participant correlation between different word durations
+
+We can use a scatterplot matrix to check whether the by-participant correlation between different word durations was high:
+
+```{r}
+ppt_mean_simp_durat <- memw %>% 
+  group_by(participant, word_duration) %>%
+  summarise(error_rate = 1 - mean(score)) %>%
+  spread(word_duration, error_rate)  # reshape to wide format for correlation plot
+ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
+```
+
+Correlations are high, suggesting that, generally, a participant's error rate for a particular word duration was predictive of their error rates with another word duration.
+
+
+#### Within participant correlation between blocks
+
+We can use the same scatterplot matrix approach to check whether the by-participant correlation between blocks also was high:
+
+```{r}
+ppt_mean_simp_block <- memw %>% 
+  group_by(participant, block) %>%
+  summarise(error_rate = 1 - mean(score)) %>%
+  spread(block, error_rate)  # reshape to wide format for correlation plot
+ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
+```
+
+And indeed it was -- even higher than the correlation by word-duration!
+
+
+
+## By-subject analysis at the level of individual verbs (rather than items/quadruples)
+
+Instead of just looking at whole items (quadruples), we now consider individual words.
+
+
+### Nature of the data (long format)
+
+To look at the data by verb rather than by item, we need the data in long format.
+
+```{r}
+# Show data in long format
+kable(head(meml))
+```
+
+Notice now each row corresponds to a single verb.
+For instance, the first 4 rows of the table above show the 4 verbs from the 
+first item of the first block, which were all remembered correctly by 
+participant 900.
+This participant did not, however, remember the 2nd word (`wordIntTrial` = 2, namely *clutch*)
+in trial 2.
+
+
+### Error rates by word duration
+
+We begin with a plot equivalent to the one we did for whole items, but now we show the error rates when we consider whether individual verbs were remembered.
+Note that this means that an item for which 3 of the 4 verbs were remembered would yield a 25% error rate (whereas it led to a 100% error rate under the more severe coding by items).
+
+```{r}
+ppt_mean_l <- meml %>% 
+  group_by(participant, block, word_duration) %>%
+  summarise(error_rate = 1 - mean(correct))
+ggplot(ppt_mean_l, aes(x = word_duration, y = error_rate)) +
+  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  geom_jitter(width = 20, height = 0, alpha = .4) +
+  ylab("Error rate") + xlab("word duration (in ms)") +
   ylim(ylims)
 ```
 
+Under this treatment, error rates diminish drastically!
+We now lie at a mean error rate below 25% and no participant has a mean error rate above 50%.
+The effect of word duration becomes less clear.
+But let us rescale the y-axis so it is used for the range of the data
+rather than forcing the y-scale to lie between 0 and 1. 
+This yields better resolution to see variability.
+
+
+```{r}
+ylims2 <- c(0, .55)
+ggplot(ppt_mean_l, aes(x = word_duration, y = error_rate)) +
+  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  geom_jitter(width = 20, height = 0, alpha = .4) +
+  ylab("Error rate") + xlab("word duration (in ms)") +
+  ylim(ylims2)
+```
+
+
+We can also break down observations by the type of verbs (arm- vs leg-related).
+
+```{r}
+ppt_mean_l_ty <- meml %>% 
+  group_by(participant, block, word_duration, type) %>%
+  summarise(error_rate = 1 - mean(correct))
+ggplot(ppt_mean_l_ty, aes(x = word_duration, y = error_rate, colour = type)) +
+  stat_summary(fun.y = "mean", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = 20)) +
+  geom_jitter(width = 20, height = 0, alpha = .4) +
+  ylab("Error rate") + xlab("word duration (in ms)") +
+  ylim(ylims2)
+```
+
+It seems like, under this analysis as well, both types of verbs were of comparable difficulty.
+
+
+### Error rates by block
+
+Was there a difference between the different blocks?
+
+```{r}
+ggplot(ppt_mean_l, aes(x = block, y = error_rate)) +
+  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  geom_jitter(width = .2, height = 0, alpha = .4) +
+  ylab("Error rate") +
+  ylim(ylims2)
+```
+
+We see the same picture as before:
+Error rates drop from the 1st to the 2nd block (from slightly under 30% to slightly over 20%), but then remain stable throughout
+the rest of the blocks.
+
+This does not differ between verb types, as shown below:
+
+```{r}
+ggplot(ppt_mean_l_ty, aes(x = block, y = error_rate, colour = type)) +
+  stat_summary(fun.y = "mean", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = .4)) +
+  geom_jitter(width = .2, height = 0, alpha = .4) +
+  ylab("Error rate") +
+  ylim(ylims2)
+```
+
+
+### Effect of verb position within an item
+
+Was the position in which a verb occured in the item (word 1--4) predictive of how well it was remembered?
+This seems likely, as we know that in lists the first and last items are better remembered than those in the middle.
+
+```{r}
+ppt_mean_l_wordInTrial <- meml %>% 
+  group_by(participant, wordInTrial) %>%
+  summarise(error_rate = 1 - mean(correct))
+
+ggplot(ppt_mean_l_wordInTrial, aes(x = wordInTrial, y = error_rate)) +
+  stat_summary(fun.y = "mean", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  geom_jitter(height = 0, width = .2, alpha = .4) +
+  ylab("Error rate") + xlab("Verb position") +
+  ylim(ylims2)
+```
+
+The position of the verb indeed seems to matter:
+the first verb in a quadruple tended to be better remembered than any of the
+following. 
+But performance was not better for the last one than for the middle ones,
+as one might have expected.
+
+
+We can further investigate whether this effect changed across blocks:
+
+```{r}
+ppt_mean_l_wordInTrial_block <- meml %>% 
+  group_by(participant, wordInTrial, block) %>%
+  summarise(error_rate = 1 - mean(correct))
+ggplot(ppt_mean_l_wordInTrial_block, aes(x = wordInTrial, y = error_rate)) +
+  stat_summary(fun.y = "mean", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  geom_jitter(height = 0, width = .2, alpha = .4) +
+  facet_grid(. ~ block) +
+  ylab("Error rate") + xlab("Verb position")  +
+  ylim(0, .6)
+```
+
+The effect does not seem to change much between blocks.
+(There is only an overall shift downwards from block 1 to block 2, as we saw
+before, but the relative position of the means depending on word position is
+similar).
+
+
+
+### Participant variability
+
+Let us consider if the picture for participant variability changes when looking
+at it by individual verbs rather than quadruples.
+We plot each participant's mean error rate averaged across blocks:
+
+```{r}
+ppt_mean_l_simp <- meml %>% 
+  group_by(participant) %>%
+  summarise(error_rate = 1 - mean(correct))
+ppt_mean_l_simp$participant <- factor(ppt_mean_l_simp$participant, levels = ppt_mean_l_simp$participant[order(ppt_mean_l_simp$error_rate)])
+ggplot(ppt_mean_l_simp, aes(x = participant, y = error_rate)) +
+  geom_bar(stat = "identity") +
+  ylab("Error rate") +
+  ylim(ylims)
+```
+
+Participant variability is much reduced when error rates are computed by 
+individual verbs. The range is: `r round(range(ppt_mean_l_simp$error_rate), 2)`
+(whereas it was `r round(range(ppt_mean_simp$error_rate), 2)` when computed by items).
+
+We can see if the two ways of measuring error rates correlate well within 
+participants:
+
+```{r}
+# join the two tables
+ppt_mean_simp$participant <- as.character(ppt_mean_simp$participant)
+ppt_mean_l_simp$participant <- as.character(ppt_mean_l_simp$participant)
+error_rates <- left_join(ppt_mean_simp, ppt_mean_l_simp %>%
+                           rename(error_rate_verb = error_rate))
+# plot correlation
+ggplot(error_rates, aes(x = error_rate_verb, y = error_rate)) +
+  geom_point() +
+  xlab("Error rate for individual verbs") + ylab("Error rate for items (quadruples)") + 
+  geom_smooth(method = "lm")
+```
+
+The correlation is very high 
+(*r* = `r round(with(error_rates, cor(error_rate_verb,error_rate)), 2)`),
+suggesting that computing errors in one way or another does not order participants
+differently.
+This is good news, as we may then pretty safely use the error rate by verbs,
+which is a more sensitive measure.
+
+
+
+## Verb analysis
+
+We can use participant performance on the memory task to learn something about
+the difficulty of the verbs.
+To do that, we look at whether individual verbs (not items) were remembered 
+correctly.
+
+First, here is a list of the verbs we used in this pilot:
+
+- **Arm-related verbs**: `r sort(unique(meml[meml$type == "arm", "verb"]))`
+- **Leg-related verbs**: `r sort(unique(meml[meml$type == "leg", "verb"]))`
+
+
+
+### Item variability
+
+The average error rate of an item is the mean number of participants who 
+remembered it (averaged across blocks):
+
+```{r, fig.width=8}
+item_mean_simp <- meml %>% 
+  group_by(verb, type) %>%
+  summarise(error_rate = 1 - mean(correct))
+item_mean_simp$verb <- factor(item_mean_simp$verb, levels = item_mean_simp$verb[order(item_mean_simp$error_rate)])
+ggplot(item_mean_simp, aes(x = verb, y = error_rate, fill = type)) +
+  geom_bar(stat = "identity") +
+  ylab("Error rate") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8)) +
+  ylim(ylims2)
+```
+
+Variability is by far not as large as for participants
+(range: `r round(range(item_mean_simp$error_rate), 2)`).
+Another nice result this plot confirms is that there does not seem to a marked
+difference in difficulty between the two types of verbs:
+red and blue bars are spread out quite evenly along the whole range.
+
+We can have a look at the easiest and hardest verbs to remember (of each type):
+
+```{r}
+my_order <- function(df = item_mean_simp, mytype = NULL, nb = 5) {
+  d <- df[df$type == mytype, ]
+  d <- d[order(d$error_rate), ]
+  d$error_rate <- round(d$error_rate, 2)
+  print(paste("The ", nb, " easiest ", mytype, "-verbs:", sep = ""))
+  print(kable(head(d, nb)))
+  cat("\n\n\n")
+  print(paste("The ", nb, " hardest ", mytype, "-verbs:", sep = ""))
+  print(kable(tail(d, nb)))
+}
+my_order(mytype = "arm")
+my_order(mytype = "leg")
+```
+
+
+
+
+## Conclusion from memory task
+
+- word_duration: not much effect
+- individual items: ... + we're going to follow it up now in the analysis of the following two tasks
