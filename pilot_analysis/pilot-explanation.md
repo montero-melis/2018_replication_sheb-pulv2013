@@ -41,3 +41,5 @@ When a file is preceded by "CODED" it means that it has been manually coded by o
 
 Analysis
 --------
+
+The analysis of the pilot data is reported in the knitr document "pilot_analysis/pilot_analysis.Rmd"

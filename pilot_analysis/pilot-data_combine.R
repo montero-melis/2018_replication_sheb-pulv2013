@@ -120,6 +120,12 @@ mem[mymatch,]
 mem <- mem[!mymatch,]
 rm(myregex, mymatch)
 
+# Error coding should follow instructions in document
+# team_instructions/data-coding_workflow.md (under "Types of errors")
+table(mem$error)
+# Replace "0" (zero) with "O"
+mem$error <- gsub("0", "O", mem$error)
+
 
 # For plotting and analyses, express word_duration in ms rather than seconds
 mem$word_duration <- mem$word_duration * 1000
