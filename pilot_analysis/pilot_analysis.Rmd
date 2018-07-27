@@ -254,8 +254,12 @@ ppt_mean_simp_durat <- memw %>%
   group_by(participant, word_duration) %>%
   summarise(error_rate = 1 - mean(score)) %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
+```
+
+```{r, eval = FALSE}
 ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
 ```
+
 
 Correlations are high, suggesting that, generally, a participant's error rate for a particular word duration was predictive of their error rates with another word duration.
 
@@ -269,8 +273,12 @@ ppt_mean_simp_block <- memw %>%
   group_by(participant, block) %>%
   summarise(error_rate = 1 - mean(score)) %>%
   spread(block, error_rate)  # reshape to wide format for correlation plot
+```
+
+```{r, eval = FALSE}
 ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
 ```
+
 
 And indeed it was -- even higher than the correlation by word-duration!
 
@@ -651,6 +659,9 @@ item_mean_simp_durat_wide <- meml %>%
   group_by(verb, type, word_duration) %>%
   summarise(error_rate = 1 - mean(correct)) %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
+```
+
+```{r, eval = FALSE}
 # ggpairs distinguishing between verb types
 # (for setting binwidth in histograms, see
 # https://github.com/ggobi/ggally/issues/184 and vignette
@@ -662,6 +673,7 @@ ggpairs(item_mean_simp_durat_wide[, 2:6],
 # # Or a simpler version that does not distinguish between verb types
 # ggpairs(item_mean_simp_durat_wide[, 3:6], lower = list(continuous = "smooth"))
 ```
+
 
 Not sure how surprising this is, but the correlations of by-item means are
 much lower than those for by-subject means.
@@ -692,9 +704,166 @@ performance for a 400 ms presentation rate.
 - Omission and replacement the most frequent errors
 
 
-Verb norming task
-=================
+Verb norming task: arm vs leg bias
+==================================
+
+The data from the verb norming task look like this:
+
+```{r}
+bias_l <- read.csv("data_verb-bias.csv", fileEncoding = "UTF-8")
+kable(head(bias_l[, 3:8]))
+```
+
+Each participant rated each of the 112 verbs on a arm-relatedness and
+a leg-relatedness scale from 1 to 7.
+
+Unfortunately, there was a mismatch in the verbs chosen for the memory and the
+norming task, so that *trek* (a leg verb used in the memory task) was 
+mistakenly replaced by *pluck* (an arm verb) in the norming task.
+This leads to a slight imbalance in the types of verbs used for norming:
+
+```{r}
+table(unique(bias_l[, c("verb", "type")])$type)
+```
+
+
+## Verb bias
+
+We can compute a single measure of *arm-minus-leg bias* per verb
+by simply substracting the leg rating from the verb rating,
+obtaining:
+
+```{r}
+bias <- bias_l %>%
+  group_by(verb, type, rated_category) %>%
+  summarise(rating = mean(rating)) %>%
+  spread(rated_category, rating) %>%  # reshape to wide format for correlation plot
+  mutate(bias = Arm - Leg)
+kable(head(bias))
+```
+
+- A positive bias score (bias $> 0$) indicates bias towards arm-relatedness (max $6$)
+- A negative bias score (bias $< 0$) indicates bias towards leg-relatedness (min $-6$)
+- A bias score $= 0$ indicates absence of either bias
+
+```{r}
+# order factor levels of verbs depending on their bias (for plotting)
+ordered_verbs_bias <- as.character(pull(bias[order(bias$bias), ], verb))
+bias$verb <- factor(bias$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 8, fig.width = 8}
+ggplot(bias, aes(x = verb, y = bias, colour = type)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip()
+```
+
+The figure shows that the bias was generally stronger for the verbs we had
+categorized as arm verbs than for those we thought of as leg verbs.
+
+This can be shown even clearer if we just consider the size of the bias in
+the expected direction, so a negative bias now constitutes a bias in the 
+"wrong" direction (e.g., an arm bias for a supposedly leg-related verb).
+The following plot shows this:
+
+```{r}
+# We add a bias column that changes the sign for leg verbs, so that bias
+# is expressed with respect to the expected direction of the bias for a verb
+bias$bias_absol <- bias$bias
+bias[bias$type == "leg", "bias_absol"] <- - bias[bias$type == "leg", "bias"]
+ggplot(bias, aes(x = type, y = bias_absol, colour = type)) + 
+  geom_boxplot() +
+  ylab("Size of bias in predicted direction")
+```
+
+Only one verb had opposite bias to what was expected:
+
+```{r}
+kable(bias[bias$bias_absol < 0, ])
+```
+
+To scuff means to "Scrape or brush the surface of (a shoe or other object) 
+against something" (OED).
+But participants seemed not to know the verb very well and assume it had some
+arm-related meaning.
+
+
+## Cut-off at bias = 3
+
+Somewhat arbitrarily, we could say that a bias of 3 in the expected direction
+constitutes an acceptable cut-off point to select a verb for the study.
+There are 
+`r sum(with(bias, bias_absol >= 3 & type == "arm"))`
+arm verbs (i.e., all but one) that satisfy this condition,
+but only
+`r sum(with(bias, bias_absol >= 3 & type == "leg"))`
+leg verbs (out of
+`r sum(with(bias, type == "leg"))`) that qualify.
+
+Here are the leg verbs that have a clear bias:
+
+```{r}
+ggplot(bias[with(bias, bias_absol >= 3 & type == "leg"), ],
+       aes(x = verb, y = bias)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip() +
+  ggtitle("Leg verbs with strongest leg bias")
+```
+
+
+## Spread of ratings
+
+Above we have only considered the mean rating for each verb (averaged across
+participants).
+But how much spread was there in the ratings from individual participants?
+
+```{r}
+bias_spread <- bias_l %>%
+  select(participant, verb:rating) %>%
+  spread(rated_category, rating) %>%
+  mutate(bias = Arm - Leg)
+# order verbs according to bias
+bias_spread$verb <- factor(bias_spread$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 9}
+ggplot(bias_spread, aes(x = verb, y = bias, colour = type)) +
+  stat_summary(fun.y = "mean", geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot") +
+  geom_point(alpha = .4) +
+  ylab("Verb bias") + 
+  coord_flip()
+```
+
+What this figure shows is that the average bias for a verb can still hide some
+important individual differences.
+For instance, the leg verb *kneel* had a fairly strong leg bias of
+`r round(bias[bias$verb == "kneel", ]$bias, 1)`
+and still there was one participant who rated it as completely arm-biased
+(bias = 6).
+
+Some of these data points might simply be due to participants getting the 
+scales mixed up, but probably not all of these data points came about in this
+way:
+Similar observations hold for the supposedly leg verbs *tread* and *bounce*.
+For the latter, one could imagine how a participant made associations with 
+*bouncing a ball*, in which case the verb *to bounce* naturally becomes 
+arm-related).
+
+Finally, note also the many ratings of verbs as having no bias (verb bias = 0).
+These may be the result of participants not knowing a verb meaning,
+a matter to which we now turn.
+
 
 
 Verb comprehension task
 ======================
+
+```{r}
+
+```
+
