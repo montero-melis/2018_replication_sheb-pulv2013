@@ -225,10 +225,8 @@ verb_categ$verb <- as.character(verb_categ$verb)
 bias <- left_join(bias, verb_categ)
 
 # rearrange columns
-bias <- bias[, c(1:5, 8, 6:7)]
 bias <- bias[, c("expName", "date", "participant", "trial", "verb", "type",
                  "rated_category", "rating")]
-
 head(bias)
 
 # save to disk
