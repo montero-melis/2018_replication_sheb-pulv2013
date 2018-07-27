@@ -274,6 +274,16 @@ length(unique(multi$participant))  # number of participants
 # change the verbs to lower case (as in other data files):
 multi$verb <- tolower(multi$verb)
 
+# As above, add a column for the category we had in mind for each verb:
+multi <- left_join(multi, verb_categ)
+# Note that, as we saw above, "pluck" was used in the norming task, but not
+# in the memory task:
+unique(multi$verb)[! unique(multi$verb) %in% verb_categ$verb]
+# and viceversa for "trek"
+verb_categ$verb[! verb_categ$verb %in% unique(multi$verb)]
+# Assign "pluck" to arm type
+multi[multi$verb == "pluck", "type"] <- "arm"
+
 # save to disk
 write.csv(multi, "pilot_analysis/data_verb-understanding_multiple-choice.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
@@ -288,6 +298,16 @@ length(unique(transl$participant))  # number of participants
 
 # change the verbs to lower case (as in other data files):
 transl$verb <- tolower(transl$verb)
+
+# As above, add a column for the category we had in mind for each verb:
+transl <- left_join(transl, verb_categ)
+# Note that, as we saw above, "pluck" was used in the norming task, but not
+# in the memory task:
+unique(transl$verb)[! unique(transl$verb) %in% verb_categ$verb]
+# and viceversa for "trek"
+verb_categ$verb[! verb_categ$verb %in% unique(transl$verb)]
+# Assign "pluck" to arm type
+transl[transl$verb == "pluck", "type"] <- "arm"
 
 # save to disk
 write.csv(transl, "pilot_analysis/data_verb-understanding_free-translation.csv",
