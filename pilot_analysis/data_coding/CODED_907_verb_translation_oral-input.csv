@@ -1,4 +1,4 @@
-expName;date;participant;trial;resp_time;our_transl;verb;ppt_translation;score;comments
+expName;date;participant;trial;resp_time;our_transl;verb;ppt_translation;score;comment
 verb_norming_oral_input;2018_Jun_18_0953;907;0;70.0361410176;hoppa;SKIP;hoppsa;0;
 verb_norming_oral_input;2018_Jun_18_0953;907;1;2.46580627726;fånga;CATCH;fånga;1;
 verb_norming_oral_input;2018_Jun_18_0953;907;2;4.37758514896;klappa;PAT;klappa;1;
