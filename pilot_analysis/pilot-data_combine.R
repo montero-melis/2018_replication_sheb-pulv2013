@@ -5,6 +5,8 @@
 # Tasks: 1. Memory task, 2. Verb ratings, 3. Verb understanding.
 
 
+library(dplyr)  # for left_join
+
 #  ------------------------------------------------------------------------
 #  Functions
 #  ------------------------------------------------------------------------
@@ -216,6 +218,18 @@ length(unique(bias$participant))  # number of participants
 
 # change the verbs to lower case (as in other data files):
 bias$verb <- tolower(bias$verb)
+
+# add a column for the category we had in mind for each verb:
+verb_categ <- unique(mem_long[, c("type", "verb")])
+verb_categ$verb <- as.character(verb_categ$verb)
+bias <- left_join(bias, verb_categ)
+
+# rearrange columns
+bias <- bias[, c(1:5, 8, 6:7)]
+bias <- bias[, c("expName", "date", "participant", "trial", "verb", "type",
+                 "rated_category", "rating")]
+
+head(bias)
 
 # save to disk
 write.csv(bias, "pilot_analysis/data_verb-bias.csv",
