@@ -12,7 +12,7 @@
 ## Copy-pasted and slightly modified from script "pilot-data_preprocess.R"
 
 # gets name of data files in "mypath" that contain "expname" in their name
-get_data_filenames <- function(mypath = NULL, expname = NULL) {
+get_data_filenames <- function(expname = NULL, mypath = "pilot_analysis/data_coding") {
   myfiles <- list.files(mypath)
   # match only csv files for the right experiment
   mymatch <- paste(".*", expname, ".*\\.csv", sep ="")
@@ -22,18 +22,15 @@ get_data_filenames <- function(mypath = NULL, expname = NULL) {
   myfiles
 }
 # example:
-get_data_filenames("pilot_analysis/data_coding", "sheb_replic_pilot")
-length(get_data_filenames("pilot_analysis/data_coding", "sheb_replic_pilot"))
+get_data_filenames("sheb_replic_pilot")
+length(get_data_filenames("sheb_replic_pilot"))
 
 
-#  ------------------------------------------------------------------------
-#  Memory task
-#  ------------------------------------------------------------------------
+## FUN that reads individual data files and combines them into single file
+## after some processing
 
-## Read individual data files and combine into a single file after some processing
-
-# (NB: Perhaps this could be done more economically using the lapply function
-# see https://www.youtube.com/watch?v=8MVgYu0y-E4 but I don't know if it would
+# (NB: Perhaps this could be done more economically using the lapply function,
+# see https://www.youtube.com/watch?v=8MVgYu0y-E4, but I don't know if it would
 # allow for the processing of individual files inside the for-loop, probably not.)
 
 combine_files <- function(file_list = NULL, sep_default = ";", 
@@ -41,22 +38,31 @@ combine_files <- function(file_list = NULL, sep_default = ";",
   df <- data.frame()
   for (f in file_list) {
     curr_f <- paste(mypath, f, sep = "")
-    curr_df <- read.csv(curr_f, sep = sep_default)
+    curr_df <- read.csv(curr_f, sep = sep_default, fileEncoding = "UTF-8")
     # if there is a coder column, apply coder's initials (in 1st row) to all rows
     if ("coder" %in% names(curr_df)) curr_df$coder <- curr_df$coder[1]
     # append current df to all previous
     df <- rbind(df, curr_df)
   }
+  # some processing is done here but depends on the task, so use IF statements!
   # Block and trial numbers should start at 1 (not zero)
-  df$block <- df$block + 1
-  df$trial <- df$trial + 1
+  if ("block" %in% names(df)) df$block <- df$block + 1
+  if ("trial" %in% names(df)) df$trial <- df$trial + 1
   # score (at trial level) is 1 iff all four words are reproduced in correct order
-  m <- as.matrix(df[, c("w1", "w2", "w3", "w4")])
-  df$score <- as.numeric(apply(m, 1, sum) == 4)
+  if ("word4" %in% names(df)) {  # this check is sufficient
+    m <- as.matrix(df[, c("w1", "w2", "w3", "w4")])
+    df$score <- as.numeric(apply(m, 1, sum) == 4)
+    }
   df
 }
 
-mem <- combine_files(get_data_filenames("pilot_analysis/data_coding", "sheb_replic_pilot"))
+
+#  ------------------------------------------------------------------------
+#  Memory task
+#  ------------------------------------------------------------------------
+
+## Read individual data files and combine into a single file after some processing
+mem <- combine_files(get_data_filenames("sheb_replic_pilot"))
 head(mem)
 tail(mem)
 str(mem)
@@ -190,4 +196,72 @@ tail(mem_long)
 
 # save to disk
 write.csv(mem_long, "pilot_analysis/data_pilot_memory-task_long.csv", 
+          row.names = FALSE, fileEncoding = "UTF-8")
+
+
+#  ------------------------------------------------------------------------
+#  Verb bias task
+#  ------------------------------------------------------------------------
+
+## Read individual data files and combine into a single file after some processing
+
+get_data_filenames("verb_rating")  # individual file names
+length(get_data_filenames("verb_rating"))  # number of data files
+
+bias <- combine_files(get_data_filenames("verb_rating"), sep_default = ",")
+head(bias)
+tail(bias)
+str(bias)
+length(unique(bias$participant))  # number of participants
+
+# change the verbs to lower case (as in other data files):
+bias$verb <- tolower(bias$verb)
+
+# save to disk
+write.csv(bias, "pilot_analysis/data_verb-bias.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+
+
+#  ------------------------------------------------------------------------
+#  Verb comprehension task
+#  ------------------------------------------------------------------------
+
+## There were two versions of this task:
+
+# 1) a multiple choice version
+get_data_filenames("multiple-choice")  # individual file names
+length(get_data_filenames("multiple-choice"))  # 11 participants did this version
+
+# 2) a free translation version
+get_data_filenames("oral-input")  # individual file names
+length(get_data_filenames("oral-input"))  # 6 participants did this version
+
+
+## 1) Multiple choice version
+multi <- combine_files(get_data_filenames("multiple-choice"), sep_default = ",")
+head(multi)
+tail(multi)
+str(multi)
+length(unique(multi$participant))  # number of participants
+
+# change the verbs to lower case (as in other data files):
+multi$verb <- tolower(multi$verb)
+
+# save to disk
+write.csv(multi, "pilot_analysis/data_verb-understanding_multiple-choice.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+
+
+# 2) Free translation version
+transl <- combine_files(get_data_filenames("oral-input"), sep_default = ";")
+head(transl)
+tail(transl)
+str(transl)
+length(unique(transl$participant))  # number of participants
+
+# change the verbs to lower case (as in other data files):
+transl$verb <- tolower(transl$verb)
+
+# save to disk
+write.csv(transl, "pilot_analysis/data_verb-understanding_free-translation.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
