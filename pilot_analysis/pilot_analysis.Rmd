@@ -57,10 +57,11 @@ What varied between the blocks was the time for which each word was shown:
 `r sort(unique(memw$word_duration))` ms.
 The time between the offset of a verb and the onset of the next verb was held constant at 400 ms.
 
-We will analyze the data in two ways:
+We will analyze the data in three ways:
 
-1. By items or quadruples, counting an item as correct if all four verbs were remembered in the correct order
-2. By verbs, by looking whether each individual verb in a quadruple was remembered.
+1. Looking at by-subject averages when we consider whole items (or quadruples), i.e. counting an item as correct only if all four verbs were remembered in the correct order;
+2. Looking at by-subject averages computed for particular verbs, that is, by looking whether each individual verb in a quadruple was remembered or not.
+3. Considering item variability, i.e. as a by-item analysis.
 
 
 ## By-subject analysis at the level of item (quadruples)
@@ -238,7 +239,14 @@ ggplot(ppt_mean_simp_type, aes(x = arm, y = leg)) +
   geom_smooth(method = "lm")
 ```
 
-The correlation is indeed high (*r* = `r round(with(ppt_mean_simp_type, cor(arm, leg)), 2)`), again suggesting that there were no marked differences between the number of errors a participant made for either type of items:
+The correlation is indeed high 
+(*r* = `r round(with(ppt_mean_simp_type, cor(arm, leg)), 2)`),
+again suggesting that participants ordered in similar ways with respect to 
+error rates, independently of the verb type (i.e., it was not the case that
+participants ranked very high at, say, remembering arm verbs but very low at
+remembering leg verbs.
+
+The correlation test:
 
 ```{r}
 with(ppt_mean_simp_type, cor.test(arm, leg))
@@ -382,7 +390,7 @@ Instead of just looking at whole items (quadruples), we now consider individual 
 
 ### Nature of the data (long format)
 
-To look at the data by verb rather than by item, we need the data in long format.
+To look at the data by verb rather than by item, we need the data in long format:
 
 ```{r}
 # Show data in long format
@@ -414,10 +422,11 @@ ggplot(ppt_mean_l, aes(x = word_duration, y = error_rate)) +
   ylim(ylims)
 ```
 
-Under this treatment, error rates diminish drastically!
-We now lie at a mean error rate below 25% and no participant has a mean error rate above 50%.
+Under this treatment, error rates diminish drastically -- they are halved!
+We now lie at a mean error rate below 25% and no participant has a mean error
+rate above 50%.
 The effect of word duration becomes less clear.
-But let us rescale the y-axis so it is used for the range of the data
+But let us rescale the y-axis so it covers the range of the data
 rather than forcing the y-scale to lie between 0 and 1. 
 This yields better resolution to see variability.
 
@@ -464,7 +473,7 @@ ggplot(ppt_mean_l, aes(x = block, y = error_rate)) +
 ```
 
 We see the same picture as before:
-Error rates drop from the 1st to the 2nd block (from slightly under 30% to slightly over 20%), but then remain stable throughout
+Error rates drop from the 1st to the 2nd block, but then remain stable throughout
 the rest of the blocks.
 
 This does not differ between verb types, as shown below:
@@ -503,8 +512,26 @@ following.
 But performance was not better for the last one than for the middle ones,
 as one might have expected.
 
+We can further investigate whether this effect changed across word presentation
+rates:
 
-We can further investigate whether this effect changed across blocks:
+```{r}
+ppt_mean_l_wordInTrial_durat <- meml %>% 
+  group_by(participant, wordInTrial, word_duration) %>%
+  summarise(error_rate = 1 - mean(correct))
+ggplot(ppt_mean_l_wordInTrial_durat, aes(x = wordInTrial, y = error_rate)) +
+  stat_summary(fun.y = "mean", size = 1, geom = "point") +
+  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  geom_jitter(height = 0, width = .2, alpha = .4) +
+  facet_grid(. ~ word_duration) +
+  ylab("Error rate") + xlab("Verb position")  +
+  ylim(0, .6)
+```
+
+No interaction between effect of verb position and verb presentation rate
+is visible
+
+... What about across blocks?
 
 ```{r}
 ppt_mean_l_wordInTrial_block <- meml %>% 
@@ -519,9 +546,9 @@ ggplot(ppt_mean_l_wordInTrial_block, aes(x = wordInTrial, y = error_rate)) +
   ylim(0, .6)
 ```
 
-The effect does not seem to change much between blocks.
-(There is only an overall shift downwards from block 1 to block 2, as we saw
-before, but the relative position of the means depending on word position is
+The effect does not seem to change much between blocks either.
+(As before, there is only an overall shift downwards from block 1 to block 2,
+but the relative position of the means depending on word position is
 similar).
 
 
@@ -625,8 +652,10 @@ ggplot(item_mean_simp, aes(x = verb, y = error_rate, fill = type)) +
   ylim(ylims2)
 ```
 
-Variability is by far not as large as for participants
+Variability by items is similar in magnitude to variability between participants
+when this latter is computed for error rate at the verb level
 (range: `r round(range(item_mean_simp$error_rate), 2)`).
+
 Another nice result this plot confirms is that there does not seem to a marked
 difference in difficulty between the two types of verbs:
 red and blue bars are spread out quite evenly along the whole range.
@@ -863,7 +892,101 @@ a matter to which we now turn.
 Verb comprehension task
 ======================
 
-```{r}
+## Multiple choice version of verb comprehension task 
 
+```{r}
+# "und" for understanding, "mc"" for multiple choice
+und_mc <- read.csv("data_verb-understanding_multiple-choice.csv",
+                    fileEncoding = "UTF-8")
 ```
+
+Most of the participants 
+(`r length(unique(und_mc$participant))` out of 17)
+carried out the verb comprehension task as a **multiple
+choice task**, in which they had to choose one among three Swedish alternatives
+as the correct translation for the English target verb.
+
+Here are the first couple of observations:
+
+```{r}
+kable(head(und_mc[, c(3:5, 15, 6:8, 14)], 2))
+```
+
+The column `verb` shows the English verb for which participants had to choose
+the corresponding Swedish verb (`target`), followed by the two distractors
+(`r names(und_mc)[7:8]`).
+The last column shows whether the participant got it right.
+The order in which target and distractors appeared in a given trial was 
+randomized for each verb (but each verb always had the same distractors).
+The order of verbs was randomly chosen.
+
+```{r}
+und_mc_acc <- und_mc %>%
+  group_by(verb, type) %>%
+  summarise(accuracy = mean(correct))
+```
+
+
+```{r}
+# order factor levels of verbs depending on their accuracy (for plotting)
+ordered_verbs_acc <- as.character(pull(und_mc_acc[order(und_mc_acc$accuracy), ], verb))
+und_mc_acc$verb <- factor(und_mc_acc$verb, levels = ordered_verbs_acc)
+```
+
+
+```{r, fig.height = 8, fig.width = 8}
+ggplot(und_mc_acc, aes(x = verb, y = accuracy, colour = type)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip()
+```
+
+In general, translation of leg verbs yielded lower accuracy than arm verbs:
+
+```{r}
+ggplot(und_mc_acc, aes(x = type, y = accuracy, colour = type)) +
+  geom_boxplot() +
+  ylim(0, 1) +
+  ggtitle("Accuracy for arm vs leg verbs")
+```
+
+
+
+Methodologically, this task might be problematic:
+As I had initially feared, the multiple choice task perhaps is not sensitive
+enough. Many of the verbs had an accuracy of 100%.
+This may be because they truly are well known, but it could also be that 
+participants were able to rule out the distractors because they were too far
+away from the meaning of the English verb, even though their actual knowledge
+of the verb could have been shallow.
+Noise in the opposite direction is also a possibility for other verbs:
+perhaps some verbs *were* known, but the alternative give as the correct one
+was not really ideal.
+This is difficult to tell but we can look a little bit more into this matter.
+
+There are some verbs for which accuracy was particularly low, even under chance
+level (.33).
+The verbs that had an accuracy below 0.5 are the following:
+
+
+```{r}
+# difficult (?) verbs
+diff_verbs <- und_mc_acc[und_mc_acc$accuracy < .5, ]
+kable(diff_verbs[order(diff_verbs$accuracy), ])
+# save as vector
+diff_verbs_v <- as.character(diff_verbs[order(diff_verbs$accuracy), ]$verb)
+```
+
+
+This is surprising, especially for "roll," since one would not expect Swedish
+speakers of L2 English not to know the meaning of that verb.
+
+So let us look at the target and distractor items for these verbs:
+
+```{r}
+kable(unique(und_mc[und_mc$verb %in% diff_verbs_v, c("verb", "target", "distrOne", "distrTwo")]))
+```
+
+It may very well be that rather than not knowing the word, some of the
+participants could not make sense of the different alternatives.
 
