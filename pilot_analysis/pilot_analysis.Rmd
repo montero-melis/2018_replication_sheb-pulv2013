@@ -21,8 +21,18 @@ library(ggplot2)
 library(GGally)
 library(dplyr)
 library(tidyr)
+library(lme4)
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r}
+# load convenience functions
+source("../Rfunctions/load_or_fit_fnc.R")
+```
+
+Introduction and summary
+========================
+
 
 Memory task
 ===========
@@ -78,6 +88,27 @@ The `error`  column contains abbreviations for the types of error coded for (fol
 - *Replacement* (R): One target word is replaced by a non-target word
 - *Shift/transposition* (S): Two target words are shuffled
 - *Addition* (A): It is the case where none of the previous errors have occurred (all 4 target verbs were retrieved in the right order), but the participant added at least one more verb that is not a target. NB: This was not in the original S&P.
+
+
+Note that some observations were removed because participants did something
+they were not supposed to (e.g., whispering the words during the memory phase)
+or because the answers were not perceivable.
+This leads to some participants having missing observations for a given word
+presentation rate.
+Observations were always removed at the item (quadruple level), so that if one
+word was unclear, then the whole item (all four verbs for that trial) was
+deleted.
+
+
+```{r}
+with(memw, table(word_duration, participant))
+```
+
+The most extreme case is participant 902 under the word presentation rate of
+300 ms, for whom `r 28-19` observations are missing 
+(`r round(100 * (28 - 19) / 28)`%).
+For now, we leave all participants in, as there is no reason to assume that this
+resulted in a special bias.
 
 
 ### Error rates by word duration
@@ -151,6 +182,28 @@ ggplot(ppt_mean_ty, aes(x = block, y = error_rate, colour = type)) +
 ```
 
 
+### Types of errors
+
+What were the most frequent error types?
+
+```{r}
+error_types <- memw %>%
+  group_by(error, error_expl) %>%
+  count() %>%
+  mutate(percentage = round(100 * n / nrow(memw), 1))
+levels(error_types$error_expl)[levels(error_types$error_expl) == ""] <- "No error"
+error_types <- error_types %>% rename(error_explicit = error_expl)
+error_types <- error_types[order(- error_types$n), ]
+kable(error_types[order(- error_types$n), ])
+```
+
+The table shows that most of the errors are either replacement or omission
+errors (or both). These two categories *alone* (i.e., not combined with any 
+other type of error) account for 
+**`r round(100 * sum(error_types$n[2:4]) / sum(error_types$n[2:nrow(error_types)]))`%**
+of all the items/quadruples that were not remembered correctly.
+
+
 ### Participant variability
 
 The plots in the previous section suggest substantial individual variability.
@@ -170,7 +223,7 @@ ggplot(ppt_mean_simp, aes(x = participant, y = error_rate)) +
 Variability is quite large (range: `r round(range(ppt_mean_simp$error_rate), 2)`).
 
 
-#### Within participant correlation between types
+#### Within participant correlation between verb types (arm/leg)
 
 We can ask if error rates for the two types of verbs were correlated (by participants)?
 
@@ -220,6 +273,97 @@ ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
 ```
 
 And indeed it was -- even higher than the correlation by word-duration!
+
+
+
+### Logistic mixed model analysis
+
+To analyze the data statistically, we fit a logistic mixed model.
+
+The dependent variable is binary (`score`).
+The predictor variables are:
+
+- `word_duration` dummy coded (`r levels(factor(memw$word_duration))` ms)
+- `block` dummy coded (1, 2, 3, 4)
+- `type` dummy coded (`r levels(factor(memw$type))`)
+
+We can only have participants as random effects, including random intercepts
+as well as (at most) random slopes for all three predictors.
+As we will see below, random slopes lead to convergence failures.
+No random effects for items can be fit, since the verbs that made up
+the quadruples were randomly chosen each time.
+
+
+```{r, echo = TRUE}
+# convert variables to factors:
+memw$f_word_duration <- factor(memw$word_duration)
+memw$f_block <- factor(memw$block)
+
+# contrast coding for verb type
+contrasts(memw$type) <- contr.sum(2) / 2
+colnames(contrasts(memw$type)) <- "arm_vs_leg"
+# use forward difference coding, see
+# https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
+# In this coding system, the mean of the dependent variable for one level of
+# the categorical variable is compared to the mean of the dependent variable
+# for the next (adjacent) level.
+
+#forward difference for factor variable with 4 levels
+my.forward.diff <- matrix(c( 3/4, -1/4, -1/4,
+                            -1/4,  1/2,  1/2, 
+                            -1/2, -1/2,  1/4,
+                             1/4,  1/4, -3/4), 
+                          ncol = 3)
+# word presentation rate
+contrasts(memw$f_word_duration) <- my.forward.diff
+colnames(contrasts(memw$f_word_duration)) <- c("100_vs_200",
+                                               "300_vs_200",
+                                               "400_vs_300")
+# block
+contrasts(memw$f_block) <- my.forward.diff
+colnames(contrasts(memw$f_block)) <- c("1_vs_2", "3_vs_2", "4_vs_3")
+
+# History of fitted models:
+
+# # The maximal model fails to converge:
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration + f_block + type | participant),
+#                     data = memw,
+#                     family = 'binomial')
+# # So does a model removing the (nuisance) variable block
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration + type | participant),
+#                     data = memw,
+#                     family = 'binomial')
+# #  Even if we just leave f_word_duration as a random slope, it doesn't converge.
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration | participant),
+#                     data = memw,
+#                     family = 'binomial')
+
+# So we go for a random by-subject intercept only:
+glmm_quadr.expr <- "glmer(score ~ f_word_duration + f_block + type +
+                      (1 | participant),
+                    data = memw,
+                    family = 'binomial')"
+# load if saved or fit it
+load_or_fit("glmm_quadr", glmm_quadr.expr)
+summary(glmm_quadr)
+```
+
+
+Compare to dummy coding of `word_duration` and `block`:
+
+```{r}
+# Same model using dummy coding
+glmm_quadr_dummy.expr <- "glmer(score ~ factor(word_duration) + factor(block) + type +
+                            (1 | participant),
+                          data = memw, family = 'binomial')"
+# load if saved or fit it
+load_or_fit("glmm_quadr_dummy", glmm_quadr_dummy.expr)
+
+summary(glmm_quadr_dummy)
+```
 
 
 
@@ -432,6 +576,28 @@ First, here is a list of the verbs we used in this pilot:
 - **Arm-related verbs**: `r sort(unique(meml[meml$type == "arm", "verb"]))`
 - **Leg-related verbs**: `r sort(unique(meml[meml$type == "leg", "verb"]))`
 
+Note that some observations were removed because participants did something
+they were not supposed to (e.g., whispering the words during the memory phase)
+or because the answers were not perceivable.
+This leads to some verbs having 1 or 2 missing observations for a given word
+presentation rate.
+
+```{r}
+missing_obs_per_verb <- meml %>% 
+  group_by(verb, word_duration) %>%
+  summarise(missing_observations = 17 - n())
+missing_obs_per_verb[missing_obs_per_verb$missing_observations != 0, 2:3] %>%
+  count(word_duration, missing_observations) %>%
+  kable
+```
+
+The table above should be read as follows:
+
+- Row 1: There are 8 verbs for which there is one missing observation (i.e. there is 
+data for 16 out of 17 participants) for word_duration 100 ms.
+- Row 2: There are 12 verbs for which there is one missing observation (i.e. there is 
+data for 16 out of 17 participants) for word_duration 200 ms
+- etc.
 
 
 ### Item variability
@@ -475,9 +641,60 @@ my_order(mytype = "leg")
 ```
 
 
+### By-item correlation of error rates between different word presentation rates
+
+We use a scatterplot matrix to check whether the by-item correlations of error
+rates under different word durations were high:
+
+```{r}
+item_mean_simp_durat_wide <- meml %>% 
+  group_by(verb, type, word_duration) %>%
+  summarise(error_rate = 1 - mean(correct)) %>%
+  spread(word_duration, error_rate)  # reshape to wide format for correlation plot
+# ggpairs distinguishing between verb types
+# (for setting binwidth in histograms, see
+# https://github.com/ggobi/ggally/issues/184 and vignette
+# http://ggobi.github.io/ggally/#function_wrapping )
+ggpairs(item_mean_simp_durat_wide[, 2:6],
+        mapping = ggplot2::aes(colour = type),
+        lower = list(continuous = "smooth", 
+                     combo=wrap("facethist", binwidth = 0.1)))
+# # Or a simpler version that does not distinguish between verb types
+# ggpairs(item_mean_simp_durat_wide[, 3:6], lower = list(continuous = "smooth"))
+```
+
+Not sure how surprising this is, but the correlations of by-item means are
+much lower than those for by-subject means.
+In other words, the fact that a given verb was hard to remember for one 
+presentation rate does not imply that it was equally hard at another rate.
 
 
 ## Conclusion from memory task
 
+A
+
+- The analysis based on rating whole items (quadruples) as either correct or
+incorrect resulted in a high error rate (around 50%) at all verb presentation
+rates.
+- This rate is higher than we were aiming for based on the original study S&P, for
+whom error rates in the control condition (with 100 ms verb presentation rates)
+lay at around 30%.
+- Manipulating the presentation rate led at best to a marginally better
+performance for a 400 ms presentation rate.
+
+- No differences by verb type
+
+
 - word_duration: not much effect
 - individual items: ... + we're going to follow it up now in the analysis of the following two tasks
+
+
+- Omission and replacement the most frequent errors
+
+
+Verb norming task
+=================
+
+
+Verb comprehension task
+======================
