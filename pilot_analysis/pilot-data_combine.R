@@ -126,6 +126,13 @@ table(mem$error)
 # Replace "0" (zero) with "O"
 mem$error <- gsub("0", "O", mem$error)
 
+# create column that contains types of errors explicitly written out:
+mem$error_expl <- mem$error
+mem$error_expl <- gsub("O", "Omission", mem$error_expl)
+mem$error_expl <- gsub("R", "Replacement", mem$error_expl)
+mem$error_expl <- gsub("S", "Shift", mem$error_expl)
+mem$error_expl <- gsub("A", "Addition", mem$error_expl)
+mem$error_expl <- gsub(",", ", ", mem$error_expl)
 
 # For plotting and analyses, express word_duration in ms rather than seconds
 mem$word_duration <- mem$word_duration * 1000
