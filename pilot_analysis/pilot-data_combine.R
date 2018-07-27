@@ -224,6 +224,21 @@ verb_categ <- unique(mem_long[, c("type", "verb")])
 verb_categ$verb <- as.character(verb_categ$verb)
 bias <- left_join(bias, verb_categ)
 
+# Note that, due to some oversight, there is one verb that was used in the
+# norming task, but not in the memory task:
+sum(! unique(bias$verb) %in% verb_categ$verb)
+unique(bias$verb)[! unique(bias$verb) %in% verb_categ$verb]
+# and viceversa
+sum(! verb_categ$verb %in% unique(bias$verb))
+verb_categ$verb[! verb_categ$verb %in% unique(bias$verb)]
+
+# This means that:
+# "trek" has not been normed
+# "pluck" has no type assigned, so let's assign it to "arm"
+bias[bias$verb == "pluck", "type"] <- "arm"
+# This means there are 57 arm words and 55 leg words for norming data
+table(unique(bias[, c("verb", "type")])$type)
+
 # rearrange columns
 bias <- bias[, c("expName", "date", "participant", "trial", "verb", "type",
                  "rated_category", "rating")]
