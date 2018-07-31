@@ -264,7 +264,7 @@ ppt_mean_simp_durat <- memw %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -283,7 +283,7 @@ ppt_mean_simp_block <- memw %>%
   spread(block, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -690,7 +690,7 @@ item_mean_simp_durat_wide <- meml %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 # ggpairs distinguishing between verb types
 # (for setting binwidth in histograms, see
 # https://github.com/ggobi/ggally/issues/184 and vignette
@@ -989,4 +989,135 @@ kable(unique(und_mc[und_mc$verb %in% diff_verbs_v, c("verb", "target", "distrOne
 
 It may very well be that rather than not knowing the word, some of the
 participants could not make sense of the different alternatives.
+
+
+
+## Free (oral) translation version of verb comprehension task 
+
+
+
+
+```{r}
+# "und" for understanding, "fr"" for free
+und_free <- read.csv("data_verb-understanding_free-translation.csv",
+                     fileEncoding = "UTF-8")
+```
+
+Only  
+(`r length(unique(und_free$participant))`
+participants out of 17 carried out the verb comprehension task as a 
+**free translation task**, in which they had to give a correct Swedish 
+translation of the English target verb.
+
+Here are the first couple of observations:
+  
+```{r}
+kable(head(und_free[, c(3:5, 11, 7:9)], 2))
+```
+
+The column `verb` shows the English verb for which participants had to provide
+a Swedish translation.
+The column `ppt_translation` contains a transcription of the participant's answer
+which is scored as 0 or 1, except in cases where we were in doubt.
+These latter cases are coded as $-99$, e.g.:
+
+```{r}
+kable(head(und_free[und_free$score == -99, c(3:5, 11, 7:9)], 3))
+
+```
+
+We coded cases as $-99$ when the translations were not incorrect but clearly
+deviated from the intended translation and lacked any relation to legs or 
+arms as we had intended.
+
+For now we will consider translations scored as $-99$ as incorrect
+(but we also save a version of the non-simplified scoring):
+
+```{r}
+und_free$score_unsimplified <- und_free$score
+und_free[und_free$score == -99, "score"] <- 0
+```
+
+
+```{r}
+und_free_acc <- und_free %>%
+  group_by(verb, type) %>%
+  summarise(accuracy = mean(score))
+```
+
+
+```{r}
+# order factor levels of verbs depending on their accuracy (for plotting)
+ordered_verbs_free_acc <- as.character(pull(und_free_acc[order(und_free_acc$accuracy), ], verb))
+und_free_acc$verb <- factor(und_free_acc$verb, levels = ordered_verbs_free_acc)
+```
+
+
+```{r, fig.height = 8, fig.width = 8}
+ggplot(und_free_acc, aes(x = verb, y = accuracy, colour = type)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip()
+```
+
+In general, translation of leg verbs yielded lower accuracy than arm verbs,
+which was also the case in the multiple choice version of this task:
+  
+```{r}
+ggplot(und_free_acc, aes(x = type, y = accuracy, colour = type)) +
+  geom_boxplot() +
+  ylim(0, 1) +
+  ggtitle("Accuracy for arm vs leg verbs")
+```
+
+
+There are some verbs for which accuracy was particularly low:
+
+```{r}
+# difficult (?) verbs
+diff_verbs_free <- und_free_acc[und_free_acc$accuracy <= .5, ]
+kable(diff_verbs_free[order(diff_verbs_free$accuracy), ])
+```
+
+Some of the verbs really were unknown to the 6 participants in the free
+translation task, e.g.:
+*ramble* or *scuff*.
+Or only 1 participant knew them (*traipse*, *flit*).
+
+For others, like *switch*, the participants provided a translation that was 
+unrelated to the intended meaning (like 'byta').
+
+
+## Correlation between the two verb comprehension tasks
+
+Even though we have only few observations, we can look at the correlation
+of verb comprehension accuracy in the two tasks:
+
+```{r}
+und_free_acc$verb <- as.character(und_free_acc$verb)
+und_mc_acc$verb <- as.character(und_mc_acc$verb)
+
+und_compare <- left_join(und_mc_acc %>% rename(MC_acc = accuracy),
+                         und_free_acc %>% rename(free_acc = accuracy))
+```
+
+We plot first the correlation plot for all verbs...
+
+```{r}
+ggplot(und_compare, aes(x = MC_acc, y = free_acc)) +
+  geom_jitter(height = .02, width = .02, alpha = .4) +
+  xlab("Multiple choice") + ylab("Free translation") + 
+  ggtitle("Translation accuracy in multiple choice and free translation task") +
+  geom_smooth(method = "lm")
+```
+
+And then we break up the plot as a function of verb type:
+
+```{r}
+ggplot(und_compare, aes(x = MC_acc, y = free_acc, colour = type)) +
+  geom_jitter(height = .02, width = .02, alpha = .4) +
+  xlab("Multiple choice") + ylab("Free translation") + 
+  ggtitle("Translation accuracy in multiple choice and free translation task") +
+  geom_smooth(method = "lm")
+```
 
