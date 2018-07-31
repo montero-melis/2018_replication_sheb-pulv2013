@@ -353,6 +353,9 @@ transl[grepl("(bestiga|hoppa upp|hoppa på)", transl$ppt_translation) & transl$v
 # pace
 transl[grepl("gå (runt|otåligt)", transl$ppt_translation) & transl$verb == "pace", ]
 transl[grepl("gå (runt|otåligt)", transl$ppt_translation) & transl$verb == "pace", "score"] <- 1
+# plod
+transl[grepl("gå (slarvigt|med svårigheter)", transl$ppt_translation) & transl$verb == "plod", ]
+transl[grepl("gå (slarvigt|med svårigheter)", transl$ppt_translation) & transl$verb == "plod", "score"] <- 1
 # roam
 transl[grepl("(vandra|dra runt)", transl$ppt_translation) & transl$verb == "roam", ]
 transl[grepl("(vandra|dra runt)", transl$ppt_translation) & transl$verb == "roam", "score"] <- 1
@@ -407,6 +410,9 @@ transl[grepl("promenera", transl$ppt_translation) & transl$verb == "stroll", "sc
 # correct transl for "strut"
 transl[grepl("good news", transl$ppt_translation) & transl$verb == "strut", ]
 transl[grepl("good news", transl$ppt_translation) & transl$verb == "strut", "score"] <- 1
+# traipse
+transl[grepl("gå försiktigt", transl$ppt_translation) & transl$verb == "traipse", ]
+transl[grepl("gå försiktigt", transl$ppt_translation) & transl$verb == "traipse", "score"] <- 1
 # tread
 transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", ]
 transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", "score"] <- 1
