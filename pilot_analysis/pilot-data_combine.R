@@ -416,6 +416,9 @@ transl[grepl("gå försiktigt", transl$ppt_translation) & transl$verb == "traips
 # tread
 transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", ]
 transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", "score"] <- 1
+# trot
+transl[grepl("galoppera", transl$ppt_translation) & transl$verb == "trot", ]
+transl[grepl("galoppera", transl$ppt_translation) & transl$verb == "trot", "score"] <- 1  # preserves the leg association and overall meaning
 # trudge
 transl[grepl("gå", transl$ppt_translation) & transl$verb == "trudge", ]
 transl[grepl("gå", transl$ppt_translation) & transl$verb == "trudge", "score"] <- 1
