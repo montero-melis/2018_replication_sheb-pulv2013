@@ -296,7 +296,7 @@ ppt_mean_simp_durat <- memw %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -315,7 +315,7 @@ ppt_mean_simp_block <- memw %>%
   spread(block, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -660,7 +660,7 @@ item_mean_simp_durat_wide <- meml %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 # ggpairs distinguishing between verb types
 # (for setting binwidth in histograms, see
 # https://github.com/ggobi/ggally/issues/184 and vignette
@@ -1179,7 +1179,7 @@ bias was lower or when the translation accuracy was lower.
 
 To choose the optimal verbs, one has to take into consideration both the bias
 and the translation accuracy.
-At the same time, we have seen that a verb that is not well understood also
+We have seen, however, that a verb that is not well understood also
 tends to have a low absolute bias.
 Conversely, a verb that has a strong absolute bias is likely to be well 
 understood.
@@ -1188,40 +1188,90 @@ the multiple choice version and because of low N for the free translation
 version), let us focus on the verbs that had highest bias and just check that
 their accuracy was also acceptable.
 
+
+### Verbs ranked according to strength of bias
+
 The following table ranks arm and leg verbs with respect to their absolute
 bias.
 For example the strongest arm bias was obtained for the verb *clap*,
 while the strongest leg bias was obtained for the verb *kick*.
 Along with the verb and the bias, the table shows the translation accuracy
-of that verb as measured from the free translation task.
+of that verb as measured from the **free translation task**.
 
 ```{r, message = FALSE, warning = FALSE}
-## arm verbs
-bias_arm <- bias[bias$type == "arm", c("verb", "type", "bias_absol")]
-bias_arm <- bias_arm[order(-bias_arm$bias_absol),]
-bias_arm <- left_join(bias_arm, und_free_acc)
-bias_arm$rank <- 1:nrow(bias_arm)
-# reorganize and rename columns
-bias_arm <- bias_arm %>%
-  ungroup() %>%
-  select(rank, arm_verb = verb, arm_bias = bias_absol, arm_acc = accuracy)
-## leg verbs
-bias_leg <- bias[bias$type == "leg", c("verb", "type", "bias_absol")]
-bias_leg <- bias_leg[order(-bias_leg$bias_absol),]
-bias_leg <- left_join(bias_leg, und_free_acc)
-bias_leg$rank <- 1:nrow(bias_leg)
-# reorganize and rename columns
-bias_leg <- bias_leg %>%
-  ungroup() %>%
-  select(rank, leg_verb = verb, leg_bias = bias_absol, leg_acc = accuracy)
-# join
-verb_choice <- left_join(bias_arm, bias_leg)
+# convenience function to rank verbs
+rank_verbs_fnc <- function(df_bias = bias, df_acc = und_free_acc,
+                           min_acc = 0, min_bias = -Inf) {
+  # The min_acc parameter is used to threshold verbs for their accuracy:
+  # verbs with translation accuracy < min_acc are excluded
+  # min_bias thresholds verbs for their absolute bias
+  
+  for (ty in c("arm", "leg")) {
+    bias <- df_bias[df_bias$type == ty, c("verb", "type", "bias_absol")]
+    bias <- left_join(bias, df_acc)  # add accuracy from free translation
+    bias <- bias[with(bias, order(-bias_absol, -accuracy)),]
+    bias <- bias[with(bias, accuracy >= min_acc), ]  # accuracy threshold
+    bias <- bias[with(bias, bias_absol >= min_bias), ]  # bias threshold
+    bias$rank <- 1:nrow(bias)
+    # reorganize columns
+    bias <- bias %>%
+      ungroup() %>%
+      select(rank, verb, bias_absol, accuracy)
+    # rename columns
+    names(bias)[2:4] <- paste(ty, c("verb", "bias", "acc"), sep = "_")
+    assign(ty, bias)
+  }
+  out <- full_join(arm, leg)
+  out
+}
+verb_choice_nothresh <- rank_verbs_fnc()
 ```
 
 ```{r}
-kable(verb_choice)
+kable(verb_choice_nothresh)
 ```
 
+
+### Verbs with threshold for accuracy
+
+The ranks above do not take into account accuracy.
+One reasonable thing to do is to exclude verbs that were accurately translated
+by less than 50% of the 6 participants in the free translation task.
+This new list of ranked verbs does that:
+
+```{r, message = FALSE, warning = FALSE}
+acc_threshold <- .5
+verb_choice_thresh50 <- rank_verbs_fnc(min_acc = acc_threshold)
+kable(verb_choice_thresh50)
+```
+
+
+Note that we are left with many less leg than arm verbs!
+
+
+The verbs excluded in this way are the following: 
+
+```{r}
+und_free_acc %>% filter(accuracy < acc_threshold) %>%
+  arrange(accuracy, type, verb) %>% kable
+```
+
+
+
+### Verbs with threshold for accuracy and strength of bias
+
+If we additionally impose the condition that the 
+**minimum bias of a verb should be 3** in the expected direction, 
+we end up with the following list of ranked verbs:
+
+```{r, message = FALSE, warning = FALSE}
+bias_threshold <- 2.5
+verb_choice_thresh50_bias3 <- rank_verbs_fnc(min_acc = acc_threshold,
+                                             min_bias = bias_threshold)
+kable(verb_choice_thresh50_bias3)
+```
+
+We have 54 arm verbs, but only 37 leg verbs, that satisfy these constraints!
 
 
 
