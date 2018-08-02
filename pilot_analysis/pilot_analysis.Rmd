@@ -3,13 +3,13 @@ title: "Analysis of pilot study"
 author: '[Guillermo Montero-Melis](http://www.biling.su.se/montero_melis_guillermo)'
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
 output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
   html_document:
     depth: 2
     number_sections: yes
     theme: default
-    toc: yes
-  pdf_document:
-    number_sections: yes
     toc: yes
   word_document:
     toc: yes
@@ -22,7 +22,7 @@ library(GGally)
 library(dplyr)
 library(tidyr)
 library(lme4)
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.height = 3.5)
 ```
 
 ```{r}
@@ -64,7 +64,7 @@ We will analyze the data in three ways:
 3. Considering item variability, i.e. as a by-item analysis.
 
 
-## By-subject analysis at the level of item (quadruples)
+## By-subject analysis at the level of *items* (quadruples)
 
 ### Nature of the data (wide format)
 
@@ -93,12 +93,14 @@ The `error`  column contains abbreviations for the types of error coded for (fol
 
 Note that some observations were removed because participants did something
 they were not supposed to (e.g., whispering the words during the memory phase)
-or because the answers were not perceivable.
-This leads to some participants having missing observations for a given word
+or because the answers were unintelligible.
+This means some participants have fewer observations at a given word 
 presentation rate.
-Observations were always removed at the item (quadruple level), so that if one
-word was unclear, then the whole item (all four verbs for that trial) was
-deleted.
+Observations were always removed at the level of item (i.e., quadruple)
+For example, if one word was unintelligible, then the whole item (that is, all
+four verbs in that trial) was deleted.
+This results in the following number of items per participant and word 
+presentation rate:
 
 
 ```{r}
@@ -125,10 +127,10 @@ ppt_mean <- memw %>%
   summarise(error_rate = 1 - mean(score))
 ylims <- c(0,1)
 ggplot(ppt_mean, aes(x = word_duration, y = error_rate)) +
-  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 1.5) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
+  ggtitle("Average by-subject error rates as a function of presentation rate") +
   ylim(ylims)
 ```
 
@@ -145,8 +147,7 @@ ppt_mean_ty <- memw %>%
   summarise(error_rate = 1 - mean(score))
 
 ggplot(ppt_mean_ty, aes(x = word_duration, y = error_rate, colour = type)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = 20)) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = 20)) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
   ylim(ylims)
@@ -161,10 +162,10 @@ Perhaps more important than the word duration was the actual block number, becau
 
 ```{r}
 ggplot(ppt_mean, aes(x = block, y = error_rate)) +
-  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 1.5) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") +
+  ggtitle("Average by-subject error rates as a function of block") +
   ylim(ylims)
 ```
 
@@ -175,8 +176,7 @@ Again, the patterns were similar if we break down the verbs by type (arm- vs leg
 
 ```{r}
 ggplot(ppt_mean_ty, aes(x = block, y = error_rate, colour = type)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = .5)) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = .5)) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") + 
   ylim(ylims)
@@ -218,13 +218,14 @@ ppt_mean_simp$participant <- factor(ppt_mean_simp$participant, levels = ppt_mean
 ggplot(ppt_mean_simp, aes(x = participant, y = error_rate)) +
   geom_bar(stat = "identity") +
   ylab("Error rate") +
+  ggtitle("Individual variability:\nAccuracy scored at verb level") +
   ylim(ylims)
 ```
 
 Variability is quite large (range: `r round(range(ppt_mean_simp$error_rate), 2)`).
 
 
-#### Within participant correlation between verb types (arm/leg)
+#### Within-participant correlation between verb types (arm/leg)
 
 We can ask if error rates for the two types of verbs were correlated (by participants)?
 
@@ -242,18 +243,49 @@ ggplot(ppt_mean_simp_type, aes(x = arm, y = leg)) +
 The correlation is indeed high 
 (*r* = `r round(with(ppt_mean_simp_type, cor(arm, leg)), 2)`),
 again suggesting that participants ordered in similar ways with respect to 
-error rates, independently of the verb type (i.e., it was not the case that
+error rates, independently of the verb type; that is, it was not the case that
 participants ranked very high at, say, remembering arm verbs but very low at
 remembering leg verbs.
 
-The correlation test:
+Correlation test:
 
 ```{r}
 with(ppt_mean_simp_type, cor.test(arm, leg))
 ```
 
+To better compare memory for the two word types, we can plot average by-subject
+error rates for each verb type.
+The first boxplot below gives an idea of the distribution.
 
-#### Within participant correlation between different word durations
+```{r}
+ppt_mean_simp_type_long <- memw %>%
+  group_by(participant, type) %>%
+  summarise(error_rate = 1 - mean(score))
+ggplot(ppt_mean_simp_type_long, aes(x = type, y = error_rate, colour = type)) +
+  geom_boxplot() +
+  ylim(ylims) +
+  ylab("Error rate") +
+  ggtitle("Mean by-subject error rate differentiated by type")
+```
+
+
+In the enhanced plot below, we superimpose individual dots showing by-subject
+averages, and each pair of averages for a given participant are connected by 
+a straight line:
+
+```{r}
+ggplot(ppt_mean_simp_type_long, aes(x = type, y = error_rate, colour = type)) +
+  geom_boxplot() +
+  geom_jitter(width = .05, height = 0) +
+  geom_line(aes(group=participant), colour = "blue") +
+  ylim(ylims) +
+  ylab("Error rate") +
+  ggtitle("Mean by-subject error rate differentiated by type")
+```
+
+
+
+#### Within-participant correlation between different word durations
 
 We can use a scatterplot matrix to check whether the by-participant correlation between different word durations was high:
 
@@ -264,7 +296,7 @@ ppt_mean_simp_durat <- memw %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = TRUE}
+```{r, eval = FALSE}
 ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -272,7 +304,7 @@ ggpairs(ppt_mean_simp_durat[, 2:5], lower = list(continuous = "smooth"))
 Correlations are high, suggesting that, generally, a participant's error rate for a particular word duration was predictive of their error rates with another word duration.
 
 
-#### Within participant correlation between blocks
+#### Within-participant correlation between blocks
 
 We can use the same scatterplot matrix approach to check whether the by-participant correlation between blocks also was high:
 
@@ -283,7 +315,7 @@ ppt_mean_simp_block <- memw %>%
   spread(block, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = TRUE}
+```{r, eval = FALSE}
 ggpairs(ppt_mean_simp_block[, 2:5], lower = list(continuous = "smooth"))
 ```
 
@@ -292,100 +324,23 @@ And indeed it was -- even higher than the correlation by word-duration!
 
 
 
-### Logistic mixed model analysis
+## By-subject analysis at the level of *individual verbs*
 
-To analyze the data statistically, we fit a logistic mixed model.
+Instead of scoring whole items (quadruples) as correct or incorrect, we now
+consider individual verbs.
+If a verb within an item was remembered correctly, it is scored as correct (=1),
+if it is not remembered, it gets a score of zero.
+This means, for instance, that
 
-The dependent variable is binary (`score`).
-The predictor variables are:
+- An item/quadruple for which 3 of the 4 verbs were remembered yields a 25%
+error rate under this coding, whereas it led to a 100% error rate under the
+more severe coding by item/quadruple.
+- An item for which all verbs were remembered, but in a shuffled order, would
+be scored as completely accurate under the verb-level coding, but as completely
+wrong under the item/quadruple coding.
 
-- `word_duration` dummy coded (`r levels(factor(memw$word_duration))` ms)
-- `block` dummy coded (1, 2, 3, 4)
-- `type` dummy coded (`r levels(factor(memw$type))`)
-
-We can only have participants as random effects, including random intercepts
-as well as (at most) random slopes for all three predictors.
-As we will see below, random slopes lead to convergence failures.
-No random effects for items can be fit, since the verbs that made up
-the quadruples were randomly chosen each time.
-
-
-```{r, echo = TRUE}
-# convert variables to factors:
-memw$f_word_duration <- factor(memw$word_duration)
-memw$f_block <- factor(memw$block)
-
-# contrast coding for verb type
-contrasts(memw$type) <- contr.sum(2) / 2
-colnames(contrasts(memw$type)) <- "arm_vs_leg"
-# use forward difference coding, see
-# https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
-# In this coding system, the mean of the dependent variable for one level of
-# the categorical variable is compared to the mean of the dependent variable
-# for the next (adjacent) level.
-
-#forward difference for factor variable with 4 levels
-my.forward.diff <- matrix(c( 3/4, -1/4, -1/4,
-                            -1/4,  1/2,  1/2, 
-                            -1/2, -1/2,  1/4,
-                             1/4,  1/4, -3/4), 
-                          ncol = 3)
-# word presentation rate
-contrasts(memw$f_word_duration) <- my.forward.diff
-colnames(contrasts(memw$f_word_duration)) <- c("100_vs_200",
-                                               "300_vs_200",
-                                               "400_vs_300")
-# block
-contrasts(memw$f_block) <- my.forward.diff
-colnames(contrasts(memw$f_block)) <- c("1_vs_2", "3_vs_2", "4_vs_3")
-
-# History of fitted models:
-
-# # The maximal model fails to converge:
-# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
-#                       (1 + f_word_duration + f_block + type | participant),
-#                     data = memw,
-#                     family = 'binomial')
-# # So does a model removing the (nuisance) variable block
-# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
-#                       (1 + f_word_duration + type | participant),
-#                     data = memw,
-#                     family = 'binomial')
-# #  Even if we just leave f_word_duration as a random slope, it doesn't converge.
-# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
-#                       (1 + f_word_duration | participant),
-#                     data = memw,
-#                     family = 'binomial')
-
-# So we go for a random by-subject intercept only:
-glmm_quadr.expr <- "glmer(score ~ f_word_duration + f_block + type +
-                      (1 | participant),
-                    data = memw,
-                    family = 'binomial')"
-# load if saved or fit it
-load_or_fit("glmm_quadr", glmm_quadr.expr)
-summary(glmm_quadr)
-```
-
-
-Compare to dummy coding of `word_duration` and `block`:
-
-```{r}
-# Same model using dummy coding
-glmm_quadr_dummy.expr <- "glmer(score ~ factor(word_duration) + factor(block) + type +
-                            (1 | participant),
-                          data = memw, family = 'binomial')"
-# load if saved or fit it
-load_or_fit("glmm_quadr_dummy", glmm_quadr_dummy.expr)
-
-summary(glmm_quadr_dummy)
-```
-
-
-
-## By-subject analysis at the level of individual verbs (rather than items/quadruples)
-
-Instead of just looking at whole items (quadruples), we now consider individual words.
+In short, this type of coding is more lenient and also more sensitive, but it
+completely disregads errors of shuffling the order of verbs.
 
 
 ### Nature of the data (long format)
@@ -408,15 +363,13 @@ in trial 2.
 ### Error rates by word duration
 
 We begin with a plot equivalent to the one we did for whole items, but now we show the error rates when we consider whether individual verbs were remembered.
-Note that this means that an item for which 3 of the 4 verbs were remembered would yield a 25% error rate (whereas it led to a 100% error rate under the more severe coding by items).
 
 ```{r}
 ppt_mean_l <- meml %>% 
   group_by(participant, block, word_duration) %>%
   summarise(error_rate = 1 - mean(correct))
 ggplot(ppt_mean_l, aes(x = word_duration, y = error_rate)) +
-  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 1.5) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
   ylim(ylims)
@@ -434,8 +387,7 @@ This yields better resolution to see variability.
 ```{r}
 ylims2 <- c(0, .55)
 ggplot(ppt_mean_l, aes(x = word_duration, y = error_rate)) +
-  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 1.5) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
   ylim(ylims2)
@@ -449,8 +401,7 @@ ppt_mean_l_ty <- meml %>%
   group_by(participant, block, word_duration, type) %>%
   summarise(error_rate = 1 - mean(correct))
 ggplot(ppt_mean_l_ty, aes(x = word_duration, y = error_rate, colour = type)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = 20)) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = 20)) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
   ylim(ylims2)
@@ -465,8 +416,7 @@ Was there a difference between the different blocks?
 
 ```{r}
 ggplot(ppt_mean_l, aes(x = block, y = error_rate)) +
-  stat_summary(fun.y = "mean", colour = "red", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", colour = "red", size = 1.5) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") +
   ylim(ylims2)
@@ -480,8 +430,7 @@ This does not differ between verb types, as shown below:
 
 ```{r}
 ggplot(ppt_mean_l_ty, aes(x = block, y = error_rate, colour = type)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2, position = position_dodge(width = .4)) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = .4)) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") +
   ylim(ylims2)
@@ -499,8 +448,7 @@ ppt_mean_l_wordInTrial <- meml %>%
   summarise(error_rate = 1 - mean(correct))
 
 ggplot(ppt_mean_l_wordInTrial, aes(x = wordInTrial, y = error_rate)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5) +
   geom_jitter(height = 0, width = .2, alpha = .4) +
   ylab("Error rate") + xlab("Verb position") +
   ylim(ylims2)
@@ -520,8 +468,7 @@ ppt_mean_l_wordInTrial_durat <- meml %>%
   group_by(participant, wordInTrial, word_duration) %>%
   summarise(error_rate = 1 - mean(correct))
 ggplot(ppt_mean_l_wordInTrial_durat, aes(x = wordInTrial, y = error_rate)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5) +
   geom_jitter(height = 0, width = .2, alpha = .4) +
   facet_grid(. ~ word_duration) +
   ylab("Error rate") + xlab("Verb position")  +
@@ -538,8 +485,7 @@ ppt_mean_l_wordInTrial_block <- meml %>%
   group_by(participant, wordInTrial, block) %>%
   summarise(error_rate = 1 - mean(correct))
 ggplot(ppt_mean_l_wordInTrial_block, aes(x = wordInTrial, y = error_rate)) +
-  stat_summary(fun.y = "mean", size = 1, geom = "point") +
-  stat_summary(fun.data = "mean_cl_boot", size = 2) +
+  stat_summary(fun.data = "mean_cl_boot", size = 1.5) +
   geom_jitter(height = 0, width = .2, alpha = .4) +
   facet_grid(. ~ block) +
   ylab("Error rate") + xlab("Verb position")  +
@@ -567,22 +513,36 @@ ppt_mean_l_simp$participant <- factor(ppt_mean_l_simp$participant, levels = ppt_
 ggplot(ppt_mean_l_simp, aes(x = participant, y = error_rate)) +
   geom_bar(stat = "identity") +
   ylab("Error rate") +
+  ggtitle("Individual variability:\nAccuracy scored at verb level") +
   ylim(ylims)
 ```
 
 Participant variability is much reduced when error rates are computed by 
-individual verbs. The range is: `r round(range(ppt_mean_l_simp$error_rate), 2)`
-(whereas it was `r round(range(ppt_mean_simp$error_rate), 2)` when computed by items).
+individual verbs. The range is: `r round(range(ppt_mean_l_simp$error_rate), 2)`.
+For comparison, we plot again variability when computed by items
+(range `r round(range(ppt_mean_simp$error_rate), 2)`):
+
+```{r}
+ggplot(ppt_mean_simp, aes(x = participant, y = error_rate)) +
+  geom_bar(stat = "identity") +
+  ylab("Error rate") +
+  ggtitle("Individual variability:\nAccuracy scored at quadruple level") +
+  ylim(ylims)
+```
+
 
 We can see if the two ways of measuring error rates correlate well within 
 participants:
 
-```{r}
+```{r, message=FALSE}
 # join the two tables
 ppt_mean_simp$participant <- as.character(ppt_mean_simp$participant)
 ppt_mean_l_simp$participant <- as.character(ppt_mean_l_simp$participant)
 error_rates <- left_join(ppt_mean_simp, ppt_mean_l_simp %>%
                            rename(error_rate_verb = error_rate))
+```
+
+```{r}
 # plot correlation
 ggplot(error_rates, aes(x = error_rate_verb, y = error_rate)) +
   geom_point() +
@@ -659,6 +619,16 @@ when this latter is computed for error rate at the verb level
 Another nice result this plot confirms is that there does not seem to a marked
 difference in difficulty between the two types of verbs:
 red and blue bars are spread out quite evenly along the whole range.
+Let us verify this with a boxplot:
+
+```{r}
+ggplot(item_mean_simp, aes(x = type, y = error_rate, colour = type)) +
+  geom_boxplot() +
+  ylab("Error rate") 
+```
+
+Indeed, the two verb types elicited very similar error rates.
+
 
 We can have a look at the easiest and hardest verbs to remember (of each type):
 
@@ -690,7 +660,7 @@ item_mean_simp_durat_wide <- meml %>%
   spread(word_duration, error_rate)  # reshape to wide format for correlation plot
 ```
 
-```{r, eval = TRUE}
+```{r, eval = FALSE}
 # ggpairs distinguishing between verb types
 # (for setting binwidth in histograms, see
 # https://github.com/ggobi/ggally/issues/184 and vignette
@@ -785,6 +755,7 @@ bias$verb <- factor(bias$verb, levels = ordered_verbs_bias)
 ```{r, fig.height = 8, fig.width = 8}
 ggplot(bias, aes(x = verb, y = bias, colour = type)) +
   geom_point() +
+  geom_hline(yintercept = 0) +
   theme(axis.text.x = element_text(size = 6)) +
   coord_flip()
 ```
@@ -861,7 +832,7 @@ bias_spread$verb <- factor(bias_spread$verb, levels = ordered_verbs_bias)
 
 ```{r, fig.height = 9}
 ggplot(bias_spread, aes(x = verb, y = bias, colour = type)) +
-  stat_summary(fun.y = "mean", geom = "point") +
+  geom_hline(yintercept = 0) +
   stat_summary(fun.data = "mean_cl_boot") +
   geom_point(alpha = .4) +
   ylab("Verb bias") + 
@@ -934,10 +905,11 @@ und_mc_acc$verb <- factor(und_mc_acc$verb, levels = ordered_verbs_acc)
 ```
 
 
-```{r, fig.height = 8, fig.width = 8}
+```{r, fig.height = 9}
 ggplot(und_mc_acc, aes(x = verb, y = accuracy, colour = type)) +
   geom_point() +
   theme(axis.text.x = element_text(size = 6)) +
+  ylim(0,1) +
   coord_flip()
 ```
 
@@ -947,7 +919,7 @@ In general, translation of leg verbs yielded lower accuracy than arm verbs:
 ggplot(und_mc_acc, aes(x = type, y = accuracy, colour = type)) +
   geom_boxplot() +
   ylim(0, 1) +
-  ggtitle("Accuracy for arm vs leg verbs")
+  ggtitle("Accuracy for arm vs leg verbs (multiple choice)")
 ```
 
 
@@ -1053,10 +1025,11 @@ und_free_acc$verb <- factor(und_free_acc$verb, levels = ordered_verbs_free_acc)
 ```
 
 
-```{r, fig.height = 8, fig.width = 8}
+```{r, fig.height = 9}
 ggplot(und_free_acc, aes(x = verb, y = accuracy, colour = type)) +
   geom_point() +
   theme(axis.text.x = element_text(size = 6)) +
+  ylim(0,1) +
   coord_flip()
 ```
 
@@ -1067,7 +1040,7 @@ which was also the case in the multiple choice version of this task:
 ggplot(und_free_acc, aes(x = type, y = accuracy, colour = type)) +
   geom_boxplot() +
   ylim(0, 1) +
-  ggtitle("Accuracy for arm vs leg verbs")
+  ggtitle("Accuracy for arm vs leg verbs (free translation)")
 ```
 
 
@@ -1093,10 +1066,10 @@ unrelated to the intended meaning (like 'byta').
 Even though we have only few observations, we can look at the correlation
 of verb comprehension accuracy in the two tasks:
 
-```{r}
+```{r, message = FALSE}
 und_free_acc$verb <- as.character(und_free_acc$verb)
 und_mc_acc$verb <- as.character(und_mc_acc$verb)
-
+# join information from free translation and multiple choice versions
 und_compare <- left_join(und_mc_acc %>% rename(MC_acc = accuracy),
                          und_free_acc %>% rename(free_acc = accuracy))
 ```
@@ -1120,4 +1093,230 @@ ggplot(und_compare, aes(x = MC_acc, y = free_acc, colour = type)) +
   ggtitle("Translation accuracy in multiple choice and free translation task") +
   geom_smooth(method = "lm")
 ```
+
+
+
+Choice of verbs
+===============
+
+
+## Combine and visualize all information about the verbs
+
+We need to combine all the information about the individual verbs:
+
+- How well they were remembered (memory task)
+- How strong a bias they elicited (verb norming task)
+- How well they were understood (multiple-choice and free-translation versions
+of the comprehension task)
+
+
+(To combine this info, here is a very useful cheat sheet for 
+[dplyr join functions](http://stat545.com/bit001_dplyr-cheatsheet.html)):
+
+```{r, message = FALSE, warning = FALSE}
+# contains error_rates: item_mean_simp
+# contains verb bias: bias (we need only columns: verb, type, bias_absol)
+# contains verb comprehension (multiple choice & free translation): und_compare
+
+# because there are verbs in the memory task that are not in the other tasks
+# and viceversa, what we need is a full_join()!
+# See useful cheat sheet for dplyr join functions:
+# http://stat545.com/bit001_dplyr-cheatsheet.html
+verb_info <- full_join(full_join(item_mean_simp,
+                                 bias %>% select(verb, type, bias_absol)),
+                       und_compare)
+```
+
+First of all we look at a scatterplot matrix that displays the correlation
+between the different variables without distinguishing by verb type.
+
+```{r, warning = FALSE, fig.height = 6}
+# A simple version that does not distinguish between verb types
+ggpairs(verb_info[, 3:6], lower = list(continuous = "smooth"))
+```
+
+The information we can extract from this plot is quite interesting.
+Let us read the plot column by column (i.e. we start with the plot in the upper
+left corner, then we move down, etc.).
+For convenience, we will identify each plot's position with the tuple
+[row, column], (e.g., [2,3] is the plot that displays the correlation 
+coefficient of 0.392).
+
+- Plot [1,1]: The histogram of the variable `error_rate` shows a relatively normal-
+looking distribution.
+- Plots [2,1]--[4,1] all show that the error rate for a particular verb did not 
+strongly correlate with either its bias ([2,1]) or its translation accuracy
+in any of the two translation tasks. The numerical values of these correlations
+are shown in panels [1,2]--[1,4].
+- Plot [2,2] shows that the bias scores tended to be close to the upper limit of
+6, which is of course good since we want the verbs to elicit a bias.
+- Plots [3,2] and [4,2] show that the bias strength was positively correlated
+with translation accuracy, especially so with accuracy in the free translation
+task ($r = .554$). This makes sense because verbs that are not well understood
+should also lead to a low absolute bias.
+- Finally [4,3] shows the correlation between the two verb comprehension tasks,
+something we already looked at above.
+
+
+We gain further insight by breaking up the previous scatterplot matrix
+by verb type (arm or leg):
+
+```{r, warning = FALSE, fig.height = 8}
+ggpairs(verb_info[, 2:6],
+        mapping = ggplot2::aes(colour = type),
+        lower = list(continuous = "smooth", 
+                     combo=wrap("facethist", binwidth = 0.1)))
+```
+
+The interesting trend we observe when we do that is found in plots
+[3,2]--[5,2]. They show that error rates for arm verbs did not show
+any correlation with any of the other variables. 
+In contrast, error rates for leg verbs tended to increase when its absolute
+bias was lower or when the translation accuracy was lower.
+
+
+## What verbs to choose?
+
+To choose the optimal verbs, one has to take into consideration both the bias
+and the translation accuracy.
+At the same time, we have seen that a verb that is not well understood also
+tends to have a low absolute bias.
+Conversely, a verb that has a strong absolute bias is likely to be well 
+understood.
+Since the translation accuracy data is problematic (methodologically so for 
+the multiple choice version and because of low N for the free translation 
+version), let us focus on the verbs that had highest bias and just check that
+their accuracy was also acceptable.
+
+The following table ranks arm and leg verbs with respect to their absolute
+bias.
+For example the strongest arm bias was obtained for the verb *clap*,
+while the strongest leg bias was obtained for the verb *kick*.
+Along with the verb and the bias, the table shows the translation accuracy
+of that verb as measured from the free translation task.
+
+```{r, message = FALSE, warning = FALSE}
+## arm verbs
+bias_arm <- bias[bias$type == "arm", c("verb", "type", "bias_absol")]
+bias_arm <- bias_arm[order(-bias_arm$bias_absol),]
+bias_arm <- left_join(bias_arm, und_free_acc)
+bias_arm$rank <- 1:nrow(bias_arm)
+# reorganize and rename columns
+bias_arm <- bias_arm %>%
+  ungroup() %>%
+  select(rank, arm_verb = verb, arm_bias = bias_absol, arm_acc = accuracy)
+## leg verbs
+bias_leg <- bias[bias$type == "leg", c("verb", "type", "bias_absol")]
+bias_leg <- bias_leg[order(-bias_leg$bias_absol),]
+bias_leg <- left_join(bias_leg, und_free_acc)
+bias_leg$rank <- 1:nrow(bias_leg)
+# reorganize and rename columns
+bias_leg <- bias_leg %>%
+  ungroup() %>%
+  select(rank, leg_verb = verb, leg_bias = bias_absol, leg_acc = accuracy)
+# join
+verb_choice <- left_join(bias_arm, bias_leg)
+```
+
+```{r}
+kable(verb_choice)
+```
+
+
+
+
+Appendix: Logistic mixed model analyses 
+========
+
+## Memory task: accuracy rated at item/quadruple level
+
+To analyze the data statistically, we fit a logistic mixed model.
+
+The dependent variable is binary (`score`).
+The predictor variables are:
+
+- `word_duration` dummy coded (`r levels(factor(memw$word_duration))` ms)
+- `block` dummy coded (1, 2, 3, 4)
+- `type` dummy coded (`r levels(factor(memw$type))`)
+
+We can only have participants as random effects, including random intercepts
+as well as (at most) random slopes for all three predictors.
+As we will see below, random slopes lead to convergence failures.
+No random effects for items can be fit, since the verbs that made up
+the quadruples were randomly chosen each time.
+
+
+```{r, echo = TRUE}
+# convert variables to factors:
+memw$f_word_duration <- factor(memw$word_duration)
+memw$f_block <- factor(memw$block)
+
+# contrast coding for verb type
+contrasts(memw$type) <- contr.sum(2) / 2
+colnames(contrasts(memw$type)) <- "arm_vs_leg"
+# use forward difference coding, see
+# https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
+# In this coding system, the mean of the dependent variable for one level of
+# the categorical variable is compared to the mean of the dependent variable
+# for the next (adjacent) level.
+
+#forward difference for factor variable with 4 levels
+my.forward.diff <- matrix(c( 3/4, -1/4, -1/4,
+                            -1/4,  1/2,  1/2, 
+                            -1/2, -1/2,  1/4,
+                             1/4,  1/4, -3/4), 
+                          ncol = 3)
+# word presentation rate
+contrasts(memw$f_word_duration) <- my.forward.diff
+colnames(contrasts(memw$f_word_duration)) <- c("100_vs_200",
+                                               "300_vs_200",
+                                               "400_vs_300")
+# block
+contrasts(memw$f_block) <- my.forward.diff
+colnames(contrasts(memw$f_block)) <- c("1_vs_2", "3_vs_2", "4_vs_3")
+
+# History of fitted models:
+
+# # The maximal model fails to converge:
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration + f_block + type | participant),
+#                     data = memw,
+#                     family = 'binomial')
+# # So does a model removing the (nuisance) variable block
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration + type | participant),
+#                     data = memw,
+#                     family = 'binomial')
+# #  Even if we just leave f_word_duration as a random slope, it doesn't converge.
+# glmm_quadr <- glmer(score ~ f_word_duration + f_block + type +
+#                       (1 + f_word_duration | participant),
+#                     data = memw,
+#                     family = 'binomial')
+
+# So we go for a random by-subject intercept only:
+glmm_quadr.expr <- "glmer(score ~ f_word_duration + f_block + type +
+                      (1 | participant),
+                    data = memw,
+                    family = 'binomial')"
+# load if saved or fit it
+load_or_fit("glmm_quadr", glmm_quadr.expr)
+summary(glmm_quadr)
+```
+
+
+Compare to dummy coding of `word_duration` and `block`:
+
+```{r}
+# Same model using dummy coding
+glmm_quadr_dummy.expr <- "glmer(score ~ factor(word_duration) + factor(block) + type +
+                            (1 | participant),
+                          data = memw, family = 'binomial')"
+# load if saved or fit it
+load_or_fit("glmm_quadr_dummy", glmm_quadr_dummy.expr)
+
+summary(glmm_quadr_dummy)
+```
+
+
+## Memory task: accuracy rated at the level of individual verbs
 
