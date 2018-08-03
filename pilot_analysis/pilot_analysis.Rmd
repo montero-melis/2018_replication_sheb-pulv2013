@@ -32,31 +32,100 @@ source("../Rfunctions/load_or_fit_fnc.R")
 ggpairs_he <- 4.5  # default height for ggpairs plots
 ```
 
-Introduction and summary
+Main results and take-away messages
 ========================
 
+The analyses reported below are quite detailed. All of the data from the pilot
+study is explored mainly with visualizations, but a couple of mixed model 
+analyses are reported as an appendix (they just corroborate the figures).
 
-## Conclusion from memory task
-
-A
-
-- The analysis based on rating whole quadruples as either correct or
-incorrect resulted in a high error rate (around 50%) at all verb presentation
-rates.
-- This rate is higher than we were aiming for based on the original study S&P, for
-whom error rates in the control condition (with 100 ms verb presentation rates)
-lay at around 30%.
-- Manipulating the presentation rate led at best to a marginally better
-performance for a 400 ms presentation rate.
-
-- No differences by verb type
+Here I summarize the main results and what lessons I think we should extract.
+For details, please look up the corresponding sections below.
 
 
-- word_duration: not much effect
-- individual items: ... + we're going to follow it up now in the analysis of the following two tasks
+## Conclusions from memory task
+
+*Quadruple vs by-verb scoring*
+
+I considered two types of scoring procedures. 
+Either the scoring was done at the **level of the quadruples** that made up
+a trial (counting a trial as correct *only* when all of the verbs were 
+remembered in the correct order, and as wrong otherwise),
+or the scoring was done at the **level of individual verbs**, in which case
+we coded if each verb was remembered correctly (=1) or not (=0).
+
+Results:
+
+1) If we adopt quadruple-level scoring, then error rates are substantally higher
+for our L2 speakers than for the native speakers reported in the original
+Shebani and Pulvermüller (2013 [S&B]). Their native speakers had error rates of
+around 30% (in the control condition, which is the right comparison), whereas
+L2 speakers lay around 50%.
+1) If we adopt a verb-level scoring, then error rates drop to about 20% instead
+(we have no way of comparing this with the native speakers from S&B).
+1) The two ways of scoring correlated very highly when we computed mean error
+rates by participant. This suggests that using one or the other will not order
+participants differently. Yet, we may assume that the by-verb scoring is a
+more sensitive measure (it contains more information).
+1) Note that by far the most common errors were omission and replacement; both
+of these error types are also captured when scoring at the verb level (whereas
+shuffling the order of the verbs would not -- but that was uncommon).
+
+*Verb presentation rate had almost no effect*
+
+Our manipulation of verb presentation rates (100, 200, 300 and 400 ms) had
+almost no effect on accuracy. Their might be a very slight advantage of
+having 400 ms to read the word compared to 100 ms, but I don't think it's
+worth changing this aspect of the original study for a very slight increase
+in accuracy.
+Instead, I suggest we adopt the by-verb type of rating, which also decreases
+error-rates but should not affect our sensitivity to find an embodiment
+effect.
+
+*Verb type (arm-/leg-related) had no effect on error rate*
+
+Whether verbs were arm- or leg-related did not seem to impact performance
+on the memory task.
 
 
-- Omission and replacement the most frequent errors
+## Conclusions from verb norming
+
+Participants assessed the strength of arm and leg association for each verb.
+We computed the bias by substracting these two ratings ($arm - leg$).
+
+1) Our arm verbs elicited a stronger bias than our leg verbs.
+2) We should keep in mind that even relatively high average bias ratings
+can hide considerable variability in the ratings given by each individual.
+
+
+## Conclusions from verb comprehension task
+
+We had two versions of the comprehension task, a **multiple choice** task
+and a **free translation** task. Each participant did either one or the other
+version.
+Conclusions:
+
+1) The multiple choice task has methodological problems, making it difficult
+to draw inferences from this data. (Unfortunately most participants did this
+version).
+2) We therefore base our conclusions on the free translation task (N = 6).
+3) Most of the verbs were known, but leg verbs were less known to participants
+than arm verbs.
+
+
+## Overall suggestions based on pilot study
+
+1) Keep the presentation rate as in original: each word displayed for 100 ms
+and 400 ms blank between words.
+2) Adopt a scoring at the verb-level. This allows us to take item (i.e., verb)
+variability into account. We can then also use some properties of specific
+verbs as covariates (e.g., frequency, cognate status). Finally, it will also
+allow for a better randomization procedure of items.
+3) We need more leg verbs that elicit a strong bias and are understood by
+L2 speakers. We have 54 arm verbs that have a clear bias and were understood at
+least by 50% of the participants; but there are only 37 such verbs in the leg
+category.
+
 
 
 Memory task
@@ -1023,9 +1092,6 @@ participants could not make sense of the different alternatives.
 
 ## Free (oral) translation version of verb comprehension task 
 
-
-
-
 ```{r}
 # "und" for understanding, "fr"" for free
 und_free <- read.csv("data_verb-understanding_free-translation.csv",
@@ -1052,15 +1118,15 @@ These latter cases are coded as $-99$, e.g.:
 
 ```{r}
 kable(head(und_free[und_free$score == -99, c(3:5, 11, 7:9)], 3))
-
 ```
 
 We coded cases as $-99$ when the translations were not incorrect but clearly
 deviated from the intended translation and lacked any relation to legs or 
 arms as we had intended.
 
-For now we will consider translations scored as $-99$ as incorrect
-(but we also save a version of the non-simplified scoring):
+We will consider translations scored as $-99$ as incorrect, which is the more
+conservative choice. (NB: After checking, there are not drastic changes if we
+instead count the unclear cases as correct; it leads to *very* minor changes.)
 
 ```{r}
 und_free$score_unsimplified <- und_free$score
