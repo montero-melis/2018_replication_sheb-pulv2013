@@ -32,6 +32,32 @@ source("../Rfunctions/load_or_fit_fnc.R")
 ggpairs_he <- 4.5  # default height for ggpairs plots
 ```
 
+```{r}
+## load data files
+# memory task
+memw <- read.csv("data_pilot_memory-task_wide.csv")
+meml <- read.csv("data_pilot_memory-task_long.csv")
+# verb norming
+bias_l <- read.csv("data_verb-bias.csv", fileEncoding = "UTF-8")
+# verb comprehension/understanding
+# 1) "und" for understanding, "mc"" for multiple choice
+und_mc <- read.csv("data_verb-understanding_multiple-choice.csv",
+                    fileEncoding = "UTF-8")
+# 2) "und" for understanding, "fr"" for free
+und_free <- read.csv("data_verb-understanding_free-translation.csv",
+                     fileEncoding = "UTF-8")
+```
+
+
+```{r}
+# In free translation task, consider translations scored as -99 (=unclear) as
+# incorrect (=0):
+und_free$score_unsimplified <- und_free$score  # keep copy of original variable
+und_free[und_free$score == -99, "score"] <- 0
+```
+
+
+
 Main results and take-away messages
 ========================
 
@@ -74,7 +100,7 @@ shuffling the order of the verbs would not -- but that was uncommon).
 *Verb presentation rate had almost no effect*
 
 Our manipulation of verb presentation rates (100, 200, 300 and 400 ms) had
-almost no effect on accuracy. Their might be a very slight advantage of
+almost no effect on accuracy. There might be a very slight advantage of
 having 400 ms to read the word compared to 100 ms, but I don't think it's
 worth changing this aspect of the original study for a very slight increase
 in accuracy.
@@ -109,8 +135,13 @@ Conclusions:
 to draw inferences from this data. (Unfortunately most participants did this
 version).
 2) We therefore base our conclusions on the free translation task (N = 6).
-3) Most of the verbs were known, but leg verbs were less known to participants
-than arm verbs.
+3) Most of the verbs were known
+(mean translation accuracy `r round(mean(und_free$score),2)`),
+but leg verbs were less known to participants than arm verbs
+(mean accuracy of
+`r round(mean(und_free[und_free$type == "leg", "score"]),2)` and
+`r round(mean(und_free[und_free$type == "arm", "score"]),2)`,
+respectively).
 
 
 ## Overall suggestions based on pilot study
@@ -131,10 +162,6 @@ category.
 Memory task
 ===========
 
-```{r cars}
-memw <- read.csv("data_pilot_memory-task_wide.csv")
-meml <- read.csv("data_pilot_memory-task_long.csv")
-```
 
 In this task, participants saw groups of four verbs flashed on the screen one after another.
 After the fourth word, participants had to keep the words in memory for 6 seconds. After 6 seconds, they heard a beep, which provided the cue to repeat the four words they had just seen, in the exact same order.
@@ -262,7 +289,7 @@ ggplot(ppt_mean_ty, aes(x = word_duration, y = error_rate, colour = type)) +
   stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = 30)) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") +
-  ggtitle("Average by-subject error rates as a function of presentation rate\n(quadruple scoring)") +
+  ggtitle("Average by-subject error rates as a function of presentation rate and type\n(quadruple scoring)") +
   ylim(ylims)
 ```
 
@@ -292,7 +319,7 @@ ggplot(ppt_mean_ty, aes(x = block, y = error_rate, colour = type)) +
   stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = .3)) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") + 
-  ggtitle("Average by-subject error rates as a function of block\n(quadruple scoring)") +
+  ggtitle("Average by-subject error rates as a function of block and type\n(quadruple scoring)") +
   ylim(ylims)
 ```
 
@@ -361,8 +388,8 @@ ggplot(ppt_mean_simp_type, aes(x = arm, y = leg)) +
 
 The correlation is indeed high 
 (*r* = `r round(with(ppt_mean_simp_type, cor(arm, leg)), 2)`),
-again suggesting that participants ordered in similar ways with respect to 
-error rates, independently of the verb type; that is, it was not the case that
+suggesting that participants ordered in similar ways with respect to 
+error rates for the two verb types; that is, it was not the case that
 participants ranked very high at, say, remembering arm verbs but very low at
 remembering leg verbs.
 
@@ -528,7 +555,7 @@ ggplot(ppt_mean_l_ty, aes(x = word_duration, y = error_rate, colour = type)) +
   stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = 30)) +
   geom_jitter(width = 20, height = 0, alpha = .4) +
   ylab("Error rate") + xlab("word duration (in ms)") + 
-  ggtitle("Average by-subject error rates as a function of presentation rate\n(verb-level scoring)") +
+  ggtitle("Average by-subject error rates as a function of presentation rate and type\n(verb-level scoring)") +
   ylim(ylims2)
 ```
 
@@ -559,7 +586,7 @@ ggplot(ppt_mean_l_ty, aes(x = block, y = error_rate, colour = type)) +
   stat_summary(fun.data = "mean_cl_boot", size = 1.5, position = position_dodge(width = .3)) +
   geom_jitter(width = .2, height = 0, alpha = .4) +
   ylab("Error rate") + 
-  ggtitle("Average by-subject error rates as a function of block\n(verb-level scoring)") +
+  ggtitle("Average by-subject error rates as a function of block and type\n(verb-level scoring)") +
   ylim(ylims2)
 ```
 
@@ -631,8 +658,8 @@ similar).
 
 The take-away message is that it is important to randomize the verbs within
 a quadruple. 
-(Or alternatively: completely randomize the order of verbs respecting the 
-quadruple sets, as we did in this pilot.)
+(Or alternatively: completely randomize the order of verbs while still forming
+quadruples by grouping same-type verbs, as we did in this pilot.)
 
 
 ### Participant variability
@@ -667,7 +694,7 @@ ggplot(ppt_mean_simp, aes(x = participant, y = error_rate)) +
 ```
 
 
-We can see if the two ways of measuring error rates correlate well within 
+We can check whether the two ways of measuring error rates correlate well within 
 participants:
 
 ```{r, message=FALSE}
@@ -745,7 +772,7 @@ item_mean_simp <- meml %>%
 item_mean_simp$verb <- factor(item_mean_simp$verb, levels = item_mean_simp$verb[order(item_mean_simp$error_rate)])
 ```
 
-```{r, fig.width=8}
+```{r}
 ggplot(item_mean_simp, aes(x = verb, y = error_rate, fill = type)) +
   geom_bar(stat = "identity") +
   ylab("Error rate") +
@@ -755,7 +782,7 @@ ggplot(item_mean_simp, aes(x = verb, y = error_rate, fill = type)) +
 ```
 
 Variability by verbs is similar in magnitude to variability between participants
-when this latter is computed for error rate at the verb level
+when this latter is computed as error rates at the verb level
 (range: `r round(range(item_mean_simp$error_rate), 2)`).
 
 Another nice result this plot confirms is that there does not seem to a marked
@@ -773,7 +800,7 @@ ggplot(item_mean_simp, aes(x = type, y = error_rate, colour = type)) +
 Indeed, the two verb types elicited very similar error rates.
 
 
-We can have a look at the easiest and hardest verbs to remember (of each type):
+We can have a look at the easiest and hardest verbs to remember (of each type).
 
 ```{r}
 my_order <- function(df = item_mean_simp, mytype = NULL, nb = 5) {
@@ -786,9 +813,20 @@ my_order <- function(df = item_mean_simp, mytype = NULL, nb = 5) {
   print(paste("The ", nb, " hardest ", mytype, "-verbs:", sep = ""))
   print(kable(tail(d, nb)))
 }
+```
+
+**Arm verbs*:
+
+```{r}
 my_order(mytype = "arm")
+```
+
+**Leg verbs**:
+
+```{r}
 my_order(mytype = "leg")
 ```
+
 
 
 ### By-verb correlation of error rates between different word presentation rates
@@ -830,7 +868,6 @@ Verb norming task: arm vs leg bias
 The data from the verb norming task look like this:
 
 ```{r}
-bias_l <- read.csv("data_verb-bias.csv", fileEncoding = "UTF-8")
 kable(head(bias_l[, 3:8]))
 ```
 
@@ -849,9 +886,9 @@ table(unique(bias_l[, c("verb", "type")])$type)
 
 ## Verb bias
 
-We can compute a single measure of *arm-minus-leg bias* per verb
-by simply substracting the leg rating from the verb rating,
-obtaining:
+For each verb, we can compute a single measure of *arm-minus-leg bias* (we call
+it simply *bias*) by substracting the mean leg-relatedness rating from the mean
+arm-relatedness rating for each verb, btaining:
 
 ```{r}
 bias <- bias_l %>%
@@ -873,7 +910,7 @@ bias$verb <- factor(bias$verb, levels = ordered_verbs_bias)
 ```
 
 
-```{r, fig.height = 8, fig.width = 8}
+```{r, fig.height = 9}
 ggplot(bias, aes(x = verb, y = bias, colour = type)) +
   geom_point() +
   geom_hline(yintercept = 0) +
@@ -928,7 +965,7 @@ leg verbs (out of
 
 Here are the leg verbs that have a clear bias:
 
-```{r}
+```{r, fig.height = 5}
 ggplot(bias[with(bias, bias_absol >= 3 & type == "leg"), ],
        aes(x = verb, y = bias)) +
   geom_point() +
@@ -974,7 +1011,7 @@ and still there was one participant who rated it as completely arm-biased
 Some of these data points might simply be due to participants getting the 
 scales mixed up, but probably not all of these data points came about in this
 way:
-Similar observations hold for the supposedly leg verbs *tread* and *bounce*.
+Consider the supposedly leg verbs *tread* and *bounce*.
 For the latter, one could imagine how a participant made associations with 
 *bouncing a ball*, in which case the verb *to bounce* naturally becomes 
 arm-related).
@@ -989,12 +1026,6 @@ Verb comprehension task
 ======================
 
 ## Multiple choice version of verb comprehension task 
-
-```{r}
-# "und" for understanding, "mc"" for multiple choice
-und_mc <- read.csv("data_verb-understanding_multiple-choice.csv",
-                    fileEncoding = "UTF-8")
-```
 
 Most of the participants 
 (`r length(unique(und_mc$participant))` out of 17)
@@ -1058,7 +1089,7 @@ participants were able to rule out the distractors because they were too far
 away from the meaning of the English verb, even though their actual knowledge
 of the verb could have been shallow.
 Noise in the opposite direction is also a possibility for other verbs:
-perhaps some verbs *were* known, but the alternative give as the correct one
+perhaps some verbs *were* known, but the alternative given as the correct one
 was not really ideal.
 This is difficult to tell but we can look a little bit more into this matter.
 
@@ -1070,19 +1101,20 @@ The verbs that had an accuracy below 0.5 are the following:
 ```{r}
 # difficult (?) verbs
 diff_verbs <- und_mc_acc[und_mc_acc$accuracy < .5, ]
-kable(diff_verbs[order(diff_verbs$accuracy), ])
+diff_verbs <- diff_verbs[order(diff_verbs$accuracy), ]
+kable(diff_verbs)
 # save as vector
-diff_verbs_v <- as.character(diff_verbs[order(diff_verbs$accuracy), ]$verb)
+diff_verbs_v <- as.character(diff_verbs$verb)
 ```
 
 
-This is surprising, especially for "roll," since one would not expect Swedish
-speakers of L2 English not to know the meaning of that verb.
+This is surprising, especially for verbs like *roll* or *scratch* since one
+might expect Swedish L2 speakers of English to know the meaning of these verbs.
 
 So let us look at the target and distractor items for these verbs:
 
-```{r}
-kable(unique(und_mc[und_mc$verb %in% diff_verbs_v, c("verb", "target", "distrOne", "distrTwo")]))
+```{r, message = FALSE, warning = FALSE}
+kable(inner_join(diff_verbs, und_mc %>% select(verb:distrTwo) %>% unique))
 ```
 
 It may very well be that rather than not knowing the word, some of the
@@ -1092,15 +1124,10 @@ participants could not make sense of the different alternatives.
 
 ## Free (oral) translation version of verb comprehension task 
 
-```{r}
-# "und" for understanding, "fr"" for free
-und_free <- read.csv("data_verb-understanding_free-translation.csv",
-                     fileEncoding = "UTF-8")
-```
 
-Only  
-(`r length(unique(und_free$participant))`
-participants out of 17 carried out the verb comprehension task as a 
+Only
+`r length(unique(und_free$participant))`
+participants (out of 17) carried out the verb comprehension task as a 
 **free translation task**, in which they had to give a correct Swedish 
 translation of the English target verb.
 
@@ -1117,8 +1144,9 @@ which is scored as 0 or 1, except in cases where we were in doubt.
 These latter cases are coded as $-99$, e.g.:
 
 ```{r}
-kable(head(und_free[und_free$score == -99, c(3:5, 11, 7:9)], 3))
+kable(head(und_free[und_free$score_unsimplified == -99, c(3:5, 11, 7:8)], 3))
 ```
+
 
 We coded cases as $-99$ when the translations were not incorrect but clearly
 deviated from the intended translation and lacked any relation to legs or 
@@ -1129,8 +1157,7 @@ conservative choice. (NB: After checking, there are not drastic changes if we
 instead count the unclear cases as correct; it leads to *very* minor changes.)
 
 ```{r}
-und_free$score_unsimplified <- und_free$score
-und_free[und_free$score == -99, "score"] <- 0
+# This is done in the header of this document, after loading the data
 ```
 
 
@@ -1220,7 +1247,7 @@ ggplot(und_compare, aes(x = MC_acc, y = free_acc, colour = type)) +
 
 In both plots, we see that the correlation is not very strong. Since
 accuracy is not evenly spread (most verbs have an accuracy of 1 or close),
-the correlation is pretty nych driven by the few more extreme observations.
+the correlation is pretty much driven by the few more extreme observations.
 
 
 Choice of verbs
@@ -1273,14 +1300,14 @@ coefficient of 0.392).
 looking distribution.
 - Plots [2,1]--[4,1] all show that the error rate for a particular verb did not 
 strongly correlate with either its bias ([2,1]) or its translation accuracy
-in any of the two translation tasks. The numerical values of these correlations
-are shown in panels [1,2]--[1,4].
+in any of the two translation tasks ([3,1] and [4,1]).
+The numerical values of these correlations are shown in panels [1,2]--[1,4].
 - Plot [2,2] shows that the bias scores tended to be close to the upper limit of
 6, which is of course good since we want the verbs to elicit a bias.
 - Plots [3,2] and [4,2] show that the bias strength was positively correlated
 with translation accuracy, especially so with accuracy in the free translation
 task ($r = .554$). This makes sense because verbs that are not well understood
-should also lead to a low absolute bias.
+should also lead to a low absolute bias, and vice versa.
 - Finally [4,3] shows the correlation between the two verb comprehension tasks,
 something we already looked at above.
 
