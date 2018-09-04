@@ -888,7 +888,7 @@ table(unique(bias_l[, c("verb", "type")])$type)
 
 For each verb, we can compute a single measure of *arm-minus-leg bias* (we call
 it simply *bias*) by substracting the mean leg-relatedness rating from the mean
-arm-relatedness rating for each verb, btaining:
+arm-relatedness rating for each verb, obtaining:
 
 ```{r}
 bias <- bias_l %>%
@@ -936,7 +936,6 @@ ggplot(bias, aes(x = type, y = bias_absol, colour = type)) +
   geom_boxplot() +
   ylab("Size of bias in predicted direction") +
   ggtitle("Size of congruent bias of verbs")
-
 ```
 
 Only one verb had opposite bias to what was expected:
@@ -949,6 +948,14 @@ To scuff means to "Scrape or brush the surface of (a shoe or other object)
 against something" (OED).
 But participants seemed not to know the verb very well and assume it had some
 arm-related meaning.
+
+
+Save the dataframe containing verb biases (`bias`) to disk:
+
+```{r}
+write.csv(bias, "verb_bias_mean.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
 
 
 ## Cut-off at bias = 3
