@@ -35,7 +35,7 @@
         <Param name="name" updates="None" val="text_9" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="This is the end of this experiment.&amp;#10;&amp;#10;&amp;#10;Thank you for participating!" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Nu är experimentet slut.\n\nTack för att du deltagit!&quot; &amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -104,15 +104,15 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="b'blank_long_3'">
-      <TextComponent name="text_8">
+    <Routine name="instr_4">
+      <TextComponent name="text_4">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_8" valType="code"/>
+        <Param name="name" updates="None" val="text_4" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
+        <Param name="text" updates="constant" val="u&quot;Om du har några frågor kan du ställa dem till experimentledaren nu.\n\nÄr du redo att börja?&quot; +$cont" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -125,6 +125,22 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
+      <KeyboardComponent name="key_resp_5">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
     </Routine>
     <Routine name="rating_trial">
       <TextComponent name="text_10">
@@ -133,7 +149,7 @@
         <Param name="name" updates="None" val="text_10" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="set every repeat" val="$category + &quot;-relatedness\n\nHow &quot; + $category_lowercase + &quot;-related is the verb &quot; + $word + &quot;?&quot;" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$category + u&quot;relaterat\n\nHur &quot; + $category_lowercase + u&quot;relaterat är verbet &quot; + $word + &quot;?&quot;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -168,7 +184,7 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="stopType" updates="None" val="condition" valType="str"/>
-        <Param name="scaleDescription" updates="constant" val="Not at all related                                     Highly related" valType="str"/>
+        <Param name="scaleDescription" updates="constant" val="Inte alls relaterat                                 Mycket starkt relaterat" valType="str"/>
         <Param name="storeHistory" updates="constant" val="False" valType="bool"/>
         <Param name="categoryChoices" updates="constant" val="" valType="str"/>
         <Param name="customize_everything" updates="constant" val="" valType="str"/>
@@ -178,7 +194,7 @@
     </Routine>
     <Routine name="intro">
       <CodeComponent name="code">
-        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;# alternate between participants whether legs or arms ratings come first&amp;#10;if pptID % 2 == 0: # if even participant number&amp;#10;    armlegorder_file = 'arm_first.csv'&amp;#10;    firstrating = &quot;hands/arms&quot;&amp;#10;    secondrating = &quot;feet/legs&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first.csv'&amp;#10;    firstrating = &quot;feet/legs&quot;&amp;#10;    secondrating = &quot;hands/arms&quot;&amp;#10;&amp;#10;# trial loop loads a random list for the translation task&amp;#10;# define its path here&amp;#10;#path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'&amp;#10;#list_norming_task = path2stimuli + `pptID` + '_norming.csv'&amp;#10;&amp;#10;## Other&amp;#10;cont = &quot;\n\nPress space bar to continue&quot;  # At the end of instruction slide" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;# alternate between participants whether legs or arms ratings come first&amp;#10;if pptID % 2 == 0: # if even participant number&amp;#10;    armlegorder_file = 'arm_first_swe.csv'&amp;#10;    firstrating = &quot;arm&quot;&amp;#10;    secondrating = &quot;ben&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first_swe.csv'&amp;#10;    firstrating = &quot;ben&quot;&amp;#10;    secondrating = &quot;arm&quot;&amp;#10;&amp;#10;# trial loop loads a random list for the translation task&amp;#10;# define its path here&amp;#10;#path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'&amp;#10;#list_norming_task = path2stimuli + `pptID` + '_norming.csv'&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instruction slide" valType="extendedCode"/>
         <Param name="name" updates="None" val="code" valType="code"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
@@ -191,7 +207,7 @@
         <Param name="name" updates="None" val="introtext" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;Word Association Task \n\nWelcome and thank you for taking the time to participate!\nIn this experiment you will perform two tasks: a rating task and a translation task.&quot;+ $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Verbassocieringsuppgift \n\nVälkommen och tack för att du tar dig tid att göra det här experimentet!\nDin uppgift är att rangordna verb.&quot;+ $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -266,15 +282,15 @@
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
     </Routine>
-    <Routine name="instr_4">
-      <TextComponent name="text_4">
+    <Routine name="b'blank_long_3'">
+      <TextComponent name="text_8">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_4" valType="code"/>
+        <Param name="name" updates="None" val="text_8" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;If you have questions so far, you may ask the experimenter now.\n\nAre you ready to start?&quot; +$cont" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -287,22 +303,6 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_5">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
     </Routine>
     <Routine name="translation">
       <TextComponent name="text_7">
@@ -371,7 +371,7 @@
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;You will read a series of English verbs. For each word, you will be asked to indicate to what extent you associate the action expressed by the verb with your feet/legs and your hands/arms. For example, the action denoted by the verb WRITE is strongly associated with your hands/arms, but not at all with your feet/legs. A verb like KICK, on the other hand, denotes an action that is strongly related to your feet/legs but not at all to your hands/arms.&quot; +$cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du kommer att läsa en rad olika svenska verb. För varje ord ska du rangordna hur mycket du associerar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte alls med ben/fötter. Verbet SPARKA å andra sidan, uttrycker en handling som starkt förknippas med ben/fötter, men inte alls med armar/händer.&quot;+ $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -409,7 +409,7 @@
         <Param name="name" updates="None" val="text_2" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;First, you will rate each verb twice: once for its &quot; + $firstrating + &quot;-relatedness and once for its &quot; +secondrating+ &quot;-relatedness. Use the number keys 1 to 7 to indicate your rating. Lock in your answer by pressing return.&quot;+$cont&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du ska rangordna varje verb två gånger. Dels ska du ange hur &quot;+$firstrating + u&quot;relaterat det är, och dels ska du ange hur &quot;+$secondrating + u&quot;relaterat det är. Använd siffertangenterna 1 till 7 för att göra ditt val. När du har bestämt dig trycker du på enter.&quot;+$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -484,18 +484,17 @@
     <Routine name="intro"/>
     <Routine name="instr_1"/>
     <Routine name="instr_2"/>
-    <Routine name="instr_3"/>
     <Routine name="instr_4"/>
     <Routine name="blank_long"/>
     <LoopInitiator loopType="TrialHandler" name="trials">
-      <Param name="conditionsFile" updates="None" val="verbs_norming_eng_sept2019_simple.csv" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="verbs_norming_swe_sept2019_simple.csv" valType="str"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="conditions" updates="None" val="[OrderedDict([('word', u'BASH')]), OrderedDict([('word', u'BIND')]), OrderedDict([('word', u'BRAID')]), OrderedDict([('word', u'BRUSH')]), OrderedDict([('word', u'CARVE')]), OrderedDict([('word', u'CATCH')]), OrderedDict([('word', u'CHOP')]), OrderedDict([('word', u'CLAP')]), OrderedDict([('word', u'CLAW')]), OrderedDict([('word', u'CLEAN')]), OrderedDict([('word', u'CLICK')]), OrderedDict([('word', u'CLUTCH')]), OrderedDict([('word', u'CUT')]), OrderedDict([('word', u'DIG')]), OrderedDict([('word', u'DUNK')]), OrderedDict([('word', u'FILE')]), OrderedDict([('word', u'FOLD')]), OrderedDict([('word', u'GESTURE')]), OrderedDict([('word', u'GRAB')]), OrderedDict([('word', u'GRASP')]), OrderedDict([('word', u'GRATE')]), OrderedDict([('word', u'GRIP')]), OrderedDict([('word', u'HACK')]), OrderedDict([('word', u'HUG')]), OrderedDict([('word', u'KNOCK')]), OrderedDict([('word', u'LIFT')]), OrderedDict([('word', u'NIP')]), OrderedDict([('word', u'PAT')]), OrderedDict([('word', u'PEEL')]), OrderedDict([('word', u'PINCH')]), OrderedDict([('word', u'PLUCK')]), OrderedDict([('word', u'POKE')]), OrderedDict([('word', u'POLISH')]), OrderedDict([('word', u'PULL')]), OrderedDict([('word', u'PUNCH')]), OrderedDict([('word', u'PUSH')]), OrderedDict([('word', u'ROW')]), OrderedDict([('word', u'RUB')]), OrderedDict([('word', u'SCOOP')]), OrderedDict([('word', u'SCRAPE')]), OrderedDict([('word', u'SCRATCH')]), OrderedDict([('word', u'SCRUB')]), OrderedDict([('word', u'SEIZE')]), OrderedDict([('word', u'SHAKE')]), OrderedDict([('word', u'SIGN')]), OrderedDict([('word', u'SKIM')]), OrderedDict([('word', u'SLAP')]), OrderedDict([('word', u'SNATCH')]), OrderedDict([('word', u'SQUEEZE')]), OrderedDict([('word', u'STAB')]), OrderedDict([('word', u'STIR')]), OrderedDict([('word', u'SWITCH')]), OrderedDict([('word', u'THROW')]), OrderedDict([('word', u'TOSS')]), OrderedDict([('word', u'TUG')]), OrderedDict([('word', u'TWINE')]), OrderedDict([('word', u'WASH')]), OrderedDict([('word', u'WHIP')]), OrderedDict([('word', u'WIPE')]), OrderedDict([('word', u'WRAP')]), OrderedDict([('word', u'BOUNCE')]), OrderedDict([('word', u'CREEP')]), OrderedDict([('word', u'CROUCH')]), OrderedDict([('word', u'CYCLE')]), OrderedDict([('word', u'DANCE')]), OrderedDict([('word', u'DASH')]), OrderedDict([('word', u'FLEE')]), OrderedDict([('word', u'GLIDE')]), OrderedDict([('word', u'GROVEL')]), OrderedDict([('word', u'HIKE')]), OrderedDict([('word', u'HOBBLE')]), OrderedDict([('word', u'HOP')]), OrderedDict([('word', u'INCH')]), OrderedDict([('word', u'JOG')]), OrderedDict([('word', u'JUMP')]), OrderedDict([('word', u'KICK')]), OrderedDict([('word', u'KNEEL')]), OrderedDict([('word', u'LEAP')]), OrderedDict([('word', u'LIMP')]), OrderedDict([('word', u'LUMBER')]), OrderedDict([('word', u'MARCH')]), OrderedDict([('word', u'MOUNT')]), OrderedDict([('word', u'PACE')]), OrderedDict([('word', u'PEDAL')]), OrderedDict([('word', u'PLOD')]), OrderedDict([('word', u'PRANCE')]), OrderedDict([('word', u'RAMBLE')]), OrderedDict([('word', u'ROAM')]), OrderedDict([('word', u'RUN')]), OrderedDict([('word', u'RUSH')]), OrderedDict([('word', u'SAUNTER')]), OrderedDict([('word', u'SHAMBLE')]), OrderedDict([('word', u'SKATE')]), OrderedDict([('word', u'SKIP')]), OrderedDict([('word', u'SLIDE')]), OrderedDict([('word', u'SLIP')]), OrderedDict([('word', u'SLITHER')]), OrderedDict([('word', u'SNEAK')]), OrderedDict([('word', u'SPRINT')]), OrderedDict([('word', u'SQUAT')]), OrderedDict([('word', u'STAGGER')]), OrderedDict([('word', u'STAMP')]), OrderedDict([('word', u'STAND')]), OrderedDict([('word', u'STEP')]), OrderedDict([('word', u'STOMP')]), OrderedDict([('word', u'STRADDLE')]), OrderedDict([('word', u'STRAY')]), OrderedDict([('word', u'STRIDE')]), OrderedDict([('word', u'STROLL')]), OrderedDict([('word', u'STRUT')]), OrderedDict([('word', u'STUMBLE')]), OrderedDict([('word', u'SWAY')]), OrderedDict([('word', u'TIPTOE')]), OrderedDict([('word', u'TODDLE')]), OrderedDict([('word', u'TOTTER')]), OrderedDict([('word', u'TRAIPSE')]), OrderedDict([('word', u'TRAMP')]), OrderedDict([('word', u'TRAMPLE')]), OrderedDict([('word', u'TREAD')]), OrderedDict([('word', u'TREK')]), OrderedDict([('word', u'TRIP')]), OrderedDict([('word', u'TROT')]), OrderedDict([('word', u'TRUDGE')]), OrderedDict([('word', u'WADDLE')]), OrderedDict([('word', u'WADE')]), OrderedDict([('word', u'WALK')]), OrderedDict([('word', u'WANDER')]), OrderedDict([('word', u'WOBBLE')])]" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="armleg_loop">
@@ -512,7 +511,6 @@
     <Routine name="rating_trial"/>
     <Routine name="blank"/>
     <LoopTerminator name="armleg_loop"/>
-    <Routine name="translation"/>
     <Routine name="blank_long"/>
     <LoopTerminator name="trials"/>
     <Routine name="end_of_experiment"/>
