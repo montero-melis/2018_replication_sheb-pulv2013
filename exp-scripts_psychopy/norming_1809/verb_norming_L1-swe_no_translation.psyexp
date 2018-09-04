@@ -207,7 +207,7 @@
         <Param name="name" updates="None" val="introtext" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Verbassocieringsuppgift \n\nVälkommen och tack för att du tar dig tid att göra det här experimentet!\nDin uppgift är att rangordna verb.&quot;+ $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Verbassocieringsuppgift \n\nVälkommen och tack för att du tar dig tid att göra det här experimentet!\nDin uppgift är rangordna verb på två olika skalor.&quot;+ $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -371,7 +371,7 @@
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Du kommer att läsa en rad olika svenska verb. För varje ord ska du rangordna hur mycket du associerar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte alls med ben/fötter. Verbet SPARKA å andra sidan, uttrycker en handling som starkt förknippas med ben/fötter, men inte alls med armar/händer.&quot;+ $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du kommer att läsa en rad olika svenska verb. För varje verb ska du rangordna hur mycket du relaterar handlingen som verbet uttrycker till armar/händer och till ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte med ben/fötter. Verbet SPARKA å andra sidan uttrycker en handling som starkt förknippas med ben/fötter, men inte med armar/händer.&quot;+ $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -409,7 +409,7 @@
         <Param name="name" updates="None" val="text_2" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Du ska rangordna varje verb två gånger. Dels ska du ange hur &quot;+$firstrating + u&quot;relaterat det är, och dels ska du ange hur &quot;+$secondrating + u&quot;relaterat det är. Använd siffertangenterna 1 till 7 för att göra ditt val. När du har bestämt dig trycker du på enter.&quot;+$cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du ska rangordna varje verb två gånger. Först ska du ange hur &quot;+$firstrating + u&quot;relaterat det är, och sedan ska du ange hur &quot;+$secondrating + u&quot;relaterat det är. Använd siffertangenterna 1 till 7 för att göra ditt val. När du har bestämt dig trycker du på enter.&quot;+$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
