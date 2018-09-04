@@ -3,7 +3,6 @@
 
 getwd()
 
-
 #  ------------------------------------------------------------------------
 #  English verbs
 #  ------------------------------------------------------------------------
@@ -20,6 +19,7 @@ sum(table(norming_simple$word) != 1)  # Check no repeated verbs (value has to be
 write.csv(norming_simple,
           "exp-scripts_psychopy/norming_1809/verbs_norming_eng_sept2019_simple.csv", 
           row.names = FALSE, fileEncoding = "UTF-8")
+
 
 #  ------------------------------------------------------------------------
 #  Swedish verbs
@@ -38,4 +38,3 @@ sum(table(norming_sw_simple$word) != 1)  # Check no repeated verbs (value has to
 write.csv(norming_sw_simple,
           "exp-scripts_psychopy/norming_1809/verbs_norming_swe_sept2019_simple.csv", 
           row.names = FALSE, fileEncoding = "UTF-8")
-
