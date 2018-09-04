@@ -1,0 +1,129 @@
+original_order_appendix,word_category,word,cognate_Swe_bin,cognate_Swe_which,in_original_study_S&P,L2_norms_collected,Arm_rating_June2018,Leg_rating_June2018,arm_minus_leg_bias_June2018,bias_absol_June2018,frequency (Zipf; subtlex),DomPoS (dominant part of speech; subtlex),comment
+2,arm,bash,0,,yes,yes,6.588235294,1.294117647,5.294117647,5.294117647,3.71,noun,
+20,arm,bind,1,binda,yes,yes,6.529411765,1.941176471,4.588235294,4.588235294,3.48,noun,
+14,arm,braid,0,,yes,yes,6.235294118,1.294117647,4.941176471,4.941176471,2.59,noun,
+-99,arm,brush,0,,no,yes,6.823529412,1.176470588,5.647058824,5.647058824,4.29,noun,
+13,arm,carve,1,karva,yes,yes,6.764705882,1.294117647,5.470588235,5.470588235,3.57,verb,
+-99,arm,catch,0,,no,yes,6.117647059,1.411764706,4.705882353,4.705882353,5.04,verb,
+3,arm,chop,0,,yes,yes,6.882352941,1.235294118,5.647058824,5.647058824,4.3,verb,
+4,arm,clap,1,klappa,yes,yes,7,1,6,6,3.95,verb,
+-99,arm,claw,1,klösa,no,yes,6.176470588,1.823529412,4.352941176,4.352941176,4.22,name,
+28,arm,clean,0,,yes,yes,6.294117647,1.823529412,4.470588235,4.470588235,4.97,adjective,
+10,arm,click,1,klicka,yes,yes,6.705882353,1,5.705882353,5.705882353,4.06,noun,
+-99,arm,clutch,0,,no,yes,6.411764706,1.764705882,4.647058824,4.647058824,3.54,noun,
+-99,arm,cut,0,,no,yes,6.470588235,1.058823529,5.411764706,5.411764706,5.35,verb,
+29,arm,dig,0,,yes,yes,6.764705882,1.941176471,4.823529412,4.823529412,4.44,verb,
+22,arm,dunk,1,dunka,yes,yes,6.705882353,2.470588235,4.235294118,4.235294118,3.49,name,
+23,arm,file,1,fila,yes,yes,5.764705882,1.588235294,4.176470588,4.176470588,4.08,noun,
+32,arm,fold,0,,yes,yes,6.529411765,2.529411765,4,4,4.04,verb,
+-99,arm,gesture,1,gestikulera,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): synonym of sign; can be a noun as well, but keeps its arm association"
+7,arm,grab,1,grabba,yes,yes,7,1.411764706,5.588235294,5.588235294,4.55,verb,
+30,arm,grasp,0,,yes,yes,6.235294118,1.235294118,5,5,3.77,noun,
+12,arm,grate,0,,yes,yes,5.823529412,1.529411765,4.294117647,4.294117647,3.43,verb,
+9,arm,grip,1,"gripa, greppa",yes,yes,7,1.941176471,5.058823529,5.058823529,4.14,noun,
+17,arm,hack,1,hacka,yes,yes,6.470588235,1.352941176,5.117647059,5.117647059,3.5,verb,
+-99,arm,hug,0,,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180831)
+-99,arm,knock,1,knacka,no,yes,6.941176471,1.176470588,5.764705882,5.764705882,4.72,verb,
+31,arm,lift,1,lyfta,yes,yes,6.647058824,2.941176471,3.705882353,3.705882353,4.75,verb,
+34,arm,nip,1,nypa,yes,yes,6.529411765,1.117647059,5.411764706,5.411764706,3.74,verb,
+35,arm,pat,0,,yes,yes,6.647058824,1.176470588,5.470588235,5.470588235,4.8,name,
+1,arm,peel,0,,yes,yes,6.470588235,1.058823529,5.411764706,5.411764706,4.03,verb,
+-99,arm,pinch,0,,no,yes,6.823529412,1.176470588,5.647058824,5.647058824,4.01,noun,
+-99,arm,pluck,1,plocka,no,yes,6.588235294,1,5.588235294,5.588235294,3.38,verb,"I will remove this verb from piloting to have 56 arm-words. I hesitated between pluck and clutch, but pluck is less frequent according to https://books.google.com/ngrams"
+-99,arm,poke,0,,no,yes,6.882352941,1.705882353,5.176470588,5.176470588,3.57,verb,
+-99,arm,polish,1,polera,no,yes,6.764705882,1.117647059,5.647058824,5.647058824,4.18,adjective,
+-99,arm,pull,0,,no,yes,6.941176471,1.882352941,5.058823529,5.058823529,4.94,verb,
+-99,arm,punch,0,,no,yes,7,1.235294118,5.764705882,5.764705882,4.32,noun,
+-99,arm,push,0,,no,yes,6.764705882,2.411764706,4.352941176,4.352941176,4.92,verb,
+-99,arm,row,1,ro,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180723): seems like a natural arm verb to include, but we seem to never have thought about it"
+19,arm,rub,0,,yes,yes,6.823529412,1.352941176,5.470588235,5.470588235,4.08,verb,
+33,arm,scoop,1,skopa,yes,yes,6.647058824,1.235294118,5.411764706,5.411764706,4.02,verb,
+27,arm,scrape,1,skrapa,yes,yes,6.411764706,1.705882353,4.705882353,4.705882353,3.61,verb,
+5,arm,scratch,0,,yes,yes,6.882352941,1.235294118,5.647058824,5.647058824,4.39,noun,
+8,arm,scrub,1,skrubba,yes,yes,6.647058824,1.588235294,5.058823529,5.058823529,3.69,noun,
+21,arm,seize,0,,yes,yes,5.764705882,1.470588235,4.294117647,4.294117647,3.77,verb,
+-99,arm,shake,1,skaka,no,yes,6.882352941,2.176470588,4.705882353,4.705882353,4.58,verb,
+-99,arm,sign,1,signera,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Sato et al (2008). It is homonymous with the noun ""sign"", though, which has no arm association"
+6,arm,skim,1,skumma,yes,yes,5.176470588,1.882352941,3.294117647,3.294117647,2.98,verb,
+-99,arm,slap,0,,no,yes,6.588235294,1.352941176,5.235294118,5.235294118,4,noun,
+-99,arm,snatch,0,,no,yes,6.647058824,1.176470588,5.470588235,5.470588235,3.46,verb,
+-99,arm,squeeze,0,,no,yes,6.823529412,2.352941176,4.470588235,4.470588235,4.36,verb,
+24,arm,stab,0,,yes,yes,6.764705882,1,5.764705882,5.764705882,3.87,noun,
+16,arm,stir,-99,störa,yes,yes,6.705882353,1,5.705882353,5.705882353,4.18,verb,
+26,arm,switch,0,,yes,yes,5.529411765,2.176470588,3.352941176,3.352941176,4.37,verb,
+-99,arm,throw,0,,no,yes,7,1.058823529,5.941176471,5.941176471,4.88,verb,
+-99,arm,toss,0,,no,yes,6.764705882,1.176470588,5.588235294,5.588235294,3.88,verb,
+11,arm,tug,0,,yes,yes,6.176470588,2.117647059,4.058823529,4.058823529,3.51,noun,
+-99,arm,twine,1,tvinna,no,yes,5.823529412,1.941176471,3.882352941,3.882352941,2.7,noun,
+36,arm,wash,0,,yes,yes,6.823529412,1.235294118,5.588235294,5.588235294,4.54,verb,
+25,arm,whip,0,,yes,yes,6.647058824,1,5.647058824,5.647058824,4.08,noun,
+15,arm,wipe,0,,yes,yes,6.941176471,1,5.941176471,5.941176471,4,verb,
+-99,arm,wrap,0,,no,yes,6.411764706,2.058823529,4.352941176,4.352941176,4.1,verb,
+-99,leg,bounce,0,,no,yes,2.294117647,6.117647059,-3.823529412,3.823529412,4.3,noun,arm-related?
+21,leg,creep,1,krypa,yes,yes,2.470588235,5,-2.529411765,2.529411765,3.72,verb,arm-related?
+-99,leg,crouch,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830); can be a noun as well
+-99,leg,cycle,1,cykla,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): from Appendix in Kelpp et al. [2014]. Also a noun that can be devoid of any leg association
+36,leg,dance,1,dansa,yes,yes,4.352941176,6.529411765,-2.176470588,2.176470588,5.12,noun,
+-99,leg,dash,0,,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Kelpp et al. [2014]. It has also meanings that are unrelated to leg actions, like ""Strike forcefully against something"" or ""Destroy or frustrate (hopes or expectations)"""
+27,leg,flee,1,fly,yes,yes,1.352941176,6.411764706,-5.058823529,5.058823529,3.48,verb,
+11,leg,glide,1,glida,yes,yes,1.764705882,5.235294118,-3.470588235,3.470588235,3.35,verb,
+-99,leg,grovel,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830)
+13,leg,hike,0,,yes,yes,1.882352941,6.647058824,-4.764705882,4.764705882,3.6,noun,
+-99,leg,hobble,0,,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Sato et al (2008). Can also be a noun, but should keep its leg association"
+1,leg,hop,1,hoppa,yes,yes,1.117647059,6.941176471,-5.823529412,5.823529412,4.31,noun,
+32,leg,inch,0,,yes,yes,2.235294118,4.882352941,-2.647058824,2.647058824,4.18,noun,
+9,leg,jog,1,jogga,yes,yes,1.705882353,7,-5.294117647,5.294117647,3.42,noun,
+-99,leg,jump,0,,no,yes,1.352941176,7,-5.647058824,5.647058824,4.84,noun,
+19,leg,kick,0,,yes,yes,1,7,-6,6,4.91,noun,
+22,leg,kneel,1,knäa,yes,yes,1.352941176,6.470588235,-5.117647059,5.117647059,3.22,verb,
+7,leg,leap,-99,löpa,yes,yes,1.235294118,6.588235294,-5.352941176,5.352941176,4.12,noun,
+3,leg,limp,0,,yes,yes,1.411764706,6.882352941,-5.470588235,5.470588235,3.35,adjective,
+-99,leg,lumber,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830); can be a noun as well (with a different meaning).
+-99,leg,march,1,marschera,no,yes,1.823529412,7,-5.176470588,5.176470588,4.66,name,
+16,leg,mount,0,,yes,yes,4,5.235294118,-1.235294118,1.235294118,4.12,name,
+23,leg,pace,0,,yes,yes,1.411764706,6.823529412,-5.411764706,5.411764706,4.6,noun,
+-99,leg,pedal,0,,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Sato et al (2008). Can also be a noun, but should keep its leg association"
+14,leg,plod,0,,yes,yes,2.235294118,5.058823529,-2.823529412,2.823529412,2.73,name,
+-99,leg,prance,0,,no,yes,1.588235294,5.764705882,-4.176470588,4.176470588,3.02,name,
+-99,leg,ramble,0,,no,yes,1.823529412,3.823529412,-2,2,2.74,verb,
+10,leg,roam,0,,yes,yes,1.117647059,6.352941176,-5.235294118,5.235294118,3.5,verb,
+-99,leg,run,0,,no,yes,1.411764706,7,-5.588235294,5.588235294,5.49,verb,
+-99,leg,rush,-99,rusa,no,yes,1.176470588,6.470588235,-5.294117647,5.294117647,4.44,noun,
+-99,leg,saunter,0,,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): synonym of walk; can be a noun as well but keeps legs association
+-99,leg,shamble,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830); can be a noun as well
+33,leg,skate,1,skejta,yes,yes,1.411764706,6.705882353,-5.294117647,5.294117647,3.61,noun,
+4,leg,skip,0,,yes,yes,1.411764706,6.176470588,-4.764705882,4.764705882,4.1,verb,
+29,leg,slide,0,,yes,yes,2.058823529,5.470588235,-3.411764706,3.411764706,4.17,noun,
+30,leg,slip,0,,yes,yes,2.176470588,6.470588235,-4.294117647,4.294117647,4.33,verb,
+-99,leg,slither,0,,no,yes,3.352941176,4.470588235,-1.117647059,1.117647059,2.78,noun,
+-99,leg,sneak,0,,no,yes,2.058823529,6.352941176,-4.294117647,4.294117647,3.91,verb,
+24,leg,sprint,1,sprinta,yes,yes,1.470588235,7,-5.529411765,5.529411765,3.9,noun,
+-99,leg,squat,0,,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): from Appendix in Kelpp et al. [2014]. Also a noun; in one of its meaning (occupied building) without any leg relation
+-99,leg,stagger,0,,no,yes,2.235294118,5.764705882,-3.529411765,3.529411765,2.84,verb,
+5,leg,stamp,1,stampa,yes,yes,3.058823529,4.117647059,-1.058823529,1.058823529,4.2,noun,
+-99,leg,stand,1,stå,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Vukovic & Shtyrov [2014]. Can also be a noun, losing its leg association"
+28,leg,step,0,,yes,yes,1,7,-6,6,5.09,noun,
+2,leg,stomp,1,stampa,yes,yes,1.058823529,7,-5.941176471,5.941176471,3.5,noun,
+-99,leg,straddle,0,,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): from Appendix in Kelpp et al. [2014]. Probably not an easy (nor frequent) verb...
+17,leg,stray,0,,yes,yes,1.705882353,6.176470588,-4.470588235,4.470588235,3.54,adjective,
+15,leg,stride,0,,yes,yes,1.588235294,6.117647059,-4.529411765,4.529411765,3.86,noun,
+25,leg,stroll,0,,yes,yes,1.117647059,6.941176471,-5.823529412,5.823529412,3.6,verb,
+35,leg,strut,1,strutta,yes,yes,1.176470588,6.705882353,-5.529411765,5.529411765,3.19,verb,
+-99,leg,stumble,0,,no,yes,1,6.882352941,-5.882352941,5.882352941,3.38,verb,
+-99,leg,sway,1,svaja,no,yes,2.352941176,5.705882353,-3.352941176,3.352941176,3.56,verb,
+-99,leg,tiptoe,0,,no,yes,1.058823529,7,-5.941176471,5.941176471,3.11,verb,
+-99,leg,toddle,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830)
+-99,leg,totter,0,,no,no,NA,NA,NA,NA,,,AP added this after the pilot (180830); can be a noun as well
+-99,leg,traipse,0,,no,yes,2.705882353,5,-2.294117647,2.294117647,2.16,verb,
+-99,leg,tramp,1,trampa,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): synonym of trample; can be a noun as well
+-99,leg,trample,1,trampa,no,no,NA,NA,NA,NA,,,"GMM added this after the pilot (180828): from Appendix in Sato et al (2008). Can also mean ""treat with contempt"", which is devoid of leg association"
+18,leg,tread,1,träda,yes,yes,2.117647059,5.941176471,-3.823529412,3.823529412,3.6,verb,
+-99,leg,trek,0,,no,no,NA,NA,NA,NA,,,Guillermo added this so as to have 56 leg verbs
+-99,leg,trip,1,trippa,no,yes,1.117647059,6.882352941,-5.764705882,5.764705882,4.75,noun,
+-99,leg,trot,0,,no,yes,1.117647059,6.588235294,-5.470588235,5.470588235,3.6,noun,
+34,leg,trudge,0,,yes,yes,1.294117647,6.235294118,-4.941176471,4.941176471,2.48,verb,
+-99,leg,waddle,0,,no,no,NA,NA,NA,NA,,,GMM added this after the pilot (180828): from Appendix in Kelpp et al. [2014]. Probably not an easy (nor frequent) verb...
+20,leg,wade,1,vada,yes,yes,2.235294118,6.058823529,-3.823529412,3.823529412,3.63,name,
+-99,leg,walk,0,,no,yes,1.176470588,7,-5.823529412,5.823529412,5.19,verb,
+-99,leg,wander,1,vandra,no,yes,1.235294118,6.823529412,-5.588235294,5.588235294,3.87,verb,
+-99,leg,wobble,0,,no,yes,1.882352941,6.294117647,-4.411764706,4.411764706,3.7,noun,
