@@ -10,5 +10,12 @@
 
 # Estimates ---------------------------------------------------------------
 
-# Base estimates on S&P
+# Reported results in S&P
+# Mean number of errors by condition and word type (p.225):
+# Foot/leg movements: leg words = 16.9, arm words = 13.1
+# Hand/arm movements: leg words = 14.6, arm words = 16.5
+
+# It is in fact unclear what the maximum number of errors was in each of the
+# four cells above. There is some inconsistency both in how this is reported
+# in the paper and in the clarifications they gave us via email (2018-04-01)
 
