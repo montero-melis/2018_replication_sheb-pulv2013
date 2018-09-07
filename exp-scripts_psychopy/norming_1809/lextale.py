@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 06, 2018, at 13:59
+    on september 07, 2018, at 08:58
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -11,7 +11,7 @@ If you publish work using this script please cite the PsychoPy publications:
 """
 
 from __future__ import absolute_import, division
-from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock, hardware
+from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np  # whole numpy lib is available, prepend 'np.'
@@ -50,9 +50,6 @@ logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a f
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
-# connect to ioLabs bbox, turn lights off
-from psychopy.hardware import iolab
-iolab.ButtonBox().standby()
 
 # Setup the Window
 win = visual.Window(
@@ -69,77 +66,91 @@ else:
 
 # Initialize components for Routine "intro"
 introClock = core.Clock()
-pptID = int(expInfo['participant'])  # participant ID
+# pptID = int(expInfo['participant'])  # participant ID
 
 
 ## other
 cont = "\n\nPress space bar to continue" # At the end of each instruction slide
 intro_text = visual.TextStim(win=win, name='intro_text',
-    text="LexTALE proficiency test\n\nWelcome and thank you for taking the time to participate!" +cont,
-    font='Arial',
+    text="Welcome and thank you for taking the time to participate!" +cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "instr_1"
 instr_1Clock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text="This test consists of about 60 trials, in each of which you will see a string of letters.Your task is to decide whether this is an existing English word or not. If you think it is an existing English word, you click on YES, and if you think it is not an existing English word, you click on NO." + cont,
-    font='Arial',
+    text='This test consists of about 60 trials, in each of which you will see a string of letters.Your task is to decide whether this is an existing English word or not. If you think it is an existing English word, you press "y" (for "yes"), and if you think it is not an existing English word, you press "n" (for "no").' + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont1"
 instr_cont1Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
-    text="If you are sure that the word exists, even though you don't know its exact meaning, you may still respond YES. But if you are not sure if it is an existing word, you should respond NO." + cont,
-    font='Arial',
+    text="If you are sure that the word exists, even though you don't know its exact meaning, you may still respond \"yes\". But if you are not sure if it is an existing word, you should respond \"no\"." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont2"
 instr_cont2Clock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
-    text="In this experiment, we use British English rather than American English spelling. For example: REALISE instead of REALIZE; COLOUR instead of COLOR, and so on. Please don't let this confuse you. This experiment is not about detecting such subtle spelling differences anyway." + cont,
-    font='Arial',
+    text='In this experiment, we use British English rather than American English spelling. For example: "realise" instead of "realize"; "colour" instead of "color", and so on. Please don\'t let this confuse you. This experiment is not about detecting such subtle spelling differences anyway.' + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont3"
 instr_cont3Clock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
-    text="You have as much time as you like for each decision. This part of the experiment will take about 5 minutes." +cont,
-    font='Arial',
+    text="You have as much time as you like for each decision. This part of the experiment will take about 5 minutes.\n\nRemember: To indicate your answer, use the key \"y\" for \"yes\" (it is a word) and the key \"n\" for \"no\" (it is not a word)." +cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont4"
 instr_cont4Clock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
-    text="To indicate your answer, use the key Y for yes and the key N for no.\n\nIf everything is clear, you can now start the experiment." +cont,
-    font='Arial',
+    text="If everything is clear, you can now start the experiment." +cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0.1), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
-bbox = iolab.ButtonBox()
+text_9 = visual.TextStim(win=win, name='text_9',
+    text=u'"y" = yes   "n" = no',
+    font=u'Arial',
+    pos=(0, -0.3), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "blank"
 blankClock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
     text=None,
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "end_of_experiment"
+end_of_experimentClock = core.Clock()
+text_8 = visual.TextStim(win=win, name='text_8',
+    text='This is the end of the test. Thank you for your participation!',
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -185,7 +196,6 @@ while continueRoutine:
         key_resp_2.frameNStart = frameN  # exact frame index
         key_resp_2.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_2.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -194,8 +204,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_2.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_2.rt = key_resp_2.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -221,13 +229,6 @@ for thisComponent in introComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 
-# check responses
-if key_resp_2.keys in ['', [], None]:  # No response was made
-    key_resp_2.keys=None
-thisExp.addData('key_resp_2.keys',key_resp_2.keys)
-if key_resp_2.keys != None:  # we had a response
-    thisExp.addData('key_resp_2.rt', key_resp_2.rt)
-thisExp.nextEntry()
 # the Routine "intro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -265,7 +266,6 @@ while continueRoutine:
         key_resp_3.frameNStart = frameN  # exact frame index
         key_resp_3.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_3.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -274,8 +274,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_3.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_3.rt = key_resp_3.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -300,13 +298,6 @@ while continueRoutine:
 for thisComponent in instr_1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_3.keys in ['', [], None]:  # No response was made
-    key_resp_3.keys=None
-thisExp.addData('key_resp_3.keys',key_resp_3.keys)
-if key_resp_3.keys != None:  # we had a response
-    thisExp.addData('key_resp_3.rt', key_resp_3.rt)
-thisExp.nextEntry()
 # the Routine "instr_1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -344,7 +335,6 @@ while continueRoutine:
         key_resp_4.frameNStart = frameN  # exact frame index
         key_resp_4.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_4.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_4.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -353,8 +343,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_4.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_4.rt = key_resp_4.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -379,13 +367,6 @@ while continueRoutine:
 for thisComponent in instr_cont1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_4.keys in ['', [], None]:  # No response was made
-    key_resp_4.keys=None
-thisExp.addData('key_resp_4.keys',key_resp_4.keys)
-if key_resp_4.keys != None:  # we had a response
-    thisExp.addData('key_resp_4.rt', key_resp_4.rt)
-thisExp.nextEntry()
 # the Routine "instr_cont1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -423,7 +404,6 @@ while continueRoutine:
         key_resp_5.frameNStart = frameN  # exact frame index
         key_resp_5.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_5.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -432,8 +412,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_5.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_5.rt = key_resp_5.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -458,13 +436,6 @@ while continueRoutine:
 for thisComponent in instr_cont2Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_5.keys in ['', [], None]:  # No response was made
-    key_resp_5.keys=None
-thisExp.addData('key_resp_5.keys',key_resp_5.keys)
-if key_resp_5.keys != None:  # we had a response
-    thisExp.addData('key_resp_5.rt', key_resp_5.rt)
-thisExp.nextEntry()
 # the Routine "instr_cont2" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -502,7 +473,6 @@ while continueRoutine:
         key_resp_6.frameNStart = frameN  # exact frame index
         key_resp_6.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_6.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_6.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -511,8 +481,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_6.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_6.rt = key_resp_6.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -537,13 +505,6 @@ while continueRoutine:
 for thisComponent in instr_cont3Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_6.keys in ['', [], None]:  # No response was made
-    key_resp_6.keys=None
-thisExp.addData('key_resp_6.keys',key_resp_6.keys)
-if key_resp_6.keys != None:  # we had a response
-    thisExp.addData('key_resp_6.rt', key_resp_6.rt)
-thisExp.nextEntry()
 # the Routine "instr_cont3" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -553,8 +514,9 @@ instr_cont4Clock.reset()  # clock
 frameN = -1
 continueRoutine = True
 # update component parameters for each repeat
+key_resp_7 = event.BuilderKeyResponse()
 # keep track of which components have finished
-instr_cont4Components = [text_7]
+instr_cont4Components = [text_7, key_resp_7]
 for thisComponent in instr_cont4Components:
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
@@ -572,6 +534,24 @@ while continueRoutine:
         text_7.tStart = t
         text_7.frameNStart = frameN  # exact frame index
         text_7.setAutoDraw(True)
+    
+    # *key_resp_7* updates
+    if t >= 0.0 and key_resp_7.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_7.tStart = t
+        key_resp_7.frameNStart = frameN  # exact frame index
+        key_resp_7.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_7.status == STARTED:
+        theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -600,7 +580,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=1, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('lextale_list.csv'),
+    trialList=data.importConditions('lextale_items.csv'),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -622,15 +602,10 @@ for thisTrial in trials:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_5.setText(item)
-    bbox.clearEvents()
-    bbox.active = ("y", "n")  # tuple or list of int 0..7
-    bbox.setEnabled(bbox.active)
-    bbox.setLights(bbox.active)
-    bbox.btns = []  # responses stored in .btns and .rt
-    bbox.rt = []
+    text_5.setText(item )
+    key_resp_8 = event.BuilderKeyResponse()
     # keep track of which components have finished
-    trialComponents = [text_5, bbox]
+    trialComponents = [text_5, key_resp_8, text_9]
     for thisComponent in trialComponents:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -648,28 +623,39 @@ for thisTrial in trials:
             text_5.tStart = t
             text_5.frameNStart = frameN  # exact frame index
             text_5.setAutoDraw(True)
-        # *bbox* updates
-        if t >= 0.0 and bbox.status == NOT_STARTED:
+        
+        # *key_resp_8* updates
+        if t >= 0.0 and key_resp_8.status == NOT_STARTED:
             # keep track of start time/frame for later
-            bbox.tStart = t
-            bbox.frameNStart = frameN  # exact frame index
-            bbox.status = STARTED
-            bbox.clearEvents()
-            # buttonbox checking is just starting
-            bbox.resetClock()  # set bbox hardware internal clock to 0.000; ms accuracy
-        if bbox.status == STARTED:
-            theseButtons = bbox.getEvents()
-            if theseButtons:  # at least one button was pressed this frame
-                if bbox.btns == []:  # True if the first
-                    bbox.btns = theseButtons[0].key  # just the first button
-                    bbox.rt = theseButtons[0].rt
-                    # was this 'correct'?
-                    if bbox.btns == str(correct_ans):
-                        bbox.corr = 1
-                    else:
-                        bbox.corr=0
-                    # a response forces the end of the routine
-                    continueRoutine = False
+            key_resp_8.tStart = t
+            key_resp_8.frameNStart = frameN  # exact frame index
+            key_resp_8.status = STARTED
+            # keyboard checking is just starting
+            win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
+            event.clearEvents(eventType='keyboard')
+        if key_resp_8.status == STARTED:
+            theseKeys = event.getKeys(keyList=['y', 'n'])
+            
+            # check for quit:
+            if "escape" in theseKeys:
+                endExpNow = True
+            if len(theseKeys) > 0:  # at least one key was pressed
+                key_resp_8.keys = theseKeys[-1]  # just the last key pressed
+                key_resp_8.rt = key_resp_8.clock.getTime()
+                # was this 'correct'?
+                if (key_resp_8.keys == str(correct_ans)) or (key_resp_8.keys == correct_ans):
+                    key_resp_8.corr = 1
+                else:
+                    key_resp_8.corr = 0
+                # a response ends the routine
+                continueRoutine = False
+        
+        # *text_9* updates
+        if t >= 0.0 and text_9.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_9.tStart = t
+            text_9.frameNStart = frameN  # exact frame index
+            text_9.setAutoDraw(True)
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -692,18 +678,19 @@ for thisTrial in trials:
     for thisComponent in trialComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # store ioLabs bbox data for bbox (TrialHandler)
-    if len(bbox.btns) == 0:  # no ioLabs responses
-        bbox.btns = None
-        # was no response the correct answer?
+    # check responses
+    if key_resp_8.keys in ['', [], None]:  # No response was made
+        key_resp_8.keys=None
+        # was no response the correct answer?!
         if str(correct_ans).lower() == 'none':
-            bbox.corr = 1  # correct non-response
+           key_resp_8.corr = 1  # correct non-response
         else:
-            bbox.corr = 0  # failed to withold a response
-    trials.addData('bbox.btns', bbox.btns)
-    trials.addData('bbox.corr', bbox.corr)
-    if bbox.btns != None:  # add RTs if there are responses
-        trials.addData('bbox.rt', bbox.rt)
+           key_resp_8.corr = 0  # failed to respond (incorrectly)
+    # store data for trials (TrialHandler)
+    trials.addData('key_resp_8.keys',key_resp_8.keys)
+    trials.addData('key_resp_8.corr', key_resp_8.corr)
+    if key_resp_8.keys != None:  # we had a response
+        trials.addData('key_resp_8.rt', key_resp_8.rt)
     # the Routine "trial" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -763,7 +750,75 @@ for thisTrial in trials:
 # completed 1 repeats of 'trials'
 
 
-bbox.standby()  # lights out etc
+# ------Prepare to start Routine "end_of_experiment"-------
+t = 0
+end_of_experimentClock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+key_resp_9 = event.BuilderKeyResponse()
+# keep track of which components have finished
+end_of_experimentComponents = [text_8, key_resp_9]
+for thisComponent in end_of_experimentComponents:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "end_of_experiment"-------
+while continueRoutine:
+    # get current time
+    t = end_of_experimentClock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_8* updates
+    if t >= 0.0 and text_8.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_8.tStart = t
+        text_8.frameNStart = frameN  # exact frame index
+        text_8.setAutoDraw(True)
+    
+    # *key_resp_9* updates
+    if t >= 0.0 and key_resp_9.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_9.tStart = t
+        key_resp_9.frameNStart = frameN  # exact frame index
+        key_resp_9.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_9.status == STARTED:
+        theseKeys = event.getKeys(keyList=['return'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in end_of_experimentComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "end_of_experiment"-------
+for thisComponent in end_of_experimentComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "end_of_experiment" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv')
 thisExp.saveAsPickle(filename)

@@ -34,7 +34,7 @@
         <Param name="name" updates="None" val="text_7" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="'To indicate your answer, use the key &quot;y&quot; for yes and the key &quot;n&quot; for no.\n\nIf everything is clear, you can now start the experiment.' +$cont" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;If everything is clear, you can now start the experiment.&quot; +$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -61,7 +61,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -72,7 +72,7 @@
         <Param name="name" updates="None" val="text_2" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;If you are sure that the word exists, even though you don't know its exact meaning, you may still respond YES. But if you are not sure if it is an existing word, you should respond NO.&quot; + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;If you are sure that the word exists, even though you don't know its exact meaning, you may still respond \&quot;yes\&quot;. But if you are not sure if it is an existing word, you should respond \&quot;no\&quot;.&quot; + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -99,7 +99,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -110,7 +110,7 @@
         <Param name="name" updates="None" val="text_3" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="'In this experiment, we use British English rather than American English spelling. For example: &quot;realise&quot; instead of &quot;realize&quot;; &quot;colour&quot; instead of &quot;color&quot;, and so on. Please do not let this confuse you. This experiment is not about detecting such subtle spelling differences anyway.' + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="'In this experiment, we use British English rather than American English spelling. For example: &quot;realise&quot; instead of &quot;realize&quot;; &quot;colour&quot; instead of &quot;color&quot;, and so on. Please don\'t let this confuse you. This experiment is not about detecting such subtle spelling differences anyway.' + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -137,7 +137,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -148,7 +148,7 @@
         <Param name="name" updates="None" val="text_4" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;You have as much time as you like for each decision. This part of the experiment will take about 5 minutes.&quot; +$cont" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;You have as much time as you like for each decision. This part of the experiment will take about 5 minutes.\n\nRemember: To indicate your answer, use the key \&quot;y\&quot; for \&quot;yes\&quot; (it is a word) and the key \&quot;n\&quot; for \&quot;no\&quot; (it is not a word).&quot; +$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -175,7 +175,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -213,7 +213,7 @@
         <Param name="allowedKeys" updates="constant" val="'return'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -236,7 +236,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="letterHeight" updates="constant" val="0.15" valType="code"/>
       </TextComponent>
       <KeyboardComponent name="key_resp_8">
         <Param name="correctAns" updates="constant" val="$correct_ans" valType="str"/>
@@ -290,7 +290,7 @@
         <Param name="name" updates="None" val="intro_text" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;LexTALE proficiency test\n\nWelcome and thank you for taking the time to participate!&quot; +$cont" valType="str"/>
+        <Param name="text" updates="constant" val="&quot;Welcome and thank you for taking the time to participate!&quot; +$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -317,7 +317,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -377,7 +377,7 @@
         <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.5" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
