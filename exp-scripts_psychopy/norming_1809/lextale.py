@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 07, 2018, at 08:58
+    on september 07, 2018, at 14:19
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -73,69 +73,69 @@ introClock = core.Clock()
 cont = "\n\nPress space bar to continue" # At the end of each instruction slide
 intro_text = visual.TextStim(win=win, name='intro_text',
     text="Welcome and thank you for taking the time to participate!" +cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "instr_1"
 instr_1Clock = core.Clock()
 text = visual.TextStim(win=win, name='text',
     text='This test consists of about 60 trials, in each of which you will see a string of letters.Your task is to decide whether this is an existing English word or not. If you think it is an existing English word, you press "y" (for "yes"), and if you think it is not an existing English word, you press "n" (for "no").' + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont1"
 instr_cont1Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
     text="If you are sure that the word exists, even though you don't know its exact meaning, you may still respond \"yes\". But if you are not sure if it is an existing word, you should respond \"no\"." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont2"
 instr_cont2Clock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
     text='In this experiment, we use British English rather than American English spelling. For example: "realise" instead of "realize"; "colour" instead of "color", and so on. Please don\'t let this confuse you. This experiment is not about detecting such subtle spelling differences anyway.' + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont3"
 instr_cont3Clock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
     text="You have as much time as you like for each decision. This part of the experiment will take about 5 minutes.\n\nRemember: To indicate your answer, use the key \"y\" for \"yes\" (it is a word) and the key \"n\" for \"no\" (it is not a word)." +cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_cont4"
 instr_cont4Clock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="If everything is clear, you can now start the experiment." +cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0.1), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_9 = visual.TextStim(win=win, name='text_9',
-    text=u'"y" = yes   "n" = no',
-    font=u'Arial',
+    text='"y" = yes   "n" = no',
+    font='Arial',
     pos=(0, -0.3), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 
 # Initialize components for Routine "blank"
