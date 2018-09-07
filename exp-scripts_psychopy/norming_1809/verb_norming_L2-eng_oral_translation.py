@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 07, 2018, at 14:23
+    on september 07, 2018, at 15:05
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'verb_norming_L2-eng_oral_translation'  # from the Builder filename that created this script
+expName = 'verb_norming_L2-eng_oral_translation'  # from the Builder filename that created this script
 expInfo = {u'session': u'001', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1366, 768], fullscr=True, screen=0,
     allowGUI=True, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -232,7 +232,6 @@ while continueRoutine:
         key_resp_9.frameNStart = frameN  # exact frame index
         key_resp_9.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_9.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_9.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -241,8 +240,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_9.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_9.rt = key_resp_9.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -267,13 +264,6 @@ while continueRoutine:
 for thisComponent in beginning_blankComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_9.keys in ['', [], None]:  # No response was made
-    key_resp_9.keys=None
-thisExp.addData('key_resp_9.keys',key_resp_9.keys)
-if key_resp_9.keys != None:  # we had a response
-    thisExp.addData('key_resp_9.rt', key_resp_9.rt)
-thisExp.nextEntry()
 # the Routine "beginning_blank" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -313,7 +303,6 @@ while continueRoutine:
         key_resp_2.frameNStart = frameN  # exact frame index
         key_resp_2.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_2.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -322,8 +311,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_2.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_2.rt = key_resp_2.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -349,13 +336,6 @@ for thisComponent in introComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 
-# check responses
-if key_resp_2.keys in ['', [], None]:  # No response was made
-    key_resp_2.keys=None
-thisExp.addData('key_resp_2.keys',key_resp_2.keys)
-if key_resp_2.keys != None:  # we had a response
-    thisExp.addData('key_resp_2.rt', key_resp_2.rt)
-thisExp.nextEntry()
 # the Routine "intro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -393,7 +373,6 @@ while continueRoutine:
         key_resp_3.frameNStart = frameN  # exact frame index
         key_resp_3.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_3.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -402,8 +381,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_3.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_3.rt = key_resp_3.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -428,13 +405,6 @@ while continueRoutine:
 for thisComponent in instr_1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_3.keys in ['', [], None]:  # No response was made
-    key_resp_3.keys=None
-thisExp.addData('key_resp_3.keys',key_resp_3.keys)
-if key_resp_3.keys != None:  # we had a response
-    thisExp.addData('key_resp_3.rt', key_resp_3.rt)
-thisExp.nextEntry()
 # the Routine "instr_1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -472,7 +442,6 @@ while continueRoutine:
         key_resp_4.frameNStart = frameN  # exact frame index
         key_resp_4.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_4.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_4.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -481,8 +450,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_4.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_4.rt = key_resp_4.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -507,13 +474,6 @@ while continueRoutine:
 for thisComponent in instr_2Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_4.keys in ['', [], None]:  # No response was made
-    key_resp_4.keys=None
-thisExp.addData('key_resp_4.keys',key_resp_4.keys)
-if key_resp_4.keys != None:  # we had a response
-    thisExp.addData('key_resp_4.rt', key_resp_4.rt)
-thisExp.nextEntry()
 # the Routine "instr_2" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -551,7 +511,6 @@ while continueRoutine:
         key_resp_6.frameNStart = frameN  # exact frame index
         key_resp_6.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_6.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_6.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -560,8 +519,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_6.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_6.rt = key_resp_6.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -586,13 +543,6 @@ while continueRoutine:
 for thisComponent in instr_3Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_6.keys in ['', [], None]:  # No response was made
-    key_resp_6.keys=None
-thisExp.addData('key_resp_6.keys',key_resp_6.keys)
-if key_resp_6.keys != None:  # we had a response
-    thisExp.addData('key_resp_6.rt', key_resp_6.rt)
-thisExp.nextEntry()
 # the Routine "instr_3" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -630,7 +580,6 @@ while continueRoutine:
         key_resp_5.frameNStart = frameN  # exact frame index
         key_resp_5.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_5.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -639,8 +588,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_5.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_5.rt = key_resp_5.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -665,13 +612,6 @@ while continueRoutine:
 for thisComponent in instr_4Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_5.keys in ['', [], None]:  # No response was made
-    key_resp_5.keys=None
-thisExp.addData('key_resp_5.keys',key_resp_5.keys)
-if key_resp_5.keys != None:  # we had a response
-    thisExp.addData('key_resp_5.rt', key_resp_5.rt)
-thisExp.nextEntry()
 # the Routine "instr_4" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -1052,7 +992,6 @@ while continueRoutine:
         key_resp_8.frameNStart = frameN  # exact frame index
         key_resp_8.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
     if key_resp_8.status == STARTED:
         theseKeys = event.getKeys(keyList=['space'])
@@ -1061,8 +1000,6 @@ while continueRoutine:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_8.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_8.rt = key_resp_8.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -1087,13 +1024,6 @@ while continueRoutine:
 for thisComponent in end_of_experimentComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_8.keys in ['', [], None]:  # No response was made
-    key_resp_8.keys=None
-thisExp.addData('key_resp_8.keys',key_resp_8.keys)
-if key_resp_8.keys != None:  # we had a response
-    thisExp.addData('key_resp_8.rt', key_resp_8.rt)
-thisExp.nextEntry()
 # the Routine "end_of_experiment" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
