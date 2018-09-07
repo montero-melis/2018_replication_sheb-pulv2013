@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 04, 2018, at 14:13
+    on september 07, 2018, at 11:24
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -79,13 +79,13 @@ pptID = int(expInfo['participant'])  # participant ID
 
 # alternate between participants whether legs or arms ratings come first
 if pptID % 2 == 0: # if even participant number
-    armlegorder_file = 'arm_first.csv'
-    firstrating = "hands/arms"
-    secondrating = "feet/legs"
+    armlegorder_file = 'arm_first_swe.csv'
+    firstrating = u"armar/händer"
+    secondrating = u"ben/fötter"
 else:
-    armlegorder_file = 'leg_first.csv'
-    firstrating = "feet/legs"
-    secondrating = "hands/arms"
+    armlegorder_file = 'leg_first_swe.csv'
+    firstrating = u"ben/fötter"
+    secondrating = u"armar/händer"
 
 # trial loop loads a random list for the translation task
 # define its path here
@@ -93,9 +93,11 @@ else:
 #list_norming_task = path2stimuli + `pptID` + '_norming.csv'
 
 ## Other
-cont = "\n\nPress space bar to continue"  # At the end of instruction slide
+cont = u"\n\nTryck på mellanslag för att fortsätta"  # At the end of instruction slide
+end = ""  # Needed for final slide
+
 introtext = visual.TextStim(win=win, name='introtext',
-    text=u"Verbassociering \n\nVälkommen och tack för att du tar dig tid att göra det här experimentet!\nDin uppgift är att rangordna verb."+ cont,
+    text=u"Verbassocieringsuppgift \n\nVälkommen och tack för att du tar dig tid att göra det här experimentet!\nDin uppgift är att rangordna verb enligt två olika skalor."+ cont,
     font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color=u'white', colorSpace='rgb', opacity=1,
@@ -104,7 +106,7 @@ introtext = visual.TextStim(win=win, name='introtext',
 # Initialize components for Routine "instr_1"
 instr_1Clock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text=u"Du kommer att läsa en rad olika svenska verb. För varje ord ska du rangordna hur mycket du associerar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte alls med ben/fötter. Verbet SPARKA å andra sidan, uttrycker en handling som starkt förknippas med ben/fötter, men inte alls med armar/händer."+ cont,
+    text=u"Du kommer att läsa en rad olika svenska verb. För varje verb ska du ange hur mycket du förknippar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte med ben/fötter. Verbet SPARKA å andra sidan uttrycker en handling som starkt förknippas med ben/fötter, men inte med armar/händer."+ cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -113,7 +115,7 @@ text = visual.TextStim(win=win, name='text',
 # Initialize components for Routine "instr_2"
 instr_2Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
-    text=u"Du ska rangordna varje verb två gånger. Först ska du ange hur "+firstrating + "relaterat det är och sedan hur "+secondrating + "relaterat det är. Använd siffertangenterna 1 till 7 för att göra ditt val. När du har bestämt dig trycker du på enter."+cont,
+    text=u"Du ska bedöma varje verb två gånger. Först ska du ange hur starkt du förknippar det med "+firstrating + u", och sedan ska du ange hur starkt du förknippar det med "+secondrating + u". Använd siffertangenterna 1 till 7 för att göra ditt val. När du har bestämt dig trycker du på enter."+cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -145,7 +147,7 @@ text_10 = visual.TextStim(win=win, name='text_10',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
-rating = visual.RatingScale(win=win, name='rating', marker='triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=['1', '7'], scale='Not at all related                                     Highly related')
+rating = visual.RatingScale(win=win, name='rating', marker='triangle', size=1.0, pos=[0.0, -0.4], low=1, high=7, labels=['1', '7'], scale='Inte alls                                                        Mycket starkt')
 
 # Initialize components for Routine "blank"
 blankClock = core.Clock()
@@ -168,10 +170,10 @@ text_5 = visual.TextStim(win=win, name='text_5',
 # Initialize components for Routine "end_of_experiment"
 end_of_experimentClock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
-    text=u'u"Nu \xe4r experimentet slut.\\n\\nTack f\xf6r att du deltagit!" \n\n\n\n\n\n',
-    font='Arial',
+    text=u"Nu är experimentet slut.\n\nTack för att du deltagit!" + end,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Create some handy timers
@@ -631,7 +633,7 @@ for thisComponent in blank_longComponents:
 # set up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('verbs_norming_eng_sept2019_simple.csv'),
+    trialList=data.importConditions(u'verbs_norming_swe_sept2019_simple.csv'),
     seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -672,7 +674,7 @@ for thisTrial in trials:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        text_10.setText(category + "-relatedness\n\nHow " + category_lowercase + "-related is the verb " + word + "?")
+        text_10.setText(category + u"\n\nHur starkt förknippar du verbet "+ word + " med " + category_lowercase + "?")
         rating.reset()
         # keep track of which components have finished
         rating_trialComponents = [text_10, rating]

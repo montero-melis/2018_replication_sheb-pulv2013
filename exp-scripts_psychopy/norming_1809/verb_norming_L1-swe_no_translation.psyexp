@@ -28,6 +28,44 @@
   </Settings>
   <Routines>
     <Routine name="Instr_cont1"/>
+    <Routine name="end_of_experiment">
+      <TextComponent name="text_9">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_9" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Nu är experimentet slut.\n\nTack för att du deltagit!&quot; + $end" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_8">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_8" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
     <Routine name="beginning_blank">
       <TextComponent name="text_11">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -66,14 +104,14 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="end_of_experiment">
-      <TextComponent name="text_9">
+    <Routine name="instr_4">
+      <TextComponent name="text_4">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_9" valType="code"/>
+        <Param name="name" updates="None" val="text_4" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Nu är experimentet slut.\n\nTack för att du deltagit!&quot; &amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Om du har några frågor kan du ställa dem till experimentledaren nu.\n\nÄr du redo att börja?&quot; +$cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -87,10 +125,10 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_8">
+      <KeyboardComponent name="key_resp_5">
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_8" valType="code"/>
+        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
@@ -103,66 +141,6 @@
         <Param name="store" updates="constant" val="last key" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
-    </Routine>
-    <Routine name="instr_1">
-      <TextComponent name="text">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Du kommer att läsa en rad olika svenska verb. För varje verb ska du ange hur mycket du förknippar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte med ben/fötter. Verbet SPARKA å andra sidan uttrycker en handling som starkt förknippas med ben/fötter, men inte med armar/händer.&quot;+ $cont" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-      </TextComponent>
-      <KeyboardComponent name="key_resp_3">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_3" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-    </Routine>
-    <Routine name="b'blank_long_3'">
-      <TextComponent name="text_8">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_8" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-      </TextComponent>
     </Routine>
     <Routine name="rating_trial">
       <TextComponent name="text_10">
@@ -216,7 +194,7 @@
     </Routine>
     <Routine name="intro">
       <CodeComponent name="code">
-        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;# alternate between participants whether legs or arms ratings come first&amp;#10;if pptID % 2 == 0: # if even participant number&amp;#10;    armlegorder_file = 'arm_first_swe.csv'&amp;#10;    firstrating = u&quot;armar/händer&quot;&amp;#10;    secondrating = u&quot;ben/fötter&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first_swe.csv'&amp;#10;    firstrating = u&quot;ben/fötter&quot;&amp;#10;    secondrating = u&quot;armar/händer&quot;&amp;#10;&amp;#10;# trial loop loads a random list for the translation task&amp;#10;# define its path here&amp;#10;#path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'&amp;#10;#list_norming_task = path2stimuli + `pptID` + '_norming.csv'&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instruction slide" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="pptID = int(expInfo['participant'])  # participant ID&amp;#10;&amp;#10;# alternate between participants whether legs or arms ratings come first&amp;#10;if pptID % 2 == 0: # if even participant number&amp;#10;    armlegorder_file = 'arm_first_swe.csv'&amp;#10;    firstrating = u&quot;armar/händer&quot;&amp;#10;    secondrating = u&quot;ben/fötter&quot;&amp;#10;else:&amp;#10;    armlegorder_file = 'leg_first_swe.csv'&amp;#10;    firstrating = u&quot;ben/fötter&quot;&amp;#10;    secondrating = u&quot;armar/händer&quot;&amp;#10;&amp;#10;# trial loop loads a random list for the translation task&amp;#10;# define its path here&amp;#10;#path2stimuli = u'..\\stimuli\\presentation_lists_pilot\\p'&amp;#10;#list_norming_task = path2stimuli + `pptID` + '_norming.csv'&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instruction slide&amp;#10;end = &quot;&quot;  # Needed for final slide&amp;#10;" valType="extendedCode"/>
         <Param name="name" updates="None" val="code" valType="code"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
@@ -260,6 +238,28 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="blank_long">
+      <TextComponent name="text_5">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_5" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
     <Routine name="blank">
       <TextComponent name="short_blank">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -282,15 +282,15 @@
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
     </Routine>
-    <Routine name="instr_4">
-      <TextComponent name="text_4">
+    <Routine name="b'blank_long_3'">
+      <TextComponent name="text_8">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_4" valType="code"/>
+        <Param name="name" updates="None" val="text_8" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Om du har några frågor kan du ställa dem till experimentledaren nu.\n\nÄr du redo att börja?&quot; +$cont" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.2" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -303,22 +303,6 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_5">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
     </Routine>
     <Routine name="translation">
       <TextComponent name="text_7">
@@ -380,15 +364,15 @@
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
     </Routine>
-    <Routine name="blank_long">
-      <TextComponent name="text_5">
+    <Routine name="instr_1">
+      <TextComponent name="text">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_5" valType="code"/>
+        <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="text" updates="constant" val="u&quot;Du kommer att läsa en rad olika svenska verb. För varje verb ska du ange hur mycket du förknippar handlingen som verbet uttrycker med armar/händer och med ben/fötter. Till exempel uttrycker verbet SKRIVA en handling som är starkt förknippad med armar/händer men inte med ben/fötter. Verbet SPARKA å andra sidan uttrycker en handling som starkt förknippas med ben/fötter, men inte med armar/händer.&quot;+ $cont" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -401,6 +385,22 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
+      <KeyboardComponent name="key_resp_3">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_3" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
     </Routine>
     <Routine name="instr_2">
       <TextComponent name="text_2">
@@ -494,7 +494,7 @@
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="code"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('word', u'BADDA')]), OrderedDict([('word', u'BANKA')]), OrderedDict([('word', u'BINDA')]), OrderedDict([('word', u'BORSTA')]), OrderedDict([('word', u'BULTA')]), OrderedDict([('word', u'DASKA')]), OrderedDict([('word', u'DRA')]), OrderedDict([('word', u'DUNKA')]), OrderedDict([('word', u'F\xc5NGA')]), OrderedDict([('word', u'FATTA')]), OrderedDict([('word', u'FILA')]), OrderedDict([('word', u'FL\xc4TA')]), OrderedDict([('word', u'F\xd6SA')]), OrderedDict([('word', u'GESTIKULERA')]), OrderedDict([('word', u'GNIDA')]), OrderedDict([('word', u'GNUGGA')]), OrderedDict([('word', u'GRABBA')]), OrderedDict([('word', u'GR\xc4VA')]), OrderedDict([('word', u'GREPPA')]), OrderedDict([('word', u'GRIPA')]), OrderedDict([('word', u'HACKA')]), OrderedDict([('word', u'HAFFA')]), OrderedDict([('word', u'H\xc5VA')]), OrderedDict([('word', u'HISSA')]), OrderedDict([('word', u'HIVA')]), OrderedDict([('word', u'H\xd6JA')]), OrderedDict([('word', u'KARVA')]), OrderedDict([('word', u'KASTA')]), OrderedDict([('word', u'KELA')]), OrderedDict([('word', u'KL\xc5')]), OrderedDict([('word', u'KL\xc4MMA')]), OrderedDict([('word', u'KLAPPA')]), OrderedDict([('word', u'KLIA')]), OrderedDict([('word', u'KLICKA')]), OrderedDict([('word', u'KLIPPA')]), OrderedDict([('word', u'KL\xd6SA')]), OrderedDict([('word', u'KNACKA')]), OrderedDict([('word', u'KNIPA')]), OrderedDict([('word', u'KNIVHUGGA')]), OrderedDict([('word', u'KNYCKA')]), OrderedDict([('word', u'KOPPLA')]), OrderedDict([('word', u'KRAMA')]), OrderedDict([('word', u'KRATSA')]), OrderedDict([('word', u'LINDA')]), OrderedDict([('word', u'LYFTA')]), OrderedDict([('word', u'NAPPA')]), OrderedDict([('word', u'NORPA')]), OrderedDict([('word', u'NYPA')]), OrderedDict([('word', u'\xd6SA')]), OrderedDict([('word', u'PADDLA')]), OrderedDict([('word', u'PETA')]), OrderedDict([('word', u'PILLA')]), OrderedDict([('word', u'PISKA')]), OrderedDict([('word', u'PLOCKA')]), OrderedDict([('word', u'POLERA')]), OrderedDict([('word', u'PRESSA')]), OrderedDict([('word', u'PUTSA')]), OrderedDict([('word', u'PUTTA')]), OrderedDict([('word', u'RAFSA')]), OrderedDict([('word', u'RAKA')]), OrderedDict([('word', u'RASPA')]), OrderedDict([('word', u'REPA')]), OrderedDict([('word', u'RISTA')]), OrderedDict([('word', u'RIVA')]), OrderedDict([('word', u'RO')]), OrderedDict([('word', u'R\xd6RA')]), OrderedDict([('word', u'ROTA')]), OrderedDict([('word', u'RYCKA')]), OrderedDict([('word', u'SIGNERA')]), OrderedDict([('word', u'SKAKA')]), OrderedDict([('word', u'SKALA')]), OrderedDict([('word', u'SK\xc4RA')]), OrderedDict([('word', u'SKJUTA')]), OrderedDict([('word', u'SKOPA')]), OrderedDict([('word', u'SKRAPA')]), OrderedDict([('word', u'SKRUBBA')]), OrderedDict([('word', u'SKUMMA')]), OrderedDict([('word', u'SKURA')]), OrderedDict([('word', u'SKYFFLA')]), OrderedDict([('word', u'SL\xc5')]), OrderedDict([('word', u'SLEVA')]), OrderedDict([('word', u'SLIPA')]), OrderedDict([('word', u'SLITA')]), OrderedDict([('word', u'SLUNGA')]), OrderedDict([('word', u'SM\xc4LLA')]), OrderedDict([('word', u'SMEKA')]), OrderedDict([('word', u'SN\xc4RTA')]), OrderedDict([('word', u'SNO')]), OrderedDict([('word', u'ST\xc4DA')]), OrderedDict([('word', u'ST\xd6TA')]), OrderedDict([('word', u'SVABBA')]), OrderedDict([('word', u'SVEPA')]), OrderedDict([('word', u'TA')]), OrderedDict([('word', u'TORKA')]), OrderedDict([('word', u'TRUMMA')]), OrderedDict([('word', u'TRYCKA')]), OrderedDict([('word', u'TV\xc4TTA')]), OrderedDict([('word', u'TVINNA')]), OrderedDict([('word', u'VIKA')]), OrderedDict([('word', u'VIRA')]), OrderedDict([('word', u'\xc5LA')]), OrderedDict([('word', u'CYKLA')]), OrderedDict([('word', u'DANSA')]), OrderedDict([('word', u'FLACKA')]), OrderedDict([('word', u'FLANERA')]), OrderedDict([('word', u'FLY')]), OrderedDict([('word', u'G\xc5')]), OrderedDict([('word', u'GLIDA')]), OrderedDict([('word', u'GUPPA')]), OrderedDict([('word', u'HALKA')]), OrderedDict([('word', u'HALTA')]), OrderedDict([('word', u'HOPPA')]), OrderedDict([('word', u'ILA')]), OrderedDict([('word', u'IRRA')]), OrderedDict([('word', u'JOGGA')]), OrderedDict([('word', u'KILA')]), OrderedDict([('word', u'KL\xc4TTRA')]), OrderedDict([('word', u'KLIVA')]), OrderedDict([('word', u'KN\xc4A')]), OrderedDict([('word', u'KNALLA')]), OrderedDict([('word', u'KNATA')]), OrderedDict([('word', u'KNOGA')]), OrderedDict([('word', u'KRAVLA')]), OrderedDict([('word', u'KRYPA')]), OrderedDict([('word', u'LINKA')]), OrderedDict([('word', u'L\xd6PA')]), OrderedDict([('word', u'LUNKA')]), OrderedDict([('word', u'MARSCHERA')]), OrderedDict([('word', u'PINNA')]), OrderedDict([('word', u'PROMENERA')]), OrderedDict([('word', u'RAGLA')]), OrderedDict([('word', u'R\xc4NNA')]), OrderedDict([('word', u'RULLA')]), OrderedDict([('word', u'RULTA')]), OrderedDict([('word', u'RUSA')]), OrderedDict([('word', u'SKEJTA')]), OrderedDict([('word', u'SKRIDA')]), OrderedDict([('word', u'SKUTTA')]), OrderedDict([('word', u'SKYNDA')]), OrderedDict([('word', u'SL\xc4NTRA')]), OrderedDict([('word', u'SLINTA')]), OrderedDict([('word', u'SMYGA')]), OrderedDict([('word', u'SNAVA')]), OrderedDict([('word', u'SNUBBLA')]), OrderedDict([('word', u'SPARKA')]), OrderedDict([('word', u'SPRINGA')]), OrderedDict([('word', u'SPRINTA')]), OrderedDict([('word', u'ST\xc5')]), OrderedDict([('word', u'STAMPA')]), OrderedDict([('word', u'STAPPLA')]), OrderedDict([('word', u'STEGA')]), OrderedDict([('word', u'STIGA')]), OrderedDict([('word', u'ST\xd6VLA')]), OrderedDict([('word', u'STR\xd6VA')]), OrderedDict([('word', u'STRUTTA')]), OrderedDict([('word', u'STUDSA')]), OrderedDict([('word', u'SVAJA')]), OrderedDict([('word', u'SVASSA')]), OrderedDict([('word', u'T\xc5GA')]), OrderedDict([('word', u'TASSA')]), OrderedDict([('word', u'TR\xc4DA')]), OrderedDict([('word', u'TRAMPA')]), OrderedDict([('word', u'TRASKA')]), OrderedDict([('word', u'TRIPPA')]), OrderedDict([('word', u'VACKLA')]), OrderedDict([('word', u'VADA')]), OrderedDict([('word', u'VANDRA')]), OrderedDict([('word', u'VANKA')]), OrderedDict([('word', u'VINGLA')])]" valType="str"/>
       <Param name="Selected rows" updates="None" val="" valType="str"/>
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="armleg_loop">
