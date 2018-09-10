@@ -57,17 +57,18 @@ or on z-transformed data. There is no information about item variability.
 2. The number of trials in each experimental cell is not consistently reported
 in S&P and the information provided is contradictory. This makes it difficult
 to transform the reported results into proportions or log-odds.
-3. Estimates of variability at the subject level are only given indirectly
-in the form of Cohen's $d$ values for different comparisons. While measures
-of variability went into those calculations, it is not clear how exactly these
-values were computed, resulting in at best indirect estimates of subject
-variability based on the original study.
+3. The authors report several related ANOVAs, sometimes subsetting the number
+of conditions and sometimes normalizing the data (i.e., z-transforming 
+by-subject #errors)
 
 
 What information *do* we have
 ---------------------------
 
-Apart from the original study, we do have estimates for base rate variability
+- Variability in SDs (of by-subject means) is reported for the different cells
+means; they also report effect sizes in terms of Cohen’s d, but I guess these
+offer more indirect measures of by-subject variability.
+- Apart from the original study, we do have estimates for base rate variability
 between subjects, i.e. what would correspond to random by-subject intercepts.
 These come from a pilot in which we only ran the control condition (no
 interference). The information is not ideal, though, as it comes from L2 
@@ -77,7 +78,6 @@ speakers.
 
 Estimates
 =========
-
 
 Mean number of errors reported in S&P
 -------------------------------------
