@@ -1,0 +1,264 @@
+---
+title: "Power analysis for conceptual replication of S&P"
+author: "Guillermo Montero-Melis"
+date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(ggplot2)
+# library(GGally)
+library(dplyr)
+# library(tidyr)
+# library(lme4)
+knitr::opts_chunk$set(echo = FALSE, fig.height = 3.5)
+```
+
+
+Introduction
+============
+
+We want to conduct a power analysis for a pilot study consisting in a conceptual
+replication of Shebani & Pulvermüller (2013, Cortex), henceforth S&P.
+In S&P, participants had to memorize groups of four words that were either arm
+or leg related. They carried out a memory task in four different conditions:
+no interference (control), arm interference, leg interference, and articulatory
+interference.
+
+Our pilot will simplify the original design and just try to replicate the 
+most interesting effect reported in S&P: There
+was an interaction of WordType (arm vs leg verb) and MovementType (arm vs
+leg movements), leading to worse memory for arm than for leg verbs when
+performing a complex drumming pattern with the hands/arms (arm movements),
+and to worse memory for leg than for arm verbs when performing the drumming
+pattern with the feet/legs (leg movements).
+
+
+Challenges
+----------
+
+There are some basic difficulties for running a power analysis.
+We would like to analyze the data using mixed logistic regression,
+because the nature of the dependent variable is best modelled as binary at
+the trial level (a quadruple is either remembered correctly or not).
+However:
+
+1. The original analyses report only by-subject ANOVAs computed either on the
+mean number of errors per participant in each cell (Condition-by-Word Type)
+or on z-transformed data. There is no information about item variability.
+2. The number of trials in each experimental cell is not consistently reported
+in S&P and the information provided is contradictory. This makes it difficult
+to transform the reported results into proportions or log-odds.
+3. Estimates of variability at the subject level are only given indirectly
+in the form of Cohen's $d$ values for different comparisons. While measures
+of variability went into those calculations, it is not clear how exactly these
+values were computed, resulting in at best indirect estimates of subject
+variability based on the original study.
+
+
+What information *do* we have
+---------------------------
+
+Apart from the original study, we do have estimates for base rate variability
+between subjects, i.e. what would correspond to random by-subject intercepts.
+These come from a pilot in which we only ran the control condition (no
+interference). The information is not ideal, though, as it comes from L2 
+speakers.
+
+
+
+Estimates
+=========
+
+
+Mean number of errors reported in S&P
+-------------------------------------
+
+The results reported in S&P for the mean number of errors by movement
+condition and word type are (p.225):
+
+```{r}
+sp_means <- expand.grid(WordType = c("arm-word", "leg-word"), Movement = c("arm", "leg"))
+sp_means$M <- c(16.5, 14.6, 13.1, 16.9)
+kable(sp_means)
+```
+
+```{r, fig.height = 3}
+ggplot(sp_means, aes(x = Movement, y = M, colour = WordType, group = WordType)) +
+  geom_point() +
+  geom_line() +
+  ylab("Number of errors")
+```
+
+
+Recast the effect of interest as a *main* effect
+----------------------------------------------
+
+I now follow a suggestion made by Andrew Gelman in the discussion of
+[this post](https://andrewgelman.com/2018/03/15/need-16-times-sample-size-estimate-interaction-estimate-main-effect/):
+
+
+> I think it makes sense, where possible, to code variables in a regression
+so that the larger comparisons appear as main effects and the smaller 
+comparisons appear as interactions.
+
+In the present case, this means that we instead use the following two predictors:
+
+1) **Interference**: *congruent* if the limb with which the rhythmic pattern is
+performed (arms or legs) coincides with the main association of the words to
+be memorized (arm or leg words); *incongruent* if it does not
+2) **WordType**: as before, arm or leg words
+
+```{r}
+sp_means$Interference <- c("congruent", "incongruent", "incongruent", "congruent")
+kable(sp_means[, c("WordType", "Movement", "Interference", "M")])
+```
+
+This is nothing more than expressing the same information differently, but it
+has the desired effect of recasting the effect of interest into a main effect,
+as illustrated in the figure below.
+
+```{r, fig.height = 3}
+ggplot(sp_means, aes(x = Interference, y = M, colour = WordType, group = WordType)) +
+  geom_point() +
+  geom_line() +
+  ylab("Number of errors")
+```
+
+
+
+Effect size and subject variability
+-----------------------------------
+
+### What S&P report
+
+We would like to estimate subject variability in the size of the effect,
+so that we could simulate the variability in random by-subject slopes
+for the effect of `Interference` (congruent/incongruent).
+
+An indirect measure of subject variability is given in S&P through Cohen's $d$.
+S&P report planned comparison tests in which they look at each movement
+condition independently (p.225):
+
+> ... with rhythmic foot/leg movements, memory performance dropped more sharply
+for leg than for arm words 
+[16.9 vs 13.1 errors; F (1, 14) = 7.97, MSE = 48.0, Cohen’s d = .55, p = .014],
+whereas a trend towards reduced arm-word memory performance relative to that
+for leg words was seen with rhythmic hand/ arm movements 
+[16.5 vs 14.6 errors; F (1, 14) = 3.83, MSE = 57.4, Cohen’s d = .26, p = .07].
+
+If I understand correctly, this comparison amounts to two t-tests (two one-way
+ANOVAs with only two levels). Each test compares the two means connected by the
+straight lines in the following figure:
+
+```{r, fig.height = 3}
+ggplot(sp_means, aes(x = Interference, y = M, colour = Movement, group = Movement,
+                     linetype = Movement, shape = WordType)) +
+  geom_point() +
+  geom_line() +
+  ylab("Number of errors")
+```
+
+Indeed the effect seems to be stronger (the line is steeper) for the leg 
+movement than for the arm movement condition.
+
+
+S&P then focus on the effect of interest and report (p.226):
+
+> Most importantly, directly addressing the main hypothesis
+motivating this study, a 2 x 2 analysis (Word Type x Moving
+Body Part) revealed that when subjects engaged in performing
+this rhythmic motor pattern with either their hands or feet,
+errors in memory performance increased and a significant
+interaction effect was found [F (1, 14) = 12.67, MSE = 20.9,
+Cohen’s d = 1.25, p = .003] while no significant effect of condition
+was found in this case (F < 1), documenting a differential
+influence of movement type on word type performance.
+
+
+
+> Normalised
+z-transformed data confirmed this significant Word
+Type x Moving Body Part Interaction [F (1, 14) = 25.49,
+MSE= .92, Cohen’s d = 1.48, p < .0002; Fig. 1d]. For the z-transformed
+data, in which the contribution of outliers and
+between-subject variance is reduced, t-tests now also revealed
+fully significant word category differences in both critical
+movement interference conditions, for hand/arm movements
+[more errors for arm words F (1,14)= 5.65, MSE= .67, Cohen’s
+d = .73, p < .032] and foot/leg movements [more errors for leg
+words, F (1, 14)= 11.26, MSE= .66, Cohen’s d = 1.0, p < .0047].
+
+### How can we estimate by-subject variability in the effect of interest?
+
+The crucial question is
+**can we obtain an estimate of subject variability from the two values of 
+Cohen's $d$ reported by the authors**?
+
+
+```{r, include = FALSE}
+d_arm <- .26
+d_leg <- .55
+```
+
+
+Firstly, it is not clear how to compute Cohen's *d* for within-subjects designs
+(see [here](http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/)).
+We will assume that the reported value for Cohen's *d* was computed as:
+
+$$d = \frac{M_1 - M_2}{\sigma}$$
+
+(This corresponds to the first alternative in the page referenced above.)
+And we will take $\sigma$ to be the pooled standard deviation, that is, the 
+square root of the average variance in each condition.
+We can then compute the standard deviation for the effect of `WordType` in
+each of the two movement conditions. For instance, their reported
+value of $d = `r d_arm`$ in the hand/arm movement condition would have been
+computed as
+
+$$d_{ArmMovement} = \frac{M_{ArmWords} - M_{LegWords}}{sd_{ArmMovement}}$$
+
+And thus:
+
+```{r, include = FALSE}
+sd_arm <- abs((sp_means$M[1] - sp_means$M[2]) / d_arm)
+sd_leg <- abs((sp_means$M[3] - sp_means$M[4]) / d_leg)
+```
+
+
+$$
+sd_{ArmMovement}
+= \frac{M_{ArmWords} - M_{LegWords}}{d_{ArmMovement}}
+= \frac{`r sp_means$M[1]` - `r sp_means$M[2]`}{`r d_arm`}
+= `r round(sd_arm, 2)`
+$$
+
+Analogous calculations lead to
+
+$$
+sd_{LegMovement}
+= \frac{|`r sp_means$M[3]` - `r sp_means$M[4]`|}{`r d_leg`}
+= `r round(sd_leg, 2)`
+$$
+
+
+What is the number of trials? We don't know! (The paper is unclear)
+-----------------------------
+
+It is unclear what the number of observations were in each of the four cells
+above. In other words, what was the maximum number of errors a subject could
+make in a given `Movement` condition and for a given `WordType`?
+
+I will *assume* that this number was 18.
+However, I note that there is a major inconsistency in how this is reported
+in the paper. Unfortunately, the clarifications we obtained from the authors
+ (email from 2018-04-01) are also inconsistent.
+
