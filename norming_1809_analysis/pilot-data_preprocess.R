@@ -114,4 +114,4 @@ process_raw_data <- function() {
   
 }
 # uncomment and run
-# process_raw_data()
+process_raw_data()
