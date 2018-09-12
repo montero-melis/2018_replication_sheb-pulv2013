@@ -1,0 +1,606 @@
+6.8568 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1366, 768]. Using actual size
+7.8003 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x157C2750>, multiSample=False, name='window1', numSamples=2, pos=[0, 0], screen=0, size=array([1366,  768]), stereo=False, units=u'norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType=u'pyglet')
+7.8003 	EXP 	window1: recordFrameIntervals = False
+7.9674 	EXP 	window1: recordFrameIntervals = True
+8.1520 	EXP 	window1: recordFrameIntervals = False
+8.2566 	EXP 	Created intro_text = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='intro_text', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.4532 	EXP 	Created text = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.5737 	EXP 	Created text_2 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_2', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.7432 	EXP 	Created text_3 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_3', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.8844 	EXP 	Created text_4 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_4', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.9333 	EXP 	Created text_7 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_7', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+8.9514 	EXP 	Created text_5 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.15, italic=False, name='text_5', opacity=1.0, ori=0, pos=array([ 0. ,  0.1]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+8.9670 	EXP 	Created text_9 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_9', opacity=1.0, ori=0, pos=array([ 0. , -0.3]), rgb=array([ 255.,  255.,  255.]), text='"y" = yes   "n" = no', units=u'norm', win=Window(...), wrapWidth=1)
+8.9677 	EXP 	Created text_6 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_6', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+9.0031 	EXP 	Created text_8 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_8', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+9.0243 	EXP 	intro_text: autoDraw = True
+12.8143 	DATA 	Keypress: space
+12.8308 	EXP 	intro_text: autoDraw = False
+12.8308 	EXP 	text: autoDraw = True
+33.4760 	DATA 	Keypress: space
+33.4925 	EXP 	text: autoDraw = False
+33.4925 	EXP 	text_2: autoDraw = True
+45.0478 	DATA 	Keypress: space
+45.0643 	EXP 	text_2: autoDraw = False
+45.0643 	EXP 	text_3: autoDraw = True
+59.3365 	DATA 	Keypress: space
+59.3529 	EXP 	text_3: autoDraw = False
+59.3529 	EXP 	text_4: autoDraw = True
+73.5917 	DATA 	Keypress: space
+73.6082 	EXP 	text_4: autoDraw = False
+73.6082 	EXP 	text_7: autoDraw = True
+76.3086 	DATA 	Keypress: space
+76.3138 	EXP 	Imported lextale_items.csv as conditions, 63 conditions, 3 params
+76.3143 	EXP 	Created sequence: sequential, trialTypes=63, nReps=1, seed=None
+76.3147 	EXP 	New trial (rep=0, index=0): OrderedDict([('item_number_', 0), ('item', u'platery'), ('correct_ans', u'n')])
+76.3419 	EXP 	text_7: autoDraw = False
+76.3419 	EXP 	text_5: text = u'platery'
+76.3419 	EXP 	text_5: autoDraw = True
+76.3419 	EXP 	text_9: autoDraw = True
+86.9077 	DATA 	Keypress: n
+86.9242 	EXP 	text_5: autoDraw = False
+86.9242 	EXP 	text_9: autoDraw = False
+86.9242 	EXP 	text_6: autoDraw = True
+87.4111 	EXP 	New trial (rep=0, index=1): OrderedDict([('item_number_', 0), ('item', u'denial'), ('correct_ans', u'y')])
+87.4274 	EXP 	text_6: autoDraw = False
+87.4274 	EXP 	text_5: text = u'denial'
+87.4274 	EXP 	text_5: autoDraw = True
+87.4274 	EXP 	text_9: autoDraw = True
+88.5848 	DATA 	Keypress: y
+88.6014 	EXP 	text_5: autoDraw = False
+88.6014 	EXP 	text_9: autoDraw = False
+88.6014 	EXP 	text_6: autoDraw = True
+89.0882 	EXP 	New trial (rep=0, index=2): OrderedDict([('item_number_', 0), ('item', u'generic'), ('correct_ans', u'y')])
+89.1046 	EXP 	text_6: autoDraw = False
+89.1046 	EXP 	text_5: text = u'generic'
+89.1046 	EXP 	text_5: autoDraw = True
+89.1046 	EXP 	text_9: autoDraw = True
+90.2619 	DATA 	Keypress: y
+90.2784 	EXP 	text_5: autoDraw = False
+90.2784 	EXP 	text_9: autoDraw = False
+90.2784 	EXP 	text_6: autoDraw = True
+90.7653 	EXP 	New trial (rep=0, index=3): OrderedDict([('item_number_', 1), ('item', u'mensible'), ('correct_ans', u'n')])
+90.7816 	EXP 	text_6: autoDraw = False
+90.7816 	EXP 	text_5: text = u'mensible'
+90.7816 	EXP 	text_5: autoDraw = True
+90.7816 	EXP 	text_9: autoDraw = True
+93.4483 	DATA 	Keypress: n
+93.4649 	EXP 	text_5: autoDraw = False
+93.4649 	EXP 	text_9: autoDraw = False
+93.4649 	EXP 	text_6: autoDraw = True
+93.9517 	EXP 	New trial (rep=0, index=4): OrderedDict([('item_number_', 2), ('item', u'scornful'), ('correct_ans', u'y')])
+93.9681 	EXP 	text_6: autoDraw = False
+93.9681 	EXP 	text_5: text = u'scornful'
+93.9681 	EXP 	text_5: autoDraw = True
+93.9681 	EXP 	text_9: autoDraw = True
+95.8129 	DATA 	Keypress: y
+95.8295 	EXP 	text_5: autoDraw = False
+95.8295 	EXP 	text_9: autoDraw = False
+95.8295 	EXP 	text_6: autoDraw = True
+96.3163 	EXP 	New trial (rep=0, index=5): OrderedDict([('item_number_', 3), ('item', u'stoutly'), ('correct_ans', u'y')])
+96.3326 	EXP 	text_6: autoDraw = False
+96.3326 	EXP 	text_5: text = u'stoutly'
+96.3326 	EXP 	text_5: autoDraw = True
+96.3326 	EXP 	text_9: autoDraw = True
+103.7791 	DATA 	Keypress: n
+103.7957 	EXP 	text_5: autoDraw = False
+103.7957 	EXP 	text_9: autoDraw = False
+103.7957 	EXP 	text_6: autoDraw = True
+104.2824 	EXP 	New trial (rep=0, index=6): OrderedDict([('item_number_', 4), ('item', u'ablaze'), ('correct_ans', u'y')])
+104.2988 	EXP 	text_6: autoDraw = False
+104.2988 	EXP 	text_5: text = u'ablaze'
+104.2988 	EXP 	text_5: autoDraw = True
+104.2988 	EXP 	text_9: autoDraw = True
+108.0725 	DATA 	Keypress: y
+108.0890 	EXP 	text_5: autoDraw = False
+108.0890 	EXP 	text_9: autoDraw = False
+108.0890 	EXP 	text_6: autoDraw = True
+108.5756 	EXP 	New trial (rep=0, index=7): OrderedDict([('item_number_', 5), ('item', u'kermshaw'), ('correct_ans', u'n')])
+108.5922 	EXP 	text_6: autoDraw = False
+108.5922 	EXP 	text_5: text = u'kermshaw'
+108.5922 	EXP 	text_5: autoDraw = True
+108.5922 	EXP 	text_9: autoDraw = True
+116.4914 	DATA 	Keypress: n
+116.5079 	EXP 	text_5: autoDraw = False
+116.5079 	EXP 	text_9: autoDraw = False
+116.5079 	EXP 	text_6: autoDraw = True
+116.9947 	EXP 	New trial (rep=0, index=8): OrderedDict([('item_number_', 6), ('item', u'moonlit'), ('correct_ans', u'y')])
+117.0109 	EXP 	text_6: autoDraw = False
+117.0109 	EXP 	text_5: text = u'moonlit'
+117.0109 	EXP 	text_5: autoDraw = True
+117.0109 	EXP 	text_9: autoDraw = True
+120.4494 	DATA 	Keypress: y
+120.4659 	EXP 	text_5: autoDraw = False
+120.4659 	EXP 	text_9: autoDraw = False
+120.4659 	EXP 	text_6: autoDraw = True
+120.9526 	EXP 	New trial (rep=0, index=9): OrderedDict([('item_number_', 7), ('item', u'lofty'), ('correct_ans', u'y')])
+120.9690 	EXP 	text_6: autoDraw = False
+120.9690 	EXP 	text_5: text = u'lofty'
+120.9690 	EXP 	text_5: autoDraw = True
+120.9690 	EXP 	text_9: autoDraw = True
+122.8140 	DATA 	Keypress: y
+122.8305 	EXP 	text_5: autoDraw = False
+122.8305 	EXP 	text_9: autoDraw = False
+122.8305 	EXP 	text_6: autoDraw = True
+123.3173 	EXP 	New trial (rep=0, index=10): OrderedDict([('item_number_', 8), ('item', u'hurricane'), ('correct_ans', u'y')])
+123.3336 	EXP 	text_6: autoDraw = False
+123.3336 	EXP 	text_5: text = u'hurricane'
+123.3336 	EXP 	text_5: autoDraw = True
+123.3336 	EXP 	text_9: autoDraw = True
+124.2898 	DATA 	Keypress: y
+124.3063 	EXP 	text_5: autoDraw = False
+124.3063 	EXP 	text_9: autoDraw = False
+124.3063 	EXP 	text_6: autoDraw = True
+124.7932 	EXP 	New trial (rep=0, index=11): OrderedDict([('item_number_', 9), ('item', u'flaw'), ('correct_ans', u'y')])
+124.8095 	EXP 	text_6: autoDraw = False
+124.8095 	EXP 	text_5: text = u'flaw'
+124.8095 	EXP 	text_5: autoDraw = True
+124.8095 	EXP 	text_9: autoDraw = True
+125.6819 	DATA 	Keypress: y
+125.6984 	EXP 	text_5: autoDraw = False
+125.6984 	EXP 	text_9: autoDraw = False
+125.6984 	EXP 	text_6: autoDraw = True
+126.1852 	EXP 	New trial (rep=0, index=12): OrderedDict([('item_number_', 10), ('item', u'alberation'), ('correct_ans', u'n')])
+126.2015 	EXP 	text_6: autoDraw = False
+126.2015 	EXP 	text_5: text = u'alberation'
+126.2015 	EXP 	text_5: autoDraw = True
+126.2015 	EXP 	text_9: autoDraw = True
+131.1492 	DATA 	Keypress: n
+131.1657 	EXP 	text_5: autoDraw = False
+131.1657 	EXP 	text_9: autoDraw = False
+131.1657 	EXP 	text_6: autoDraw = True
+131.6524 	EXP 	New trial (rep=0, index=13): OrderedDict([('item_number_', 11), ('item', u'unkempt'), ('correct_ans', u'y')])
+131.6687 	EXP 	text_6: autoDraw = False
+131.6687 	EXP 	text_5: text = u'unkempt'
+131.6687 	EXP 	text_5: autoDraw = True
+131.6687 	EXP 	text_9: autoDraw = True
+139.2326 	DATA 	Keypress: n
+139.2491 	EXP 	text_5: autoDraw = False
+139.2491 	EXP 	text_9: autoDraw = False
+139.2491 	EXP 	text_6: autoDraw = True
+139.7359 	EXP 	New trial (rep=0, index=14): OrderedDict([('item_number_', 12), ('item', u'breeding'), ('correct_ans', u'y')])
+139.7523 	EXP 	text_6: autoDraw = False
+139.7523 	EXP 	text_5: text = u'breeding'
+139.7523 	EXP 	text_5: autoDraw = True
+139.7523 	EXP 	text_9: autoDraw = True
+141.4464 	DATA 	Keypress: y
+141.4629 	EXP 	text_5: autoDraw = False
+141.4629 	EXP 	text_9: autoDraw = False
+141.4629 	EXP 	text_6: autoDraw = True
+141.9497 	EXP 	New trial (rep=0, index=15): OrderedDict([('item_number_', 13), ('item', u'festivity'), ('correct_ans', u'y')])
+141.9834 	EXP 	text_6: autoDraw = False
+141.9834 	EXP 	text_5: text = u'festivity'
+141.9834 	EXP 	text_5: autoDraw = True
+141.9834 	EXP 	text_9: autoDraw = True
+143.4588 	DATA 	Keypress: y
+143.4754 	EXP 	text_5: autoDraw = False
+143.4754 	EXP 	text_9: autoDraw = False
+143.4754 	EXP 	text_6: autoDraw = True
+143.9622 	EXP 	New trial (rep=0, index=16): OrderedDict([('item_number_', 14), ('item', u'screech'), ('correct_ans', u'y')])
+143.9785 	EXP 	text_6: autoDraw = False
+143.9785 	EXP 	text_5: text = u'screech'
+143.9785 	EXP 	text_5: autoDraw = True
+143.9785 	EXP 	text_9: autoDraw = True
+146.2595 	DATA 	Keypress: n
+146.2761 	EXP 	text_5: autoDraw = False
+146.2761 	EXP 	text_9: autoDraw = False
+146.2761 	EXP 	text_6: autoDraw = True
+146.7629 	EXP 	New trial (rep=0, index=17): OrderedDict([('item_number_', 15), ('item', u'savoury'), ('correct_ans', u'y')])
+146.7791 	EXP 	text_6: autoDraw = False
+146.7791 	EXP 	text_5: text = u'savoury'
+146.7791 	EXP 	text_5: autoDraw = True
+146.7791 	EXP 	text_9: autoDraw = True
+148.1547 	DATA 	Keypress: y
+148.1712 	EXP 	text_5: autoDraw = False
+148.1712 	EXP 	text_9: autoDraw = False
+148.1712 	EXP 	text_6: autoDraw = True
+148.6580 	EXP 	New trial (rep=0, index=18): OrderedDict([('item_number_', 16), ('item', u'plaudate'), ('correct_ans', u'n')])
+148.6744 	EXP 	text_6: autoDraw = False
+148.6744 	EXP 	text_5: text = u'plaudate'
+148.6744 	EXP 	text_5: autoDraw = True
+148.6744 	EXP 	text_9: autoDraw = True
+150.8380 	DATA 	Keypress: n
+150.8545 	EXP 	text_5: autoDraw = False
+150.8545 	EXP 	text_9: autoDraw = False
+150.8545 	EXP 	text_6: autoDraw = True
+151.3414 	EXP 	New trial (rep=0, index=19): OrderedDict([('item_number_', 17), ('item', u'shin'), ('correct_ans', u'y')])
+151.3577 	EXP 	text_6: autoDraw = False
+151.3577 	EXP 	text_5: text = u'shin'
+151.3577 	EXP 	text_5: autoDraw = True
+151.3577 	EXP 	text_9: autoDraw = True
+155.8190 	DATA 	Keypress: y
+155.8355 	EXP 	text_5: autoDraw = False
+155.8355 	EXP 	text_9: autoDraw = False
+155.8355 	EXP 	text_6: autoDraw = True
+156.3223 	EXP 	New trial (rep=0, index=20): OrderedDict([('item_number_', 18), ('item', u'fluid'), ('correct_ans', u'y')])
+156.3386 	EXP 	text_6: autoDraw = False
+156.3386 	EXP 	text_5: text = u'fluid'
+156.3386 	EXP 	text_5: autoDraw = True
+156.3386 	EXP 	text_9: autoDraw = True
+157.2946 	DATA 	Keypress: y
+157.3112 	EXP 	text_5: autoDraw = False
+157.3112 	EXP 	text_9: autoDraw = False
+157.3112 	EXP 	text_6: autoDraw = True
+157.7981 	EXP 	New trial (rep=0, index=21): OrderedDict([('item_number_', 19), ('item', u'spaunch'), ('correct_ans', u'n')])
+157.8144 	EXP 	text_6: autoDraw = False
+157.8144 	EXP 	text_5: text = u'spaunch'
+157.8144 	EXP 	text_5: autoDraw = True
+157.8144 	EXP 	text_9: autoDraw = True
+159.1228 	DATA 	Keypress: n
+159.1394 	EXP 	text_5: autoDraw = False
+159.1394 	EXP 	text_9: autoDraw = False
+159.1394 	EXP 	text_6: autoDraw = True
+159.6262 	EXP 	New trial (rep=0, index=22): OrderedDict([('item_number_', 20), ('item', u'allied'), ('correct_ans', u'y')])
+159.6425 	EXP 	text_6: autoDraw = False
+159.6425 	EXP 	text_5: text = u'allied'
+159.6425 	EXP 	text_5: autoDraw = True
+159.6425 	EXP 	text_9: autoDraw = True
+166.2839 	DATA 	Keypress: y
+166.3004 	EXP 	text_5: autoDraw = False
+166.3004 	EXP 	text_9: autoDraw = False
+166.3004 	EXP 	text_6: autoDraw = True
+166.7872 	EXP 	New trial (rep=0, index=23): OrderedDict([('item_number_', 21), ('item', u'slain'), ('correct_ans', u'y')])
+166.8036 	EXP 	text_6: autoDraw = False
+166.8036 	EXP 	text_5: text = u'slain'
+166.8036 	EXP 	text_5: autoDraw = True
+166.8036 	EXP 	text_9: autoDraw = True
+168.0447 	DATA 	Keypress: n
+168.0614 	EXP 	text_5: autoDraw = False
+168.0614 	EXP 	text_9: autoDraw = False
+168.0614 	EXP 	text_6: autoDraw = True
+168.5482 	EXP 	New trial (rep=0, index=24): OrderedDict([('item_number_', 22), ('item', u'recipient'), ('correct_ans', u'y')])
+168.5645 	EXP 	text_6: autoDraw = False
+168.5645 	EXP 	text_5: text = u'recipient'
+168.5645 	EXP 	text_5: autoDraw = True
+168.5645 	EXP 	text_9: autoDraw = True
+169.8393 	DATA 	Keypress: y
+169.8558 	EXP 	text_5: autoDraw = False
+169.8558 	EXP 	text_9: autoDraw = False
+169.8558 	EXP 	text_6: autoDraw = True
+170.3426 	EXP 	New trial (rep=0, index=25): OrderedDict([('item_number_', 23), ('item', u'exprate'), ('correct_ans', u'n')])
+170.3590 	EXP 	text_6: autoDraw = False
+170.3590 	EXP 	text_5: text = u'exprate'
+170.3590 	EXP 	text_5: autoDraw = True
+170.3590 	EXP 	text_9: autoDraw = True
+173.1935 	DATA 	Keypress: n
+173.2088 	EXP 	text_5: autoDraw = False
+173.2088 	EXP 	text_9: autoDraw = False
+173.2088 	EXP 	text_6: autoDraw = True
+173.6968 	EXP 	New trial (rep=0, index=26): OrderedDict([('item_number_', 24), ('item', u'eloquence'), ('correct_ans', u'y')])
+173.7300 	EXP 	text_6: autoDraw = False
+173.7300 	EXP 	text_5: text = u'eloquence'
+173.7300 	EXP 	text_5: autoDraw = True
+173.7300 	EXP 	text_9: autoDraw = True
+177.8893 	DATA 	Keypress: y
+177.9058 	EXP 	text_5: autoDraw = False
+177.9058 	EXP 	text_9: autoDraw = False
+177.9058 	EXP 	text_6: autoDraw = True
+178.3926 	EXP 	New trial (rep=0, index=27): OrderedDict([('item_number_', 25), ('item', u'cleanliness'), ('correct_ans', u'y')])
+178.4089 	EXP 	text_6: autoDraw = False
+178.4089 	EXP 	text_5: text = u'cleanliness'
+178.4089 	EXP 	text_5: autoDraw = True
+178.4089 	EXP 	text_9: autoDraw = True
+180.9919 	DATA 	Keypress: n
+181.0083 	EXP 	text_5: autoDraw = False
+181.0083 	EXP 	text_9: autoDraw = False
+181.0083 	EXP 	text_6: autoDraw = True
+181.4952 	EXP 	New trial (rep=0, index=28): OrderedDict([('item_number_', 26), ('item', u'dispatch'), ('correct_ans', u'y')])
+181.5116 	EXP 	text_6: autoDraw = False
+181.5116 	EXP 	text_5: text = u'dispatch'
+181.5116 	EXP 	text_5: autoDraw = True
+181.5116 	EXP 	text_9: autoDraw = True
+182.6690 	DATA 	Keypress: y
+182.6855 	EXP 	text_5: autoDraw = False
+182.6855 	EXP 	text_9: autoDraw = False
+182.6855 	EXP 	text_6: autoDraw = True
+183.1723 	EXP 	New trial (rep=0, index=29): OrderedDict([('item_number_', 27), ('item', u'rebondicate'), ('correct_ans', u'n')])
+183.1886 	EXP 	text_6: autoDraw = False
+183.1886 	EXP 	text_5: text = u'rebondicate'
+183.1886 	EXP 	text_5: autoDraw = True
+183.1886 	EXP 	text_9: autoDraw = True
+186.3251 	DATA 	Keypress: n
+186.3416 	EXP 	text_5: autoDraw = False
+186.3416 	EXP 	text_9: autoDraw = False
+186.3416 	EXP 	text_6: autoDraw = True
+186.8284 	EXP 	New trial (rep=0, index=30): OrderedDict([('item_number_', 28), ('item', u'ingenious'), ('correct_ans', u'y')])
+186.8447 	EXP 	text_6: autoDraw = False
+186.8447 	EXP 	text_5: text = u'ingenious'
+186.8447 	EXP 	text_5: autoDraw = True
+186.8447 	EXP 	text_9: autoDraw = True
+189.5282 	DATA 	Keypress: y
+189.5447 	EXP 	text_5: autoDraw = False
+189.5447 	EXP 	text_9: autoDraw = False
+189.5447 	EXP 	text_6: autoDraw = True
+190.0316 	EXP 	New trial (rep=0, index=31): OrderedDict([('item_number_', 29), ('item', u'bewitch'), ('correct_ans', u'y')])
+190.0480 	EXP 	text_6: autoDraw = False
+190.0480 	EXP 	text_5: text = u'bewitch'
+190.0480 	EXP 	text_5: autoDraw = True
+190.0480 	EXP 	text_9: autoDraw = True
+191.4569 	DATA 	Keypress: y
+191.4734 	EXP 	text_5: autoDraw = False
+191.4734 	EXP 	text_9: autoDraw = False
+191.4734 	EXP 	text_6: autoDraw = True
+191.9602 	EXP 	New trial (rep=0, index=32): OrderedDict([('item_number_', 30), ('item', u'skave'), ('correct_ans', u'n')])
+191.9765 	EXP 	text_6: autoDraw = False
+191.9765 	EXP 	text_5: text = u'skave'
+191.9765 	EXP 	text_5: autoDraw = True
+191.9765 	EXP 	text_9: autoDraw = True
+192.8992 	DATA 	Keypress: n
+192.9157 	EXP 	text_5: autoDraw = False
+192.9157 	EXP 	text_9: autoDraw = False
+192.9157 	EXP 	text_6: autoDraw = True
+193.4025 	EXP 	New trial (rep=0, index=33): OrderedDict([('item_number_', 31), ('item', u'plaintively'), ('correct_ans', u'y')])
+193.4356 	EXP 	text_6: autoDraw = False
+193.4356 	EXP 	text_5: text = u'plaintively'
+193.4356 	EXP 	text_5: autoDraw = True
+193.4356 	EXP 	text_9: autoDraw = True
+199.0037 	DATA 	Keypress: n
+199.0203 	EXP 	text_5: autoDraw = False
+199.0203 	EXP 	text_9: autoDraw = False
+199.0203 	EXP 	text_6: autoDraw = True
+199.5071 	EXP 	New trial (rep=0, index=34): OrderedDict([('item_number_', 32), ('item', u'kilp'), ('correct_ans', u'n')])
+199.5234 	EXP 	text_6: autoDraw = False
+199.5234 	EXP 	text_5: text = u'kilp'
+199.5234 	EXP 	text_5: autoDraw = True
+199.5234 	EXP 	text_9: autoDraw = True
+200.4125 	DATA 	Keypress: n
+200.4291 	EXP 	text_5: autoDraw = False
+200.4291 	EXP 	text_9: autoDraw = False
+200.4291 	EXP 	text_6: autoDraw = True
+200.9158 	EXP 	New trial (rep=0, index=35): OrderedDict([('item_number_', 33), ('item', u'interfate'), ('correct_ans', u'n')])
+200.9321 	EXP 	text_6: autoDraw = False
+200.9321 	EXP 	text_5: text = u'interfate'
+200.9321 	EXP 	text_5: autoDraw = True
+200.9321 	EXP 	text_9: autoDraw = True
+203.8169 	DATA 	Keypress: n
+203.8335 	EXP 	text_5: autoDraw = False
+203.8335 	EXP 	text_9: autoDraw = False
+203.8335 	EXP 	text_6: autoDraw = True
+204.3203 	EXP 	New trial (rep=0, index=36): OrderedDict([('item_number_', 34), ('item', u'hasty'), ('correct_ans', u'y')])
+204.3366 	EXP 	text_6: autoDraw = False
+204.3366 	EXP 	text_5: text = u'hasty'
+204.3366 	EXP 	text_5: autoDraw = True
+204.3366 	EXP 	text_9: autoDraw = True
+205.4101 	DATA 	Keypress: y
+205.4268 	EXP 	text_5: autoDraw = False
+205.4268 	EXP 	text_9: autoDraw = False
+205.4268 	EXP 	text_6: autoDraw = True
+205.9135 	EXP 	New trial (rep=0, index=37): OrderedDict([('item_number_', 35), ('item', u'lengthy'), ('correct_ans', u'y')])
+205.9297 	EXP 	text_6: autoDraw = False
+205.9297 	EXP 	text_5: text = u'lengthy'
+205.9297 	EXP 	text_5: autoDraw = True
+205.9297 	EXP 	text_9: autoDraw = True
+208.3283 	DATA 	Keypress: y
+208.3448 	EXP 	text_5: autoDraw = False
+208.3448 	EXP 	text_9: autoDraw = False
+208.3448 	EXP 	text_6: autoDraw = True
+208.8316 	EXP 	New trial (rep=0, index=38): OrderedDict([('item_number_', 36), ('item', u'fray'), ('correct_ans', u'y')])
+208.8480 	EXP 	text_6: autoDraw = False
+208.8480 	EXP 	text_5: text = u'fray'
+208.8480 	EXP 	text_5: autoDraw = True
+208.8480 	EXP 	text_9: autoDraw = True
+210.0054 	DATA 	Keypress: y
+210.0219 	EXP 	text_5: autoDraw = False
+210.0219 	EXP 	text_9: autoDraw = False
+210.0219 	EXP 	text_6: autoDraw = True
+210.5087 	EXP 	New trial (rep=0, index=39): OrderedDict([('item_number_', 37), ('item', u'crumper'), ('correct_ans', u'n')])
+210.5250 	EXP 	text_6: autoDraw = False
+210.5250 	EXP 	text_5: text = u'crumper'
+210.5250 	EXP 	text_5: autoDraw = True
+210.5250 	EXP 	text_9: autoDraw = True
+211.5819 	DATA 	Keypress: n
+211.5985 	EXP 	text_5: autoDraw = False
+211.5985 	EXP 	text_9: autoDraw = False
+211.5985 	EXP 	text_6: autoDraw = True
+212.0852 	EXP 	New trial (rep=0, index=40): OrderedDict([('item_number_', 38), ('item', u'upkeep'), ('correct_ans', u'y')])
+212.1016 	EXP 	text_6: autoDraw = False
+212.1016 	EXP 	text_5: text = u'upkeep'
+212.1016 	EXP 	text_5: autoDraw = True
+212.1016 	EXP 	text_9: autoDraw = True
+215.3553 	DATA 	Keypress: n
+215.3718 	EXP 	text_5: autoDraw = False
+215.3718 	EXP 	text_9: autoDraw = False
+215.3718 	EXP 	text_6: autoDraw = True
+215.8587 	EXP 	New trial (rep=0, index=41): OrderedDict([('item_number_', 39), ('item', u'majestic'), ('correct_ans', u'y')])
+215.8918 	EXP 	text_6: autoDraw = False
+215.8918 	EXP 	text_5: text = u'majestic'
+215.8918 	EXP 	text_5: autoDraw = True
+215.8918 	EXP 	text_9: autoDraw = True
+217.4516 	DATA 	Keypress: y
+217.4681 	EXP 	text_5: autoDraw = False
+217.4681 	EXP 	text_9: autoDraw = False
+217.4681 	EXP 	text_6: autoDraw = True
+217.9549 	EXP 	New trial (rep=0, index=42): OrderedDict([('item_number_', 40), ('item', u'magrity'), ('correct_ans', u'n')])
+217.9713 	EXP 	text_6: autoDraw = False
+217.9713 	EXP 	text_5: text = u'magrity'
+217.9713 	EXP 	text_5: autoDraw = True
+217.9713 	EXP 	text_9: autoDraw = True
+220.3530 	DATA 	Keypress: n
+220.3695 	EXP 	text_5: autoDraw = False
+220.3695 	EXP 	text_9: autoDraw = False
+220.3695 	EXP 	text_6: autoDraw = True
+220.8563 	EXP 	New trial (rep=0, index=43): OrderedDict([('item_number_', 41), ('item', u'nourishment'), ('correct_ans', u'y')])
+220.8726 	EXP 	text_6: autoDraw = False
+220.8726 	EXP 	text_5: text = u'nourishment'
+220.8726 	EXP 	text_5: autoDraw = True
+220.8726 	EXP 	text_9: autoDraw = True
+222.3487 	DATA 	Keypress: y
+222.3653 	EXP 	text_5: autoDraw = False
+222.3653 	EXP 	text_9: autoDraw = False
+222.3653 	EXP 	text_6: autoDraw = True
+222.8521 	EXP 	New trial (rep=0, index=44): OrderedDict([('item_number_', 42), ('item', u'abergy'), ('correct_ans', u'n')])
+222.8684 	EXP 	text_6: autoDraw = False
+222.8684 	EXP 	text_5: text = u'abergy'
+222.8684 	EXP 	text_5: autoDraw = True
+222.8684 	EXP 	text_9: autoDraw = True
+225.3010 	DATA 	Keypress: n
+225.3337 	EXP 	text_5: autoDraw = False
+225.3337 	EXP 	text_9: autoDraw = False
+225.3337 	EXP 	text_6: autoDraw = True
+225.8205 	EXP 	New trial (rep=0, index=45): OrderedDict([('item_number_', 43), ('item', u'proom'), ('correct_ans', u'n')])
+225.8368 	EXP 	text_6: autoDraw = False
+225.8368 	EXP 	text_5: text = u'proom'
+225.8368 	EXP 	text_5: autoDraw = True
+225.8368 	EXP 	text_9: autoDraw = True
+227.7992 	DATA 	Keypress: n
+227.8157 	EXP 	text_5: autoDraw = False
+227.8157 	EXP 	text_9: autoDraw = False
+227.8157 	EXP 	text_6: autoDraw = True
+228.3025 	EXP 	New trial (rep=0, index=46): OrderedDict([('item_number_', 44), ('item', u'turmoil'), ('correct_ans', u'y')])
+228.3189 	EXP 	text_6: autoDraw = False
+228.3189 	EXP 	text_5: text = u'turmoil'
+228.3189 	EXP 	text_5: autoDraw = True
+228.3189 	EXP 	text_9: autoDraw = True
+233.8870 	DATA 	Keypress: y
+233.9035 	EXP 	text_5: autoDraw = False
+233.9035 	EXP 	text_9: autoDraw = False
+233.9035 	EXP 	text_6: autoDraw = True
+234.3903 	EXP 	New trial (rep=0, index=47): OrderedDict([('item_number_', 45), ('item', u'carbohydrate'), ('correct_ans', u'y')])
+234.4067 	EXP 	text_6: autoDraw = False
+234.4067 	EXP 	text_5: text = u'carbohydrate'
+234.4067 	EXP 	text_5: autoDraw = True
+234.4067 	EXP 	text_9: autoDraw = True
+249.9702 	DATA 	Keypress: n
+249.9868 	EXP 	text_5: autoDraw = False
+249.9868 	EXP 	text_9: autoDraw = False
+249.9868 	EXP 	text_6: autoDraw = True
+250.4735 	EXP 	New trial (rep=0, index=48): OrderedDict([('item_number_', 46), ('item', u'scholar'), ('correct_ans', u'y')])
+250.4899 	EXP 	text_6: autoDraw = False
+250.4899 	EXP 	text_5: text = u'scholar'
+250.4899 	EXP 	text_5: autoDraw = True
+250.4899 	EXP 	text_9: autoDraw = True
+255.0015 	DATA 	Keypress: y
+255.0180 	EXP 	text_5: autoDraw = False
+255.0180 	EXP 	text_9: autoDraw = False
+255.0180 	EXP 	text_6: autoDraw = True
+255.5048 	EXP 	New trial (rep=0, index=49): OrderedDict([('item_number_', 47), ('item', u'turtle'), ('correct_ans', u'y')])
+255.5212 	EXP 	text_6: autoDraw = False
+255.5212 	EXP 	text_5: text = u'turtle'
+255.5212 	EXP 	text_5: autoDraw = True
+255.5212 	EXP 	text_9: autoDraw = True
+256.5604 	DATA 	Keypress: y
+256.5777 	EXP 	text_5: autoDraw = False
+256.5777 	EXP 	text_9: autoDraw = False
+256.5777 	EXP 	text_6: autoDraw = True
+257.0645 	EXP 	New trial (rep=0, index=50): OrderedDict([('item_number_', 48), ('item', u'fellick'), ('correct_ans', u'n')])
+257.0808 	EXP 	text_6: autoDraw = False
+257.0808 	EXP 	text_5: text = u'fellick'
+257.0808 	EXP 	text_5: autoDraw = True
+257.0808 	EXP 	text_9: autoDraw = True
+258.1041 	DATA 	Keypress: n
+258.1206 	EXP 	text_5: autoDraw = False
+258.1206 	EXP 	text_9: autoDraw = False
+258.1206 	EXP 	text_6: autoDraw = True
+258.6074 	EXP 	New trial (rep=0, index=51): OrderedDict([('item_number_', 49), ('item', u'destription'), ('correct_ans', u'n')])
+258.6237 	EXP 	text_6: autoDraw = False
+258.6237 	EXP 	text_5: text = u'destription'
+258.6237 	EXP 	text_5: autoDraw = True
+258.6237 	EXP 	text_9: autoDraw = True
+264.2254 	DATA 	Keypress: n
+264.2419 	EXP 	text_5: autoDraw = False
+264.2419 	EXP 	text_9: autoDraw = False
+264.2419 	EXP 	text_6: autoDraw = True
+264.7287 	EXP 	New trial (rep=0, index=52): OrderedDict([('item_number_', 50), ('item', u'cylinder'), ('correct_ans', u'y')])
+264.7450 	EXP 	text_6: autoDraw = False
+264.7450 	EXP 	text_5: text = u'cylinder'
+264.7450 	EXP 	text_5: autoDraw = True
+264.7450 	EXP 	text_9: autoDraw = True
+265.7348 	DATA 	Keypress: y
+265.7512 	EXP 	text_5: autoDraw = False
+265.7512 	EXP 	text_9: autoDraw = False
+265.7512 	EXP 	text_6: autoDraw = True
+266.2381 	EXP 	New trial (rep=0, index=53): OrderedDict([('item_number_', 51), ('item', u'censorship'), ('correct_ans', u'y')])
+266.2545 	EXP 	text_6: autoDraw = False
+266.2545 	EXP 	text_5: text = u'censorship'
+266.2545 	EXP 	text_5: autoDraw = True
+266.2545 	EXP 	text_9: autoDraw = True
+267.3782 	DATA 	Keypress: y
+267.3948 	EXP 	text_5: autoDraw = False
+267.3948 	EXP 	text_9: autoDraw = False
+267.3948 	EXP 	text_6: autoDraw = True
+267.8817 	EXP 	New trial (rep=0, index=54): OrderedDict([('item_number_', 52), ('item', u'celestial'), ('correct_ans', u'y')])
+267.8980 	EXP 	text_6: autoDraw = False
+267.8980 	EXP 	text_5: text = u'celestial'
+267.8980 	EXP 	text_5: autoDraw = True
+267.8980 	EXP 	text_9: autoDraw = True
+270.5144 	DATA 	Keypress: n
+270.5310 	EXP 	text_5: autoDraw = False
+270.5310 	EXP 	text_9: autoDraw = False
+270.5310 	EXP 	text_6: autoDraw = True
+271.0178 	EXP 	New trial (rep=0, index=55): OrderedDict([('item_number_', 53), ('item', u'rascal'), ('correct_ans', u'y')])
+271.0341 	EXP 	text_6: autoDraw = False
+271.0341 	EXP 	text_5: text = u'rascal'
+271.0341 	EXP 	text_5: autoDraw = True
+271.0341 	EXP 	text_9: autoDraw = True
+272.4766 	DATA 	Keypress: y
+272.4932 	EXP 	text_5: autoDraw = False
+272.4932 	EXP 	text_9: autoDraw = False
+272.4932 	EXP 	text_6: autoDraw = True
+272.9799 	EXP 	New trial (rep=0, index=56): OrderedDict([('item_number_', 54), ('item', u'purrage'), ('correct_ans', u'n')])
+272.9963 	EXP 	text_6: autoDraw = False
+272.9963 	EXP 	text_5: text = u'purrage'
+272.9963 	EXP 	text_5: autoDraw = True
+272.9963 	EXP 	text_9: autoDraw = True
+275.1096 	DATA 	Keypress: n
+275.1261 	EXP 	text_5: autoDraw = False
+275.1261 	EXP 	text_9: autoDraw = False
+275.1261 	EXP 	text_6: autoDraw = True
+275.6130 	EXP 	New trial (rep=0, index=57): OrderedDict([('item_number_', 55), ('item', u'pulsh'), ('correct_ans', u'n')])
+275.6293 	EXP 	text_6: autoDraw = False
+275.6293 	EXP 	text_5: text = u'pulsh'
+275.6293 	EXP 	text_5: autoDraw = True
+275.6293 	EXP 	text_9: autoDraw = True
+276.7197 	DATA 	Keypress: n
+276.7362 	EXP 	text_5: autoDraw = False
+276.7362 	EXP 	text_9: autoDraw = False
+276.7362 	EXP 	text_6: autoDraw = True
+277.2230 	EXP 	New trial (rep=0, index=58): OrderedDict([('item_number_', 56), ('item', u'muddy'), ('correct_ans', u'y')])
+277.2393 	EXP 	text_6: autoDraw = False
+277.2393 	EXP 	text_5: text = u'muddy'
+277.2393 	EXP 	text_5: autoDraw = True
+277.2393 	EXP 	text_9: autoDraw = True
+278.2291 	DATA 	Keypress: y
+278.2455 	EXP 	text_5: autoDraw = False
+278.2455 	EXP 	text_9: autoDraw = False
+278.2455 	EXP 	text_6: autoDraw = True
+278.7323 	EXP 	New trial (rep=0, index=59): OrderedDict([('item_number_', 57), ('item', u'quirty'), ('correct_ans', u'n')])
+278.7487 	EXP 	text_6: autoDraw = False
+278.7487 	EXP 	text_5: text = u'quirty'
+278.7487 	EXP 	text_5: autoDraw = True
+278.7487 	EXP 	text_9: autoDraw = True
+280.0403 	DATA 	Keypress: n
+280.0568 	EXP 	text_5: autoDraw = False
+280.0568 	EXP 	text_9: autoDraw = False
+280.0568 	EXP 	text_6: autoDraw = True
+280.5436 	EXP 	New trial (rep=0, index=60): OrderedDict([('item_number_', 58), ('item', u'pudour'), ('correct_ans', u'n')])
+280.5599 	EXP 	text_6: autoDraw = False
+280.5599 	EXP 	text_5: text = u'pudour'
+280.5599 	EXP 	text_5: autoDraw = True
+280.5599 	EXP 	text_9: autoDraw = True
+282.0863 	DATA 	Keypress: n
+282.1028 	EXP 	text_5: autoDraw = False
+282.1028 	EXP 	text_9: autoDraw = False
+282.1028 	EXP 	text_6: autoDraw = True
+282.5896 	EXP 	New trial (rep=0, index=61): OrderedDict([('item_number_', 59), ('item', u'listless'), ('correct_ans', u'y')])
+282.6059 	EXP 	text_6: autoDraw = False
+282.6059 	EXP 	text_5: text = u'listless'
+282.6059 	EXP 	text_5: autoDraw = True
+282.6059 	EXP 	text_9: autoDraw = True
+284.2330 	DATA 	Keypress: n
+284.2495 	EXP 	text_5: autoDraw = False
+284.2495 	EXP 	text_9: autoDraw = False
+284.2495 	EXP 	text_6: autoDraw = True
+284.7363 	EXP 	New trial (rep=0, index=62): OrderedDict([('item_number_', 60), ('item', u'wrought'), ('correct_ans', u'y')])
+284.7526 	EXP 	text_6: autoDraw = False
+284.7526 	EXP 	text_5: text = u'wrought'
+284.7526 	EXP 	text_5: autoDraw = True
+284.7526 	EXP 	text_9: autoDraw = True
+290.9580 	DATA 	Keypress: n
+290.9746 	EXP 	text_5: autoDraw = False
+290.9746 	EXP 	text_9: autoDraw = False
+290.9746 	EXP 	text_6: autoDraw = True
+291.4777 	EXP 	text_6: autoDraw = False
+291.4777 	EXP 	text_8: autoDraw = True
+294.0606 	DATA 	Keypress: space
+303.8548 	DATA 	Keypress: return
+303.9962 	EXP 	window1: mouseVisible = True
