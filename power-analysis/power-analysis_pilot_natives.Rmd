@@ -3,12 +3,12 @@ title: "Power analysis for conceptual replication of S&P"
 author: "Guillermo Montero-Melis"
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
 output:
-  pdf_document:
-    toc: yes
   html_document:
     depth: 2
     number_sections: yes
     theme: default
+    toc: yes
+  pdf_document:
     toc: yes
 ---
 
@@ -76,8 +76,123 @@ speakers.
 
 
 
-Estimates
-=========
+Simple power analysis based on reported results
+=============================================
+
+We start by running power analyses based on the reported results, taking them
+at face value.
+
+Here is how S&P report the relevant results (p.226):
+
+> Most importantly, directly addressing the main hypothesis
+motivating this study, a 2 x 2 analysis (Word Type x Moving
+Body Part) revealed that when subjects engaged in performing
+this rhythmic motor pattern with either their hands or feet,
+errors in memory performance increased and a significant
+interaction effect was found [F (1, 14) = 12.67, MSE = 20.9,
+Cohen’s d = 1.25, p = .003] while no significant effect of condition
+was found in this case (F < 1), documenting a differential
+influence of movement type on word type performance.
+Normalised z-transformed data confirmed this significant Word
+Type x Moving Body Part Interaction [F (1, 14) = 25.49,
+MSE= .92, Cohen’s d = 1.48, p < .0002; Fig. 1d]. For the z-transformed
+data, in which the contribution of outliers and
+between-subject variance is reduced, t-tests now also revealed
+fully significant word category differences in both critical
+movement interference conditions, for hand/arm movements
+[more errors for arm words F (1,14)= 5.65, MSE = .67, Cohen’s
+d = .73, p < .032] and foot/leg movements [more errors for leg
+words, F (1, 14) = 11.26, MSE= .66, Cohen’s d = 1.0, p < .0047].
+
+We will use the more conservative estimates, corresponding to the analyses
+when data is *not* z-transformed.
+
+
+Computing the reported d-values
+------------------------------
+
+Can we approximately reproduce the reported $d$-values from the reported means
+and SDs?
+
+$$d = \frac{M_1 - M_2}{\sigma}$$
+
+Here we looking at an interaction, which is the difference in difference
+in means. To keep track of the means/SDs in the different conditions, let's
+write AM = arm movement, LM = leg movement, AW = arm words, LW = leg words.
+We compute:
+
+$$d = \frac{(M_{AM\_AW} - M_{AM\_LW}) - (M_{AM\_AW} - M_{AM\_LW})}
+{(SD_{AM\_AW} + SD_{AM\_LW} + SD_{LM\_AW} + SD_{LM\_LW}) / 4 }$$
+
+We use the values provided in Table 1 in S&B (p.226):
+
+```{r}
+sp_means <- expand.grid(WordType = c("arm-word", "leg-word"), Movement = c("arm", "leg"))
+sp_means$M <- c(16.5, 14.6, 13.1, 16.9)
+sp_means$SD <- c(8.39, 6.66, 6.23, 7.56)
+```
+
+```{r}
+kable(sp_means)
+```
+
+
+```{r, echo = TRUE}
+# interaction (difference in differences):
+M_interact <- with(sp_means, (M[1] - M[2]) - (M[3] - M [4]))
+d_interact <- M_interact / (sum(sp_means$SD) / 4)
+```
+
+
+$$d = \frac{(M_{AM\_AW} - M_{AM\_LW}) - (M_{AM\_AW} - M_{AM\_LW})}
+{(SD_{AM\_AW} + SD_{AM\_LW} + SD_{LM\_AW} + SD_{LM\_LW} / 4}
+= \frac{(`r sp_means$M[1]` - `r sp_means$M[2]`) - (`r sp_means$M[3]` - `r sp_means$M[4]`)}
+{(`r sp_means$SD[1]` + `r sp_means$SD[2]` + `r sp_means$SD[3]` + `r sp_means$SD[4]`) / 4}
+= \frac{`r M_interact`}{`r round(sum(sp_means$SD), 3)` / 4 }
+= `r d_interact`$$
+
+It looks like we're quite off, compared to their reported $d = 1.25$ for that
+interaction effect.
+
+
+GPower
+------
+
+In [GPower](http://www.gpower.hhu.de/) (see Faul, Erdfelder, Lang, & Buchner,
+2007, Behav Res Meth), we run an *a priori power analysis*. 
+
+We focus on the interaction effect, with reported effect size of
+$d = 1.25$. Note that the interaction effect can be recoded as a main effect
+as well (see below), so its description as an "interaction" should not matter
+for the calculations.
+GPower accepts input for effect size as $f$, while it is reported as $d$ in
+the paper. We use the conversation formula provided on the 
+[idre/UCLA website](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/effect-size-power/faqhow-is-effect-size-used-in-power-analysis/):
+
+$$f^2 = \frac{d^2}{2k}$$
+
+where $k$ is the number of groups, which I take to be the number of conditions
+or experimental cells, so $k=4$, and thus
+
+```{r}
+d2f <- function (d, k) {sqrt(d^2 / (2*k))}
+```
+
+
+$$f 
+= \sqrt{\frac{d^2}{2k}}
+= \sqrt{\frac{1.25^2}{2*4}}
+= \sqrt{`r round(1.25 ^ 2 / 8, 3)`}
+= `r round(d2f(1.25, 4), 3)`$$
+
+
+[Power for Repeated Measures ANOVAs in G*Power](https://www.youtube.com/watch?v=CEQUNYg80Y0)
+
+
+
+
+Estimates for simulation-based power analysis
+==========================================
 
 Mean number of errors reported in S&P
 -------------------------------------
@@ -86,8 +201,6 @@ The results reported in S&P for the mean number of errors by movement
 condition and word type are (p.225):
 
 ```{r}
-sp_means <- expand.grid(WordType = c("arm-word", "leg-word"), Movement = c("arm", "leg"))
-sp_means$M <- c(16.5, 14.6, 13.1, 16.9)
 kable(sp_means)
 ```
 
