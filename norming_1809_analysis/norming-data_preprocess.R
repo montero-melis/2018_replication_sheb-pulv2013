@@ -6,6 +6,7 @@
 # - L2 English verb rating + translation tasks: 1 experiment yields two data files
 # - L1 Swedish verb rating
 # - LexTale
+# - We also want to copy participant background data
 
 # NB: Script is written to be sourced from the Rproject in the root directory
 # of the project. All paths are relative to that root! (I.e., things will not
@@ -33,6 +34,7 @@ get_data_filenames <- function(mypath = NULL, expname = NULL) {
 get_data_filenames("exp-scripts_psychopy/norming_1809/data", "verb_norming_L1")
 get_data_filenames("exp-scripts_psychopy/norming_1809/data", "verb_norming_L2")
 get_data_filenames("exp-scripts_psychopy/norming_1809/data", "lextale")
+get_data_filenames("exp-scripts_psychopy/norming_1809/data", "ppt")
 
 
 # reads CSV data files generated from "verb_norming_L1-swe_no_translation",
@@ -42,7 +44,7 @@ verb_norming_L1swe <- function(filename, path_output) {
   # extract participant number using regex
   pptID <- gsub(".*(\\d\\d\\d)_verb.*", "\\1", filename)
   # define the filename for output, including path to right folder
-  out_filename_rating <- paste(path_output, pptID, "_verb_rating_L1swe.csv", sep = "")
+  out_filename <- paste(path_output, pptID, "_verb_rating_L1swe.csv", sep = "")
   # relevant columns to keep for rating and translation, respectively
   cols_rat <- c('expName', 'date', 'participant', 'trials.thisN',
                 'word', 'category', 'rating.response')
@@ -51,7 +53,7 @@ verb_norming_L1swe <- function(filename, path_output) {
   # rename some of the columns
   names(rat)[4:7] <- c("trial", "verb", "rated_category", "rating")
   # write to disk
-  write.csv(rat, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(rat, out_filename, row.names = FALSE, fileEncoding = "UTF-8")
 }
 
 # # Uncomment and run to see how function works
@@ -96,24 +98,44 @@ verb_norming_L2eng <- function(filename, path_output) {
 
 
 # LexTale task
-lextale <- function(filename, path_output) {
+lextale <- function (filename, path_output) {
   df <- read.csv(filename, fileEncoding = "UTF-8")
   # participant number
   pptID <- unique(df$participant)
   # define the filename for output, including path to right folder
-  out_filename_rating <- paste(path_output, pptID, "_lextale.csv", sep = "")
+  out_filename <- paste(path_output, pptID, "_lextale.csv", sep = "")
   # select/rename relevant columns to keep
   df <- df %>% select(expName, date, participant, itemID = item_number_, item,
                       correct_resp = correct_ans, resp = key_resp_8.keys,
                       correct = key_resp_8.corr, RT = key_resp_8.rt)
   # write to disk
-  write.csv(df, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
+  write.csv(df, out_filename, row.names = FALSE, fileEncoding = "UTF-8")
 }
 
 # Uncomment and run following line for running function with data from one ppt
 # lextale("exp-scripts_psychopy/norming_1809/data/803_lextale_2018_Sep_10_1457.csv",
 #                    "norming_1809_analysis/data_coding/")
 
+
+# Participant background data (this info only needs to be copied to right
+# folder, but make sure it gets saved with "," as separator (true CSV file)
+ppt_info <- function (filename, path_output) {
+  
+  # define the filename for output, including path to right folder
+  out_filename <- paste(path_output, "participant_info.csv", sep = "")
+  
+  # check separator: "," or ";"?
+  con <- file(filename,"r")
+  first_line <- readLines(con, n = 1)
+  close(con)
+  mysep <- sub(".*([;,]).*",  "\\1", first_line)
+  
+  # read and write to disk (making sure it's a true CSV)
+  df <- read.csv(filename, fileEncoding = "UTF-8", sep = mysep)
+  write.csv(df, out_filename, row.names = FALSE, fileEncoding = "UTF-8")
+}
+# ppt_info("exp-scripts_psychopy/norming_1809/data/ppt_lbq_data_norming.csv",
+#                    "norming_1809_analysis/data_coding/")
 
 
 #  ------------------------------------------------------------------------
@@ -130,21 +152,24 @@ process_raw_data <- function() {
   # "verb_norming_oral_input" are excluded
   verbnorming_files_swe <- get_data_filenames(path_input, "verb_norming_L1-swe")
   for (myfile in verbnorming_files_swe) {
-    verb_norming_L1swe(paste(path_input, myfile, sep=""), path_output)
+    verb_norming_L1swe(paste(path_input, myfile, sep = ""), path_output)
   }
   
   # "verb_norming_L2-eng_oral_translation"
   verbnorming_files_eng <- get_data_filenames(path_input, "verb_norming_L2-eng")
   for (myfile in verbnorming_files_eng) {
-    verb_norming_L2eng(paste(path_input, myfile, sep=""), path_output)
+    verb_norming_L2eng(paste(path_input, myfile, sep = ""), path_output)
   }
   
   # "lextale"
   lextale_files <- get_data_filenames(path_input, "lextale")
   for (myfile in lextale_files) {
-    lextale(paste(path_input, myfile, sep=""), path_output)
+    lextale(paste(path_input, myfile, sep = ""), path_output)
   }
   
+  # participant info
+  ppt_info_file <- get_data_filenames(path_input, "ppt")
+  ppt_info(paste(path_input, ppt_info_file, sep = ""), path_output)
   
 }
 # uncomment and run
