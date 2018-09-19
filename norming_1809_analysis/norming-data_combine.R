@@ -15,7 +15,7 @@ library(dplyr)  # for left_join, pipe operator ("%>%"), etc
 #  Data files
 #  ------------------------------------------------------------------------
 
-# Normed English verbs
+## Normed English verbs
 verbs_en <- read.csv("exp-scripts_psychopy/norming_1809/verbs_norming_eng_sept2019_detailed.csv",
                      fileEncoding = "UTF-8")
 head(verbs_en)
@@ -25,12 +25,28 @@ verbs_en <- verbs_en %>%
          cognate = cognate_Swe_which, in_orig = in_original_study_S.P)
 head(verbs_en)
 
-# Normed Swedish verbs
+## Normed Swedish verbs
 verbs_sw <- read.csv("exp-scripts_psychopy/norming_1809/verbs_norming_swe_sept2019_detailed.csv",
                      fileEncoding = "UTF-8") %>% 
   rename(verb_category = word_category, cognate_bin = cognate, verb = word)
 
 head(verbs_sw)
+
+## Participant info
+ppt <- read.csv("norming_1809_analysis/data_coding/participant_info.csv",
+                fileEncoding = "UTF-8")
+# clarify order of tasks
+ppt <- ppt %>% mutate(
+  lang_order = ifelse(eng_swe_first == "eng", "English-Swedish", "Swedish-English"),
+  Sex = ifelse(Sex == "f", "female", "male"),
+  eng_swe_first = NULL)
+
+head(ppt)
+str(ppt)
+
+# save to disk
+write.csv(ppt, "norming_1809_analysis/participant_info.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
 
 
 #  ------------------------------------------------------------------------
