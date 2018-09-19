@@ -108,10 +108,6 @@ combine_files <- function(file_list = NULL, sep_default = ";",
 #  Verb bias/norming task - English
 #  ------------------------------------------------------------------------
 
-# TO DO:
-# - Include info about order L1swe/L2eng
-
-
 ## Read individual data files and combine into single file after processing
 
 # verb norms collected in June 2018
@@ -177,10 +173,6 @@ write.csv(bias_en_comb, "norming_1809_analysis/data_verb-bias_L2eng.csv",
 #  Verb bias/norming task - Swedish
 #  ------------------------------------------------------------------------
 
-# TO DO:
-# - Include info about order L1swe/L2eng
-
-
 ## Read individual data files and combine into single file after processing
 
 # verb norms collected in Sept 2018
@@ -224,44 +216,11 @@ write.csv(bias_sw, "norming_1809_analysis/data_verb-bias_L1swe.csv",
 #  Verb comprehension task
 #  ------------------------------------------------------------------------
 
-## There were two versions of this task:
+# Participants orally provided their Swedish translation of English verbs:
+get_data_filenames("oral_translat")  # individual file names
+length(get_data_filenames("oral_translat"))  # nb of (coded!) participants
 
-# 1) a multiple choice version
-get_data_filenames("multiple-choice")  # individual file names
-length(get_data_filenames("multiple-choice"))  # 11 participants did this version
-
-# 2) a free translation version
-get_data_filenames("oral-input")  # individual file names
-length(get_data_filenames("oral-input"))  # 6 participants did this version
-
-
-## 1) Multiple choice version
-multi <- combine_files(get_data_filenames("multiple-choice"), sep_default = ",")
-head(multi)
-tail(multi)
-str(multi)
-length(unique(multi$participant))  # number of participants
-
-# change the verbs to lower case (as in other data files):
-multi$verb <- tolower(multi$verb)
-
-# As above, add a column for the category we had in mind for each verb:
-multi <- left_join(multi, verb_categ)
-# Note that, as we saw above, "pluck" was used in the norming task, but not
-# in the memory task:
-unique(multi$verb)[! unique(multi$verb) %in% verb_categ$verb]
-# and viceversa for "trek"
-verb_categ$verb[! verb_categ$verb %in% unique(multi$verb)]
-# Assign "pluck" to arm type
-multi[multi$verb == "pluck", "type"] <- "arm"
-
-# save to disk
-write.csv(multi, "pilot_analysis/data_verb-understanding_multiple-choice.csv",
-          row.names = FALSE, fileEncoding = "UTF-8")
-
-
-# 2) Free translation version
-transl <- combine_files(get_data_filenames("oral-input"), sep_default = ";")
+transl <- combine_files(get_data_filenames("oral_translat"), sep_default = ";")
 head(transl)
 tail(transl)
 str(transl)
@@ -405,5 +364,5 @@ transl[grepl("omge", transl$ppt_translation) & transl$verb == "wobble", "score"]
 
 
 # save to disk
-write.csv(transl, "pilot_analysis/data_verb-understanding_free-translation.csv",
+write.csv(transl, "norming_1809_analysis/data_verb-understanding_free-translation.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
