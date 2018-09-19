@@ -42,12 +42,13 @@ verb_norming_L1swe <- function(filename, path_output) {
   cols_rat <- c('expName', 'date', 'participant', 'trials.thisN',
                 'word', 'category', 'rating.response')
   # select the relevant rows and columns to keep for each of the data frames
-  rat <- df[grepl("(Ben|Armar)", df$category), cols_rat]  # ratings
+  rat <- df[grepl("(Ben|Arm)", df$category), cols_rat]  # ratings
   # rename some of the columns
   names(rat)[4:7] <- c("trial", "verb", "rated_category", "rating")
   # write to disk
   write.csv(rat, out_filename_rating, row.names = FALSE, fileEncoding = "UTF-8")
 }
+
 # # Uncomment and run to see how function works
 # verb_norming_L1swe("exp-scripts_psychopy/norming_1809/data/801_verb_norming_L1-swe_no_translation_2018_Sep_10_1155.csv",
 #                    "norming_1809_analysis/data_coding/")
@@ -84,9 +85,9 @@ verb_norming_L2eng <- function(filename, path_output) {
   write.csv(tra, out_filename_transl, row.names = FALSE, fileEncoding = "UTF-8")
 }
 
-# Uncomment and run following line for running function with data from ppt 905
-verb_norming_L2eng("exp-scripts_psychopy/norming_1809/data/801_verb_norming_L2-eng_oral_translation_2018_Sep_10_1112.csv",
-                   "norming_1809_analysis/data_coding/")
+# # Uncomment and run following line for running function with data from ppt 905
+# verb_norming_L2eng("exp-scripts_psychopy/norming_1809/data/801_verb_norming_L2-eng_oral_translation_2018_Sep_10_1112.csv",
+#                    "norming_1809_analysis/data_coding/")
 
 
 #  ------------------------------------------------------------------------
