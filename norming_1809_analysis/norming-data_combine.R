@@ -153,9 +153,8 @@ bias_en_comb <- left_join(bias_en_comb, verb_norms_collected)
 head(bias_en_comb)
 
 # save to disk
-write.csv(bias_en, "norming_1809_analysis/data_verb-bias_L2eng.csv",
+write.csv(bias_en_comb, "norming_1809_analysis/data_verb-bias_L2eng.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
-
 
 
 #  ------------------------------------------------------------------------
@@ -171,6 +170,7 @@ write.csv(bias_en, "norming_1809_analysis/data_verb-bias_L2eng.csv",
 # verb norms collected in Sept 2018
 get_data_filenames("verb_rating_L1swe")  # individual file names
 length(get_data_filenames("verb_rating_L1swe"))  # number of data files
+
 bias_sw <- combine_files(get_data_filenames("verb_rating_L1swe"), sep_default = ",")
 
 # sanity checks
@@ -180,48 +180,28 @@ length(unique(bias_sw$participant))  # number of participants = 12?
 table(bias_sw$participant)  # equal number of observations per participant?
 
 # some processing
-bias_sw$expName <- "verb_norming_L2eng_sept"  # keep track of 2 occasions of data collection
+bias_sw$expName <- "verb_norming_L1swe"
 bias_sw$verb <- tolower(bias_sw$verb)  # verbs to lower case
+# Due to an oversight, there are two different labels for each of the two
+# levels of rated_category; fix this
+levels(bias_sw$rated_category)
+bias_sw$rated_category <- ifelse(grepl("Arm", bias_sw$rated_category), "Arm", "Leg")
 
 # add a column for the category we had in mind for each verb:
-verbs_en$verb <- as.character(verbs_en$verb)
-bias_sw <- left_join(bias_sw, verbs_en %>% select(verb_category, verb))
+verbs_sw$verb <- as.character(verbs_sw$verb)
+bias_sw <- left_join(bias_sw, verbs_sw %>% select(verb_category, verb))
 
-# Some verbs were used in the June norming but not in Sept...
-index_verbs_in_june_butnot_sept <- ! unique(bias_sw_june$verb) %in% bias_sw$verb
-sum(index_verbs_in_june_butnot_sept)
-verbs_in_june_butnot_sept <- unique(bias_sw$verb)[index_verbs_in_june_butnot_sept]
-verbs_in_june_butnot_sept
-# ... and viceversa
-index_verbs_in_sept_butnot_june <- ! unique(bias_sw$verb) %in% bias_sw_june$verb
-sum(index_verbs_in_sept_butnot_june)
-verbs_in_sept_butnot_june <- unique(bias_sw$verb)[index_verbs_in_sept_butnot_june]
-verbs_in_sept_butnot_june
-# we will want to include this info in final data frame
-verb_norms_collected <- data.frame(
-  verb = unique(c(bias_sw$verb, bias_sw_june$ver)),
-  verb_normed = "june+sept",
-  stringsAsFactors = FALSE)
-verb_norms_collected[verb_norms_collected$verb %in% verbs_in_june_butnot_sept, "verb_normed"] <- "june"
-verb_norms_collected[verb_norms_collected$verb %in% verbs_in_sept_butnot_june, "verb_normed"] <- "sept"
-verb_norms_collected <- verb_norms_collected[with(verb_norms_collected, order(verb_normed, verb)), ]
-verb_norms_collected
 
-# combine norms from June and Sept, rearranging/renaming some columns
-bias_sw_comb <- rbind(
-  bias_sw %>% select(expName:verb, category = verb_category, rated_category, rating),
-  bias_sw_june %>% select(expName:verb, category = type, rated_category, rating)
-)
+# Rearrange/rename some columns
+bias_sw <- bias_sw %>%
+  select(expName:verb, category = verb_category, rated_category, rating)
 
-# include verb-level info about when it was normed
-bias_sw_comb <- left_join(bias_sw_comb, verb_norms_collected)
-
-head(bias_sw_comb)
+head(bias_sw)
+head(bias_en_comb)  # the two should look the same except for last column
 
 # save to disk
 write.csv(bias_sw, "norming_1809_analysis/data_verb-bias_L1swe.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
-
 
 
 #  ------------------------------------------------------------------------
