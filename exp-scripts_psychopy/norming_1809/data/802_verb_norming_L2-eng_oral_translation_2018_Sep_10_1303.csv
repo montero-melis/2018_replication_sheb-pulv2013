@@ -221,7 +221,7 @@ POKE,,,0,72,72,31,,,,,,,return,1.45950149116,2018_Sep_10_1303,59.6137566511,verb
 SIGN,Arm,arm,0,73,73,44,0,0,0,0,6,3.884,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
 SIGN,Leg,leg,0,73,73,44,0,1,1,1,1,1.136,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
 SIGN,,,0,73,73,44,,,,,,,return,1.39250142637,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
-SLAP,Arm,arm,0,74,74,46,0,0,0,0,1,20.974,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
+SLAP,Arm,arm,0,74,74,46,0,0,0,0,7,20.974,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
 SLAP,Leg,leg,0,74,74,46,0,1,1,1,1,3.199,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
 SLAP,,,0,74,74,46,,,,,,,return,16.4194601305,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
 PLUCK,Arm,arm,0,75,75,30,0,0,0,0,5,4.77,,,2018_Sep_10_1303,59.6137566511,verb_norming_L2-eng_oral_translation,001,802,
