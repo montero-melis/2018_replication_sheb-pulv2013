@@ -78,6 +78,8 @@ The first three error types were in the original study (Shebani & Pulvermüller,
 Workflow for data coding for verb norming -- Sept 2018
 -------------------------------------------
 
+### Overview
+
 NB: **The data for verb norming is found in the folder
 `norming_1809_analysis/data_coding/`!**
 
@@ -96,38 +98,40 @@ as either right or wrong (with some intermediate options, see below).
 Step 2 will be done independently by two native speakers of Swedish, so that we
 can assess inter-rater agreement.
 
+NB: In the instructions below, SP = spreadsheet program, e.g. Excel.
+
 
 ### Transcribing participant translations of L2 English verbs to Swedish
 
-Do as follows (NB: SP = spreadsheet program, e.g. Excel):
+Do as follows:
 
-1. Open a new file in your SP;
+1. Open a new blank file in your SP
 2. Select the "Import data from text" (or equivalent) option from your SP;
 3. Choose the data file you are going to start transcribing; it should be of
 the form `TOCODE_<participantID>_L2-eng_oral_translation.csv`
 4. In the menu that shows up, select for file origin encoding (or equivalent)
 the option "Unicode (UTF-8)"; for original data type choose "Delimited"; as
 delimiters, choose "Comma"
-5. Check the spreadsheet looks as it should (data divided in columns with
-sensible names, no strange-looking characters, etc.).
+5. Check the spreadsheet looks as it should: data divided into columns with
+sensible names, no strange-looking characters, etc.
 6. Directly save this spreadsheet into the same folder, but changing its name
 to `CODING_<participantID>_<experiment-name>.csv`. Use the "Save As" option and
 be sure to save the file as a CSV (comma-separated values) file; if your 
 software allows choosing the file encoding, choose "Unicode (UTF-8)"
 7. Keep also a version in a native format of your SP (e.g., `.xlsx` for Excel);
-this is just to have at least one working version of the document in case you
-run into character encoding issues.
-8. Now you are ready to start coding!
+this is just to have at least one working version of the document in case we
+run into character encoding problems.
+8. Now you are ready to start transcribing!
 
 For transcription:
 
 - Make sure you open the sound file for the right participant
 - Save frequently while coding to avoid losing work!
-- The main column is `translation_simple`. Write here the target answer they
-give. E.g., if they say "Ja, 'totter', det betyder nog... ja... promenera",
-then just write 'promenera' in that column (without quotation marks). If they
-give two alternatives, write the two in the order provided and separated by
-commas.
+- The main column is `translation_simple`. Write here the target answer provided
+by the participant. E.g., if they say "Ja, 'totter', det betyder nog... ja...
+promenera", then just write 'promenera' in that column (without quotation marks).
+If they give two alternatives, write the two in the order provided and separated
+by commas.
 - The column `translation_details` should only be used when `translation_simple`
 is not sufficient to provide all necessary information. For example, if a
 participant is really hesitant and repeatedly says so, that is something one
@@ -135,31 +139,33 @@ might include in this column. Do not write anything here if it does not add
 relevant information to `translation_simple`.
 - Use the `comment` column if you have any additional comment on the participant's
 response. If, for instance, the participant says that they did something
-wrong (mixed up the numbers) in the rating task, you can write it here. This
-is not to transcribe what the participant says, but your comment based on what
-they say.
+wrong (e.g., mixed up the numbers in the rating task), you can write it here.
+Do not use this column to transcribe what the participant said, but rather your
+comment or remarks concerning what they said.
 
 
 ### Scoring translations
 
-Here you will score the *unique translations* provided by all participants.
-This means that, instead of going response through response, we have created
-a CSV file where, for each English target verb, there are as many distinct
-rows as there are distinct translations provided by the participants.
-You will score each of those translations.
+I this second step, you will score the *unique translations* provided by all
+participants. This means that, instead of going response through response, we
+will have created a CSV file where, for each English target verb, there are as
+many distinct rows as there are distinct translations provided by the 
+participants. You will score each of those translations.
 
 To do that:
 
 1. Open the file
 `norming_1809_analysis/data_coding/eng-swe_translation_key_DO-NOT-SCORE-HERE.csv`
-in your SP of choice (be aware of the encoding issues named above).
+in your SP of choice (be aware of the potential character encoding issues raised
+above).
 2. Save the file immediately into the same folder, giving it the name
 `eng-swe_translation_key_<your initials>` (e.g., `eng-swe_translation_key_GMM`)
 3. Save always two versions of the file, one using a native format of your SP
 and another as a CSV file with "UTF-8" encoding (it is only the latter you will
-push to github if you're using git)
+push to github if you're using git); this is to ensure we have at least one
+working version of the document in case we run into character encoding problems.
 4. Write your initials in the first row of the `coder` column
-5. Now score each row according to the followins scoring scheme...
+5. Now score each row according to the following scoring scheme...
 
 **Scoring scheme**:
 
