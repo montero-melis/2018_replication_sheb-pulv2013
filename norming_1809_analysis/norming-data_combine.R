@@ -216,153 +216,62 @@ write.csv(bias_sw, "norming_1809_analysis/data_verb-bias_L1swe.csv",
 #  Verb comprehension task
 #  ------------------------------------------------------------------------
 
+## Create file for scoring translations as rigth or wrong
+
 # Participants orally provided their Swedish translation of English verbs:
 get_data_filenames("oral_translat")  # individual file names
 length(get_data_filenames("oral_translat"))  # nb of (coded!) participants
 
 transl <- combine_files(get_data_filenames("oral_translat"), sep_default = ";")
+# change the verbs to lower case (as in other data files):
+transl$verb <- tolower(transl$verb)
+# Empty comments or translation_details should appear as empty, not as NAs
+# (Inconsistency is caused by some participants not having any comment)
+transl$comment[is.na(transl$comment)] <- ""
+transl$translation_details[is.na(transl$translation_details)] <- ""
+
+# check out
 head(transl)
-tail(transl)
 str(transl)
 length(unique(transl$participant))  # number of participants
 
-# change the verbs to lower case (as in other data files):
-transl$verb <- tolower(transl$verb)
+# take all the unique translations and save to disk
+transl_unique <- unique(transl[, c("verb", "translation_simple", "translation_details", "comment")])
+# Add columns for scoring
+transl_unique$score <- ""
+transl_unique$score_comment <- ""
+transl_unique$coder <- ""
 
-# As above, add a column for the category we had in mind for each verb:
-transl <- left_join(transl, verb_categ)
-# Note that, as we saw above, "pluck" was used in the norming task, but not
-# in the memory task:
-unique(transl$verb)[! unique(transl$verb) %in% verb_categ$verb]
-# and viceversa for "trek"
-verb_categ$verb[! verb_categ$verb %in% unique(transl$verb)]
-# Assign "pluck" to arm type
-transl[transl$verb == "pluck", "type"] <- "arm"
+head(transl_unique)
 
-# Look at the comments and recode where necessary (done by GMM)
-transl_with_comments <- transl[transl$comment != "", -c(1:2, 5)]
-# correct translations of "bash"
-transl[grepl("(slå|smälla|förstöra)", transl$ppt_translation) & transl$verb == "bash", ]
-transl[grepl("(slå|smälla|förstöra)", transl$ppt_translation) & transl$verb == "bash", "score"] <- 1
-# correct translations of "carve"
-transl[grepl("(karva|skära|rista)", transl$ppt_translation) & transl$verb == "carve", ]
-transl[grepl("(karva|skära|rista)", transl$ppt_translation) & transl$verb == "carve", "score"] <- 1
-# correct translations of "clutch"
-transl[grepl("hålla", transl$ppt_translation) & transl$verb == "clutch", ]
-transl[grepl("hålla", transl$ppt_translation) & transl$verb == "clutch", "score"] <- 1
-# correct translations of "crawl"
-transl[grepl("krypa", transl$ppt_translation) & transl$verb == "crawl", ]
-transl[grepl("krypa", transl$ppt_translation) & transl$verb == "crawl", "score"] <- 1
-# correct translations of "file"
-transl[grepl("(lägga|arkivera)", transl$ppt_translation) & transl$verb == "file", ]
-transl[grepl("(lägga|arkivera)", transl$ppt_translation) & transl$verb == "file", "score"] <- 1
-# correct translations of "flit"
-transl[grepl("snabbt", transl$ppt_translation) & transl$verb == "flit", ]
-transl[grepl("snabbt", transl$ppt_translation) & transl$verb == "flit", "score"] <- 1
-# grab
-transl[grepl("hålla fast", transl$ppt_translation) & transl$verb == "grab", ]
-transl[grepl("hålla fast", transl$ppt_translation) & transl$verb == "grab", "score"] <- 1
-# grip
-transl[grepl("hålla i", transl$ppt_translation) & transl$verb == "grip", ]
-transl[grepl("hålla i", transl$ppt_translation) & transl$verb == "grip", "score"] <- 1
-# hike
-transl[grepl("gå", transl$ppt_translation) & transl$verb == "hike", ]
-transl[grepl("gå", transl$ppt_translation) & transl$verb == "hike", "score"] <- 1
-# hop
-transl[grepl("hoppa", transl$ppt_translation) & transl$verb == "hop", ]
-transl[grepl("hoppa", transl$ppt_translation) & transl$verb == "hop", "score"] <- 1
-# inch
-transl[grepl("närma sig l", transl$ppt_translation) & transl$verb == "inch", ]
-transl[grepl("närma sig l", transl$ppt_translation) & transl$verb == "inch", "score"] <- 1
-# leap
-transl[grepl("(hopp|ta stort steg)", transl$ppt_translation) & transl$verb == "leap", ]
-transl[grepl("(hopp|ta stort steg)", transl$ppt_translation) & transl$verb == "leap", "score"] <- 1
-# "bestiga" and some other alternatives for "mount" are correct
-transl[grepl("(bestiga|hoppa upp|hoppa på)", transl$ppt_translation) & transl$verb == "mount", ]
-transl[grepl("(bestiga|hoppa upp|hoppa på)", transl$ppt_translation) & transl$verb == "mount", "score"] <- 1
-# pace
-transl[grepl("gå (runt|otåligt)", transl$ppt_translation) & transl$verb == "pace", ]
-transl[grepl("gå (runt|otåligt)", transl$ppt_translation) & transl$verb == "pace", "score"] <- 1
-# plod
-transl[grepl("gå (slarvigt|med svårigheter)", transl$ppt_translation) & transl$verb == "plod", ]
-transl[grepl("gå (slarvigt|med svårigheter)", transl$ppt_translation) & transl$verb == "plod", "score"] <- 1
-# roam
-transl[grepl("(vandra|dra runt)", transl$ppt_translation) & transl$verb == "roam", ]
-transl[grepl("(vandra|dra runt)", transl$ppt_translation) & transl$verb == "roam", "score"] <- 1
-# "rulla" should count as a correct translation of "roll"
-transl[grepl("rulla", transl$ppt_translation) & transl$verb == "roll", ]
-transl[grepl("rulla", transl$ppt_translation) & transl$verb == "roll", "score"] <- 1
-# rub
-transl[grepl("(gnida|massera)", transl$ppt_translation) & transl$verb == "rub", ]
-transl[grepl("(gnida|massera)", transl$ppt_translation) & transl$verb == "rub", "score"] <- 1
-# skopa for scoop is correct
-transl[grepl("skopa", transl$ppt_translation) & transl$verb == "scoop", ]
-transl[grepl("skopa", transl$ppt_translation) & transl$verb == "scoop", "score"] <- 1
-# seize
-transl[grepl("(ta tag|tillfångata)", transl$ppt_translation) & transl$verb == "seize", ]
-transl[grepl("(ta tag|tillfångata)", transl$ppt_translation) & transl$verb == "seize", "score"] <- 1
-# "skejta" for "skate" is correct
-transl[grepl("skejta", transl$ppt_translation) & transl$verb == "skate", ]
-transl[grepl("skejta", transl$ppt_translation) & transl$verb == "skate", "score"] <- 1
-# "skumma" for "skim" is correct
-transl[grepl("skumma", transl$ppt_translation) & transl$verb == "skim", ]
-transl[grepl("skumma", transl$ppt_translation) & transl$verb == "skim", "score"] <- 1
-# skip
-transl[grepl("(småhoppa|hoppsa)", transl$ppt_translation) & transl$verb == "skip", ]
-transl[grepl("(småhoppa|hoppsa)", transl$ppt_translation) & transl$verb == "skip", "score"] <- 1
-# "slog/slå" for "slap" is ok
-transl[grepl("sl", transl$ppt_translation) & transl$verb == "slap", ]
-transl[grepl("sl", transl$ppt_translation) & transl$verb == "slap", "score"] <- 1
-# slip
-transl[grepl("snubbla", transl$ppt_translation) & transl$verb == "slip", ]
-transl[grepl("snubbla", transl$ppt_translation) & transl$verb == "slip", "score"] <- 1
-# slither
-transl[grepl("(kräla|slingra)", transl$ppt_translation) & transl$verb == "slither", ]
-transl[grepl("(kräla|slingra)", transl$ppt_translation) & transl$verb == "slither", "score"] <- 1
-# snatch
-transl[grepl("(ta|fånga)", transl$ppt_translation) & transl$verb == "snatch", ]
-transl[grepl("(ta|fånga)", transl$ppt_translation) & transl$verb == "snatch", "score"] <- 1
-# sprint
-transl[grepl("(springa|sprinta)", transl$ppt_translation) & transl$verb == "sprint", ]
-transl[grepl("(springa|sprinta)", transl$ppt_translation) & transl$verb == "sprint", "score"] <- 1
-# stagger
-transl[grepl("gå klumpigt", transl$ppt_translation) & transl$verb == "stagger", ]
-transl[grepl("gå klumpigt", transl$ppt_translation) & transl$verb == "stagger", "score"] <- 1
-# stray
-transl[grepl("gå ifrån", transl$ppt_translation) & transl$verb == "stray", ]
-transl[grepl("gå ifrån", transl$ppt_translation) & transl$verb == "stray", "score"] <- 1
-# stride
-transl[grepl("gå (fort|snabbt|beslutsamt)", transl$ppt_translation) & transl$verb == "stride", ]
-transl[grepl("gå (fort|snabbt|beslutsamt)", transl$ppt_translation) & transl$verb == "stride", "score"] <- 1
-# stroll
-transl[grepl("promenera", transl$ppt_translation) & transl$verb == "stroll", ]
-transl[grepl("promenera", transl$ppt_translation) & transl$verb == "stroll", "score"] <- 1
-# correct transl for "strut"
-transl[grepl("good news", transl$ppt_translation) & transl$verb == "strut", ]
-transl[grepl("good news", transl$ppt_translation) & transl$verb == "strut", "score"] <- 1
-# traipse
-transl[grepl("gå försiktigt", transl$ppt_translation) & transl$verb == "traipse", ]
-transl[grepl("gå försiktigt", transl$ppt_translation) & transl$verb == "traipse", "score"] <- 1
-# tread
-transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", ]
-transl[grepl("går? försiktigt", transl$ppt_translation) & transl$verb == "tread", "score"] <- 1
-# trot
-transl[grepl("galoppera", transl$ppt_translation) & transl$verb == "trot", ]
-transl[grepl("galoppera", transl$ppt_translation) & transl$verb == "trot", "score"] <- 1  # preserves the leg association and overall meaning
-# trudge
-transl[grepl("gå", transl$ppt_translation) & transl$verb == "trudge", ]
-transl[grepl("gå", transl$ppt_translation) & transl$verb == "trudge", "score"] <- 1
-# twine
-transl[grepl("(fläta|nysta)", transl$ppt_translation) & transl$verb == "twine", ]
-transl[grepl("(fläta|nysta)", transl$ppt_translation) & transl$verb == "twine", "score"] <- 1
-# wobble
-transl[grepl("(stappla|pendla)", transl$ppt_translation) & transl$verb == "wobble", ]
-transl[grepl("(stappla|pendla)", transl$ppt_translation) & transl$verb == "wobble", "score"] <- 1
-# wrap
-transl[grepl("", transl$ppt_translation) & transl$verb == "wrap", ]
-transl[grepl("omge", transl$ppt_translation) & transl$verb == "wobble", "score"] <- 1
-
-
-# save to disk
-write.csv(transl, "norming_1809_analysis/data_verb-understanding_free-translation.csv",
+# reorder rows (for ease of scoring) and save to disk:
+transl_unique <- transl_unique %>% 
+  arrange(verb, translation_simple, translation_details)
+# Save to disk
+write.csv(transl_unique,
+          "norming_1809_analysis/data_coding/eng-swe_translation_key_DO-NOT-SCORE-HERE.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
+
+
+#####################################################################
+# Do the scoring manually and assess inter-rater agreement (separate script!)
+#####################################################################
+
+# TO DO:
+
+# Load the final scoring of unique responses (after resolving disagreements
+# between raters), see script <script-name>
+
+
+# Add this info to the full data file
+# transl_scored <- left_join(transl, transl_key)
+
+
+# As above, add columns for verb category and other verb info:
+# transl_scored <- left_join(transl_scored, verbs_en)
+
+
+
+# # save to disk
+# write.csv(transl_scored, "norming_1809_analysis/data_verb-understanding_free-translation.csv",
+#           row.names = FALSE, fileEncoding = "UTF-8")
