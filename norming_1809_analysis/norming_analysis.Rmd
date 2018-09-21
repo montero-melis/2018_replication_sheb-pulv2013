@@ -105,9 +105,9 @@ bias_en <- bias_en_l %>%
 kable(head(bias_en))
 ```
 
-- A positive bias score (bias $> 0$) indicates bias towards arm-relatedness (max $6$)
-- A negative bias score (bias $< 0$) indicates bias towards leg-relatedness (min $-6$)
-- A bias score $= 0$ indicates absence of either bias
+- A positive bias score (bias > 0) indicates bias towards arm-relatedness (max 6)
+- A negative bias score (bias < 0) indicates bias towards leg-relatedness (min -6)
+- A bias score = 0 indicates absence of either bias
 
 ```{r}
 # order factor levels of verbs depending on their bias (for plotting)
@@ -141,10 +141,11 @@ bias_en[bias_en$category == "leg", "bias_absol"] <- - bias_en[bias_en$category =
 ggplot(bias_en, aes(x = category, y = bias_absol, colour = category)) + 
   geom_boxplot() +
   ylab("Size of bias in predicted direction") +
-  ggtitle("Size of congruent bias of verbs")
+  ggtitle("Size of congruent bias of English verbs")
 ```
 
-`r sum(bias_en$bias_absol < 0)` verbs had opposite bias to what was expected:
+Among the English verbs, `r sum(bias_en$bias_absol < 0)` had opposite bias
+to what was expected:
 
 ```{r}
 kable(bias_en[bias_en$bias_absol < 0, ])
@@ -165,9 +166,8 @@ In the second sense it is considered a synonym of, among others,
 *hurl, smash, crash, slam, throw, toss*, all of which are hand-related, so it
 is in fact understandable that it had a arm/hand bias
 
-Save the dataframe containing verb biases (`bias_en`) to disk:
-
 ```{r}
+# Save the dataframe containing verb biases (`bias_en`) to disk:
 write.csv(bias_en, "verb-bias_en_mean.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
@@ -255,9 +255,10 @@ kable(head(bias_sw_l[, 3:8]))
 
 We have ratings for
 `r length(unique(bias_sw_l$verb))`
-verbs, which we have collected on two different occasions. That means that
-some verbs have been rated by more participants than others (see Appendix
-for details), but this is not something we will worry about at first.
+verbs, all of which were collected in Sept 2018. We had
+`r length(unique(bias_sw_l$participant))`
+native Swedish speakers who provided the ratings.
+
 
 
 ## Verb bias
@@ -275,9 +276,9 @@ bias_sw <- bias_sw_l %>%
 kable(head(bias_sw))
 ```
 
-- A positive bias score (bias $> 0$) indicates bias towards arm-relatedness (max $6$)
-- A negative bias score (bias $< 0$) indicates bias towards leg-relatedness (min $-6$)
-- A bias score $= 0$ indicates absence of either bias
+- A positive bias score (bias > 0) indicates bias towards arm-relatedness (max 6)
+- A negative bias score (bias < 0) indicates bias towards leg-relatedness (min -6)
+- A bias score = 0 indicates absence of either bias
 
 ```{r}
 # order factor levels of verbs depending on their bias (for plotting)
@@ -311,33 +312,20 @@ bias_sw[bias_sw$category == "leg", "bias_absol"] <- - bias_sw[bias_sw$category =
 ggplot(bias_sw, aes(x = category, y = bias_absol, colour = category)) + 
   geom_boxplot() +
   ylab("Size of bias in predicted direction") +
-  ggtitle("Size of congruent bias of verbs")
+  ggtitle("Size of congruent bias of Swedish verbs")
 ```
 
-`r sum(bias_sw$bias_absol < 0)` verbs had opposite bias to what was expected:
+Among the Swedish verbs, `r sum(bias_sw$bias_absol < 0)` had opposite
+bias to what was expected:
 
 ```{r}
 kable(bias_sw[bias_sw$bias_absol < 0, ])
 ```
 
-To scuff means to "Scrape or brush the surface of (a shoe or other object) 
-against something" (OED).
-But participants seemed not to know the verb very well and assume it had some
-arm-related meaning.
-
-To dash means (OED):
-
-1. Run or travel somewhere in a great hurry.
-2. Strike or fling (something) somewhere with great force, especially so as to
-have a destructive effect; hurl.
-
-In the second sense it is considered a synonym of, among others,
-*hurl, smash, crash, slam, throw, toss*, all of which are hand-related, so it
-is in fact understandable that it had a arm/hand bias
-
-Save the dataframe containing verb biases (`bias_sw`) to disk:
+All of these verbs are leg-related.
 
 ```{r}
+# Save the dataframe containing verb biases (`bias_sw`) to disk:
 write.csv(bias_sw, "verb-bias_sw_mean.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
@@ -448,7 +436,7 @@ where one observation consists of two ratings provided by a single participant
 unique(bias_en_l[, c("participant", "verb", "category")]) %>%
   group_by(verb, category) %>%
   summarise(nbObs = n()) %>%
-  arrange(nbObs, category, verb) %>%
+  arrange(category, verb) %>%
   kable
 ```
 
