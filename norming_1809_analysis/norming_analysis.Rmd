@@ -1,0 +1,484 @@
+---
+title: "Analysis of norming study (Sept 2018)"
+author: '[Guillermo Montero-Melis](http://www.biling.su.se/montero_melis_guillermo)'
+date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+Introduction
+============
+
+Set up workspace
+================
+
+```{r setup, include=FALSE}
+library(knitr)
+library(ggplot2)
+library(GGally)
+library(dplyr)
+library(tidyr)
+library(lme4)
+knitr::opts_chunk$set(echo = FALSE, fig.height = 3.5)
+```
+
+
+```{r}
+# load convenience functions
+source("../Rfunctions/load_or_fit_fnc.R")
+# some parameters
+ggpairs_he <- 4.5  # default height for ggpairs plots
+```
+
+
+```{r, include = FALSE}
+## load data files
+# verb norming English
+bias_en_l <- read.csv("data_verb-bias_L2eng.csv", fileEncoding = "UTF-8")
+head(bias_en_l)
+# verb norming Swedish
+bias_sw_l <- read.csv("data_verb-bias_L1swe.csv", fileEncoding = "UTF-8")
+head(bias_sw_l)
+# verb comprehension/understanding
+# compr <- read.csv(".csv",
+#                   fileEncoding = "UTF-8")
+# lextale task
+# scored
+lext <- read.csv("data_lextale_scored.csv", fileEncoding = "UTF-8")
+head(lext)
+# raw
+lext_raw <- read.csv("data_lextale_raw.csv", fileEncoding = "UTF-8")
+head(lext_raw)
+# participant info
+ppt <- read.csv("participant_info.csv", fileEncoding = "UTF-8")
+head(ppt)
+```
+
+
+```{r}
+# # In free translation task, consider translations scored as -99 (=unclear) as
+# # incorrect (=0):
+# und_free$score_unsimplified <- und_free$score  # keep copy of original variable
+# und_free[und_free$score == -99, "score"] <- 0
+```
+
+
+
+
+Verb norming task: L2 English
+==================================
+
+The data from the verb norming task look like this:
+
+```{r}
+kable(head(bias_en_l[, 3:8]))
+```
+
+We have ratings for
+`r length(unique(bias_en_l$verb))`
+verbs, which we have collected on two different occasions. That means that
+some verbs have been rated by more participants than others (see Appendix
+for details), but this is not something we will worry about at first.
+
+
+## Verb bias
+
+For each verb, we can compute a single measure of *arm-minus-leg bias* (we call
+it simply *bias*) by substracting the mean leg-relatedness rating from the mean
+arm-relatedness rating for each verb, obtaining:
+
+```{r}
+bias_en <- bias_en_l %>%
+  group_by(verb, category, rated_category) %>%
+  summarise(rating = mean(rating)) %>%
+  spread(rated_category, rating) %>%  # reshape to wide format for correlation plot
+  mutate(bias = Arm - Leg)
+kable(head(bias_en))
+```
+
+- A positive bias score (bias $> 0$) indicates bias towards arm-relatedness (max $6$)
+- A negative bias score (bias $< 0$) indicates bias towards leg-relatedness (min $-6$)
+- A bias score $= 0$ indicates absence of either bias
+
+```{r}
+# order factor levels of verbs depending on their bias (for plotting)
+ordered_verbs_bias <- as.character(pull(bias_en[order(bias_en$bias), ], verb))
+bias_en$verb <- factor(bias_en$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 12}
+ggplot(bias_en, aes(x = verb, y = bias, colour = category)) +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme(axis.text.x = element_text(size = 5)) +
+  coord_flip() +
+  ggtitle("Mean arm/leg bias of verbs")
+```
+
+The figure shows that the bias was generally stronger for the verbs we had
+categorized as arm verbs than for those we thought of as leg verbs.
+
+This can be shown even clearer if we just consider the size of the bias in
+the expected direction, so a negative bias now constitutes a bias in the 
+"wrong" direction (e.g., an arm bias for a supposedly leg-related verb).
+The following plot shows this:
+
+```{r}
+# We add a bias column that changes the sign for leg verbs, so that bias
+# is expressed with respect to the expected direction of the bias for a verb
+bias_en$bias_absol <- bias_en$bias
+bias_en[bias_en$category == "leg", "bias_absol"] <- - bias_en[bias_en$category == "leg", "bias"]
+ggplot(bias_en, aes(x = category, y = bias_absol, colour = category)) + 
+  geom_boxplot() +
+  ylab("Size of bias in predicted direction") +
+  ggtitle("Size of congruent bias of verbs")
+```
+
+`r sum(bias_en$bias_absol < 0)` verbs had opposite bias to what was expected:
+
+```{r}
+kable(bias_en[bias_en$bias_absol < 0, ])
+```
+
+To scuff means to "Scrape or brush the surface of (a shoe or other object) 
+against something" (OED).
+But participants seemed not to know the verb very well and assume it had some
+arm-related meaning.
+
+To dash means (OED):
+
+1. Run or travel somewhere in a great hurry.
+2. Strike or fling (something) somewhere with great force, especially so as to
+have a destructive effect; hurl.
+
+In the second sense it is considered a synonym of, among others,
+*hurl, smash, crash, slam, throw, toss*, all of which are hand-related, so it
+is in fact understandable that it had a arm/hand bias
+
+Save the dataframe containing verb biases (`bias_en`) to disk:
+
+```{r}
+write.csv(bias_en, "verb-bias_en_mean.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+
+
+## Cut-off at bias = 3
+
+Somewhat arbitrarily, we could say that a bias of 3 in the expected direction
+constitutes an acceptable cut-off point to select a verb for the study.
+There are 
+`r sum(with(bias_en, bias_absol >= 3 & category == "arm"))`
+arm verbs (out of `r sum(with(bias_en, category == "arm"))`) that satisfy this condition,
+but only
+`r sum(with(bias_en, bias_absol >= 3 & category == "leg"))`
+leg verbs (out of
+`r sum(with(bias_en, category == "leg"))`) that qualify.
+
+Here are the leg verbs that have a clear bias:
+
+```{r, fig.height = 5}
+ggplot(bias_en[with(bias_en, bias_absol >= 3 & category == "leg"), ],
+       aes(x = verb, y = bias)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip() +
+  ggtitle("English leg verbs with strongest leg bias")
+```
+
+
+## Spread of ratings
+
+Above we have only considered the mean rating for each verb (averaged across
+participants).
+But how much spread was there in the ratings from individual participants?
+
+```{r}
+bias_spread_en <- bias_en_l %>%
+  select(participant, verb:rating) %>%
+  spread(rated_category, rating) %>%
+  mutate(bias = Arm - Leg)
+# order verbs according to bias
+bias_spread_en$verb <- factor(bias_spread_en$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 12}
+ggplot(bias_spread_en, aes(x = verb, y = bias, colour = category)) +
+  geom_hline(yintercept = 0) +
+  stat_summary(fun.data = "mean_cl_boot") +
+  geom_point(alpha = .4) +
+  ylab("Verb bias") + 
+  coord_flip() +
+  ggtitle("Variability around mean arm/leg bias of English verbs")
+```
+
+What this figure shows is that the average bias for a verb can still hide some
+important individual differences.
+For instance, the leg verb *kneel* had a fairly strong leg bias of
+`r round(bias_en[bias_en$verb == "kneel", ]$bias, 1)`
+and still there was one participant who rated it as completely arm-biased
+(bias = 6).
+
+Some of these data points might simply be due to participants getting the 
+scales mixed up, but probably not all of these data points came about in this
+way:
+Consider the supposedly leg verbs *tread* and *bounce*.
+For the latter, one could imagine how a participant made associations with 
+*bouncing a ball*, in which case the verb *to bounce* naturally becomes 
+arm-related).
+
+Finally, note also the many ratings of verbs as having no bias (verb bias = 0).
+These may be the result of participants not knowing a verb meaning,
+a matter to which we now turn.
+
+
+
+Verb norming task: L1 Swedish
+=============================
+
+The data from the Swedish verb norming task look like this:
+
+```{r}
+kable(head(bias_sw_l[, 3:8]))
+```
+
+We have ratings for
+`r length(unique(bias_sw_l$verb))`
+verbs, which we have collected on two different occasions. That means that
+some verbs have been rated by more participants than others (see Appendix
+for details), but this is not something we will worry about at first.
+
+
+## Verb bias
+
+For each verb, we can compute a single measure of *arm-minus-leg bias* (we call
+it simply *bias*) by substracting the mean leg-relatedness rating from the mean
+arm-relatedness rating for each verb, obtaining:
+
+```{r}
+bias_sw <- bias_sw_l %>%
+  group_by(verb, category, rated_category) %>%
+  summarise(rating = mean(rating)) %>%
+  spread(rated_category, rating) %>%  # reshape to wide format for correlation plot
+  mutate(bias = Arm - Leg)
+kable(head(bias_sw))
+```
+
+- A positive bias score (bias $> 0$) indicates bias towards arm-relatedness (max $6$)
+- A negative bias score (bias $< 0$) indicates bias towards leg-relatedness (min $-6$)
+- A bias score $= 0$ indicates absence of either bias
+
+```{r}
+# order factor levels of verbs depending on their bias (for plotting)
+ordered_verbs_bias <- as.character(pull(bias_sw[order(bias_sw$bias), ], verb))
+bias_sw$verb <- factor(bias_sw$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 12}
+ggplot(bias_sw, aes(x = verb, y = bias, colour = category)) +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme(axis.text.x = element_text(size = 5)) +
+  coord_flip() +
+  ggtitle("Mean arm/leg bias of Swedish verbs")
+```
+
+The figure shows that the bias was generally stronger for the verbs we had
+categorized as arm verbs than for those we thought of as leg verbs.
+
+This can be shown even clearer if we just consider the size of the bias in
+the expected direction, so a negative bias now constitutes a bias in the 
+"wrong" direction (e.g., an arm bias for a supposedly leg-related verb).
+The following plot shows this:
+
+```{r}
+# We add a bias column that changes the sign for leg verbs, so that bias
+# is expressed with respect to the expected direction of the bias for a verb
+bias_sw$bias_absol <- bias_sw$bias
+bias_sw[bias_sw$category == "leg", "bias_absol"] <- - bias_sw[bias_sw$category == "leg", "bias"]
+ggplot(bias_sw, aes(x = category, y = bias_absol, colour = category)) + 
+  geom_boxplot() +
+  ylab("Size of bias in predicted direction") +
+  ggtitle("Size of congruent bias of verbs")
+```
+
+`r sum(bias_sw$bias_absol < 0)` verbs had opposite bias to what was expected:
+
+```{r}
+kable(bias_sw[bias_sw$bias_absol < 0, ])
+```
+
+To scuff means to "Scrape or brush the surface of (a shoe or other object) 
+against something" (OED).
+But participants seemed not to know the verb very well and assume it had some
+arm-related meaning.
+
+To dash means (OED):
+
+1. Run or travel somewhere in a great hurry.
+2. Strike or fling (something) somewhere with great force, especially so as to
+have a destructive effect; hurl.
+
+In the second sense it is considered a synonym of, among others,
+*hurl, smash, crash, slam, throw, toss*, all of which are hand-related, so it
+is in fact understandable that it had a arm/hand bias
+
+Save the dataframe containing verb biases (`bias_sw`) to disk:
+
+```{r}
+write.csv(bias_sw, "verb-bias_sw_mean.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+
+
+## Cut-off at bias = 3
+
+Somewhat arbitrarily, we could say that a bias of 3 in the expected direction
+constitutes an acceptable cut-off point to select a verb for the study.
+There are 
+`r sum(with(bias_sw, bias_absol >= 3 & category == "arm"))`
+arm verbs (out of `r sum(with(bias_sw, category == "arm"))`) that satisfy this condition,
+but only
+`r sum(with(bias_sw, bias_absol >= 3 & category == "leg"))`
+leg verbs (out of
+`r sum(with(bias_sw, category == "leg"))`) that qualify.
+
+Here are the leg verbs that have a clear bias:
+
+```{r, fig.height = 5}
+ggplot(bias_sw[with(bias_sw, bias_absol >= 3 & category == "leg"), ],
+       aes(x = verb, y = bias)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip() +
+  ggtitle("Swedish leg verbs with strongest leg bias")
+```
+
+
+## Spread of ratings
+
+Above we have only considered the mean rating for each verb (averaged across
+participants).
+But how much spread was there in the ratings from individual participants?
+
+```{r}
+bias_spread_sw <- bias_sw_l %>%
+  select(participant, verb:rating) %>%
+  spread(rated_category, rating) %>%
+  mutate(bias = Arm - Leg)
+# order verbs according to bias
+bias_spread_sw$verb <- factor(bias_spread_sw$verb, levels = ordered_verbs_bias)
+```
+
+
+```{r, fig.height = 12}
+ggplot(bias_spread_sw, aes(x = verb, y = bias, colour = category)) +
+  geom_hline(yintercept = 0) +
+  stat_summary(fun.data = "mean_cl_boot") +
+  geom_point(alpha = .4) +
+  ylab("Verb bias") + 
+  coord_flip() +
+  ggtitle("Variability around mean arm/leg bias of Swedish verbs")
+```
+
+What this figure shows is that the average bias for a verb can still hide some
+important individual differences.
+Some of these data points might simply be due to participants getting the 
+scales mixed up, but probably not all of these data points came about in this
+way.
+
+Note also the some ratings have no bias (verb bias = 0). This is unlikely to
+be due to Swedish speakers not knowing the verbs (since they were native 
+speakers).
+
+
+
+
+
+
+Appendices
+==========
+
+Number of observations per verb in L2 norming studies (June and September)
+------------------------------------------------
+
+We had verbs rated for their arm- vs leg-relatedness on two different
+occasions: in the pilot study in June, and in the norming study in September
+2018. Most of the verbs were rated on both occasions, but some were just
+rated either in June or in September.
+
+```{r}
+vbs_junsep <- sort(unique(bias_en_l$verb[bias_en_l$verb_normed == "june+sept"]))
+vbs_jun <- sort(unique(bias_en_l$verb[bias_en_l$verb_normed == "june"]))
+vbs_sep <- sort(unique(bias_en_l$verb[bias_en_l$verb_normed == "sept"]))
+```
+
+
+Verbs rated **both in June and in September**:
+
+`r vbs_junsep`
+
+
+Verbs rated **in June only**:
+
+`r vbs_jun`
+
+
+Verbs rated **in September only**:
+
+`r vbs_sep`
+
+Here is a table that shows the number of total observations for each verb,
+where one observation consists of two ratings provided by a single participant
+(one for arm- the other for leg-relatedness):
+
+```{r}
+unique(bias_en_l[, c("participant", "verb", "category")]) %>%
+  group_by(verb, category) %>%
+  summarise(nbObs = n()) %>%
+  arrange(nbObs, category, verb) %>%
+  kable
+```
+
+
+
+
+Main results and take-away messages
+========================
+
+## Conclusions from L2 English verb norming
+
+Participants assessed the strength of arm and leg association for each verb.
+We computed the bias by substracting these two ratings ($arm - leg$).
+
+
+
+## Conclusions from L1 Swedish verb norming
+
+
+## Conclusions from verb comprehension task
+
+Participants had to translate L2 English verbs to their L1 Swedish.
+Each verb was basically rated as an either correct or incorrect translation.
+However, we did also consider intermediate cases of underspecified translations
+(e.g., *gå* for 'stroll').
+
+Conclusions:
+
+
+
+## Overall suggestions based on norming study
+
+
