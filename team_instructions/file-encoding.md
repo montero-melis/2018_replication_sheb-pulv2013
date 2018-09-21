@@ -53,4 +53,5 @@ when reading files, so in general once should make sure that there is an empty
 line (see 
 [here](https://stackoverflow.com/questions/729692/why-should-text-files-end-with-a-newline)).
 However, GMM thinks this issue might be caused by working across different
-operative systems (Mac/Windows).
+operative systems (Mac/Windows), see 
+[this post](https://winscp.net/eng/docs/faq_line_breaks).
