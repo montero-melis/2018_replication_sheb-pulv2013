@@ -95,11 +95,7 @@ combine_files <- function(file_list = NULL, sep_default = ";",
   # Block and trial numbers should start at 1 (not zero)
   if ("block" %in% names(df)) df$block <- df$block + 1
   if ("trial" %in% names(df)) df$trial <- df$trial + 1
-  # score (at trial level) is 1 iff all four words are reproduced in correct order
-  if ("word4" %in% names(df)) {  # this check is sufficient
-    m <- as.matrix(df[, c("w1", "w2", "w3", "w4")])
-    df$score <- as.numeric(apply(m, 1, sum) == 4)
-    }
+  
   df
 }
 
@@ -111,8 +107,11 @@ combine_files <- function(file_list = NULL, sep_default = ";",
 ## Read individual data files and combine into single file after processing
 
 # verb norms collected in June 2018
-bias_en_june <- read.csv("pilot_analysis/data_verb-bias.csv", stringsAsFactors = FALSE)
+bias_en_june <- read.csv("pilot_analysis/data_verb-bias.csv",
+                         stringsAsFactors = FALSE)
 bias_en_june$expName <- "verb_norming_L2eng_june"
+head(bias_en_june)
+str(bias_en_june)
 
 # verb norms collected in Sept 2018
 get_data_filenames("verb_rating_L2eng")  # individual file names
@@ -145,12 +144,12 @@ verbs_in_sept_butnot_june <- unique(bias_en$verb)[index_verbs_in_sept_butnot_jun
 verbs_in_sept_butnot_june
 # we will want to include this info in final data frame
 verb_norms_collected <- data.frame(
-  verb = unique(c(bias_en$verb, bias_en_june$ver)),
+  verb = unique(c(bias_en$verb, bias_en_june$verb)),
   verb_normed = "june+sept",
   stringsAsFactors = FALSE)
 verb_norms_collected[verb_norms_collected$verb %in% verbs_in_june_butnot_sept, "verb_normed"] <- "june"
 verb_norms_collected[verb_norms_collected$verb %in% verbs_in_sept_butnot_june, "verb_normed"] <- "sept"
-verb_norms_collected <- verb_norms_collected[with(verb_norms_collected, order(verb_normed, verb)), ]
+verb_norms_collected <- verb_norms_collected %>% arrange(verb_normed, verb)
 verb_norms_collected
 
 # combine norms from June and Sept, rearranging/renaming some columns
@@ -194,11 +193,11 @@ bias_sw$verb <- tolower(bias_sw$verb)  # verbs to lower case
 # levels of rated_category; fix this
 levels(bias_sw$rated_category)
 bias_sw$rated_category <- ifelse(grepl("Arm", bias_sw$rated_category), "Arm", "Leg")
+table(bias_sw$rated_category)  # sanity check: same nb of observations
 
 # add a column for the category we had in mind for each verb:
 verbs_sw$verb <- as.character(verbs_sw$verb)
 bias_sw <- left_join(bias_sw, verbs_sw %>% select(verb_category, verb))
-
 
 # Rearrange/rename some columns
 bias_sw <- bias_sw %>%
