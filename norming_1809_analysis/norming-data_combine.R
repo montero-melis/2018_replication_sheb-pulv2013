@@ -2,10 +2,12 @@
 
 # This script takes the norming data after coding and combines it into single
 # data files for each task, saving it to disk after some processing. 
+
 # Tasks:
-# 1. Verb ratings Swedish (L1),
-# 2. Verb ratings English (L2), 
-# 3. Verb understanding English (L2).
+# 1. Verb rating/norming Swedish (L1),
+# 2. Verb rating/norming English (L2), 
+# 3. Verb understanding English (L2),
+# 4. LexTale English proficiency task
 
 
 library(dplyr)  # for left_join, pipe operator ("%>%"), etc
@@ -71,6 +73,7 @@ get_data_filenames("rating_L1swe")
 get_data_filenames("rating_L2eng")
 get_data_filenames("oral_transl")
 length(get_data_filenames("oral_transl"))
+get_data_filenames("lextale")
 
 
 ## FUN that reads individual data files and combines them into single file
@@ -98,6 +101,45 @@ combine_files <- function(file_list = NULL, sep_default = ";",
   
   df
 }
+
+
+#  ------------------------------------------------------------------------
+#  LexTale
+#  ------------------------------------------------------------------------
+
+# Combine individual files
+lextale_raw <- combine_files(get_data_filenames("lextale"), sep_default = ",")
+
+# sanity checks
+head(lextale_raw)
+str(lextale_raw)
+length(unique(lextale_raw$participant))  # number of participants = 12?
+table(lextale_raw$participant)  # equal number of observations per participant?
+
+# Add column for type = word/nonword
+lextale_raw$type <- ifelse(lextale_raw$correct_resp == "y", "word", "nonword")
+
+# save to disk
+write.csv(lextale_raw, "norming_1809_analysis/data_lextale_raw.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+
+# LexTale Scoring, see
+# http://www.lextale.com/downloads/ExperimenterInstructionsEnglish.pdf
+lextale_scored <- lextale_raw %>%
+  filter(itemID != 0) %>%  # Remove dummy items
+  group_by(participant, type) %>%  # type is word vs nonword
+  summarise(nbCorrect = sum(correct),
+            n = n(),  # 40 words and 20 nonwords
+            propCorrect = nbCorrect / n) %>%  # proportion correct by type
+  group_by(participant) %>%
+  summarise(score = 100 * mean(propCorrect))  # participant score
+
+head(lextale_scored)
+
+# save to disk
+write.csv(lextale_scored, "norming_1809_analysis/data_lextale_scored.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+
 
 
 #  ------------------------------------------------------------------------
