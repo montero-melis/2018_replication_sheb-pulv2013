@@ -178,14 +178,14 @@ working version of the document in case we run into character encoding problems.
 
 **Tricky cases**:
 
-- *Score as 1* if the participant provides more than one translation of which
+- *Score as 1*, if the participant provides more than one translation of which
 at least one is correct, even if some of the other translations are incorrect.
-- *Score as 1* if the translation results in a word that does not really exist
+- *Score as 1*, if the translation results in a word that does not really exist
 but whose meaning is understandabe and correct "in spirit". (E.g., 'kloa' for 
 *claw* counts as correct.)
-- *Score as -99* if the participant's translation is correct but its meaning
+- *Score as -99*, if the participant's translation is correct but its meaning
 is completely unrelated to the translation we intended (e.g. 'fälla ett träd'
 for *lumber*. Include a comment that clarifies this. (Remember that a partly
 correct meaning is scored as 0.5.)
-- *Score as -99* if the participant only provides a noun instead of a verb as
+- *Score as -99*, if the participant only provides a noun instead of a verb as
 a translation (the task always involved translating verb form, e.g. TO CLEAN).
