@@ -276,6 +276,11 @@ head(transl)
 str(transl)
 length(unique(transl$participant))  # number of participants
 
+# Save the *non-scored* data to disk (it will be later joined with the scoring)
+write.csv(transl,
+          "norming_1809_analysis/data_translations_not-scored.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+
 # take all the unique translations and save to disk
 transl_unique <- unique(transl[, c("verb", "translation_simple", "translation_details", "comment")])
 # Add columns for scoring
