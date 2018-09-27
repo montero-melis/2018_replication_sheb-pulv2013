@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 16:28
+    on september 27, 2018, at 16:30
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -110,36 +110,27 @@ text_14 = visual.TextStim(win=win, name='text_14',
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same sequence." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
     text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to silently keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words. To start the next trial, simply press space bar." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_TryItOut"
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
-    text=u"Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start",
-    font=u'Arial',
+    text="Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start",
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
-    depth=0.0);
-
-# Initialize components for Routine "instr_TryItOut2"
-instr_TryItOut2Clock = core.Clock()
-text_13 = visual.TextStim(win=win, name='text_13',
-    text=u'Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
-    font=u'Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -661,75 +652,6 @@ for thisComponent in instr_TryItOutComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # the Routine "instr_TryItOut" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
-
-# ------Prepare to start Routine "instr_TryItOut2"-------
-t = 0
-instr_TryItOut2Clock.reset()  # clock
-frameN = -1
-continueRoutine = True
-# update component parameters for each repeat
-key_resp_16 = event.BuilderKeyResponse()
-# keep track of which components have finished
-instr_TryItOut2Components = [text_13, key_resp_16]
-for thisComponent in instr_TryItOut2Components:
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-
-# -------Start Routine "instr_TryItOut2"-------
-while continueRoutine:
-    # get current time
-    t = instr_TryItOut2Clock.getTime()
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *text_13* updates
-    if t >= 0.0 and text_13.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        text_13.tStart = t
-        text_13.frameNStart = frameN  # exact frame index
-        text_13.setAutoDraw(True)
-    
-    # *key_resp_16* updates
-    if t >= 0.0 and key_resp_16.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        key_resp_16.tStart = t
-        key_resp_16.frameNStart = frameN  # exact frame index
-        key_resp_16.status = STARTED
-        # keyboard checking is just starting
-        event.clearEvents(eventType='keyboard')
-    if key_resp_16.status == STARTED:
-        theseKeys = event.getKeys(keyList=['space'])
-        
-        # check for quit:
-        if "escape" in theseKeys:
-            endExpNow = True
-        if len(theseKeys) > 0:  # at least one key was pressed
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in instr_TryItOut2Components:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # check for quit (the Esc key)
-    if endExpNow or event.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "instr_TryItOut2"-------
-for thisComponent in instr_TryItOut2Components:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-# the Routine "instr_TryItOut2" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
