@@ -401,14 +401,47 @@ L2 verb comprehension task
 Choice of target verbs
 ======================
 
+We need to take into account:
+
+- Verb bias (Eng + Swe)
+- Verb comprehension (L2 Eng)
+- Whether it's a translation equivalent (Eng-Swe)
+- Cognate status (L2 Engl)
+- Other frequency and word length measures
+
+
 English verbs
 -------------
 
-As a first approximation, let's just choose the 40 verbs in each category with
-the strongest (absolute) bias.
+```{r}
+# Number of verbs to choose per category
+N_verbs_per_categ <- 40
+```
 
+As a first approximation, let's just choose the `r N_verbs_per_categ`
+verbs in each category with the strongest (absolute) bias.
 
-
+```{r}
+N_verbs_per_categ <- 40
+en_arm <- bias_en[bias_en$category == "arm", ] %>%
+  arrange(-bias_absol, nObs, verb) %>%
+  select(category, verb)
+en_leg <- bias_en[bias_en$category == "leg", ] %>%
+  arrange(-bias_absol, nObs, verb) %>%
+  select(category, verb)
+# Choose the ones with the strongest bias in each category
+en_targets <- rbind(en_arm[1:N_verbs_per_categ,], en_leg[1:N_verbs_per_categ,])
+en_targets <- en_targets %>%
+  ungroup() %>%
+  mutate(verb = as.character(verb)) %>%  # to order verbs alphabetically
+  arrange(category, verb)
+head(en_targets); tail(en_targets)
+# Save to disk (two different destinations):
+write.csv(en_targets, "english-targets.csv", row.names = FALSE,
+          fileEncoding = "UTF-8")
+write.csv(en_targets, "../exp-scripts_psychopy/replication_pilot_1810/stimuli/english-targets.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+```
 
 
 
