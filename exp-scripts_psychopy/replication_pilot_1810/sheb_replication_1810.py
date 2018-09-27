@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 15:12
+    on september 27, 2018, at 16:28
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -110,36 +110,36 @@ text_14 = visual.TextStim(win=win, name='text_14',
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same sequence." + cont,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
-    text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words." + cont,
-    font='Arial',
+    text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to silently keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words. To start the next trial, simply press space bar." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_TryItOut"
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
-    text="Let's do some practice trials right away so you can get acquainted with the basic task." + cont,
-    font='Arial',
+    text=u"Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start",
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_TryItOut2"
 instr_TryItOut2Clock = core.Clock()
 text_13 = visual.TextStim(win=win, name='text_13',
-    text='Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
-    font='Arial',
+    text=u'Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
