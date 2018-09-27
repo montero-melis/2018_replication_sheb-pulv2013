@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 09:45
+    on september 27, 2018, at 14:38
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -27,7 +27,7 @@ os.chdir(_thisDir)
 
 # Store info about the experiment session
 expName = u'sheb_replication_1810'  # from the Builder filename that created this script
-expInfo = {u'session': u'specify!', u'participant': u''}
+expInfo = {u'session': u'please specify: 1 or 2!', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -50,12 +50,6 @@ logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a f
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Start Code - component code to be run before the window creation
-wavDirName = filename + '_wav'
-if not os.path.isdir(wavDirName):
-    os.makedirs(wavDirName)  # to hold .wav files
-wavDirName = filename + '_wav'
-if not os.path.isdir(wavDirName):
-    os.makedirs(wavDirName)  # to hold .wav files
 
 # Setup the Window
 win = visual.Window(
@@ -73,8 +67,8 @@ if expInfo['frameRate'] != None:
 else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
-# Initialize components for Routine "instr_welcome"
-instr_welcomeClock = core.Clock()
+# Initialize components for Routine "blank_initialize"
+blank_initializeClock = core.Clock()
 ## Set global (experiment-level) variables
 
 pptID = int(expInfo['participant'])  # participant ID
@@ -97,7 +91,7 @@ if sess == 9:
     mem_per = .05 # time during which words have to be kept in memory (orig = 6)
 else:  # otherwise use the standard duration
     fix_point_duration = 3  # orig = 3
-    word_duration = .2  # how long is each word shown for (orig = .1)
+    word_duration = .1  # how long is each word shown for (orig = .1)
     SOA = .5  # stimulus onset asynchrony (orig = .5)
     mem_per = 6 # time during which words have to be kept in memory (orig = 6)
 
@@ -108,76 +102,47 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 ## Other
 
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
+text_14 = visual.TextStim(win=win, name='text_14',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+
+# Initialize components for Routine "instr_welcome"
+instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same sequence." + cont,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
-    depth=-1.0);
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
     text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words." + cont,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
-# Initialize components for Routine "instr_exp2"
-instr_exp2Clock = core.Clock()
-text_9 = visual.TextStim(win=win, name='text_9',
-    text="The experiment consists of four parts. In each part, you will be asked to memorize the words while doing different exercises. You will either have to wait silently, perform a rhythmic pattern with your hands or with your feet, or repeat the syllable 'bla'. At the beginning of each part you will receive detailed instructions from the experimenter and you will have plenty of time to practice." + cont,
-    font='Arial',
+# Initialize components for Routine "instr_TryItOut"
+instr_TryItOutClock = core.Clock()
+text_12 = visual.TextStim(win=win, name='text_12',
+    text="Let's do some practice trials right away so you can get acquainted with the basic task." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
-# Initialize components for Routine "instr_exp3"
-instr_exp3Clock = core.Clock()
-text_10 = visual.TextStim(win=win, name='text_10',
-    text="You will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont
-,
-    font='Arial',
+# Initialize components for Routine "instr_TryItOut2"
+instr_TryItOut2Clock = core.Clock()
+text_13 = visual.TextStim(win=win, name='text_13',
+    text=u'Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
-    depth=0.0);
-
-# Initialize components for Routine "block_instr"
-block_instrClock = core.Clock()
-
-block_intro = visual.TextStim(win=win, name='block_intro',
-    text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
-    depth=-1.0);
-
-# Initialize components for Routine "block_instr2"
-block_instr2Clock = core.Clock()
-text_2 = visual.TextStim(win=win, name='text_2',
-    text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
-    depth=0.0);
-
-# Initialize components for Routine "block_instr3"
-block_instr3Clock = core.Clock()
-text_11 = visual.TextStim(win=win, name='text_11',
-    text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
-    depth=0.0);
-
-# Initialize components for Routine "train"
-trainClock = core.Clock()
-text_4 = visual.TextStim(win=win, name='text_4',
-    text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -194,15 +159,15 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
@@ -212,9 +177,9 @@ w3 = visual.TextStim(win=win, name='w3',
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -231,20 +196,58 @@ sound_2.setVolume(1)
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
-    text="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
-    font='Arial',
+    text=u"If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
-# Initialize components for Routine "instr_start_real_thing"
-instr_start_real_thingClock = core.Clock()
-text_3 = visual.TextStim(win=win, name='text_3',
-    text="Ready?" + cont,
-    font='Arial',
+# Initialize components for Routine "instr_exp2"
+instr_exp2Clock = core.Clock()
+text_9 = visual.TextStim(win=win, name='text_9',
+    text="Okay, now you are acquainted with the basic memory task.\n\nThe actual experiment has two parts. In each part, you will be asked to memorize groups of four words (as you just did), but you will also carry out different rhythmic exercises with your hands or feet while having to keep the words in memory. The experimenter is going to provide detailed instructions and you will have plenty of time to practice." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "instr_exp3"
+instr_exp3Clock = core.Clock()
+text_10 = visual.TextStim(win=win, name='text_10',
+    text="You will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont
+,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "block_instr"
+block_instrClock = core.Clock()
+
+block_intro = visual.TextStim(win=win, name='block_intro',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+
+# Initialize components for Routine "block_instr3"
+block_instr3Clock = core.Clock()
+text_11 = visual.TextStim(win=win, name='text_11',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "train"
+trainClock = core.Clock()
+text_4 = visual.TextStim(win=win, name='text_4',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -261,15 +264,15 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
@@ -279,9 +282,76 @@ w3 = visual.TextStim(win=win, name='w3',
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-3.0);
+memory_period = visual.TextStim(win=win, name='memory_period',
+    text=None,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
+    depth=-4.0);
+
+# Initialize components for Routine "repeat_words"
+repeat_wordsClock = core.Clock()
+sound_2 = sound.Sound('880', secs=0.25)
+sound_2.setVolume(1)
+
+# Initialize components for Routine "repeat_training"
+repeat_trainingClock = core.Clock()
+text_5 = visual.TextStim(win=win, name='text_5',
+    text=u"If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+
+# Initialize components for Routine "instr_start_real_thing"
+instr_start_real_thingClock = core.Clock()
+text_3 = visual.TextStim(win=win, name='text_3',
+    text=u'Ready?\n\nPress space bar to start',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+
+# Initialize components for Routine "fixation"
+fixationClock = core.Clock()
+point = visual.Polygon(
+    win=win, name='point',
+    edges=999, size=(0.035, 0.05),
+    ori=0, pos=(0, 0),
+    lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
+    fillColor=[1,1,1], fillColorSpace='rgb',
+    opacity=1, depth=0.0, interpolate=True)
+
+# Initialize components for Routine "display_words"
+display_wordsClock = core.Clock()
+w1 = visual.TextStim(win=win, name='w1',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=0.0);
+w2 = visual.TextStim(win=win, name='w2',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+w3 = visual.TextStim(win=win, name='w3',
+    text='default text',
+    font='Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
+w4 = visual.TextStim(win=win, name='w4',
+    text='default text',
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -299,9 +369,9 @@ sound_2.setVolume(1)
 end_blockClock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "thanks"
@@ -317,13 +387,84 @@ text = visual.TextStim(win=win, name='text',
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
+# ------Prepare to start Routine "blank_initialize"-------
+t = 0
+blank_initializeClock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+
+key_resp_17 = event.BuilderKeyResponse()
+# keep track of which components have finished
+blank_initializeComponents = [text_14, key_resp_17]
+for thisComponent in blank_initializeComponents:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "blank_initialize"-------
+while continueRoutine:
+    # get current time
+    t = blank_initializeClock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    
+    # *text_14* updates
+    if t >= 0.0 and text_14.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_14.tStart = t
+        text_14.frameNStart = frameN  # exact frame index
+        text_14.setAutoDraw(True)
+    
+    # *key_resp_17* updates
+    if t >= 0.0 and key_resp_17.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_17.tStart = t
+        key_resp_17.frameNStart = frameN  # exact frame index
+        key_resp_17.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_17.status == STARTED:
+        theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in blank_initializeComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "blank_initialize"-------
+for thisComponent in blank_initializeComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+
+# the Routine "blank_initialize" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # ------Prepare to start Routine "instr_welcome"-------
 t = 0
 instr_welcomeClock.reset()  # clock
 frameN = -1
 continueRoutine = True
 # update component parameters for each repeat
-
 key_resp_10 = event.BuilderKeyResponse()
 # keep track of which components have finished
 instr_welcomeComponents = [text_7, key_resp_10]
@@ -337,7 +478,6 @@ while continueRoutine:
     t = instr_welcomeClock.getTime()
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-    
     
     # *text_7* updates
     if t >= 0.0 and text_7.status == NOT_STARTED:
@@ -385,7 +525,6 @@ while continueRoutine:
 for thisComponent in instr_welcomeComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-
 # the Routine "instr_welcome" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -457,6 +596,499 @@ for thisComponent in instr_exp1Components:
         thisComponent.setAutoDraw(False)
 # the Routine "instr_exp1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
+
+# ------Prepare to start Routine "instr_TryItOut"-------
+t = 0
+instr_TryItOutClock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+key_resp_14 = event.BuilderKeyResponse()
+# keep track of which components have finished
+instr_TryItOutComponents = [text_12, key_resp_14]
+for thisComponent in instr_TryItOutComponents:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "instr_TryItOut"-------
+while continueRoutine:
+    # get current time
+    t = instr_TryItOutClock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_12* updates
+    if t >= 0.0 and text_12.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_12.tStart = t
+        text_12.frameNStart = frameN  # exact frame index
+        text_12.setAutoDraw(True)
+    
+    # *key_resp_14* updates
+    if t >= 0.0 and key_resp_14.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_14.tStart = t
+        key_resp_14.frameNStart = frameN  # exact frame index
+        key_resp_14.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_14.status == STARTED:
+        theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in instr_TryItOutComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "instr_TryItOut"-------
+for thisComponent in instr_TryItOutComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "instr_TryItOut" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "instr_TryItOut2"-------
+t = 0
+instr_TryItOut2Clock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+key_resp_16 = event.BuilderKeyResponse()
+# keep track of which components have finished
+instr_TryItOut2Components = [text_13, key_resp_16]
+for thisComponent in instr_TryItOut2Components:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "instr_TryItOut2"-------
+while continueRoutine:
+    # get current time
+    t = instr_TryItOut2Clock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_13* updates
+    if t >= 0.0 and text_13.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_13.tStart = t
+        text_13.frameNStart = frameN  # exact frame index
+        text_13.setAutoDraw(True)
+    
+    # *key_resp_16* updates
+    if t >= 0.0 and key_resp_16.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_16.tStart = t
+        key_resp_16.frameNStart = frameN  # exact frame index
+        key_resp_16.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_16.status == STARTED:
+        theseKeys = event.getKeys(keyList=['space'])
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in instr_TryItOut2Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # check for quit (the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "instr_TryItOut2"-------
+for thisComponent in instr_TryItOut2Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "instr_TryItOut2" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# set up handler to look after randomisation of conditions etc
+practice_block = data.TrialHandler(nReps=10, method='random', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=[None],
+    seed=None, name='practice_block')
+thisExp.addLoop(practice_block)  # add the loop to the experiment
+thisPractice_block = practice_block.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisPractice_block.rgb)
+if thisPractice_block != None:
+    for paramName in thisPractice_block:
+        exec('{} = thisPractice_block[paramName]'.format(paramName))
+
+for thisPractice_block in practice_block:
+    currentLoop = practice_block
+    # abbreviate parameter names if possible (e.g. rgb = thisPractice_block.rgb)
+    if thisPractice_block != None:
+        for paramName in thisPractice_block:
+            exec('{} = thisPractice_block[paramName]'.format(paramName))
+    
+    # set up handler to look after randomisation of conditions etc
+    word_presentation_practice = data.TrialHandler(nReps=1, method='random', 
+        extraInfo=expInfo, originPath=-1,
+        trialList=data.importConditions(u'practice_test.csv'),
+        seed=None, name='word_presentation_practice')
+    thisExp.addLoop(word_presentation_practice)  # add the loop to the experiment
+    thisWord_presentation_practice = word_presentation_practice.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisWord_presentation_practice.rgb)
+    if thisWord_presentation_practice != None:
+        for paramName in thisWord_presentation_practice:
+            exec('{} = thisWord_presentation_practice[paramName]'.format(paramName))
+    
+    for thisWord_presentation_practice in word_presentation_practice:
+        currentLoop = word_presentation_practice
+        # abbreviate parameter names if possible (e.g. rgb = thisWord_presentation_practice.rgb)
+        if thisWord_presentation_practice != None:
+            for paramName in thisWord_presentation_practice:
+                exec('{} = thisWord_presentation_practice[paramName]'.format(paramName))
+        
+        # ------Prepare to start Routine "fixation"-------
+        t = 0
+        fixationClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        # update component parameters for each repeat
+        # keep track of which components have finished
+        fixationComponents = [point]
+        for thisComponent in fixationComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "fixation"-------
+        while continueRoutine:
+            # get current time
+            t = fixationClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *point* updates
+            if t >= 0.0 and point.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                point.tStart = t
+                point.frameNStart = frameN  # exact frame index
+                point.setAutoDraw(True)
+            frameRemains = 0.0 + fix_point_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if point.status == STARTED and t >= frameRemains:
+                point.setAutoDraw(False)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in fixationComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "fixation"-------
+        for thisComponent in fixationComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # the Routine "fixation" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # ------Prepare to start Routine "display_words"-------
+        t = 0
+        display_wordsClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        # update component parameters for each repeat
+        w1.setText(word1)
+        w2.setText(word2)
+        w3.setText(word3)
+        w4.setText(word4)
+        # keep track of which components have finished
+        display_wordsComponents = [w1, w2, w3, w4, memory_period]
+        for thisComponent in display_wordsComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "display_words"-------
+        while continueRoutine:
+            # get current time
+            t = display_wordsClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *w1* updates
+            if t >= 0.0 and w1.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w1.tStart = t
+                w1.frameNStart = frameN  # exact frame index
+                w1.setAutoDraw(True)
+            frameRemains = 0.0 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w1.status == STARTED and t >= frameRemains:
+                w1.setAutoDraw(False)
+            
+            # *w2* updates
+            if t >= SOA and w2.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w2.tStart = t
+                w2.frameNStart = frameN  # exact frame index
+                w2.setAutoDraw(True)
+            frameRemains = SOA + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w2.status == STARTED and t >= frameRemains:
+                w2.setAutoDraw(False)
+            
+            # *w3* updates
+            if t >= SOA*2 and w3.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w3.tStart = t
+                w3.frameNStart = frameN  # exact frame index
+                w3.setAutoDraw(True)
+            frameRemains = SOA*2 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w3.status == STARTED and t >= frameRemains:
+                w3.setAutoDraw(False)
+            
+            # *w4* updates
+            if t >= SOA*3 and w4.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                w4.tStart = t
+                w4.frameNStart = frameN  # exact frame index
+                w4.setAutoDraw(True)
+            frameRemains = SOA*3 + word_duration- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if w4.status == STARTED and t >= frameRemains:
+                w4.setAutoDraw(False)
+            
+            # *memory_period* updates
+            if t >= SOA*3 + word_duration and memory_period.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                memory_period.tStart = t
+                memory_period.frameNStart = frameN  # exact frame index
+                memory_period.setAutoDraw(True)
+            frameRemains = SOA*3 + word_duration + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if memory_period.status == STARTED and t >= frameRemains:
+                memory_period.setAutoDraw(False)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in display_wordsComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "display_words"-------
+        for thisComponent in display_wordsComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # the Routine "display_words" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # ------Prepare to start Routine "repeat_words"-------
+        t = 0
+        repeat_wordsClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        # update component parameters for each repeat
+        key_resp_2 = event.BuilderKeyResponse()
+        # keep track of which components have finished
+        repeat_wordsComponents = [key_resp_2, sound_2]
+        for thisComponent in repeat_wordsComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "repeat_words"-------
+        while continueRoutine:
+            # get current time
+            t = repeat_wordsClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *key_resp_2* updates
+            if t >= min_response_time and key_resp_2.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                key_resp_2.tStart = t
+                key_resp_2.frameNStart = frameN  # exact frame index
+                key_resp_2.status = STARTED
+                # keyboard checking is just starting
+                win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
+                event.clearEvents(eventType='keyboard')
+            if key_resp_2.status == STARTED:
+                theseKeys = event.getKeys(keyList=['space'])
+                
+                # check for quit:
+                if "escape" in theseKeys:
+                    endExpNow = True
+                if len(theseKeys) > 0:  # at least one key was pressed
+                    key_resp_2.keys = theseKeys[-1]  # just the last key pressed
+                    key_resp_2.rt = key_resp_2.clock.getTime()
+                    # a response ends the routine
+                    continueRoutine = False
+            # start/stop sound_2
+            if t >= 0 and sound_2.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                sound_2.tStart = t
+                sound_2.frameNStart = frameN  # exact frame index
+                sound_2.play()  # start the sound (it finishes automatically)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in repeat_wordsComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "repeat_words"-------
+        for thisComponent in repeat_wordsComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # check responses
+        if key_resp_2.keys in ['', [], None]:  # No response was made
+            key_resp_2.keys=None
+        word_presentation_practice.addData('key_resp_2.keys',key_resp_2.keys)
+        if key_resp_2.keys != None:  # we had a response
+            word_presentation_practice.addData('key_resp_2.rt', key_resp_2.rt)
+        sound_2.stop()  # ensure sound has stopped at end of routine
+        # the Routine "repeat_words" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        thisExp.nextEntry()
+        
+    # completed 1 repeats of 'word_presentation_practice'
+    
+    
+    # ------Prepare to start Routine "repeat_training"-------
+    t = 0
+    repeat_trainingClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    # update component parameters for each repeat
+    key_resp_8 = event.BuilderKeyResponse()
+    
+    # keep track of which components have finished
+    repeat_trainingComponents = [text_5, key_resp_8]
+    for thisComponent in repeat_trainingComponents:
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "repeat_training"-------
+    while continueRoutine:
+        # get current time
+        t = repeat_trainingClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_5* updates
+        if t >= 0.0 and text_5.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_5.tStart = t
+            text_5.frameNStart = frameN  # exact frame index
+            text_5.setAutoDraw(True)
+        
+        # *key_resp_8* updates
+        if t >= 0.0 and key_resp_8.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            key_resp_8.tStart = t
+            key_resp_8.frameNStart = frameN  # exact frame index
+            key_resp_8.status = STARTED
+            # keyboard checking is just starting
+            win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
+            event.clearEvents(eventType='keyboard')
+        if key_resp_8.status == STARTED:
+            theseKeys = event.getKeys(keyList=['p', 's'])
+            
+            # check for quit:
+            if "escape" in theseKeys:
+                endExpNow = True
+            if len(theseKeys) > 0:  # at least one key was pressed
+                key_resp_8.keys = theseKeys[-1]  # just the last key pressed
+                key_resp_8.rt = key_resp_8.clock.getTime()
+                # a response ends the routine
+                continueRoutine = False
+        
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in repeat_trainingComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # check for quit (the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "repeat_training"-------
+    for thisComponent in repeat_trainingComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # check responses
+    if key_resp_8.keys in ['', [], None]:  # No response was made
+        key_resp_8.keys=None
+    practice_block.addData('key_resp_8.keys',key_resp_8.keys)
+    if key_resp_8.keys != None:  # we had a response
+        practice_block.addData('key_resp_8.rt', key_resp_8.rt)
+    if key_resp_8.keys == "s": break  # allow to repeat training until ready (max 20, see loop)
+    # the Routine "repeat_training" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    thisExp.nextEntry()
+    
+# completed 10 repeats of 'practice_block'
+
 
 # ------Prepare to start Routine "instr_exp2"-------
 t = 0
@@ -632,7 +1264,7 @@ for thisBlock in block:
     curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
     print(curr_list_targets)
     
-    block_intro.setText("Part " + `myBlockCount` + ": Memorizing " + BlockLabel + cont)
+    block_intro.setText("Part " + `myBlockCount` + "\n\nYou will see four words flashed one after the other and your have to memorize them in the order they were presented.\n\nThis time, immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you have to repeat the four words." + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instrComponents = [block_intro, key_resp_4]
@@ -698,92 +1330,13 @@ for thisBlock in block:
     # the Routine "block_instr" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "block_instr2"-------
-    t = 0
-    block_instr2Clock.reset()  # clock
-    frameN = -1
-    continueRoutine = True
-    # update component parameters for each repeat
-    text_2.setText("In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you will have to repeat the four words." + cont)
-    key_resp_5 = event.BuilderKeyResponse()
-    # keep track of which components have finished
-    block_instr2Components = [text_2, key_resp_5]
-    for thisComponent in block_instr2Components:
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    
-    # -------Start Routine "block_instr2"-------
-    while continueRoutine:
-        # get current time
-        t = block_instr2Clock.getTime()
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_2* updates
-        if t >= 0.0 and text_2.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            text_2.tStart = t
-            text_2.frameNStart = frameN  # exact frame index
-            text_2.setAutoDraw(True)
-        
-        # *key_resp_5* updates
-        if t >= 0.0 and key_resp_5.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            key_resp_5.tStart = t
-            key_resp_5.frameNStart = frameN  # exact frame index
-            key_resp_5.status = STARTED
-            # keyboard checking is just starting
-            win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
-            event.clearEvents(eventType='keyboard')
-        if key_resp_5.status == STARTED:
-            theseKeys = event.getKeys(keyList=['space'])
-            
-            # check for quit:
-            if "escape" in theseKeys:
-                endExpNow = True
-            if len(theseKeys) > 0:  # at least one key was pressed
-                key_resp_5.keys = theseKeys[-1]  # just the last key pressed
-                key_resp_5.rt = key_resp_5.clock.getTime()
-                # a response ends the routine
-                continueRoutine = False
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in block_instr2Components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # check for quit (the Esc key)
-        if endExpNow or event.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "block_instr2"-------
-    for thisComponent in block_instr2Components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # check responses
-    if key_resp_5.keys in ['', [], None]:  # No response was made
-        key_resp_5.keys=None
-    block.addData('key_resp_5.keys',key_resp_5.keys)
-    if key_resp_5.keys != None:  # we had a response
-        block.addData('key_resp_5.rt', key_resp_5.rt)
-    # the Routine "block_instr2" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
     # ------Prepare to start Routine "block_instr3"-------
     t = 0
     block_instr3Clock.reset()  # clock
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_11.setText("You will now receive detailed instructions from the experimenter and you will get some practice before starting with the actual task.\n(" + BlockType + ")")
+    text_11.setText("The experimenter will now explain to you the rhythmic pattern you have to perform with your " + Effector + ". You will get plenty of practice before starting with the actual task.")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr3Components = [text_11, key_resp_15]
@@ -957,7 +1510,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions(curr_list_training),
+            trialList=data.importConditions(u'training_test.csv'),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1129,10 +1682,9 @@ for thisBlock in block:
             frameN = -1
             continueRoutine = True
             # update component parameters for each repeat
-            mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
             key_resp_2 = event.BuilderKeyResponse()
             # keep track of which components have finished
-            repeat_wordsComponents = [mic_1, key_resp_2, sound_2]
+            repeat_wordsComponents = [key_resp_2, sound_2]
             for thisComponent in repeat_wordsComponents:
                 if hasattr(thisComponent, 'status'):
                     thisComponent.status = NOT_STARTED
@@ -1143,17 +1695,6 @@ for thisBlock in block:
                 t = repeat_wordsClock.getTime()
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
-                
-                # *mic_1* updates
-                if t >= 0.0 and mic_1.status == NOT_STARTED:
-                    # keep track of start time/frame for later
-                    mic_1.tStart = t
-                    mic_1.frameNStart = frameN  # exact frame index
-                    mic_1.status = STARTED
-                    mic_1.record(sec=max_response_time, block=False)  # start the recording thread
-                
-                if mic_1.status == STARTED and not mic_1.recorder.running:
-                    mic_1.status = FINISHED
                 
                 # *key_resp_2* updates
                 if t >= min_response_time and key_resp_2.status == NOT_STARTED:
@@ -1203,12 +1744,6 @@ for thisBlock in block:
             for thisComponent in repeat_wordsComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            # mic_1 stop & responses
-            mic_1.stop()  # sometimes helpful
-            if not mic_1.savedFile:
-                mic_1.savedFile = None
-            # store data for word_presentation_training (TrialHandler)
-            word_presentation_training.addData('mic_1.filename', mic_1.savedFile)
             # check responses
             if key_resp_2.keys in ['', [], None]:  # No response was made
                 key_resp_2.keys=None
@@ -1389,7 +1924,7 @@ for thisBlock in block:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(curr_list_targets),
+        trialList=data.importConditions(u'targets_test.csv'),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
@@ -1561,10 +2096,9 @@ for thisBlock in block:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        mic_1 = microphone.AdvAudioCapture(name='mic_1', saveDir=wavDirName, stereo=False)
         key_resp_2 = event.BuilderKeyResponse()
         # keep track of which components have finished
-        repeat_wordsComponents = [mic_1, key_resp_2, sound_2]
+        repeat_wordsComponents = [key_resp_2, sound_2]
         for thisComponent in repeat_wordsComponents:
             if hasattr(thisComponent, 'status'):
                 thisComponent.status = NOT_STARTED
@@ -1575,17 +2109,6 @@ for thisBlock in block:
             t = repeat_wordsClock.getTime()
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
-            
-            # *mic_1* updates
-            if t >= 0.0 and mic_1.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                mic_1.tStart = t
-                mic_1.frameNStart = frameN  # exact frame index
-                mic_1.status = STARTED
-                mic_1.record(sec=max_response_time, block=False)  # start the recording thread
-            
-            if mic_1.status == STARTED and not mic_1.recorder.running:
-                mic_1.status = FINISHED
             
             # *key_resp_2* updates
             if t >= min_response_time and key_resp_2.status == NOT_STARTED:
@@ -1635,12 +2158,6 @@ for thisBlock in block:
         for thisComponent in repeat_wordsComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        # mic_1 stop & responses
-        mic_1.stop()  # sometimes helpful
-        if not mic_1.savedFile:
-            mic_1.savedFile = None
-        # store data for word_presentation (TrialHandler)
-        word_presentation.addData('mic_1.filename', mic_1.savedFile)
         # check responses
         if key_resp_2.keys in ['', [], None]:  # No response was made
             key_resp_2.keys=None
@@ -1661,7 +2178,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_6.setText("End of part " + `myBlockCount` + ".\nYou may take a short break now." + cont)
+    text_6.setText("End of part " + `myBlockCount` + cont)
     key_resp_9 = event.BuilderKeyResponse()
     # keep track of which components have finished
     end_blockComponents = [text_6, key_resp_9]
@@ -1812,6 +2329,7 @@ thisExp.addData('key_resp_3.keys',key_resp_3.keys)
 if key_resp_3.keys != None:  # we had a response
     thisExp.addData('key_resp_3.rt', key_resp_3.rt)
 thisExp.nextEntry()
+
 
 
 
