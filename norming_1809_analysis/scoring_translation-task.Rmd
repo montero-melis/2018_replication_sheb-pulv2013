@@ -1,0 +1,246 @@
+---
+title: "Scoring of translations"
+author: '[Guillermo Montero-Melis](http://www.biling.su.se/montero_melis_guillermo)'
+date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+library("knitr")
+# library(ggplot2)
+# library(GGally)
+library("dplyr")
+# library(tidyr)
+# library(lme4)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+Introduction
+============
+
+This document/script integrates the scoring of participant translations.
+
+Background:
+
+As part of the verb norming data collection, L1 Swedish speakers of L2
+English translated the English verbs into Swedish. Two research assistants
+independently scored all the unique translations according to the coding
+scheme laid out in the `team_instructions/data-coding_workflow.md`, see
+[here](https://github.com/montero-melis/2018_replication_sheb-pulv2013/blob/master/team_instructions/data-coding_workflow.md#scoring-translations).
+
+The present script is called from (or at least referenced in) the script
+`norming_1809_analysis/norming-data_combine.R` (approx. L300). The present
+script:
+
+1. Compares the two scorings regarding inter-rater agreement;
+2. Puts the data in a convenient format to solve the disagreements; and
+3. Saves it to disk for final manual scoring of the disagreed scores.
+
+
+Load files and sanity checks
+===========================
+
+Load the scoring of the two RAs (both are native speakers of Swedish):
+
+```{r}
+scores1 <- read.csv("data_coding/eng-swe_translation_key_PJ.csv",
+                    fileEncoding = "UTF-8", sep = ";")
+scores2 <- read.csv("data_coding/eng-swe_translation_key_AP.csv",
+                    fileEncoding = "UTF-8", sep = ";")
+```
+
+
+Take a look:
+
+```{r}
+kable(head(scores1)); kable(head(scores2))
+str(scores1); str(scores2)
+```
+
+
+Have they scored the same items?
+
+```{r}
+ # We need only compare only first 4 columns
+identical(scores1[, 1:4], scores2[, 1:4])  # yes!
+```
+
+
+Load the actual data, i.e. all trials from all participants, not just the
+unique responses (data file is generated in "norming-data_combine.R")
+
+```{r}
+transl_unscored <- read.csv("data_translations_not-scored.csv",
+                            fileEncoding = "UTF-8")
+head(transl_unscored)
+```
+
+
+Add information about verb types
+
+```{r}
+verbs <- read.csv("verb-bias_en_mean.csv",
+                  fileEncoding = "UTF-8") %>%
+  select(verb:category)
+head(verbs)
+# join
+transl_unscored <- left_join(transl_unscored, verbs)
+```
+
+NB: 
+The warning arises because `verbs` contains all the verbs from data collection
+in June *and* in September, but `transl_unscored` only those from September.
+The verbs that we did NOT use in Sept are:
+`r as.character(unique(verbs$verb)[! unique(verbs$verb) %in% unique(transl_unscored$verb)])`.
+
+
+Join the actual data with the scoring:
+
+```{r}
+sco1 <- left_join(transl_unscored, scores1)
+sco2 <- left_join(transl_unscored, scores2)
+head(sco1)
+```
+
+
+
+Inter-rater agreement
+==================
+
+For each response (= data row), did both raters assign the same score?
+
+```{r}
+agreement <- cbind(
+  select(sco1, participant:translation_simple, category, Score1 = score),
+  select(sco2, Score2 = score))
+agreement <- agreement %>%
+  mutate(Agreed = ifelse(Score1 == Score2, 1, 0)) 
+kable(head(agreement))
+```
+
+So what is the overall agreement (in percentage)?
+
+```{r}
+agreement %>%
+  summarise(Agreement = round(100 * mean(Agreed), 2))
+```
+
+An overall agreement of
+`r with(agreement, round(100 * mean(Agreed), 1))`%
+is reasonably high.
+
+Does agreement differ for arm and leg verbs?
+
+```{r}
+# Break it down by verb type
+agreement %>%
+  group_by(category) %>%
+  summarise(Agreement = round(100 * mean(Agreed), 2))
+
+```
+
+There is not much of a difference.
+
+
+
+Looking at the disagreements
+============================
+
+Subset observations where raters disagreed:
+
+```{r}
+disagr <- agreement %>%
+  filter(Agreed == 0)
+```
+
+There were disagreements for
+`r length(unique(disagr$verb))`
+unique verbs.
+
+In a section below, there is a list of all the translations that resulted in
+a disagreement. But here, let's first look at what *type* of disagreements
+where most common? N shows the number of times this pattern of disagreement
+arose.
+
+```{r}
+disagr_types <- disagr %>%
+  group_by(Score1, Score2) %>%
+  summarise(N = n()) %>%
+  arrange(-N)
+kable(disagr_types)
+```
+
+The most common type of disagreement consisted of Rater1 scoring a translation
+as correct while Rater2 scored it as either incorrect, only approximately
+correct (=a score of 0.5) or could not decide. Out of a total of
+`r sum(disagr_types$N)`
+disagreements,
+`r sum(disagr_types$N[1:3])` 
+were of this kind 
+(`r round(100 * sum(disagr_types$N[1:3]) / sum(disagr_types$N), 1)`%).
+
+
+Which rater was more lenient?
+-----------------------------
+
+In fact, we can look at the disagreements to see who was more lenient, R1 or R2.
+We will order scores in the following way, from most to least lenient:
+
+$1 > 0.5 > -99 > 0$
+
+```{r}
+# Substitute 0.1 for -99 to have the right ordering
+disagr$Score1_comp <- disagr$Score1
+disagr$Score1_comp[disagr$Score1_comp == -99] <- 0.1
+disagr$Score2_comp <- disagr$Score2
+disagr$Score2_comp[disagr$Score2_comp == -99] <- 0.1
+# Now compare leniency
+disagr$leniency <- with(disagr, ifelse(Score1_comp > Score2_comp, "R1 > R2",
+                                       "R2 > R1"))
+disagr %>%
+  group_by(leniency) %>%
+  summarise(N = n())
+```
+
+R1 was overall more lenient, R2 was stricter.
+
+
+The actual disagreements
+------------------------
+
+It's easier to look at disagreements for *unique* translations. Below is a list
+of all the translations were R1 and R2 disagreed:
+
+```{r}
+transl_uni <- cbind(select(scores1, verb:comment, Score1 = score, Score_comment1 = score_comment),
+                    select(scores2, Score2 = score, Score_comment2 = score_comment))
+transl_uni$Agreed <- with(transl_uni, ifelse(Score1 == Score2, 1, 0))
+disagr_uni <- transl_uni %>% filter(Agreed == 0)
+kable(select(disagr_uni, verb:translation_simple, Score1:Score_comment2))
+```
+
+
+Resolving the disagreements
+---------------------------
+
+We will resolve the disagreements manually. To do that, save the data to disk:
+
+```{r}
+write.csv(transl_uni,
+          "data_coding/eng-swe_translation_key-both-raters.csv",
+          row.names = FALSE, fileEncoding = "UTF-8")
+```
+
