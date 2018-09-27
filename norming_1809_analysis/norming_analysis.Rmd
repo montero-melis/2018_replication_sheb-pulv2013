@@ -434,7 +434,8 @@ en_targets <- rbind(en_arm[1:N_verbs_per_categ,], en_leg[1:N_verbs_per_categ,])
 en_targets <- en_targets %>%
   ungroup() %>%
   mutate(verb = as.character(verb)) %>%  # to order verbs alphabetically
-  arrange(category, verb)
+  arrange(category, verb) %>%
+  rename(type = category)  # for compatibility with functions in other scripts
 head(en_targets); tail(en_targets)
 # Save to disk (two different destinations):
 write.csv(en_targets, "english-targets.csv", row.names = FALSE,
