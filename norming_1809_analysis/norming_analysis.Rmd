@@ -99,7 +99,8 @@ arm-relatedness rating for each verb, obtaining:
 ```{r}
 bias_en <- bias_en_l %>%
   group_by(verb, category, rated_category) %>%
-  summarise(rating = mean(rating)) %>%
+  summarise(rating = mean(rating),
+            nObs = n()) %>%
   spread(rated_category, rating) %>%  # reshape to wide format for correlation plot
   mutate(bias = Arm - Leg)
 kable(head(bias_en))
@@ -392,17 +393,46 @@ be due to Swedish speakers not knowing the verbs (since they were native
 speakers).
 
 
+L2 verb comprehension task
+======================
 
+
+
+Choice of target verbs
+======================
+
+English verbs
+-------------
+
+As a first approximation, let's just choose the 40 verbs in each category with
+the strongest (absolute) bias.
+
+
+
+
+
+
+Swedish verbs
+-------------
 
 
 
 Appendices
 ==========
 
-Number of observations per verb in L2 norming studies (June and September)
+Full list of normed L2 verbs (June and September)
 ------------------------------------------------
 
-We had verbs rated for their arm- vs leg-relatedness on two different
+List of all normed L2 English verbs, sorted after bias:
+
+```{r}
+kable(bias_en %>% arrange(bias, verb))
+```
+
+The column nObs (=number of observations) shows how many participants rated
+a given verb.
+
+Note that we had verbs rated for their arm- vs leg-relatedness on two separate
 occasions: in the pilot study in June, and in the norming study in September
 2018. Most of the verbs were rated on both occasions, but some were just
 rated either in June or in September.
@@ -427,19 +457,6 @@ Verbs rated **in June only**:
 Verbs rated **in September only**:
 
 `r vbs_sep`
-
-Here is a table that shows the number of total observations for each verb,
-where one observation consists of two ratings provided by a single participant
-(one for arm- the other for leg-relatedness):
-
-```{r}
-unique(bias_en_l[, c("participant", "verb", "category")]) %>%
-  group_by(verb, category) %>%
-  summarise(nbObs = n()) %>%
-  arrange(category, verb) %>%
-  kable
-```
-
 
 
 
