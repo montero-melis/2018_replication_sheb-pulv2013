@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 14:58
+    on september 27, 2018, at 15:12
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -754,7 +754,7 @@ for thisPractice_block in practice_block:
     # set up handler to look after randomisation of conditions etc
     word_presentation_practice = data.TrialHandler(nReps=1, method='random', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(u'test_practice.csv'),
+        trialList=data.importConditions('test_practice.csv'),
         seed=None, name='word_presentation_practice')
     thisExp.addLoop(word_presentation_practice)  # add the loop to the experiment
     thisWord_presentation_practice = word_presentation_practice.trialList[0]  # so we can initialise stimuli with some values
@@ -1228,7 +1228,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 block = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions(u'test_conditions_block.csv'),
+    trialList=data.importConditions('test_conditions_block.csv'),
     seed=None, name='block')
 thisExp.addLoop(block)  # add the loop to the experiment
 thisBlock = block.trialList[0]  # so we can initialise stimuli with some values
@@ -1507,7 +1507,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions(u'test_training.csv'),
+            trialList=data.importConditions('test_training.csv'),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1921,7 +1921,7 @@ for thisBlock in block:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(u'test_targets.csv'),
+        trialList=data.importConditions('test_targets.csv'),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
@@ -2248,7 +2248,7 @@ t = 0
 thanksClock.reset()  # clock
 frameN = -1
 continueRoutine = True
-routineTimer.add(5.000000)
+routineTimer.add(30.000000)
 # update component parameters for each repeat
 key_resp_3 = event.BuilderKeyResponse()
 # keep track of which components have finished
@@ -2281,20 +2281,17 @@ while continueRoutine and routineTimer.getTime() > 0:
         key_resp_3.frameNStart = frameN  # exact frame index
         key_resp_3.status = STARTED
         # keyboard checking is just starting
-        win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
         event.clearEvents(eventType='keyboard')
-    frameRemains = 0.0 + 5- win.monitorFramePeriod * 0.75  # most of one frame period left
+    frameRemains = 0.0 + 30- win.monitorFramePeriod * 0.75  # most of one frame period left
     if key_resp_3.status == STARTED and t >= frameRemains:
         key_resp_3.status = STOPPED
     if key_resp_3.status == STARTED:
-        theseKeys = event.getKeys(keyList=['space'])
+        theseKeys = event.getKeys(keyList=['return'])
         
         # check for quit:
         if "escape" in theseKeys:
             endExpNow = True
         if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_3.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_3.rt = key_resp_3.clock.getTime()
             # a response ends the routine
             continueRoutine = False
     
@@ -2319,13 +2316,6 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thanksComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_3.keys in ['', [], None]:  # No response was made
-    key_resp_3.keys=None
-thisExp.addData('key_resp_3.keys',key_resp_3.keys)
-if key_resp_3.keys != None:  # we had a response
-    thisExp.addData('key_resp_3.rt', key_resp_3.rt)
-thisExp.nextEntry()
 
 
 
