@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 14:38
+    on september 27, 2018, at 14:58
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -11,7 +11,7 @@ If you publish work using this script please cite the PsychoPy publications:
 """
 
 from __future__ import absolute_import, division
-from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock, microphone
+from psychopy import locale_setup, sound, gui, visual, core, data, event, logging, clock
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np  # whole numpy lib is available, prepend 'np.'
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'sheb_replication_1810'  # from the Builder filename that created this script
+expName = 'sheb_replication_1810'  # from the Builder filename that created this script
 expInfo = {u'session': u'please specify: 1 or 2!', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,11 +55,8 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
-
-# Enable sound input/output:
-microphone.switchOn()
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -104,45 +101,45 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "instr_welcome"
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same sequence." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
     text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_TryItOut"
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
     text="Let's do some practice trials right away so you can get acquainted with the basic task." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_TryItOut2"
 instr_TryItOut2Clock = core.Clock()
 text_13 = visual.TextStim(win=win, name='text_13',
-    text=u'Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
-    font=u'Arial',
+    text='Each trial starts with a fixation point. Immediately after that, you will see four words flashed one after the other in the centre of the screen. Your task is to memorize them in the exact order they were presented. After the fourth word, remain silent until you hear a beep. At the beep, you have to repeat the four words.\n\nDo you have any questions so far?\n\nIf not, press space bar to start the practice trials',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -159,15 +156,15 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
@@ -177,9 +174,9 @@ w3 = visual.TextStim(win=win, name='w3',
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -196,10 +193,10 @@ sound_2.setVolume(1)
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
-    text=u"If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
-    font=u'Arial',
+    text="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
@@ -207,9 +204,9 @@ text_5 = visual.TextStim(win=win, name='text_5',
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text="Okay, now you are acquainted with the basic memory task.\n\nThe actual experiment has two parts. In each part, you will be asked to memorize groups of four words (as you just did), but you will also carry out different rhythmic exercises with your hands or feet while having to keep the words in memory. The experimenter is going to provide detailed instructions and you will have plenty of time to practice." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp3"
@@ -217,9 +214,9 @@ instr_exp3Clock = core.Clock()
 text_10 = visual.TextStim(win=win, name='text_10',
     text="You will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont
 ,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "block_instr"
@@ -227,27 +224,27 @@ block_instrClock = core.Clock()
 
 block_intro = visual.TextStim(win=win, name='block_intro',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "block_instr3"
 block_instr3Clock = core.Clock()
 text_11 = visual.TextStim(win=win, name='text_11',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "train"
 trainClock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -264,15 +261,15 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
@@ -282,9 +279,9 @@ w3 = visual.TextStim(win=win, name='w3',
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -301,20 +298,20 @@ sound_2.setVolume(1)
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
-    text=u"If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
-    font=u'Arial',
+    text="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
 # Initialize components for Routine "instr_start_real_thing"
 instr_start_real_thingClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
-    text=u'Ready?\n\nPress space bar to start',
-    font=u'Arial',
+    text='Ready?\n\nPress space bar to start',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -331,15 +328,15 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
@@ -349,9 +346,9 @@ w3 = visual.TextStim(win=win, name='w3',
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -369,9 +366,9 @@ sound_2.setVolume(1)
 end_blockClock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "thanks"
@@ -757,7 +754,7 @@ for thisPractice_block in practice_block:
     # set up handler to look after randomisation of conditions etc
     word_presentation_practice = data.TrialHandler(nReps=1, method='random', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(u'practice_test.csv'),
+        trialList=data.importConditions(u'test_practice.csv'),
         seed=None, name='word_presentation_practice')
     thisExp.addLoop(word_presentation_practice)  # add the loop to the experiment
     thisWord_presentation_practice = word_presentation_practice.trialList[0]  # so we can initialise stimuli with some values
@@ -1231,7 +1228,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 block = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('conditions_block.csv'),
+    trialList=data.importConditions(u'test_conditions_block.csv'),
     seed=None, name='block')
 thisExp.addLoop(block)  # add the loop to the experiment
 thisBlock = block.trialList[0]  # so we can initialise stimuli with some values
@@ -1510,7 +1507,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions(u'training_test.csv'),
+            trialList=data.importConditions(u'test_training.csv'),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1924,7 +1921,7 @@ for thisBlock in block:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions(u'targets_test.csv'),
+        trialList=data.importConditions(u'test_targets.csv'),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
