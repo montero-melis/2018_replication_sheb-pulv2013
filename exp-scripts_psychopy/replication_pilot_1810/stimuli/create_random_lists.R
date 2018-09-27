@@ -103,17 +103,17 @@ gener_target_lists()
 # quadruples and format them correctly, but without constraints on order.
 # We need three such lists per participant: initial training and one additional
 # practice list per experimental block (arm/leg interference)
-gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 3) {
+gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 0:2) {
   for (ppt in pptID) {
-    for (block in c("init", "b1", "b2")) {
-      tra_verbs <- sample(items)
+    for (block in nbBlocks) {
+      training_verbs <- sample(items)
       df <- data.frame(
         type = "training",
-        matrix(tra_verbs, ncol = 4))
+        matrix(training_verbs, ncol = 4))
       names(df)[2:5] <- paste("word", 1:4, sep = "")  # sensible names to columns
-      fname_lead <- paste("exp-scripts_psychopy/replication_pilot_1810/stimuli/random_lists/p",
-                          ppt, "_", block, "_memory", sep = "")
-      write.csv(df, paste(fname_lead, "_training.csv", sep = ""), row.names = FALSE)
+      fname <- paste("exp-scripts_psychopy/replication_pilot_1810/stimuli/random_lists/p",
+                     ppt, "_b", block, "_memory_training.csv", sep = "")
+      write.csv(df, fname, row.names = FALSE)
     }
   }
 }
