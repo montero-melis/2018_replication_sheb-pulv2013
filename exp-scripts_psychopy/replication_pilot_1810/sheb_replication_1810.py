@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 16:30
+    on september 27, 2018, at 22:52
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -72,10 +72,17 @@ pptID = int(expInfo['participant'])  # participant ID
 print("participant ID is " + `pptID`)
 
 sess = int(expInfo['session'])  # session converted to int
+print("Session is " + `sess`)
 
-myBlockCount = 0  # count blocks to use in text displays
+# sess determines whether block order is hand-feet/feet-hand
+cond_block = 'block_conditions_' + `sess` + '.csv'
+print(cond_block)
 
-path2stimuli = u'stimuli\\presentation_lists\\'
+# count blocks to use in text displays and to load stimulus files
+myBlockCount = 0 
+
+
+path2stimuli = u'stimuli\\random_lists\\'
 print(path2stimuli)
 
 ## Duration-related variables (set here rather than in individ elements)
@@ -97,7 +104,6 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 
 
 ## Other
-
 cont = "\n\nPress space bar to continue"  # At the end of instructions slides
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
@@ -132,6 +138,15 @@ text_12 = visual.TextStim(win=win, name='text_12',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+
+# Initialize components for Routine "get_filename"
+get_filenameClock = core.Clock()
+curr_ppt_block = "p" + `pptID` + "_b" + `myBlockCount`
+print(curr_ppt_block)
+
+curr_list_training = path2stimuli + curr_ppt_block + '_memory_training.csv'
+print(curr_list_training)
+
 
 # Initialize components for Routine "fixation"
 fixationClock = core.Clock()
@@ -673,10 +688,56 @@ for thisPractice_block in practice_block:
         for paramName in thisPractice_block:
             exec('{} = thisPractice_block[paramName]'.format(paramName))
     
+    # ------Prepare to start Routine "get_filename"-------
+    t = 0
+    get_filenameClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    # update component parameters for each repeat
+    
+    # keep track of which components have finished
+    get_filenameComponents = []
+    for thisComponent in get_filenameComponents:
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "get_filename"-------
+    while continueRoutine:
+        # get current time
+        t = get_filenameClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in get_filenameComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # check for quit (the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "get_filename"-------
+    for thisComponent in get_filenameComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    
+    # the Routine "get_filename" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
     # set up handler to look after randomisation of conditions etc
     word_presentation_practice = data.TrialHandler(nReps=1, method='random', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('test_practice.csv'),
+        trialList=data.importConditions(curr_list_training),
         seed=None, name='word_presentation_practice')
     thisExp.addLoop(word_presentation_practice)  # add the loop to the experiment
     thisWord_presentation_practice = word_presentation_practice.trialList[0]  # so we can initialise stimuli with some values
@@ -1148,9 +1209,9 @@ for thisComponent in instr_exp3Components:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-block = data.TrialHandler(nReps=1, method='random', 
+block = data.TrialHandler(nReps=1, method='sequential', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('test_conditions_block.csv'),
+    trialList=data.importConditions(cond_block),
     seed=None, name='block')
 thisExp.addLoop(block)  # add the loop to the experiment
 thisBlock = block.trialList[0]  # so we can initialise stimuli with some values
@@ -1177,12 +1238,11 @@ for thisBlock in block:
     curr_ppt_block = "p" + `pptID` + "_b" + `myBlockCount`
     print(curr_ppt_block)
     
-    curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'
+    curr_list_training = path2stimuli + curr_ppt_block + '_memory_training.csv'
     print(curr_list_training)
     
-    curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
+    curr_list_targets = path2stimuli + curr_ppt_block + '_memory_targets.csv'
     print(curr_list_targets)
-    
     block_intro.setText("Part " + `myBlockCount` + "\n\nYou will see four words flashed one after the other and your have to memorize them in the order they were presented.\n\nThis time, immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you have to repeat the four words." + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
@@ -1429,7 +1489,7 @@ for thisBlock in block:
         # set up handler to look after randomisation of conditions etc
         word_presentation_training = data.TrialHandler(nReps=1, method='random', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions('test_training.csv'),
+            trialList=data.importConditions(curr_list_training),
             seed=None, name='word_presentation_training')
         thisExp.addLoop(word_presentation_training)  # add the loop to the experiment
         thisWord_presentation_training = word_presentation_training.trialList[0]  # so we can initialise stimuli with some values
@@ -1843,7 +1903,7 @@ for thisBlock in block:
     # set up handler to look after randomisation of conditions etc
     word_presentation = data.TrialHandler(nReps=1, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('test_targets.csv'),
+        trialList=data.importConditions(curr_list_targets),
         seed=None, name='word_presentation')
     thisExp.addLoop(word_presentation)  # add the loop to the experiment
     thisWord_presentation = word_presentation.trialList[0]  # so we can initialise stimuli with some values
@@ -2238,6 +2298,7 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thanksComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
 
 
 
