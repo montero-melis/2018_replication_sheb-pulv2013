@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 28, 2018, at 10:36
+    on september 28, 2018, at 11:13
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -120,10 +120,10 @@ text_14 = visual.TextStim(win=win, name='text_14',
 # Initialize components for Routine "instr_welcome"
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
-    text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same sequence." + cont,
-    font='Arial',
+    text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp1"
@@ -167,27 +167,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -272,27 +272,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -339,27 +339,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    font=u'Arial',
+    pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
