@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 28, 2018, at 10:36
+    on september 28, 2018, at 11:19
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -70,11 +70,11 @@ pptID = int(expInfo['participant'])  # participant ID
 
 # alternate between participants whether legs or arms ratings come first
 if pptID % 2 == 0: # if even participant number
-    armlegorder_file = 'arm_first.csv'
+    armlegorder_file = 'rating_arm_first.csv'
     firstrating = "hand/arm"
     secondrating = "foot/leg"
 else:
-    armlegorder_file = 'leg_first.csv'
+    armlegorder_file = 'rating_leg_first.csv'
     firstrating = "foot/leg"
     secondrating = "hand/arm"
 
