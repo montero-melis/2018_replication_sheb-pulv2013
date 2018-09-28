@@ -10,16 +10,20 @@ getwd()  # should be "[whatever...]/2018_replication_sheb-pulv2013"
 # Participant IDs for which we want to generate random lists
 pptIDs <- c(700:799, 990:999)
 
+# All files generated in this script go to the same folder, so save path as
+# variable:
+path_output <- "exp-scripts_psychopy/replication_pilot_1810/stimuli/"
+
 
 #  ------------------------------------------------------------------------
 #  Load data and process
 #  ------------------------------------------------------------------------
 
 # Target verbs
-tv <- read.csv("exp-scripts_psychopy/replication_pilot_1810/stimuli/english-targets.csv",
+tv <- read.csv(paste(path_output, "english-targets.csv", sep = ""),
                stringsAsFactors = FALSE)
 # training verbs
-tr <- read.csv("exp-scripts_psychopy/replication_pilot_1810/stimuli/english-training.csv",
+tr <- read.csv(paste(path_output, "english-training.csv", sep = ""),
                stringsAsFactors = FALSE)
 
 # target verbs: processing and sanity checks
@@ -82,9 +86,10 @@ gener_target_lists <- function(pptID = 997:999, ite = NULL, nbBlocks = 2) {
   for (ppt in pptID) {
     for (block in 1:nbBlocks) {
       targets <- valid_seq(random_items())
-      fname_lead <- paste("exp-scripts_psychopy/replication_pilot_1810/stimuli/random_lists/p",
-                          ppt, "_b", block, "_memory", sep = "")
-      write.csv(targets, paste(fname_lead, "_targets.csv", sep = ""), row.names = FALSE)
+      fname_lead <- paste(path_output, "random_lists/p", ppt, "_b", block,
+                          "_memory", sep = "")
+      write.csv(targets, paste(fname_lead, "_targets.csv", sep = ""), 
+                row.names = FALSE, fileEncoding = "UTF-8")
     }
   }
 }
@@ -111,9 +116,9 @@ gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 0:
         type = "training",
         matrix(training_verbs, ncol = 4))
       names(df)[2:5] <- paste("word", 1:4, sep = "")  # sensible names to columns
-      fname <- paste("exp-scripts_psychopy/replication_pilot_1810/stimuli/random_lists/p",
-                     ppt, "_b", block, "_memory_training.csv", sep = "")
-      write.csv(df, fname, row.names = FALSE)
+      fname <- paste(path_output, "random_lists/p", ppt, "_b", block,
+                     "_memory_training.csv", sep = "")
+      write.csv(df, fname, row.names = FALSE, fileEncoding = "UTF-8")
     }
   }
 }
@@ -126,3 +131,13 @@ gener_training_lists()
 #  ------------------------------------------------------------------------
 #  Create random lists for VERB NORMING (aka verb bias / verb rating)
 #  ------------------------------------------------------------------------
+
+# The verbs can be randomized in PsychoPy, so we only need to save a copy of
+# the target verbs in UPPER CASE
+tv_norming <- tv
+tv_norming$verb <- toupper(tv_norming$verb)  # trim whitespaces and use lower case
+head(tv_norming)
+
+write.csv(tv_norming, 
+          paste(path_output, "english-targets_norming.csv", sep = ""),
+          row.names = FALSE, fileEncoding = "UTF-8")
