@@ -20,9 +20,12 @@ Higher prio
 Is working now, but needs to be adjusted once we have final item lists (training + target); this choice will be based on our norming tasks in the pilot.
 
 
-## Instructions to RAs are inconsistent
+## Instructions to RAs are inconsistent (see team_instructions)
 
 Go through them and perhaps merge?
+
+
+## Power analysis to determine N
 
 
 Lower prio
