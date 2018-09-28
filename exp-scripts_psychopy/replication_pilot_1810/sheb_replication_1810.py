@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 27, 2018, at 22:52
+    on september 28, 2018, at 10:36
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -69,10 +69,15 @@ blank_initializeClock = core.Clock()
 ## Set global (experiment-level) variables
 
 pptID = int(expInfo['participant'])  # participant ID
-print("participant ID is " + `pptID`)
+# print("participant ID is " + `pptID`)
 
 sess = int(expInfo['session'])  # session converted to int
 print("Session is " + `sess`)
+
+valid_sessions = [1,2,9]
+if sess not in valid_sessions:
+    sys.exit("ERROR: session number needs to be either 1 or 2 (or 9 for speeded version)")
+
 
 # sess determines whether block order is hand-feet/feet-hand
 cond_block = 'block_conditions_' + `sess` + '.csv'
