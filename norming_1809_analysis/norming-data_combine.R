@@ -307,17 +307,18 @@ write.csv(transl_unique,
 
 # Load the final scoring of unique responses (after resolving disagreements
 # between raters), see script <script-name>
-
+transl_key <- read.csv("norming_1809_analysis/data_coding/eng-swe_translation_key_final-scoring.csv",
+                      fileEncoding = "UTF-8", sep = ";", stringsAsFactors = FALSE)
+head(transl_key)
+# replace the disagreed-on scores with the Final_score
+transl_key$Score1[transl_key$Agreed == 0] <- transl_key$Final_score[transl_key$Agreed == 0]
 
 # Add this info to the full data file
-# transl_scored <- left_join(transl, transl_key)
+transl_scored <- left_join(transl, transl_key %>% select(verb:comment, Score = Score1)) %>%
+  select(expName:trial, verb, translation = translation_simple, Score)
+head(transl_scored)
 
-
-# As above, add columns for verb category and other verb info:
-# transl_scored <- left_join(transl_scored, verbs_en)
-
-
-
-# # save to disk
-# write.csv(transl_scored, "norming_1809_analysis/data_verb-understanding_free-translation.csv",
-#           row.names = FALSE, fileEncoding = "UTF-8")
+# As above, add columns for verb category and other verb info and save to disk
+left_join(transl_scored, verbs_en) %>%
+  write.csv("norming_1809_analysis/data_translations_scored.csv", row.names = FALSE,
+            fileEncoding = "UTF-8")
