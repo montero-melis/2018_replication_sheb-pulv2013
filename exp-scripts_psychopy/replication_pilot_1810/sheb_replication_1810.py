@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 28, 2018, at 11:13
+    on oktober 01, 2018, at 11:35
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -121,10 +121,16 @@ text_14 = visual.TextStim(win=win, name='text_14',
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
     text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+text_13 = visual.TextStim(win=win, name='text_13',
+    text='Instructions 1 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
@@ -134,15 +140,27 @@ text_8 = visual.TextStim(win=win, name='text_8',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+text_15 = visual.TextStim(win=win, name='text_15',
+    text='Instructions 2 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "instr_TryItOut"
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
-    text="Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start",
+    text="Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start practicing",
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+text_16 = visual.TextStim(win=win, name='text_16',
+    text='Instructions 3 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "get_filename"
 get_filenameClock = core.Clock()
@@ -167,27 +185,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -239,6 +257,12 @@ block_intro = visual.TextStim(win=win, name='block_intro',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
+text_19 = visual.TextStim(win=win, name='text_19',
+    text='Instructions 1 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-3.0);
 
 # Initialize components for Routine "block_instr3"
 block_instr3Clock = core.Clock()
@@ -248,6 +272,12 @@ text_11 = visual.TextStim(win=win, name='text_11',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+text_20 = visual.TextStim(win=win, name='text_20',
+    text='Instructions 2 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "train"
 trainClock = core.Clock()
@@ -257,6 +287,12 @@ text_4 = visual.TextStim(win=win, name='text_4',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
+text_21 = visual.TextStim(win=win, name='text_21',
+    text='Instructions 3 of 3',
+    font='Arial',
+    pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-2.0);
 
 # Initialize components for Routine "fixation"
 fixationClock = core.Clock()
@@ -272,27 +308,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -339,27 +375,27 @@ point = visual.Polygon(
 display_wordsClock = core.Clock()
 w1 = visual.TextStim(win=win, name='w1',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 w2 = visual.TextStim(win=win, name='w2',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 w3 = visual.TextStim(win=win, name='w3',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 w4 = visual.TextStim(win=win, name='w4',
     text='default text',
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.15, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 memory_period = visual.TextStim(win=win, name='memory_period',
     text=None,
@@ -475,7 +511,7 @@ continueRoutine = True
 # update component parameters for each repeat
 key_resp_10 = event.BuilderKeyResponse()
 # keep track of which components have finished
-instr_welcomeComponents = [text_7, key_resp_10]
+instr_welcomeComponents = [text_7, key_resp_10, text_13]
 for thisComponent in instr_welcomeComponents:
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
@@ -512,6 +548,13 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
+    # *text_13* updates
+    if t >= 0.0 and text_13.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_13.tStart = t
+        text_13.frameNStart = frameN  # exact frame index
+        text_13.setAutoDraw(True)
+    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -544,7 +587,7 @@ continueRoutine = True
 # update component parameters for each repeat
 key_resp_11 = event.BuilderKeyResponse()
 # keep track of which components have finished
-instr_exp1Components = [text_8, key_resp_11]
+instr_exp1Components = [text_8, key_resp_11, text_15]
 for thisComponent in instr_exp1Components:
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
@@ -581,6 +624,13 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
+    # *text_15* updates
+    if t >= 0.0 and text_15.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_15.tStart = t
+        text_15.frameNStart = frameN  # exact frame index
+        text_15.setAutoDraw(True)
+    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -613,7 +663,7 @@ continueRoutine = True
 # update component parameters for each repeat
 key_resp_14 = event.BuilderKeyResponse()
 # keep track of which components have finished
-instr_TryItOutComponents = [text_12, key_resp_14]
+instr_TryItOutComponents = [text_12, key_resp_14, text_16]
 for thisComponent in instr_TryItOutComponents:
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
@@ -649,6 +699,13 @@ while continueRoutine:
         if len(theseKeys) > 0:  # at least one key was pressed
             # a response ends the routine
             continueRoutine = False
+    
+    # *text_16* updates
+    if t >= 0.0 and text_16.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_16.tStart = t
+        text_16.frameNStart = frameN  # exact frame index
+        text_16.setAutoDraw(True)
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1248,10 +1305,10 @@ for thisBlock in block:
     
     curr_list_targets = path2stimuli + curr_ppt_block + '_memory_targets.csv'
     print(curr_list_targets)
-    block_intro.setText("Part " + `myBlockCount` + "\n\nYou will see four words flashed one after the other and your have to memorize them in the order they were presented.\n\nThis time, immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you have to repeat the four words." + cont)
+    block_intro.setText("Part " + `myBlockCount` + "\n\nYou will see four words flashed one after another and you have to memorize them in the order they were presented.\n\nThis time, immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you have to repeat the four words." + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
-    block_instrComponents = [block_intro, key_resp_4]
+    block_instrComponents = [block_intro, key_resp_4, text_19]
     for thisComponent in block_instrComponents:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -1289,6 +1346,13 @@ for thisBlock in block:
                 # a response ends the routine
                 continueRoutine = False
         
+        # *text_19* updates
+        if t >= 0.0 and text_19.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_19.tStart = t
+            text_19.frameNStart = frameN  # exact frame index
+            text_19.setAutoDraw(True)
+        
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
@@ -1323,7 +1387,7 @@ for thisBlock in block:
     text_11.setText("The experimenter will now explain to you the rhythmic pattern you have to perform with your " + Effector + ". You will get plenty of practice before starting with the actual task.")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
-    block_instr3Components = [text_11, key_resp_15]
+    block_instr3Components = [text_11, key_resp_15, text_20]
     for thisComponent in block_instr3Components:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -1362,6 +1426,13 @@ for thisBlock in block:
                 key_resp_15.rt = key_resp_15.clock.getTime()
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *text_20* updates
+        if t >= 0.0 and text_20.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_20.tStart = t
+            text_20.frameNStart = frameN  # exact frame index
+            text_20.setAutoDraw(True)
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -1402,7 +1473,7 @@ for thisBlock in block:
     text_4.setText("Now you will first do some practice trials before starting the real task." + cont)
     key_resp_6 = event.BuilderKeyResponse()
     # keep track of which components have finished
-    trainComponents = [text_4, key_resp_6]
+    trainComponents = [text_4, key_resp_6, text_21]
     for thisComponent in trainComponents:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
@@ -1441,6 +1512,13 @@ for thisBlock in block:
                 key_resp_6.rt = key_resp_6.clock.getTime()
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *text_21* updates
+        if t >= 0.0 and text_21.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_21.tStart = t
+            text_21.frameNStart = frameN  # exact frame index
+            text_21.setAutoDraw(True)
         
         # check if all components have finished
         if not continueRoutine:  # a component has requested a forced-end of Routine
