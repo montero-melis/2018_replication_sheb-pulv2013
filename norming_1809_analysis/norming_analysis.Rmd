@@ -130,7 +130,7 @@ The figure shows that the bias was generally stronger for the verbs we had
 categorized as arm verbs than for those we thought of as leg verbs.
 
 This can be shown even clearer if we just consider the size of the bias in
-the expected direction, so a negative bias now constitutes a bias in the 
+the expected direction, so now a negative bias constitutes a bias in the
 "wrong" direction (e.g., an arm bias for a supposedly leg-related verb).
 The following plot shows this:
 
@@ -395,6 +395,24 @@ speakers).
 
 L2 verb comprehension task
 ======================
+
+In the norming study in Sept 2018, 12 Swedish participants carried out a
+comprehension task for the L2 English verbs: they had to translate the English
+verbs to Swedish. The translations were then scored as either correct or
+incorrect by two Swedish native speakers (see 
+`norming_1809_analysis/scoring_translation-task.Rmd` for details about inter-
+rater agreement).
+
+The final data set (after resolving disagreements between raters) looks like
+this:
+
+```{r}
+compr <- read.csv("data_translations_scored.csv", fileEncoding = "UTF-8",
+                  stringsAsFactors = FALSE)
+kable(head(compr %>% select(participant:cognate)))
+```
+
+
 
 
 

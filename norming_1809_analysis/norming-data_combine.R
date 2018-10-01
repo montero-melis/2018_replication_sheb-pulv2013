@@ -304,7 +304,7 @@ write.csv(transl_unique,
 #  ------------------------------------------------------------------------
 
 # Load the final scoring of unique responses (after resolving disagreements
-# between raters), see script <script-name>
+# between raters), see script "scoring_translation-task.Rmd"
 transl_key <- read.csv("norming_1809_analysis/data_coding/eng-swe_translation_key_final-scoring.csv",
                       fileEncoding = "UTF-8", sep = ";", stringsAsFactors = FALSE)
 head(transl_key)
@@ -312,11 +312,36 @@ head(transl_key)
 transl_key$Score1[transl_key$Agreed == 0] <- transl_key$Final_score[transl_key$Agreed == 0]
 
 # Add this info to the full data file
-transl_scored <- left_join(transl, transl_key %>% select(verb:comment, Score = Score1)) %>%
-  select(expName:trial, verb, translation = translation_simple, Score)
+transl_scored <- left_join(transl, transl_key %>% select(verb:comment, score = Score1)) %>%
+  select(expName:trial, verb, translation = translation_simple, score)
 head(transl_scored)
 
-# As above, add columns for verb category and other verb info and save to disk
-left_join(transl_scored, verbs_en) %>%
-  write.csv("norming_1809_analysis/data_translations_scored.csv", row.names = FALSE,
-            fileEncoding = "UTF-8")
+# Combine with the comprehension data from the translation task collected in
+# June as well:
+transl_june <- read.csv("pilot_analysis/data_verb-understanding_free-translation.csv",
+                        fileEncoding = "UTF-8", stringsAsFactors = FALSE)
+length(unique(transl_june$participant))  # data from 6 participants
+
+## format the data set so they can be combined
+head(transl_june)
+head(transl_scored)
+
+# Identify the two occasions of data collection in expName:
+transl_scored$expName <- "verb-norming_L2-verb_translation_sept"
+transl_june$expName <- "verb-norming_L2-verb_translation_june"
+
+transl_scored_all <- rbind(transl_scored, transl_june %>%
+                             select(expName:trial, verb, 
+                                    translation = ppt_translation, score))
+
+# As above, add columns for verb category and other verb info
+transl_scored_all <- left_join(transl_scored_all, verbs_en)
+
+head(transl_scored_all)
+tail(transl_scored_all)
+str(transl_scored_all)
+
+# Save to disk
+write.csv(transl_scored_all, 
+          "norming_1809_analysis/data_translations_scored.csv", 
+          row.names = FALSE, fileEncoding = "UTF-8")
