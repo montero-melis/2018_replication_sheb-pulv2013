@@ -299,11 +299,9 @@ write.csv(transl_unique,
           row.names = FALSE, fileEncoding = "UTF-8")
 
 
-#####################################################################
-# Do the scoring manually and assess inter-rater agreement (separate script!)
-#####################################################################
-
-# TO DO:
+#  ------------------------------------------------------------------------
+#  Do the scoring manually and assess inter-rater agreement (separate script!)
+#  ------------------------------------------------------------------------
 
 # Load the final scoring of unique responses (after resolving disagreements
 # between raters), see script <script-name>
