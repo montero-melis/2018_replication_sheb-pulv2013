@@ -15,12 +15,12 @@ output:
 ```{r setup, include=FALSE}
 library(knitr)
 library(ggplot2)
-# library(GGally)
 library(plyr)
 library(dplyr)
 library(mvtnorm)
 library(tidyr)
-# library(lme4)
+library(lme4)
+library(broom)  # access summaries from fitted models
 knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 ```
 
@@ -30,213 +30,520 @@ Introduction
 
 We want to conduct a power analysis for a pilot study consisting in a conceptual
 replication of Shebani & Pulvermüller (2013, Cortex), henceforth S&P.
-In S&P, participants had to memorize groups of four words that were either arm
-or leg related. They carried out a memory task in four different conditions:
-no interference (control), arm interference, leg interference, and articulatory
-interference.
+In S&P, participants had to memorize groups of four words (quadruples) that were
+either arm- or leg-related (word type). Each block consisted of 24 such
+quadruples, 12 of each type. Between blocks they manipulated the conditions
+under which the words had to be kept in memory. We simplify their original design
+to a 2x2 within-subjects factorial design:
 
-Our pilot will simplify the original design and just try to replicate the 
-most interesting effect reported in S&P: There
-was an interaction of WordType (arm vs leg verb) and MovementType (arm vs
+- *Movement*: arm or leg movement -- manipulated between blocks
+- *WordType*: arm or leg verbs -- manipulated within blocks but between quadruples
+(= trials)
+
+We want to estimate the power for finding the most interesting effect reported
+in S&P: An interaction of WordType (arm vs leg verb) and MovementType (arm vs
 leg movements), leading to worse memory for arm than for leg verbs when
-performing a complex drumming pattern with the hands/arms (arm movements),
-and to worse memory for leg than for arm verbs when performing the drumming
-pattern with the feet/legs (leg movements).
+performing arm movements, and to worse memory for leg than for arm verbs when
+performing leg movements.
 
 
-Challenges
-----------
+Info provided in the paper
+-------------
 
-There are some basic difficulties for running a power analysis.
-We would like to analyze the data using mixed logistic regression,
-because the nature of the dependent variable is best modelled as binary at
-the trial level (a quadruple is either remembered correctly or not).
-However:
+For now, we don't have access to the raw data file. So the only information we
+have is that provided in a table that summarizes the cell means, reproduced
+below. The 4 cell means we are trying to simulate for the power analysis are
+marked in red. We only care about the total number of errors because that was
+the main dependent variable used in the original analyses.
 
-1. The original analyses report only by-subject ANOVAs computed either on the
-mean number of errors per participant in each cell (Condition-by-Word Type)
-or on z-transformed data. There is no information about item variability.
-2. The number of trials in each experimental cell is not consistently reported
-in S&P and the information provided is contradictory. This makes it difficult
-to transform the reported results into proportions or log-odds.
-3. The authors report several related ANOVAs, sometimes subsetting the number
-of conditions and sometimes normalizing the data (i.e., z-transforming 
-by-subject #errors)
+![Shebani and Pulvermüller (2013, p.226)](SP2013_tb2.png)
 
 
-What information *do* we have
----------------------------
-
-- Variability in SDs (of by-subject means) is reported for the different cells
-means; they also report effect sizes in terms of Cohen’s d, but I guess these
-offer more indirect measures of by-subject variability.
-- Apart from the original study, we do have estimates for base rate variability
-between subjects, i.e. what would correspond to random by-subject intercepts.
-These come from a pilot in which we only ran the control condition (no
-interference). The information is not ideal, though, as it comes from L2 
-speakers.
-
-
-
-Reported results
-=============================================
-
-We start by running power analyses based on the reported results, taking them
-at face value.
-
-Here is how S&P report the relevant results (p.226):
-
-> Most importantly, directly addressing the main hypothesis
-motivating this study, a 2 x 2 analysis (Word Type x Moving
-Body Part) revealed that when subjects engaged in performing
-this rhythmic motor pattern with either their hands or feet,
-errors in memory performance increased and a significant
-interaction effect was found [F (1, 14) = 12.67, MSE = 20.9,
-Cohen’s d = 1.25, p = .003] while no significant effect of condition
-was found in this case (F < 1), documenting a differential
-influence of movement type on word type performance.
-Normalised z-transformed data confirmed this significant Word
-Type x Moving Body Part Interaction [F (1, 14) = 25.49,
-MSE= .92, Cohen’s d = 1.48, p < .0002; Fig. 1d]. For the z-transformed
-data, in which the contribution of outliers and
-between-subject variance is reduced, t-tests now also revealed
-fully significant word category differences in both critical
-movement interference conditions, for hand/arm movements
-[more errors for arm words F (1,14)= 5.65, MSE = .67, Cohen’s
-d = .73, p < .032] and foot/leg movements [more errors for leg
-words, F (1, 14) = 11.26, MSE= .66, Cohen’s d = 1.0, p < .0047].
-
-We will use the more conservative estimates, corresponding to the analyses
-when data is *not* z-transformed.
-
-We will thus use the values provided in Table 1 in S&B (p.226):
+Save this data to the R environment and compute standard errors of the mean 
+(SEM) based on the reported SD and 15 observations (= number of participants):
 
 ```{r}
 sp_means <- expand.grid(WordType = c("arm-word", "leg-word"), Movement = c("arm", "leg"))
 sp_means$M <- c(16.5, 14.6, 13.1, 16.9)
 sp_means$SD <- c(8.39, 6.66, 6.23, 7.56)
+sp_means$SEM <- sp_means$SD / sqrt(15)  # SEM based on N=15 participants
 ```
 
 ```{r}
 kable(sp_means)
 ```
 
+Plot cell means and 95% confidence intervals:
 
-Power analysis assuming normally-distributed data
-=============================================
+```{r}
+pd <- position_dodge(0.2) # move them .1 to the left and right
+ggplot(sp_means,
+       aes(x = Movement, y = M, colour = WordType, shape = WordType,
+           group = WordType, ymax = M + 2 * SEM, ymin = M - 2 * SEM)) +
+  geom_point(position = pd) +
+  geom_errorbar(position = pd, width = .1) +
+  geom_line(position = pd) 
+```
 
-We may assume (as done by the authors) that the number of errors per participant
-and condition follows a normal distribution. This is not ideal because, given
-the variability estimates, this may lead to simulating *negative* numbers of
-errors in certain cases. However, we will start like this.
+Note that the confidence intervals are very large! It is surprising that this
+effect came out as highly significant in the paper.
+As we will see below, the covariance structure of the data is key here: because
+it is a fully within-subjects design, if subject scores are highly correlated,
+then our analyses will be able to factor out this individual-level variability
+from the overall variability, thus detecting the interaction of effect of
+interest.
 
 
-Assuming uncorrelated observations within a subject
---------------------------------------------------
+Analyses conducted in the paper
+-------------------------------
 
-We start making the simplifying assumption that the cell means for each subject
-are uncorrelated, i.e. the off-diagonal values in the variance-covariance
-matrix are all zero.
+- S&P report different types of two-way repeated measures ANOVAs (Word Type x
+Movement condition) "and subsequent Planned Comparison F-tests" (p.225), which
+as far as I can see were really paired t-tests to compare number of errors
+for each word type within a movement condition.
+- They always carry out these analyses on by-subject summaries. I.e., the
+number that enters the analyses for each subject is their total number of
+errors added across Movement-by-WordType trials.
+- The numbers reported in the table above are averages of these subject-level
+measures.
+- S&P additionally conducted analyses over z-transformed subject scores, but
+we will not care about those in the current power analyses (significant effects
+were found both with raw and z-transformed scores).
 
-This means that we assume that the number of errors a given participant makes,
-say, when memorizing arm words in the leg-movement condition is uncorrelated
-to the number of errors for the same words in the arm-movement condition.
-This assumption should *decrease* power compared to assuming correlated data
-within participants!
+We will instead analyze the data using GLMMs, with model specifications like
+`DV ~ Movement * WordType + (1 + Movement * WordType | Subject)`.
 
-We run simulations of the following kind, where a run simulates a data set
-from a distribution with the exact same parameters as those of the sample 
-reported in the paper (note the cov matrix is 0 in all off-diagonals):
+
+Nature of the data -- best approximated by a Poisson distribution?
+------------------
+
+In email correspondence with the first author, Shebani clarified that:
+
+> The calculation of errors for each subject was based on number of errors in
+each trial [...]. Additionally, while there were only four words presented in
+each trial, some subjects made more than four errors in a few trials. In other
+words, the total number of errors in each trial could exceed the number of
+words presented in each trial.
+
+Based on this description, it seems like the data could be modelled as
+generated under a Poisson distribution.
+
+Below, we explore two approaches:
+
+1. Model the data as coming from a normal distribution (as done by S&P);
+2. Model the data as coming from a Poisson distribution (which seems more
+appropriate based on the nature of the data).
+
+
+
+Two approaches to simulating the data: Draw observations from cells or specify a generative model
+-------------------------------------
+
+There are two approaches to simulating random data for the power analyses:
+
+1. *Directly sample observations for each of the four cells*, specifying the 
+parameters so that they are consistent with the descriptives reported in S&P.
+2. *Specify a generative model* for the data, in which by-subject parameters
+are first drawn from a normal distribution around estimates of population 
+means for the coefficients of interest (i.e., effects of Condition, WordType
+and their interaction); and then the data is generated for each subject by
+multiplying the model matrix with their individual parameters (possibly 
+adding some residual variance/noise).
+
+In both approaches, we will have to make up some of the parameters, but it
+seems to me that the 2nd approach requires way more assumptions given the
+information provided in the paper.
+So while conceptually the 2nd approach seems more satisfying, I don't see how
+one can come up with the necessary estimates for by-subject variability without
+exploring a huge (and pretty unconstrained) possibility space.
+
+More on this below.
+
+
+Directly simulating observations in each cell
+============================================
+
+Data coming from a normal distribution
+---------------------------------------
+
+We can simulate a data set similar to that of the original study by drawing
+observations of length 4 (one value per cell) from a multivariate normal 
+$N(\mu, \Sigma)$. The distribution is specified by the vector of means $\mu$
+and the covariance matrix $\Sigma$. Each random draw corresponds to data from
+one participant (contributing four data points).
+
+Now, note that Table 2 above gives us an estimate of $\mu$ (cell means in the
+sample). However, for $\Sigma$ we only have estimates for the diagonals, i.e.
+for the variance around the cell means (the squared SDs for each cell). **What
+is missing, however, are estimates for the off-diagonal values of $\Sigma$**,
+corresponding to covariances between subject scores in the different conditions.
+
+
+### Assume no correlation between cell means
+
+We may (rather unrealistically) start by making the simplifying assumption that
+the cell means for each subject are uncorrelated, i.e. the off-diagonal values
+in the covariance matrix are all zero.
+
+Data for three participants thus simulated:
 
 ```{r, echo = TRUE}
-rmvnorm(n = 15,  # Number of participants
+rmvnorm(n = 3,  # Number of participants
         mean = sp_means$M,  # The mean of each cell as reported in Table 2
-        sigma = diag(sp_means$SD ^ 2)  # vcov matrix obtained by squaring SD's (all off-diagonals = 0)
+        sigma = diag(sp_means$SD ^ 2)  # variances by squaring SD's; off-diagonals = 0
         )
 ```
 
-Each row would represent the data from one participant. Each participant
-contributes 4 data points (1 per column), corresponding to each of the four
-cells. Let's rearrange the data in a more transparent way and put it all inside
-a function:
+Each row represents the data from one participant. Each participant contributes
+four data points (1 per column), corresponding to each of the four cells. 
+
+To get an intuition of the data we are simulating, let's facotr it all into a
+function and plot a few such data sets:
 
 ```{r}
-# function to simulate one data set
+# function to simulate data sets -- outputs a function!
 simulate_data <- function(my_n = 15, my_mean = sp_means$M, 
-                     my_sigma = diag(sp_means$SD ^ 2)) {
+                          my_sigma = diag(sp_means$SD ^ 2)) {
   # simulate data
-  rand_data <- rmvnorm(n = my_n, mean = my_mean, sigma = my_sigma)
-  # By transposing the data it is stacked participant by participant
-  rand_data <- t(rand_data)
-  df <- data.frame(rand_data) %>% gather(value = nbErrors)  # to long format
-  # Now give sensible column names (NB: data is stacked by participants)
-  df$WordType <- c("arm-word", "leg-word")
-  df$Movement <- rep(c("arm", "leg"), each = 2)
-  df$Subject <- rep(1 : (nrow(df) / 4), each = 4)
-  df$key <- NULL
-  # Sensible column order
-  df <- df %>% select(Subject : nbErrors)
-  df
+  simdata_fnc <- function (nb_sim = 1) {
+    if (is.null(nb_sim)) stop("Please specify nb_sim (number of simulations)!")
+    simulated_data <- rdply(nb_sim, {
+      rand_data <- rmvnorm(n = my_n, mean = my_mean, sigma = my_sigma)
+      # By transposing, the 4 cell means for each participant will be stacked
+      rand_data <- t(rand_data)
+      df <- data.frame(rand_data) %>% gather(value = nbErrors)  # to long format
+      # print(df)
+      df
+    }
+    )
+    # Now give sensible column names (NB: factor levels match bc data is stacked
+    # by participants)
+    simulated_data$WordType <- c("arm-word", "leg-word")
+    simulated_data$Movement <- rep(c("arm", "leg"), each = 2)
+    simulated_data$Subject <- rep(1 : my_n, each = 4)
+    simulated_data$key <- NULL
+    # Sensible column order
+    simulated_data <- simulated_data %>% 
+      select(Sim = .n, Subject : nbErrors)
+    simulated_data
+  }
 }
 ```
 
-
-### A few example data sets
-
-Simulate a few example data sets:
-
 ```{r}
-set.seed(159753)
-df_example <- rdply(6, simulate_data())
-names(df_example)[1] <- "Simulation"
-kable(head(df_example))
-```
-
-
-
-Plot the simulated data sets:
-
-```{r}
-ggplot(df_example, aes(x = Movement, y = nbErrors, colour = WordType)) +
-  geom_boxplot() + facet_wrap(~ Simulation)
-```
-
-Plot means and 95% confidence intervals (assuming normal distribution)
-
-```{r}
-se <- function(x) { sd(x) / sqrt(length(x)) }
-plotCI <- function(df) {
+se <- function(x) { sd(x) / sqrt(length(x)) }  # compute SEM
+# function to plot the results of simulations
+plotCI <- function(df_sims) {
   pd <- position_dodge(0.2) # move them .1 to the left and right
-  summ <- df %>% 
-    group_by(Simulation, Movement, WordType) %>% 
+  if (! "Sim" %in% names(df_sims)) df_sims$Sim <- 1  # expects column named "Sim"
+  summ <- df_sims %>% 
+    group_by(Sim, Movement, WordType) %>% 
     summarise(M = mean(nbErrors), SD = sd(nbErrors), SE = se(nbErrors))
-  print(head(summ))  # print data summary
   p <- ggplot(summ, 
               aes(x = Movement, y = M, colour = WordType, shape = WordType,
                   group = WordType, ymax = M + 2 * SE, ymin = M - 2 * SE)) +
     geom_point(position = pd) +
     geom_errorbar(position = pd, width = .1) +
     geom_line(position = pd) +
-    facet_wrap(~ Simulation)
+    facet_wrap(~ Sim)
   p
 }
-plotCI(df_example)
 ```
 
-We can see that there is a lot of variability in the data, which leads to
-qualitative differences in whether the interaction is visible or not and,
-in general, to large confidence intervals.
+Data sets are simulated with the `simulate_data` function:
+
+```{r}
+kable(simulate_data()() %>% tail)  # nb_sim defaults to 1
+```
+
+
+Plot six simulated data sets:
+
+```{r}
+set.seed(159753)
+plotCI(simulate_data()(6))
+```
+
+
+
+
+### Assume cell means are correlated
+
+We may more reasonably assume some correlation between cell means.
+Specifically, let's assume that all cell means are correlated, but the
+correlation is strongest for words of the same type across movement conditions,
+somewhat weaker for different word types within movement conditions, and
+weakest for different word types across conditions. As in the following
+correlation matrix:
+
+```{r}
+m <- matrix(1, 4, 4, 
+            dimnames = rep(list(c("arm-mvmt_arm-w", "arm-mvmt_leg-w",
+                                  "leg-mvmt_arm-w", "leg-mvmt_leg-w")),
+                           times = 2))
+m[lower.tri(m)] <- c(.5, .7, .3, .5, .7, .5)
+# create symmetric matrix wrt lower diagonal
+makeSymm <- function(m) {
+   m[upper.tri(m)] <- t(m)[upper.tri(m)]
+   m
+}
+corMat <- makeSymm(m)
+corMat
+```
+
+Combine the correlation matrix above with the SD estimates from Table 2 in S&P
+into a covariance matrix $\Sigma$ (as explained
+[here](https://stats.stackexchange.com/questions/164471/generating-a-simulated-dataset-from-a-correlation-matrix-with-means-and-standard)).
+
+```{r}
+sigma_correlated <- sp_means$SD %*% t(sp_means$SD) * corMat
+sigma_correlated
+```
+
+
+Simulate and plot a few data sets with the new (and correlated) covariance
+structure:
+
+```{r}
+create_correlated_data <- simulate_data(my_sigma = sigma_correlated)
+set.seed(777843)
+plotCI(create_correlated_data(6))
+```
+
+When we plot the data sets, nothing changes much compared to when all values
+of sigma in the off-diagonals were 0 (uncorrelated cell means). However, the
+form of sigma (correlated vs uncorrelated) should have a strong impact on the
+power of our analyses, as we will verify now.
+
+
+Now that we have access to the original data, we might also **use the sigma 
+computed from the sample data**:
+
+```{r}
+# Load summaries from original data
+load("orig_data_summaries.RData")  # stored in list format
+orig_data_summaries
+```
+
+
+
+### Power analysis
+
+#### Approach
+
+Run power analysis by fitting linear mixed models to simulated data sets.
+Note that because each participant contributes exactly one data point to each
+cell, we cannot fit a linear mixed model specifying the full random structure 
+by subjects `(1 + Movement * WordType | Subject)`. Such a model is not 
+identifiable, as explained [here](https://www.r-bloggers.com/mixed-models-for-anova-designs-with-one-observation-per-unit-of-observation-and-cell-of-the-design/),
+and the right thing to do if we want to stay in the LMM setting is to drop the
+highest-level interaction from the random effect structure, yielding the model:
+`nbErrors ~ 1 + Movement * WordType + (1 + Movement + WordType | Subject)`.
+(The post just referenced explains in more detail how the variance is
+partitioned in that case: the random by-subject variability for the interaction
+gets factored into the residual variance of the model.)
+
+
+#### Simulate data and fit models
+
+We will simulate a large number of data sets for each parametrization of the
+data; then fit models on each, and save it as an R object. Later functions can
+then be run on the dataframe contained the fitted models to extract summaries
+of interest.
+
+```{r}
+# function that fits the model on each simulation (Sim) of a simulated data set
+fit_model <- function(simulated_data) {
+  # fit models using dplyr::do (https://dplyr.tidyverse.org/reference/do.html)
+  fitted <- simulated_data %>% group_by(Sim) %>%
+    do(fm = lmer(nbErrors ~ 1 + Movement * WordType + 
+                   (1 + Movement + WordType | Subject), data = .))
+}
+# For instance:
+(fit_model(simulate_data()(3)))
+```
+
+The function to fit many models:
+
+```{r}
+# The idea of this function is also taken from D Kleinschmidt's LSA13 slides;
+# check them out for the use of mdply with a data frame of parameters that serve
+# as input to simulate_data() function. Unfortunately, I haven't been able to
+# figure out how to pass a whole covariance matrix (sigma) as a parameter in a
+# dataframe, so as a work around I'm putting things in a list and then using a
+# wrapper function that loops through this list of parameters.
+# 
+# Function to fit models from list of parameters
+fit_many <- function(parameterList = NULL, nbSims = NULL, 
+                     fitAnew = FALSE, loadOnly = TRUE) {
+  
+  # By default (if loadOnly = T) it will just load the data
+  if (loadOnly) {
+    load("my_simulations.RData")
+    return(my_simulations)
+  }
+  # Otherwise...
+  # check first if there is a saved .RData object with simulations; if so, load it
+  stored_simulations <- "my_simulations.RData" %in% list.files()
+  # if fitAnew = F it will append new simulations to those saved to disk
+  if ( (! fitAnew) & stored_simulations) {
+    load("my_simulations.RData")
+    df <- my_simulations
+  } else {  # if fitAnew = TRUE, it will delete any stored simulations
+    df <- data.frame(Sim = NULL, fm = NULL, N = NULL, Sigma = NULL)
+  }
+  
+  # Now run the simulations
+  for (sigma_name in names(parameterList$my_sigma)) {  # only way I found to keep track of name
+    sigma <- parameterList$my_sigma[[sigma_name]]  # a bit clumsy
+    for (N in parameterList$my_n) {
+      data_simulator <- simulate_data(my_n = N, my_sigma = sigma)
+      result <- fit_model(data_simulator(nb_sim = nbSims))
+      result$N <- N
+      result$Sigma <- sigma_name
+      # Add info about System time to allow us to simulate on different
+      # occasions and append the data
+      result$DateTime <- Sys.time()
+      df <- rbind(df, result)
+    }
+  }
+  # save to disk
+  my_simulations <- df
+  save(my_simulations, file = "my_simulations.RData")
+  my_simulations
+}
+```
+
+Run the function with a given set of parameters, looping over different N's
+and sigmas.
+
+```{r}
+sigma_nocorrel <- diag(sp_means$SD ^ 2)  # uncorrelated sigma
+# *list* of parameters
+# (params <- list(my_sigma = list("nocorr" = sigma_nocorrel, "correl" = sigma_correlated),
+#                 my_n = c(15, 30)))
+# 
+(params <- list(my_sigma = list("correl_original" = orig_data_summaries$sigma),
+                my_n = c(15, 30)))
+```
+
+
+```{r}
+# Run the simulations and fit models
+my_simulations <- fit_many(params, nbSims = 209, loadOnly = FALSE)
+head(my_simulations)
+nrow(my_simulations)
+# Number of simulations per parameter setting
+my_simulations %>% ungroup %>%
+  group_by(N, Sigma) %>% summarise(nObs = n())
+```
+
+
+Access model summaries nicely formatted into a dataframe using the `broom` package
+(see [this concise example](http://stat545.com/block023_dplyr-do.html)).
+
+```{r}
+# following http://stat545.com/block023_dplyr-do.html
+load_or_extract_summaries <- function(extract_anew = FALSE) {
+  if (! extract_anew) {  # Default will be to just load the stored object
+    load("my_fm_summaries.RData", envir = .GlobalEnv)
+  } else {  # but we can also get the summaries anew (in case there are more models)
+    my_fm_summaries <-my_simulations %>% tidy(fm)
+    save(my_fm_summaries, file = "my_fm_summaries.RData")
+    }
+}
+load_or_extract_summaries(extract_anew = FALSE)
+kable(head(my_fm_summaries))
+```
+
+
+
+#### How much power?
+
+Distribution of t-values for the different model specifications
+
+```{r}
+# Keep only data rows for critical interactions
+my_fm_summaries_interact <- my_fm_summaries %>% 
+  filter(term == "Movementleg:WordTypeleg-word")
+# plot
+my_fm_summaries_interact %>%
+  ggplot(aes(x = statistic, colour = Sigma, linetype = factor(N))) +
+  geom_density() +
+  geom_vline(xintercept = 1.96)
+```
+
+We see that what really makes a difference is whether the cell means are correlated
+(the `Sigma` factor), more so than whether we double the number of participants
+from N = 15 to N = 30·
+
+Compute the number of significant models:
+
+```{r}
+my_fm_summaries_interact %>% 
+  group_by(N, Sigma) %>%
+  mutate(signif = statistic > 1.96) %>%
+  summarise(Power = sum(signif) / n(),
+            nbSimulations = n()) %>%
+  kable
+```
+
+
+
+Data coming from a Poisson distribution
+---------------------------------------
+
+
+
+
+Specifying a generative model?
+=======================
+
+Generative model can be based on:
+
+1. Normal distribution
+2. Poisson distribution
+
+Normally distributed data
+------------------------
 
 
 ### Estimate power
 
+Fixed-effect sources of variability in the data:
+
+- *Intercept* representing the mean number of errors across conditions
+- $\beta_{Mvmt}$: effect of movement condition (1 = arm movement, -1 = leg movement)
+- $\beta_{WType}$: effect of word type (1 = arm verbs, -1 = leg verbs)
+- $\beta_{Mvmt:WType}$: Interaction
+
+We take our estimates from the reported means (assuming contrast coding with
+1/-1):
 
 ```{r}
-# for functions from the plyr family, see
-# http://nicercode.github.io/2014-02-13-UNSW/lessons/40-repeating/
+betas <- with(sp_means, c(interce = mean(M),
+                          b_mvmt = (mean(M[1:2]) - mean(M[3:4])) / 2,
+                          b_wtyp = (mean(M[c(1,3)]) - mean(M[c(2,4)])) / 2,
+                          b_interaction = (mean(M[c(1,4)]) - mean(M[c(2,3)])) / 2))
+betas
+```
 
-# For simulating data from a mvnorm with a cov matrix computed from correlations, see
-# https://stats.stackexchange.com/questions/164471/generating-a-simulated-dataset-from-a-correlation-matrix-with-means-and-standard
+Quickly verify:
+
+```{r, echo = TRUE}
+# Verify by multiplying design matrix by betas
+X <- matrix(c(
+  1, 1, 1, 1,
+  1, 1,-1,-1,
+  1,-1, 1,-1,
+  1,-1,-1, 1),
+  ncol = 4
+)
+colnames(X) <- c("intercept", "mvmt", "wtype", "interaction")
+X
+X %*% betas
+# Indeed the same as reported means
+sp_means[, 1:3]
 ```
 
 
