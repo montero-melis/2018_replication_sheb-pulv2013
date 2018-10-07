@@ -28,7 +28,7 @@ library(GGally)
 library(dplyr)
 library(tidyr)
 library(lme4)
-knitr::opts_chunk$set(echo = FALSE, fig.height = 3.5)
+knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 ```
 
 
@@ -40,7 +40,7 @@ ggpairs_he <- 4.5  # default height for ggpairs plots
 ```
 
 
-```{r, include = FALSE}
+```{r, include = TRUE}
 ## load data files
 # verb norming English
 bias_en_l <- read.csv("data_verb-bias_L2eng.csv", fileEncoding = "UTF-8")
@@ -403,6 +403,10 @@ incorrect by two Swedish native speakers (see
 `norming_1809_analysis/scoring_translation-task.Rmd` for details about inter-
 rater agreement).
 
+
+The data set and some processing
+--------------------------------
+
 The final data set (after resolving disagreements between raters) looks like
 this:
 
@@ -412,8 +416,81 @@ compr <- read.csv("data_translations_scored.csv", fileEncoding = "UTF-8",
 kable(head(compr %>% select(participant:cognate)))
 ```
 
+Note that some verbs haven't any verb_category assigned:
+
+```{r}
+# Note that some verbs haven't any verb_category assigned:
+unique(compr %>% select(expName, verb, verb_category:in_orig)) %>% 
+  filter(is.na(verb_category)) %>% kable
+```
+
+These are verbs for which we collected data in June, but which we subsequently
+excluded because they were unsuitable for several reasons (ambiguous, unknown,
+low bias...). So simply remove them from the data set. (We will remove
+`r sum(is.na(compr$verb_category))` observations.)
+
+```{r}
+compr <- compr[! is.na(compr$verb_category), ]
+```
 
 
+
+The coding scheme was:
+
+- 1 = Correct translation
+- 0 = Incorrect translation
+- 0.5 = Partly correct but underspecified (e.g., 'gå' for 'lumber')
+- -99 = Undecided
+
+Here's a table over how much each of the scoring occurred:
+
+```{r}
+table(compr$score)
+```
+
+We will remove scores of -99 (treat them as NAs) and leave the rest as they are.
+
+```{r}
+compr <- compr[! compr$score == -99, ]
+```
+
+
+Create a data frame with the mean score per verb (expressed as percentage of
+number of responses provided)
+
+```{r}
+# Create a data frame with the mean ratings
+(compr_vbs <- compr %>%
+  group_by(verb, verb_category, cognate_bin, cognate) %>%
+  summarise(sumScore = sum(score),
+            N = n(),
+            Score = sumScore / N)) %>%
+  head %>% kable
+```
+
+
+Verb comprehension by word type
+-------------------------------
+
+Show Scores by verb type:
+
+```{r}
+ggplot(compr_vbs, aes(x = verb_category, y = Score, colour = verb_category)) +
+  geom_boxplot() + ylab("Proportion correct translations")
+```
+
+Leg verbs were less well understood than arm verbs.
+
+Let's look at binned scores:
+
+```{r}
+compr_vbs$binnedScore <- cut(compr_vbs$Score, seq(0, 1, .25), right = FALSE, 
+                             include.lowest = TRUE)
+with(compr_vbs, table(binnedScore, verb_category))
+```
+
+We should probably only include verbs that have at least a mean score of 50%
+correct translations.
 
 
 Choice of target verbs
@@ -421,15 +498,130 @@ Choice of target verbs
 
 We need to take into account:
 
-- Verb bias (Eng + Swe)
+- Verb bias (L2 Eng and Swe)
 - Verb comprehension (L2 Eng)
-- Whether it's a translation equivalent (Eng-Swe)
+- Whether it's a translation equivalent (Eng-to-Swe)
 - Cognate status (L2 Engl)
 - Other frequency and word length measures
 
 
 English verbs
 -------------
+
+The two most important factors are verb bias and whether it's understood
+by Swedish speakers. Let's combine that information:
+
+```{r}
+# Add info about verb bias to the comprehension scores
+compr_vbs <- left_join(compr_vbs, bias_en %>% select(verb, bias, bias_absol))
+```
+
+And plot it:
+
+```{r}
+ggplot(compr_vbs, aes(x = Score, y = bias_absol, colour = verb_category)) +
+  geom_point() +
+  geom_vline(xintercept = .5, linetype = "dashed") +
+  geom_hline(yintercept = 3, linetype = "dashed") +
+  ylab("Verb bias in coherent direction") +
+  xlab("Proportion correct translations") +
+  ggtitle("Bias and translation accuracy for L2 English verbs")
+```
+
+Ideally we want to keep only verbs that are in the upper right quadrant. These
+are verbs that both were translated correctly at least 50% of the time and
+elicited a bias of at least 3 in the expected direction.
+
+
+### First selection of L2 English verbs
+
+Let's take a look at them:
+
+```{r}
+# Subset verbs that meet criteria, but relax bias to catch a verb that is right
+# below 3 (it's trek, with bias 2.92, and switch, with bias 2.97)
+select_en <- compr_vbs %>% 
+  filter(Score >= .5 & bias_absol >= 2.9)
+```
+
+```{r, fig.height = 6, fig.width = 10}
+ggplot(select_en, aes(x = Score, y = bias_absol, colour = verb_category,
+                      label = verb)) +
+  geom_text() +
+  ylab("Verb bias in coherent direction") +
+  xlab("Proportion correct translations") +
+  ggtitle("First selection of L2 English verbs")
+```
+
+How many of each type are there?
+
+```{r}
+table(select_en$verb_category)
+```
+
+
+### Can we squeeze out a few more leg verbs
+
+We are short of 3 leg verbs to have 10 quadruples per block (which would
+require 40 distinct verbs).
+
+To see if we can find a few more leg verbs We can relax our requirements
+somewhat for leg verbs. So let's take a look at verbs in the upper left and
+lower right quadrants from the figure above.
+
+Verbs with high leg bias but poor translation accuracy, or the opposite, verbs
+with high translation accuracyl but low leg bias:
+
+```{r, fig.height = 5}
+compr_vbs %>% 
+  filter(verb_category == "leg" & (Score > .5 & bias_absol < 3)
+         | (Score < .5 & bias_absol > 3)) %>%
+  ggplot(aes(x = Score, y = bias_absol, label = verb)) +
+  geom_text() +
+  geom_vline(xintercept = .5, linetype = "dashed") +
+  geom_hline(yintercept = 3, linetype = "dashed") +
+  xlim(0,1) + ylim(0,6) +
+  ylab("Verb bias in coherent direction") +
+  xlab("Proportion correct translations") 
+```
+
+We can include the three verbs that were well understood and elicited a
+reasonable bias: creep, dance, and stamp.
+
+
+```{r}
+select_en <- rbind(select_en, 
+                   compr_vbs[compr_vbs$verb %in% c("creep", "dance", "stamp"),])
+kable(tail(select_en))
+```
+
+
+### Check other variables
+
+Check cognate status
+
+```{r}
+with(select_en, addmargins(table(cognate_bin, verb_category)))
+```
+
+
+Number of letters:
+
+```{r}
+select_en$nbLetters <- nchar(select_en$verb)
+with(select_en, addmargins(table(nbLetters, verb_category)))
+select_en %>% group_by(verb_category) %>%
+  summarise(M_letters = mean(nbLetters),
+            SD_letters = sd(nbLetters),
+            min_letters = min(nbLetters),
+            max_letters = max(nbLetters))
+```
+
+
+
+
+### Temporary solution
+
 
 ```{r}
 # Number of verbs to choose per category
@@ -475,10 +667,14 @@ Appendices
 Full list of normed L2 verbs (June and September)
 ------------------------------------------------
 
-List of all normed L2 English verbs, sorted after bias:
+List of all normed L2 English verbs, sorted after bias, and adding translation
+scores if available:
 
 ```{r}
-kable(bias_en %>% arrange(bias, verb))
+bias_en %>% 
+  left_join(compr_vbs %>% select(verb, Score)) %>%
+  arrange(bias, verb) %>%
+  kable
 ```
 
 The column nObs (=number of observations) shows how many participants rated
