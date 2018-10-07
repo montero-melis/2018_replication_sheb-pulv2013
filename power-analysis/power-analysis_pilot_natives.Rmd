@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 Introduction
 ============
 
-We want to conduct a power analysis for a pilot study consisting in a conceptual
+We want to conduct a power analysis for a pilot in which we run a conceptual
 replication of Shebani & Pulvermüller (2013, Cortex), henceforth S&P.
 In S&P, participants had to memorize groups of four words (quadruples) that were
 either arm- or leg-related (word type). Each block consisted of 24 such
@@ -128,7 +128,7 @@ words presented in each trial.
 Based on this description, it seems like the data could be modelled as
 generated under a Poisson distribution.
 
-Below, we explore two approaches:
+Below, we explore two distributions to simulate and model the data:
 
 1. Model the data as coming from a normal distribution (as done by S&P);
 2. Model the data as coming from a Poisson distribution (which seems more
@@ -197,7 +197,7 @@ rmvnorm(n = 3,  # Number of participants
 Each row represents the data from one participant. Each participant contributes
 four data points (1 per column), corresponding to each of the four cells. 
 
-To get an intuition of the data we are simulating, let's facotr it all into a
+To get an intuition of the data we are simulating, let's factor it all into a
 function and plot a few such data sets:
 
 ```{r}
@@ -253,7 +253,7 @@ plotCI <- function(df_sims) {
 Data sets are simulated with the `simulate_data` function:
 
 ```{r}
-kable(simulate_data()() %>% tail)  # nb_sim defaults to 1
+kable(simulate_data()(nb_sim = 1) %>% tail)  # nb_sim defaults to 1
 ```
 
 
@@ -339,16 +339,16 @@ identifiable, as explained [here](https://www.r-bloggers.com/mixed-models-for-an
 and the right thing to do if we want to stay in the LMM setting is to drop the
 highest-level interaction from the random effect structure, yielding the model:
 `nbErrors ~ 1 + Movement * WordType + (1 + Movement + WordType | Subject)`.
-(The post just referenced explains in more detail how the variance is
-partitioned in that case: the random by-subject variability for the interaction
-gets factored into the residual variance of the model.)
+The post just referenced explains in more detail how the variance is
+partitioned in this case: the random by-subject variability for the interaction
+gets factored into the residual variance of the model.
 
 
 #### Simulate data and fit models
 
 We will simulate a large number of data sets for each parametrization of the
 data; then fit models on each, and save it as an R object. Later functions can
-then be run on the dataframe contained the fitted models to extract summaries
+then be run on the dataframe containing the fitted models to extract summaries
 of interest.
 
 ```{r}
@@ -377,7 +377,7 @@ The function to fit many models:
 fit_many <- function(parameterList = NULL, nbSims = NULL, 
                      fitAnew = FALSE, loadOnly = TRUE) {
   
-  # By default (if loadOnly = T) it will just load the data
+  # By default (if loadOnly = T) it will just load the fitted models from disk
   if (loadOnly) {
     load("my_simulations.RData")
     return(my_simulations)
@@ -394,11 +394,12 @@ fit_many <- function(parameterList = NULL, nbSims = NULL,
   }
   
   # Now run the simulations
-  for (sigma_name in names(parameterList$my_sigma)) {  # only way I found to keep track of name
-    sigma <- parameterList$my_sigma[[sigma_name]]  # a bit clumsy
+  for (sigma_name in names(parameterList$my_sigma)) {  # a way to keep track of
+    sigma <- parameterList$my_sigma[[sigma_name]]      # both name and cov matrix
     for (N in parameterList$my_n) {
-      data_simulator <- simulate_data(my_n = N, my_sigma = sigma)
+      data_simulator <- simulate_data(my_n = N, my_sigma = sigma)  # creates function
       result <- fit_model(data_simulator(nb_sim = nbSims))
+      # Keep track of the parameters under which the data were generated
       result$N <- N
       result$Sigma <- sigma_name
       # Add info about System time to allow us to simulate on different
@@ -410,7 +411,7 @@ fit_many <- function(parameterList = NULL, nbSims = NULL,
   # save to disk
   my_simulations <- df
   save(my_simulations, file = "my_simulations.RData")
-  my_simulations
+  my_simulations  # and return result to save as object in global environment
 }
 ```
 
@@ -420,17 +421,15 @@ and sigmas.
 ```{r}
 sigma_nocorrel <- diag(sp_means$SD ^ 2)  # uncorrelated sigma
 # *list* of parameters
-# (params <- list(my_sigma = list("nocorr" = sigma_nocorrel, "correl" = sigma_correlated),
-#                 my_n = c(15, 30)))
-# 
-(params <- list(my_sigma = list("correl_original" = orig_data_summaries$sigma),
+(params <- list(my_sigma = list("nocorr" = sigma_nocorrel, "correl" = sigma_correlated,
+                                "correl_original" = orig_data_summaries$sigma),
                 my_n = c(15, 30)))
 ```
 
 
 ```{r}
 # Run the simulations and fit models
-my_simulations <- fit_many(params, nbSims = 209, loadOnly = FALSE)
+my_simulations <- fit_many(params, nbSims = 5, loadOnly = TRUE)
 head(my_simulations)
 nrow(my_simulations)
 # Number of simulations per parameter setting
@@ -446,13 +445,15 @@ Access model summaries nicely formatted into a dataframe using the `broom` packa
 # following http://stat545.com/block023_dplyr-do.html
 load_or_extract_summaries <- function(extract_anew = FALSE) {
   if (! extract_anew) {  # Default will be to just load the stored object
-    load("my_fm_summaries.RData", envir = .GlobalEnv)
+    load("my_fm_summaries.RData")
+    return(my_fm_summaries)
   } else {  # but we can also get the summaries anew (in case there are more models)
-    my_fm_summaries <-my_simulations %>% tidy(fm)
+    my_fm_summaries <- my_simulations %>% tidy(fm)
     save(my_fm_summaries, file = "my_fm_summaries.RData")
+    return(my_fm_summaries)
     }
 }
-load_or_extract_summaries(extract_anew = FALSE)
+my_fm_summaries <- load_or_extract_summaries(extract_anew = FALSE)
 kable(head(my_fm_summaries))
 ```
 
@@ -493,6 +494,19 @@ my_fm_summaries_interact %>%
 Data coming from a Poisson distribution
 ---------------------------------------
 
+### Overdispersion if directly modelling subject cell averages
+
+If we model each subject's number of errors per cell $i$ as a draw from a Poisson
+distribution with $\lambda = nbErrors_i$ ($i$ = ArmMovement-armWords, 
+ArmMovement-legWords, LegMovement-armWords, LegMovement-legWords), then the
+variability gets underestimated, i.e. we have overdispersion.
+Let's illustrate:
+
+```{r}
+
+```
+
+
 
 
 
@@ -521,7 +535,7 @@ We take our estimates from the reported means (assuming contrast coding with
 1/-1):
 
 ```{r}
-betas <- with(sp_means, c(interce = mean(M),
+betas <- with(sp_means, c(b_0 = mean(M),  # intercept
                           b_mvmt = (mean(M[1:2]) - mean(M[3:4])) / 2,
                           b_wtyp = (mean(M[c(1,3)]) - mean(M[c(2,4)])) / 2,
                           b_interaction = (mean(M[c(1,4)]) - mean(M[c(2,3)])) / 2))
