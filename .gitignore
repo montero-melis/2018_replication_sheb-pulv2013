@@ -33,6 +33,12 @@ exp-scripts_psychopy/pilot/data/99[0-9]*
 exp-scripts_psychopy/norming_1809/data/99[0-9]*
 exp-scripts_psychopy/test-debug/data/99[0-9]*
 exp-scripts_psychopy/replication_pilot_1810/data/99[0-9]*
+# exceptions: pilot runs on GMM and OL (for technical checks)
+!exp-scripts_psychopy/replication_pilot_1810/data/990_sheb_replication_1810_2018_Sep_28_1240.*
+!exp-scripts_psychopy/replication_pilot_1810/data/990_verb_norming_L1-eng_no-translation_2018_Sep_28_1343.*
+!exp-scripts_psychopy/replication_pilot_1810/data/991_sheb_replication_1810_2018_Oct_05_1305.*
+!exp-scripts_psychopy/replication_pilot_1810/data/991_verb_norming_L1-eng_no-translation_2018_Oct_05_1341.*
+
 
 # an email draft I might want to send later on
 *ANOVAs.msg
