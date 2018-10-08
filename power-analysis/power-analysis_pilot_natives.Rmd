@@ -500,14 +500,69 @@ If we model each subject's number of errors per cell $i$ as a draw from a Poisso
 distribution with $\lambda = nbErrors_i$ ($i$ = ArmMovement-armWords, 
 ArmMovement-legWords, LegMovement-armWords, LegMovement-legWords), then the
 variability gets underestimated, i.e. we have overdispersion.
+
 Let's illustrate:
 
 ```{r}
-
+# Function to simulate number of errors as independent draws from Poisson.
+# Takes random draws from 4 Poissons with lambdas equal to each of the cell
+# means.
+simulate_poisson <- function(nbSim = 1, cell_lambdas = sp_means$M,
+                             N = 15) {  # number of subjects with 4 obs/subject
+  
+  # Columnwise, groups of 4 observations correspond subject means per cell.
+  pois_draws <- sapply(1:nbSim, function(x) rpois(n = N * 4, lambda = cell_lambdas))
+  
+  # Format into dataframe
+  df <- data.frame(Sim = rep(1:nbSim, each = N *4),
+                   Subject = rep(1:15, each = 4),
+                   WordType = c("arm-word", "leg-word"),
+                   Movement = rep(c("arm", "leg"), each = 2),
+                   nbErrors = as.vector(pois_draws))
+  df
+}
+(pois_simulated <- simulate_poisson(1000)) %>% head %>% kable
 ```
 
+While these simulations of course get the mean number of errors per cell right
+(vertical lines show the actual values in the sample)...
 
+```{r}
+pois_simulated %>%
+  group_by(Sim, WordType, Movement) %>%
+  summarise(M = mean(nbErrors)) %>%
+  ggplot(aes(x = M, colour = WordType)) +
+  geom_density() +
+  facet_grid(Movement ~ .) +
+  geom_vline(data = sp_means, aes(xintercept = M, colour = WordType), linetype = "dashed") +
+  xlab("Mean number of errors per cell mean") +
+  ggtitle("Mean number of errors under Poisson distr.")
+```
 
+... they heavily underestimate variability between subjects (vertical lines
+show the actual values in the sample).
+
+```{r}
+pois_simulated %>%
+  group_by(Sim, WordType, Movement) %>%
+  summarise(SD = sd(nbErrors)) %>%
+  ggplot(aes(x = SD, colour = WordType)) +
+  geom_density() +
+  facet_grid(Movement ~ .) +
+  geom_vline(data = sp_means, aes(xintercept = SD, colour = WordType), linetype = "dashed") +
+  xlab("Standard dev. of by-subject means per cell") +
+  ggtitle("Standard deviations under Poisson distr.")
+```
+
+This underestmation of variability is not surprising, since we are assuming
+that each subject's number of errors is drawn from exactly the same distribution
+as any other subject's. If we instead specify a generative model, we can model
+subject observations as themselves coming from different distributions, i.e.
+a subject's cell means will follow a Poisson distribution whose lambda values
+are themselves taken from a distribution of lambda values in the population
+(e.g. normally distributed).
+
+We explore this approach in the next section.
 
 
 Specifying a generative model?
