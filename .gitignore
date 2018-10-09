@@ -11,8 +11,8 @@
 
 *.pdf
 # exceptions:
-!pilot_analysis/protocol_pilot.pdf
-!pilot_analysis/LBQ_pilot.pdf
+!1806_pilot_analysis/protocol_pilot.pdf
+!1806_pilot_analysis/LBQ_pilot.pdf
 
 *.doc
 *.docx
