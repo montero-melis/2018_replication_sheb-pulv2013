@@ -65,6 +65,21 @@ Here are some examples to clarify:
 - Participant's response: "wipe something snatch... scuffle? scratch?"
 - Code like this: `wipe,x,snatch,y=scuffle/scratch`
 
+- Trial 4 target words: wash clap brush catch
+- Participant's response: wash brush clean clap
+- Code like this: `wash,brush,y=clean,clap`
+- NB: Remember to put the "y=..." In the same position as it appeared.
+
 **comment**: Write any comment that might seem relevant; for example, if the participants hesitates a lot. Take note of any coding difficulty you notice, so we can discuss it later.
 
 **coder**: write your initials in the first row. Here you can also note the exact time if you have to stop coding a file half-way through and will continue at a later stage. 
+
+## Errors
+
+- `R` = *replacement*: The participant replaces the target word with another word. This is the code y=...
+- `O` = *omission*: The participant omits a word, either by silence or saying "something", "I can't remember" or something similar that indicates that they don't know. This is the code x
+- `S` = *shift/transposition*: The participant says the target words but in the wrong order. This error is why it is important to code the response words in the exact same order as the participant says them. 
+
+## After coding
+
+Look through the transcript and make sure there are no typos, as typos will mess up the script that we'll run on the coded data to get error statistics. Also double check that you correctly coded all the replacements as `y=...`
