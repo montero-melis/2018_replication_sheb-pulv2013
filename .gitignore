@@ -44,6 +44,4 @@ exp-scripts_psychopy/replication_pilot_1810/data/99[0-9]*
 *ANOVAs.msg
 
 # Original data shared with me by the first author; we have agreed not to make it public
-1810_replication-natives_analysis/power-analysis/SP_2013_shared-data_cleaned_total-errors.csv
-1810_replication-natives_analysis/power-analysis/replicate_SP2013_analyses.R
-1810_replication-natives_analysis/power-analysis/orig_data_glmm_poi.RData
+1810_replication-natives_analysis/power-analysis/DONTSHARE/*
