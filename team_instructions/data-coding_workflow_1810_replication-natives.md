@@ -53,17 +53,25 @@ For `1810_replication-natives_analysis` there are the following columns:
 
 Here are some examples to clarify:
 
+Ex.1: 
+
 - Trial 1 target words: rub pat poke clean
 - Participant's response: "rub pluck something clean"
 - Code like this: `rub,y=pluck,x,clean`
+
+Ex.2: 
 
 - Trial 2 target words: trudge glide wander skate
 - Participant's response: "trudge something something skate"
 - Code like this: `trudge,x,x,skate`
 
+Ex.3: 
+
 - Trial 3 target words: wipe pull snatch scoop
 - Participant's response: "wipe something snatch... scuffle? scratch?"
 - Code like this: `wipe,x,snatch,y=scuffle/scratch`
+
+Ex.4: 
 
 - Trial 4 target words: wash clap brush catch
 - Participant's response: wash brush clean clap
