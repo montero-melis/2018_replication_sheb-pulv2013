@@ -82,7 +82,10 @@ if (! dir.exists(path_out)) dir.create(path_out)
 
 # Load model estimates from R-object saved to disk:
 (load(file.path(path_in, "orig_data_model_estimates.RData")))
+# Ecce
 orig_data_model_coefficient_estimates
+
+## Save each component as a separate object
 
 # Fixed effect means
 (my_fixef_means <- orig_data_model_coefficient_estimates[["fixef_means"]])
@@ -93,81 +96,23 @@ orig_data_model_coefficient_estimates
 
 
 #  ------------------------------------------------------------------------
-#  Function to simulate Poi-distributed data under model estimates + uncertainty
+#  Simulate Poisson-distributed data under model estimates + uncertainty (functions)
 #  ------------------------------------------------------------------------
 
-# Simulate Poisson-distributed data for the current design
-simulate_poisson <- function (
-  N = 3,  # Number of participants
-  fixef_means  = my_fixef_means,  # vector of mean estimates for fixed effects
-  fixef_sigma  = my_fixef_sigma,  # covariance matrix for fixed effects estimates
-  ranef_sigma  = my_ranef_sigma,   # covariance matrix for random effects (by-subject only)
-  print_each_step = FALSE  # print output at each step to unveil inner workings
-  ) {
-  
-  myprint <- function(x) {
-    if (print_each_step) { 
-      cat("\n"); print(paste("This is ", deparse(substitute(x)))); cat("\n")
-      print(x)}}
-  
-  # 0) create design matrix X for experiment
-  myfactors <- data.frame(Movement = factor(rep(c("arms", "legs"), each = 2)),
-                          WordType = factor(c("arm-word", "leg-word")))
-  contrasts(myfactors$Movement) <- contr.sum(2)
-  contrasts(myfactors$WordType) <- contr.sum(2)
-  X <- model.matrix(~ 1 + Movement * WordType, myfactors)
-  myprint(X)
-  
-  # 1) Fixed effects for current simulation
-  fixef <- rmvnorm(n = 1,  # One simulation
-                   mean = fixef_means,  # The mean of fixed effects
-                   sigma = fixef_sigma) # covariance of fixed effects
-  myprint(fixef)
-  
-  # 2) By-subject adjustments (multivariate normal with mean zero)
-  # Each matrix row gives subject adjustments for betas of the 4 predictors in X
-  sbj_adjust <- rmvnorm(n = N,
-                        mean = rep(0, ncol(ranef_sigma)),
-                        sigma = ranef_sigma)
-  myprint(sbj_adjust)
-  
-  # 3) Obtain by-subject coefficients by combining steps 1 and 2
-  sbj_coef <- sbj_adjust + rep(fixef, each = nrow(sbj_adjust))
-  myprint(sbj_coef)
-  
-  # 4) Simulate the by-subject cell means *in link space* by multiplying model
-  # matrix X and subject coefficients. Each column corresponds to multiplying
-  # a row of X by a (transposed) row-vector of sbj_coef, and thus give us the 
-  # expected cell means for a given subject (4 values per subject).
-  cell_means_link <- X %*% t(sbj_coef)
-  myprint(cell_means_link)
-  
-  # 5) Arrange back into data frame using the initial myfactors
-  df <- data.frame(
-    Subject = rep(1:N, each = nrow(cell_means_link)),
-    myfactors,
-    logLambdas = as.vector(cell_means_link))  # works bc values read columnwise
-  myprint(df)
-  
-  # 6) Values in response space
-  # 6a) The link function in Poisson regression is log, so convert back
-  df$lambdas <- exp(df$logLambdas)
-  # 6b) This gave us the *lambda* parameter of the Poisson distribution,
-  # but we want to simulate an actual error count
-  df$nbErrors <- rpois(nrow(df), lambda = df$lambdas)
+# Basic function to simulate Poisson-distributed data for the current design.
+# For readability, this function is sourced from a different file; check out
+# the source code for the details of its inner workings.
+source("Rfunctions/simulate_poisson_data_fnc.R")
 
-  df
-}
-
+# It takes as its default arguments the means and covariances from the model
+# above: my_fixef_means, my_fixef_sigma, my_ranef_sigma
+# Example output for illustration
 simulate_poisson()
-simulate_poisson(print_each_step = FALSE)
-simulate_poisson(print_each_step = TRUE)
+# uncomment next:
+# simulate_poisson(print_each_step = TRUE)  # prints out intermediate steps
 
 
-#  ------------------------------------------------------------------------
-#  Function to plot simulated data
-#  ------------------------------------------------------------------------
-
+# Convenience function to plot simulated data
 plot_sim <- function(sim_data = NULL, show_indiv_data = TRUE) {
   pd <- position_dodge(0.2)
   p <- ggplot(sim_data, aes(x = Movement, y = nbErrors, colour = WordType)) +
@@ -176,36 +121,31 @@ plot_sim <- function(sim_data = NULL, show_indiv_data = TRUE) {
   if (show_indiv_data) p <- p + geom_jitter(height = 0, width = .2, alpha = .5)
   p
 }
-
-plot_sim(simulate_poisson(print_each_step = F))
-plot_sim(simulate_poisson(N = 15, print_each_step = F))
-plot_sim(simulate_poisson(N = 30, print_each_step = F))
-sim45 <- simulate_poisson(N = 45, print_each_step = F)
-plot_sim(sim45, show_indiv_data = F)
-plot_sim(sim45, show_indiv_data = T)
-
-# Completely extreme fixed effect means
-plot_sim(simulate_poisson(N = 15, fixef_means = c(6,-.05,.05,1)))
+# Examples
+plot_sim(simulate_poisson(N = 15))
+sim30 <- simulate_poisson(N = 30)
+plot_sim(sim30, show_indiv_data = T)  # default
+plot_sim(sim30, show_indiv_data = F)
 
 
-#  ------------------------------------------------------------------------
-#  Function to simulate many data sets
-#  ------------------------------------------------------------------------
-
+# Wrapper function to simulate *many* data sets, calling simulate_poisson()
+# through plyr::rdply. Through the three-dots syntax we can pass arguments
+# to simulate_poisson(), which is critical:
 poisson_sims <- function(n_sims = 1, ...) {
   out <- rdply(n_sims, simulate_poisson(...)) %>% rename(Sim = .n)
   out
 }
-(x <- poisson_sims(n_sims = 3))
-# With three-dots syntax we can pass arguments to simulate_poisson() function
-(x <- poisson_sims(n_sims = 3, N = 20, fixef_means = c(6,-.05,.05,1)))
+(x <- poisson_sims(n_sims = 2))
+(x <- poisson_sims(n_sims = 2, N = 20, fixef_means = c(6,-.05,.05,1)))
 rm(x)
 
+
 #  ------------------------------------------------------------------------
-#  Function to fit models on simulated data sets
+#  Fit models on simulated data sets (functions)
 #  ------------------------------------------------------------------------
 
-# function that fits the model on each simulation (Sim) of a simulated data set
+# Basic function to fit Poisson GLMM model to each simulated (Sim) data set.
+# Takes as its input the output of poisson_sims()
 fit_poi_glmm <- function(sim_data = NULL) {
   # fit models using dplyr::do (https://dplyr.tidyverse.org/reference/do.html)
   fitted <- sim_data %>% group_by(Sim) %>%
@@ -214,92 +154,24 @@ fit_poi_glmm <- function(sim_data = NULL) {
       data = ., family = "poisson", control = 
         glmerControl(optimizer = "bobyqa", optCtrl=list(maxfun=100000)))
       )
-         
 }
 # For instance:
-(fit_poi_glmm(poisson_sims(n_sims = 3)))
+(fit_poi_glmm(poisson_sims(n_sims = 2)))
 
 
 #  ------------------------------------------------------------------------
-#  Function to fit models on differently paremtrized simulations and save to disk
+#  Fit models on differently parametrized simulations and save to disk
 #  ------------------------------------------------------------------------
 
-# The idea of this function is taken from D Kleinschmidt's LSA13 slides;
-# check them out for the use of mdply with a data frame of parameters that serve
-# as input to simulate_data() function. Unfortunately, I haven't been able to
-# figure out how to pass whole vetors or matrices (covariance matrices) as 
-# parameters in a dataframe, so I'm putting things in a list and then using a
-# wrapper function that loops through this list of parameters.
+# We want a function that fits models on differently parametrized simulations.
+# Because this is time consuming, we want the result to be saved to disk and
+# we want to be able to add new simulations if we run the functions on different
+# occasions.
 
-# Additionally, this function takes some parameters to make it the default
-# to firs retrieve saved simulations from disk and then append new ones to
-# those. This makes it possible to run simulations on different occasions, 
-# which is good bc they take time.
- 
-# Function to fit models to data generated from list of different parameters
-fit_many_pois <- function(parameterList = NULL, nbSims = 1, 
-                          fitAnew = FALSE, loadOnly = FALSE, 
-                          output_folder = path_out,
-                          saved_obj_name = "my_poisson_simulations.RData") {
-  # how long does it take?
-  ptm <- proc.time()
-  
-  path_to_saved_obj <- file.path(path_out, saved_obj_name)
-  
-  # If loadOnly (default) it will not run new simulations, just load existing ones 
-  if (loadOnly) {
-    load(path_to_saved_obj)
-    return(my_poisson_simulations)  # only works if it's the name of saved object!
-  }
-  # Otherwise...
-  # check first if there is a saved .RData object with simulations; if so, load it
-  stored_simulations <- saved_obj_name %in% list.files(path_out)
+# Parameters we want to manipulate: effect size and N (number of participants)
 
-  # if fitAnew = F (default) it will append new simulations to loaded from disk
-  if ( (! fitAnew) & stored_simulations) {
-    load(path_to_saved_obj)
-    df <- my_poisson_simulations
-  } else {  # NB: if fitAnew = TRUE, it will delete any stored simulations
-    df <- data.frame(Sim = NULL, fm = NULL, N = NULL, effect_size = NULL)
-  }
-  
-  # Now run the simulations
-  for (effectsize_name in names(parameterList$my_effectsize)) {  # keep track of name
-    curr_fixef_means <- parameterList$my_effectsize[[effectsize_name]]
-    # print(curr_fixef_means)
-    for (curr_N in parameterList$my_N) {
-      # print(curr_N)
-      # fit models to data sets generated under current parametrization 
-      result <- fit_poi_glmm(
-        poisson_sims(
-          n_sims = nbSims,
-          N = curr_N,
-          fixef_means = curr_fixef_means
-          )
-        )
-      # print(result)
-      # Keep track of the parameters under which the data were generated
-      result$N <- curr_N
-      result$effect_size <- effectsize_name
-      # Add info about System time to allow us to simulate on different
-      # occasions and append the data
-      result$DateTime <- Sys.time()
-      df <- rbind(df, result)
-    }
-  }
-  # save to disk
-  my_poisson_simulations <- df
-  save(my_poisson_simulations, file = file.path(path_out, "my_poisson_simulations.RData"))
-
-  print(paste("This is how long it took with", nbSims, "simulation(s):"))
-  print(proc.time() - ptm)
-  
-  my_poisson_simulations  # and return result to save as object in global environment
-}
-
-
-# Vary the effect sizes of the parameter of interest
-my_fixef_means
+# Maintain different effect sizes for parameter of interest: *interaction* estimate
+my_fixef_means  # original fixed effects estimates
 vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
   orig[4] <- orig[4] * factor
   orig
@@ -310,8 +182,7 @@ vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
 (orig_effsize.25 <- vary_effectsize(.25))
 (orig_effsize.0 <- vary_effectsize(0))
 
-# Run the function with a given set of parameters, looping over different N’s and sigmas.
-# *list* of parameters
+# *list* of manipulated parameters
 (params <- list(
   my_effectsize = list(
     "orig" = orig_effsize,
@@ -319,11 +190,34 @@ vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
     "orig.5" = orig_effsize.5,
     "orig.25" = orig_effsize.25,
     "orig.0" = orig_effsize.0),
-  my_N = seq(15, 60, 15)))
+  my_N = seq(15, 60, 15)))  # N = 15,30,45,60
 
-# run
-my_poisson_simulations <- fit_many_pois(params, nbSims = 250, loadOnly = F, fitAnew = F)
+# Function to fit models to differently parametrized simulations and save to disk
+# See source code to understand its inner mysteries.
+source("Rfunctions/fit_many_poisson_fnc.R")
 
-head(my_poisson_simulations)
-tail(my_poisson_simulations)
+# Parameters taken by the function (for reference):
+
+# fit_many_poisson <- function(
+#   parameterList = NULL,  # list of manipulated parameters in the simulations
+#   nbSims = 1,  # number of simulations for each parameter setting
+#   fitAnew = FALSE,   # see source code (don't change unless you understand)
+#   loadOnly = FALSE,  # don't run new simulations, only load from disk
+#   output_folder = path_out,  # assumes this is defined in the script
+#   saved_obj_name = "my_poisson_simulations.RData",
+#   print_each_step = FALSE  # for use with myprint() function
+# ) { ...
+
+
+# Run following lines to add more simulations -- adjust nbSims argument
+
+# my_poisson_simulations <- fit_many_poisson(
+#   parameterList = params, nbSims = 1, 
+#   loadOnly = FALSE, print_each_step = TRUE)
+
+# Run the following to just load existing (previously fitted) simulations
+my_poisson_simulations <- fit_many_poisson(params, loadOnly = TRUE)
+
+head(my_poisson_simulations, 22)
+tail(my_poisson_simulations, 30)
 nrow(my_poisson_simulations)
