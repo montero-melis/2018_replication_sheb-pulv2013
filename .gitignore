@@ -45,3 +45,6 @@ exp-scripts_psychopy/replication_pilot_1810/data/99[0-9]*
 
 # Original data shared with me by the first author; we have agreed not to make it public
 1810_replication-natives_analysis/power-analysis/DONTSHARE/*
+
+# Power analyses -- some files are too large
+1810_replication-natives_analysis/power-analysis/simulations/my_poisson_simulations.RData
