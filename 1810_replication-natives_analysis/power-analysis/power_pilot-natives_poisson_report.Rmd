@@ -1,0 +1,152 @@
+---
+title: "Power analysis for conceptual replication of S&P"
+author: "Guillermo Montero-Melis"
+date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+  pdf_document:
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(ggplot2)
+# library(plyr)
+library(dplyr)
+# library(mvtnorm)
+# library(tidyr)
+library(lme4)
+library(broom)  # access summaries from fitted models
+knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
+```
+
+
+Introduction
+============
+
+This is a power analysis for a conceptual replication of Shebani & Pulvermüller
+(2013, Cortex), henceforth S&P. In S&P, participants had to memorize groups of
+four words (quadruples) that were either arm- or leg-related (word type). Each
+block consisted of 24 such quadruples, 12 of each type. Between blocks they
+manipulated the conditions under which the words had to be kept in memory. We
+simplify their original design to a 2x2 within-subjects factorial design:
+
+- *Movement*: arm or leg movement -- manipulated between blocks
+- *WordType*: arm or leg verbs -- manipulated within blocks but between quadruples
+(= trials)
+
+We want to estimate the power for finding the most interesting effect reported
+in S&P: An interaction of WordType (arm vs leg verb) and MovementType (arm vs
+leg movements), leading to worse memory for arm than for leg verbs when
+performing arm movements, and to worse memory for leg than for arm verbs when
+performing leg movements.
+
+
+Info provided in the paper
+-------------
+
+The dependent variable is the total number of errors made by a participant in
+each of the four experimental cells defined by the 2-by-2 design.
+The following table from the original paper summarizes the cell means, 
+averaging over subjects.
+
+![Shebani and Pulvermüller (2013, p.226)](SP2013_tb2.png)
+
+
+Data set shared with us
+--------------------
+
+The first author shared the data file that went into the reported analyses,
+but we have agreed not to share it. Here is *made up* data with the same
+structure as the file we got:
+
+```{r, echo = FALSE}
+read.csv("madeup_data.csv") %>% head(., 9) %>% kable
+```
+
+
+Here is a plot of the *real* data showing cell means and confidence intervals
+obtained from non-parametric bootstrapping (i.e., not assuming normality):
+
+![](orig_data_results.png)
+
+
+
+
+Power analyses
+=============
+
+The power analyses are done in the separate R-script 
+`power-analysis_pilot_natives_poisson.R` (source code can be found
+[here](https://github.com/montero-melis/2018_replication_sheb-pulv2013/blob/master/1810_replication-natives_analysis/power-analysis/power-analysis_pilot_natives_poisson.R)).
+
+The analyses consist of the following steps:
+
+1. Fit an appropriate Poisson generalized linear mixed model (GLMM) to the
+*original* data set.
+2. Generate a large number of data sets from the distribution of coefficients
+estimated by the model. This captures uncertainty in both the fixed effects
+and the random effects part of the model.
+3. Repeat step 2 for each set of parameters that we want to manipulate, namely
+the size of the critical effect and the number of participants.
+4. Fit an appropriate Poisson GLMM to each such data set.
+5. Summarize, for each model, a test-statistic to decide whether the result
+is significant or not.
+
+
+Model fit to the original data
+-----------------------------
+
+Here is the summary of the model of the original data set; we use the parameter
+estimates below in our power simulations:
+
+```
+> summary(glmm_poi)
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: poisson  ( log )
+Formula: nbErrors ~ 1 + Movement * WordType + (1 + Movement * WordType |      Subject)
+   Data: d_crit
+Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+   397.1    426.4   -184.5    369.1       46 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.68516 -0.46864  0.06156  0.43853  1.45481 
+
+Random effects:
+ Groups  Name                                      Variance  Std.Dev. Corr          
+ Subject (Intercept)                               2.134e-01 0.461946               
+         Movementarms_vs_legs                      3.090e-02 0.175788 0.25          
+         WordTypearmW_vs_legW                      1.573e-03 0.039658 0.79 0.79     
+         Movementarms_vs_legs:WordTypearmW_vs_legW 4.366e-05 0.006608 0.86 0.70 0.99
+Number of obs: 60, groups:  Subject, 15
+
+Fixed effects:
+                                           Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                2.619681   0.125145  20.933   <2e-16 ***
+Movementarms_vs_legs                       0.005052   0.058905   0.086   0.9317    
+WordTypearmW_vs_legW                      -0.043961   0.038500  -1.142   0.2535    
+Movementarms_vs_legs:WordTypearmW_vs_legW  0.087994   0.037113   2.371   0.0177 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) Mvmn__ WTW__W
+Mvmntrms_v_ 0.187               
+WrdTyprW__W 0.219  0.118        
+Mv__:WTW__W 0.016  0.063  0.015 
+```
+
+Note the interaction comes out significant as in the original analysis.
+
+
+Power simulations
+----------------
+
