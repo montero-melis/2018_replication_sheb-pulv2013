@@ -1,4 +1,4 @@
-"verb","category","SUBTL_US_fpmw","SUBTL_US_zipf","SUBTL_UK_zipf","nb_of_phonemes"
+"verb","verb_category","SUBTL_US_fpmw","SUBTL_US_zipf","SUBTL_UK_zipf","nb_of_phonemes"
 "bash","arm",3.27,3.52,3.71,3
 "bind","arm",3.35,3.53,3.48,4
 "bounce","leg",9.84,3.99,4.3,4
