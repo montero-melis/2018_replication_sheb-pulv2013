@@ -209,15 +209,63 @@ source("Rfunctions/fit_many_poisson_fnc.R")
 # ) { ...
 
 
-# Run following lines to add more simulations -- adjust nbSims argument
+############## Comment/uncomment one of the following lines #############
+
+## Run following to add more simulations -- adjust nbSims argument
 
 # my_poisson_simulations <- fit_many_poisson(
-#   parameterList = params, nbSims = 1, 
+#   parameterList = params, nbSims = 1,
 #   loadOnly = FALSE, print_each_step = TRUE)
 
-# Run the following to just load existing (previously fitted) simulations
+## Run the following to just load existing (previously fitted) simulations
 my_poisson_simulations <- fit_many_poisson(params, loadOnly = TRUE)
 
+# check it out
 head(my_poisson_simulations, 22)
 tail(my_poisson_simulations, 30)
 nrow(my_poisson_simulations)
+
+
+#  ------------------------------------------------------------------------
+#  Extract useful model summaries
+#  ------------------------------------------------------------------------
+
+# The function I'm sourcing relies on the broom::tidy function
+source("Rfunctions/load-or-extract_model-summaries.R")
+
+# Change extract_anew to TRUE if there are new models to summarize
+simul_summaries <- load_or_extract_summaries(
+  extract_anew = FALSE,
+  filename_load = file.path(path_out, "poisson_sim_summaries.csv"),
+  filename_save = NULL,
+  my_simulations = my_poisson_simulations
+)
+
+head(simul_summaries)
+
+
+#  ------------------------------------------------------------------------
+#  Where's the power Lebowsky?
+#  ------------------------------------------------------------------------
+
+# Distribution of t-values for the different model specifications
+
+# Keep only data rows for critical interactions
+simul_summaries_interact <- simul_summaries %>% 
+  filter(term == "Movementlegs:WordTypeleg-word")
+simul_summaries_interact$effect_size <- factor(simul_summaries_interact$effect_size,
+                                      levels = c("orig", "orig.75", "orig.5", "orig.25", "orig.0"))
+# plot
+simul_summaries_interact %>%
+  ggplot(aes(x = statistic, colour = factor(N), linetype = factor(N))) +
+  facet_wrap(~effect_size) +
+  geom_density() +
+  geom_vline(xintercept = 1.96)
+
+# Compute the proportion of significant models:
+
+simul_summaries_interact %>% 
+  group_by(effect_size, N) %>%
+  mutate(signif = statistic > 1.96) %>%
+  summarise(Power = round(100 * sum(signif) / n(), 2),
+            nbSimulations = n())

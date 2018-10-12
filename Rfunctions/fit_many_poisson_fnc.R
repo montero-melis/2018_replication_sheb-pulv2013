@@ -16,6 +16,11 @@
 # The default (fitAnew = FALSE) will first retrieve saved simulations from disk,
 # then add new ones, and finally save them all to disk.
 
+# --> Note that it would have been preferable to use readRDS() and saveRDS()
+# rather than save() and load(); too late to fix it this time, but keep in mind
+# for future. For reference about the advantages in this context, see:
+# https://www.fromthebottomoftheheap.net/2012/04/01/saving-and-loading-r-objects/
+
 # Function to fit models to data generated from list of different parameters
 fit_many_poisson <- function(
   parameterList = NULL,  # list of manipulated parameters in the simulations
@@ -24,7 +29,8 @@ fit_many_poisson <- function(
   loadOnly = FALSE,  # don't run new simulations, only load from disk
   output_folder = path_out,  # assumes this is defined in the script
   saved_obj_name = "my_poisson_simulations.RData",
-  print_each_step = FALSE  # for use with myprint() function
+  print_each_step = FALSE,  # for use with myprint() function
+  save_to_disk = TRUE
   ) {
   
   # How much time does it take? Start the watch...
@@ -83,7 +89,7 @@ fit_many_poisson <- function(
   # save to disk
   print("ready to save to disk")
   my_poisson_simulations <- df
-  save(my_poisson_simulations, file = file.path(path_out, "my_poisson_simulations.RData"))
+  if (save_to_disk) save(my_poisson_simulations, file = file.path(path_out, "my_poisson_simulations.RData"))
   print("OK! Saved to disk.")
 
   print(paste("This is how long it took with", nbSims, "simulation(s):"))
