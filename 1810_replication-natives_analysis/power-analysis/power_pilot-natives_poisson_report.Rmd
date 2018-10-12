@@ -20,9 +20,9 @@ library(ggplot2)
 library(dplyr)
 # library(mvtnorm)
 # library(tidyr)
-library(lme4)
-library(broom)  # access summaries from fitted models
-knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
+# library(lme4)
+# library(broom)  # access summaries from fitted models
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
@@ -149,4 +149,121 @@ Note the interaction comes out significant as in the original analysis.
 
 Power simulations
 ----------------
+
+### The simulation data
+
+```{r, echo=FALSE}
+# Retrieve summaries of all the simulations
+simul_summaries <- read.csv("simulations/poisson_sim_summaries.csv")
+```
+
+The results of fitting a model in each simulation are stored in a *very long*
+data frame (`r nrow(simul_summaries)` rows). The rows for *one* simulation
+look like this:
+
+```{r, echo=FALSE}
+simul_summaries %>% select(-DateTime) %>%
+  head(.,14) %>% kable
+```
+
+We only care about the fixed effect estimate for the interaction between
+Movement condition and WordType, so we focus only on those rows. E.g.:
+
+```{r, echo}
+# Keep only data rows for critical interactions
+simul_summaries_interact <- simul_summaries %>% 
+  filter(term == "Movementlegs:WordTypeleg-word")
+# fix order of factor levels
+simul_summaries_interact$effect_size <- factor(simul_summaries_interact$effect_size,
+                                      levels = c("orig", "orig.75", "orig.5", "orig.25", "orig.0"))
+```
+
+```{r}
+simul_summaries_interact %>%
+  arrange(N, effect_size) %>%
+  select(-c(DateTime, Sim)) %>%
+  head(., 3) %>%
+  kable
+```
+
+
+### Distribution of key statistic for effect of interest
+
+Plot of z-values *for the critical interaction* in the models:
+
+```{r, fig.width=10, fig.height=5}
+# plot
+simul_summaries_interact %>%
+  ggplot(aes(x = statistic, colour = factor(N), linetype = factor(N))) +
+  facet_wrap(~effect_size) +
+  geom_density() +
+  geom_vline(xintercept = c(-1.96, 1.96), linetype = "dashed") +
+  xlab("z value")
+```
+
+
+### Key summary plots
+
+```{r}
+# Compute proportion of significant models:
+simul_significant <- simul_summaries_interact %>%
+  group_by(effect_size, N) %>%
+  mutate(signif = abs(statistic) > 1.96,
+         signif_expected   = statistic > 1.96,
+         signif_unexpected = statistic < -1.96) %>%
+  summarise(Power_expected_effect   = round(100 * sum(signif_expected) / n(), 2),
+            Proportion_inverse_effect = round(100 * sum(signif_unexpected) / n(), 2),
+            No_effect_detected = 100 - Power_expected_effect - Proportion_inverse_effect,
+            nbSimulations = n()) %>%
+  arrange(effect_size, -N)
+```
+
+
+```{r}
+ggplot(simul_significant, aes(x = effect_size, y = Power_expected_effect,
+                              colour = factor(N), group = factor(N))) +
+  geom_point() +
+  geom_line() +
+  ylim(0,100) +
+  geom_hline(yintercept = 80, linetype = "dashed") +
+  geom_hline(yintercept = 5, linetype = "dotted") +
+  ylab("Power of finding effect\nin expected direction") +
+  xlab("Effect size as factors of original") +
+  ggtitle("Power")
+```
+
+
+```{r}
+ggplot(simul_significant, aes(x = effect_size, y = Proportion_inverse_effect,
+                              colour = factor(N), group = factor(N))) +
+  geom_point() +
+  geom_line() +
+  ylim(0,100) +
+  geom_hline(yintercept = 80, linetype = "dashed") +
+  geom_hline(yintercept = 5, linetype = "dotted") +
+  ylab("Percentage of simulations with effect\nin opposite direction") +
+  xlab("Effect size as factors of original") +
+  ggtitle("Chances of finding opposite effect")
+```
+
+```{r}
+ggplot(simul_significant, aes(x = effect_size, y = No_effect_detected,
+                              colour = factor(N), group = factor(N))) +
+  geom_point() +
+  geom_line() +
+  ylim(0,100) +
+  geom_hline(yintercept = 80, linetype = "dashed") +
+  geom_hline(yintercept = 5, linetype = "dotted") +
+  ylab("Percentage of simulations with\nno significant interaction") +
+  xlab("Effect size as factors of original") +
+  ggtitle("Chances of accepting null (no effect)")
+```
+
+
+### Results in table format
+
+```{r}
+# Show as table
+kable(simul_significant)
+```
 
