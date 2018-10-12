@@ -513,7 +513,8 @@ by Swedish speakers. Let's combine that information:
 
 ```{r}
 # Add info about verb bias to the comprehension scores
-compr_vbs <- left_join(compr_vbs, bias_en %>% select(verb, bias, bias_absol))
+compr_vbs <- left_join(compr_vbs, bias_en %>% ungroup() %>% select(verb, bias, bias_absol))
+kable(head(compr_vbs))
 ```
 
 And plot it:
@@ -532,6 +533,15 @@ Ideally we want to keep only verbs that are in the upper right quadrant. These
 are verbs that both were translated correctly at least 50% of the time and
 elicited a bias of at least 3 in the expected direction.
 
+
+Let's also add frequency measures and number of phonemes:
+
+```{r}
+# Add info about verb frequency
+(en_vbs_freq <- read.csv("en_verbs_various_measures.csv")) %>% head %>% kable
+compr_vbs <- left_join(compr_vbs, en_vbs_freq)
+kable(head(compr_vbs))
+```
 
 ### First selection of L2 English verbs
 
@@ -560,22 +570,22 @@ table(select_en$verb_category)
 ```
 
 
-### Can we squeeze out a few more leg verbs
+### Can we come up to 40 leg verbs?
 
 We are short of 3 leg verbs to have 10 quadruples per block (which would
 require 40 distinct verbs).
 
-To see if we can find a few more leg verbs We can relax our requirements
-somewhat for leg verbs. So let's take a look at verbs in the upper left and
-lower right quadrants from the figure above.
+To see if we can find a few more leg verbs, we can relax our requirements
+somewhat. So let's take a look at verbs in the upper left and lower right
+quadrants from the figure above.
 
 Verbs with high leg bias but poor translation accuracy, or the opposite, verbs
 with high translation accuracyl but low leg bias:
 
 ```{r, fig.height = 5}
 compr_vbs %>% 
-  filter(verb_category == "leg" & (Score > .5 & bias_absol < 3)
-         | (Score < .5 & bias_absol > 3)) %>%
+  filter(verb_category == "leg" &
+           ((Score > .5 & bias_absol < 3) | (Score < .5 & bias_absol > 3))) %>%
   ggplot(aes(x = Score, y = bias_absol, label = verb)) +
   geom_text() +
   geom_vline(xintercept = .5, linetype = "dashed") +
@@ -585,72 +595,223 @@ compr_vbs %>%
   xlab("Proportion correct translations") 
 ```
 
-We can include the three verbs that were well understood and elicited a
-reasonable bias: creep, dance, and stamp.
+We can include the following three verbs: dance, stride and trample.
+*Creep* and *stamp*, though well understood when asking about the verb, can
+easily be associated with their noun homonyms.
 
 
 ```{r}
 select_en <- rbind(select_en, 
-                   compr_vbs[compr_vbs$verb %in% c("creep", "dance", "stamp"),])
+                   compr_vbs[compr_vbs$verb %in% c("stride", "dance", "trample"),])
 kable(tail(select_en))
 ```
 
 
-### Check other variables
+### Select strongest 40 verbs in each category
 
-Check cognate status
+This is how many verbs we have:
 
 ```{r}
-with(select_en, addmargins(table(cognate_bin, verb_category)))
+select_en %>% group_by(verb_category) %>% summarise(N = n())
+```
+
+We have 40 leg words, but need to reduce the list of arm verbs.
+
+
+Let's raise both the bias and comprhension thesholds somewhat
+(choose thresholds based on visualization above):
+
+```{r}
+en_arm_verbs <- select_en %>%
+  filter(verb_category == "arm" & bias_absol > 4 & Score > .7)
+```
+
+Now we are down to the following `r nrow(en_arm_verbs)` arm verbs:
+
+```{r, fig.height = 6, fig.width = 10}
+ggplot(en_arm_verbs, aes(x = Score, y = bias_absol, label = verb)) +
+  geom_point() +
+  geom_text() +
+  ylab("Verb bias in coherent direction") +
+  xlab("Proportion correct translations") +
+  ggtitle("Best L2 English arm verbs")
+```
+
+Since one difference between arm/leg verbs was that the former had fewer phonemes,
+we can exclude among those that have fewest phonemes. There are quite a few.
+
+```{r}
+en_arm_verbs %>%
+  ungroup() %>%
+  arrange(nb_of_phonemes, -SUBTL_US_zipf, bias_absol, Score) %>%
+  select(verb, nb_of_phonemes, SUBTL_US_zipf, bias_absol, Score) %>%
+  filter(nb_of_phonemes == 3) %>%
+  kable
+```
+
+They are all quite similar, so just remove 4 based on gut feeling. Remove:
+stir, wash, hack, cut
+
+```{r}
+en_arm_verbs <- en_arm_verbs %>% 
+  filter(! verb %in% c("stir", "wash", "hack", "cut"))
 ```
 
 
-Number of letters:
+Reduce the selection of the final verbs to the best arm words:
 
 ```{r}
-select_en$nbLetters <- nchar(select_en$verb)
-with(select_en, addmargins(table(nbLetters, verb_category)))
-select_en %>% group_by(verb_category) %>%
+select_en_fin <- select_en %>% 
+  filter(verb %in% en_arm_verbs$verb | verb_category == "leg")
+```
+
+
+
+### Check other variables
+
+
+#### Frequency
+
+We use the Zipf-frequency measure in SUBTLEX as suggested by Brysbaert et al. [REF]
+
+US Corpus looks good
+
+```{r}
+ggplot(select_en_fin, aes(x = verb_category, y = SUBTL_US_zipf)) + geom_boxplot() +
+  ggtitle("Frequency in SUBTLEX-US")
+```
+
+```{r}
+select_en_fin %>% group_by(verb_category) %>%
+    summarise(M_US_zipf = mean(SUBTL_US_zipf),
+              SD_US_zipf = sd(SUBTL_US_zipf),
+              min_US_zipf = min(SUBTL_US_zipf),
+              max_US_zipf = max(SUBTL_US_zipf)) %>%
+  kable
+```
+
+UK Corpus looks good
+
+```{r}
+ggplot(select_en_fin, aes(x = verb_category, y = SUBTL_UK_zipf)) + geom_boxplot() +
+  ggtitle("Frequency in SUBTLEX-UK")
+```
+
+```{r}
+select_en_fin %>% group_by(verb_category) %>%
+    summarise(M_UK_zipf = mean(SUBTL_UK_zipf),
+              SD_UK_zipf = sd(SUBTL_UK_zipf),
+              min_UK_zipf = min(SUBTL_UK_zipf),
+              max_UK_zipf = max(SUBTL_UK_zipf)) %>%
+  kable
+```
+
+
+#### Word length
+
+Summary of number of letters:
+
+```{r}
+select_en_fin$nbLetters <- nchar(select_en_fin$verb)
+with(select_en_fin, addmargins(table(nbLetters, verb_category)))
+select_en_fin %>% group_by(verb_category) %>%
   summarise(M_letters = mean(nbLetters),
             SD_letters = sd(nbLetters),
             min_letters = min(nbLetters),
-            max_letters = max(nbLetters))
+            max_letters = max(nbLetters)) %>%
+  kable
 ```
 
+Looks good.
 
-
-
-### Temporary solution
-
+What are the longest words?
 
 ```{r}
-# Number of verbs to choose per category
-N_verbs_per_categ <- 40
-```
-
-As a first approximation, let's just choose the `r N_verbs_per_categ`
-verbs in each category with the strongest (absolute) bias.
-
-```{r}
-N_verbs_per_categ <- 40
-en_arm <- bias_en[bias_en$category == "arm", ] %>%
-  arrange(-bias_absol, nObs, verb) %>%
-  select(category, verb)
-en_leg <- bias_en[bias_en$category == "leg", ] %>%
-  arrange(-bias_absol, nObs, verb) %>%
-  select(category, verb)
-# Choose the ones with the strongest bias in each category
-en_targets <- rbind(en_arm[1:N_verbs_per_categ,], en_leg[1:N_verbs_per_categ,])
-en_targets <- en_targets %>%
+select_en_fin %>%
   ungroup() %>%
-  mutate(verb = as.character(verb)) %>%  # to order verbs alphabetically
-  arrange(category, verb) %>%
-  rename(type = category)  # for compatibility with functions in other scripts
-head(en_targets); tail(en_targets)
+  arrange(-nbLetters) %>%
+  select(- c(cognate_bin : binnedScore, bias_absol, SUBTL_US_fpmw : SUBTL_UK_zipf)) %>%
+  head %>%
+  kable
+```
+
+
+And the shortest?
+
+```{r}
+select_en_fin %>%
+  ungroup() %>%
+  arrange(-nbLetters) %>%
+  select(- c(cognate_bin : binnedScore, bias_absol, SUBTL_US_fpmw : SUBTL_UK_zipf)) %>%
+  tail %>%
+  kable
+```
+
+
+#### Phoneme length
+
+
+```{r}
+ggplot(select_en_fin, aes(x = verb_category, y = nb_of_phonemes)) + geom_boxplot() +
+  ggtitle("Number of phonemes")
+```
+
+```{r}
+select_en_fin %>% group_by(verb_category) %>%
+    summarise(M_nb_phonemes = mean(nb_of_phonemes),
+              SD_nb_phonemes = sd(nb_of_phonemes),
+              min_nb_phonemes = min(nb_of_phonemes),
+              max_nb_phonemes = max(nb_of_phonemes)) %>%
+  kable
+```
+
+Those differ a bit more.
+
+Wilcoxon test 
+([see here](http://www.sthda.com/english/wiki/unpaired-two-samples-wilcoxon-test-in-r))
+
+```{r}
+wilcox.test(nb_of_phonemes ~ verb_category, data = select_en_fin)
+```
+
+This differs from the original, but we prioritize having bias and comprehension
+which are they key aspects for the study. Note that since we are testing the
+interaction, this difference cannot introduce a bias that spuriously leads
+to a false positive.
+
+
+#### Cognate status
+
+Table of cognate status
+
+```{r}
+with(select_en_fin, addmargins(table(cognate_bin, verb_category)))
+```
+
+Looks okay
+
+
+
+### Save to disk final selection
+
+```{r}
+select_en_fin %>%
+  arrange(verb_category, verb) %>%
+  select(verb : cognate, Score, bias) %>%
+  kable
+```
+
+
+```{r}
+select_en_fin_out <- select_en_fin %>%
+  ungroup() %>%
+  arrange(verb_category, verb) %>%
+  select(type = verb_category, verb)  # for compatibility with functions in other scripts
+head(select_en_fin_out); tail(select_en_fin_out)
 # Save to disk (two different destinations):
-write.csv(en_targets, "english-targets.csv", row.names = FALSE,
+write.csv(select_en_fin_out, "english-targets.csv", row.names = FALSE,
           fileEncoding = "UTF-8")
-write.csv(en_targets, "../exp-scripts_psychopy/replication_pilot_1810/stimuli/english-targets.csv",
+write.csv(select_en_fin_out, "../exp-scripts_psychopy/replication_pilot_1810/stimuli/english-targets.csv",
           row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
@@ -705,33 +866,3 @@ Verbs rated **in June only**:
 Verbs rated **in September only**:
 
 `r vbs_sep`
-
-
-
-Main results and take-away messages
-========================
-
-## Conclusions from L2 English verb norming
-
-Participants assessed the strength of arm and leg association for each verb.
-We computed the bias by substracting these two ratings ($arm - leg$).
-
-
-
-## Conclusions from L1 Swedish verb norming
-
-
-## Conclusions from verb comprehension task
-
-Participants had to translate L2 English verbs to their L1 Swedish.
-Each verb was basically rated as an either correct or incorrect translation.
-However, we did also consider intermediate cases of underspecified translations
-(e.g., *gå* for 'stroll').
-
-Conclusions:
-
-
-
-## Overall suggestions based on norming study
-
-
