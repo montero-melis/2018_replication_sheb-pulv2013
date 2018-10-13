@@ -29,8 +29,12 @@ knitr::opts_chunk$set(echo = FALSE)
 Introduction
 ============
 
-This is a power analysis for a conceptual replication of Shebani & Pulvermüller
-(2013, Cortex), henceforth S&P. In S&P, participants had to memorize groups of
+This report summarizes the results of a power analysis for a conceptual 
+replication of Shebani & Pulvermüller (2013, Cortex), henceforth S&P. 
+The actual script that generate the simulations can be found
+[here](https://github.com/montero-melis/2018_replication_sheb-pulv2013/blob/master/1810_replication-natives_analysis/power-analysis/power-analysis_pilot_natives_poisson.R).
+
+In S&P, participants had to memorize groups of
 four words (quadruples) that were either arm- or leg-related (word type). Each
 block consisted of 24 such quadruples, 12 of each type. Between blocks they
 manipulated the conditions under which the words had to be kept in memory. We
@@ -149,6 +153,15 @@ Note the interaction comes out significant as in the original analysis.
 
 Power simulations
 ----------------
+
+The simulations generate new data capturing all the uncertainty in the model
+fitted to the original data. However, we also manipulate the following two
+factors:
+
+- *Size of the effect*: as in the original or fractions of it (orig times .75,
+.5, .25 and 0)
+- *N* or number of participants; 15, 30, 45, 60.
+
 
 ### The simulation data
 
