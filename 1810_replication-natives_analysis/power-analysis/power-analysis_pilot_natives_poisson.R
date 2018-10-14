@@ -103,10 +103,10 @@ orig_data_model_coefficient_estimates
 # For readability, this function is sourced from a different file; check out
 # the source code for the details of its inner workings.
 source("Rfunctions/simulate_poisson_data_fnc.R")
-# NB: there are 2 versions of the function, simulate_poisoon() and
-# simulate_poisoon2(); the latter is the preferred one. It samples the fixed
+# NB: there are 2 versions of the function, simulate_poisson() and
+# simulate_poisson2(); the latter is the preferred one. It samples the fixed
 # effects from the covariance matrix estimated by the model but then it plugs
-# the interaction effect back into that samples fixed effects. This makes
+# the interaction effect back into that sample's fixed effects. This makes
 # sense if we are evaluating the power conditioned on a specific effect size,
 # and it is required if we want to evaluate the Type I error rate. The relevant
 # discussion is found in email correspondence with Florian (see e-mail sent
@@ -132,17 +132,17 @@ plot_sim <- function(sim_data = NULL, show_indiv_data = TRUE) {
   p
 }
 # Examples
-plot_sim(simulate_poisson(N = 15))
-sim30 <- simulate_poisson(N = 30)
+plot_sim(simulate_poisson2(N = 15))
+sim30 <- simulate_poisson2(N = 30)
 plot_sim(sim30, show_indiv_data = T)  # default
 plot_sim(sim30, show_indiv_data = F)
 
 
-# Wrapper function to *simulate many* data sets, calling simulate_poisson()
+# Wrapper function to *simulate many* data sets, calling simulate_poisson2()
 # through plyr::rdply. The three-dots syntax allows us to pass arguments
-# to simulate_poisson(), which is critical:
+# to simulate_poisson2(), which is critical:
 poisson_sims <- function(n_sims = 1, ...) {
-  out <- rdply(n_sims, simulate_poisson(...)) %>% rename(Sim = .n)
+  out <- rdply(n_sims, simulate_poisson2(...)) %>% rename(Sim = .n)
   out
 }
 (x <- poisson_sims(n_sims = 2))
@@ -253,12 +253,12 @@ source("Rfunctions/fit_many_poisson_fnc.R")
 ## Run following to add more simulations -- adjust nbSims argument
 
 my_poisson_sims2 <- fit_many_poisson2(
-  parameterList = params, nbSims = 10,
+  parameterList = params, nbSims = 10, fitAnew = TRUE,
   loadOnly = FALSE, print_each_step = TRUE,
   save_to_disk = TRUE)
 
 ## Run the following to just load existing (previously fitted) simulations
-my_poisson_sims2 <- fit_many_poisson2(params, loadOnly = TRUE)
+# my_poisson_sims2 <- fit_many_poisson2(params, loadOnly = TRUE)
 
 # check it out
 head(my_poisson_sims2, 22)
