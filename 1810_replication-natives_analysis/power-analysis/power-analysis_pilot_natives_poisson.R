@@ -202,7 +202,7 @@ vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
     "orig.5" = orig_effsize.5,
     "orig.25" = orig_effsize.25,
     "orig.0" = orig_effsize.0),
-  my_N = seq(15, 60, 15)))  # N = 15,30,45,60
+  my_N = c(seq(15, 60, 15), 50)))  # N = 15,30,45,60 + 50
 
 # Function to fit models to differently parametrized simulations and save to disk
 # See source code to understand its inner mysteries.
@@ -253,7 +253,7 @@ source("Rfunctions/fit_many_poisson_fnc.R")
 ## Run following to add more simulations -- adjust nbSims argument
 
 my_poisson_sims2 <- fit_many_poisson2(
-  parameterList = params, nbSims = 10, fitAnew = TRUE,
+  parameterList = params, nbSims = 4, fitAnew = FALSE,
   loadOnly = FALSE, print_each_step = TRUE,
   save_to_disk = TRUE)
 
