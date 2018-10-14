@@ -31,7 +31,7 @@ Introduction
 
 This report summarizes the results of a power analysis for a conceptual 
 replication of Shebani & Pulvermüller (2013, Cortex), henceforth S&P. 
-The actual script that generate the simulations can be found
+The actual script that generates the simulations can be found
 [here](https://github.com/montero-melis/2018_replication_sheb-pulv2013/blob/master/1810_replication-natives_analysis/power-analysis/power-analysis_pilot_natives_poisson.R).
 
 In S&P, participants had to memorize groups of
@@ -99,8 +99,8 @@ and the random effects part of the model.
 3. Repeat step 2 for each set of parameters that we want to manipulate, namely
 the size of the critical effect and the number of participants.
 4. Fit an appropriate Poisson GLMM to each such data set.
-5. Summarize, for each model, a test-statistic to decide whether the result
-is significant or not.
+5. From each model, extract a test-statistic to decide whether the result
+is significant or not (in this case, the z-value for the interaction estimate).
 
 
 Model fit to the original data
@@ -167,7 +167,7 @@ factors:
 
 ```{r, echo=FALSE}
 # Retrieve summaries of all the simulations
-simul_summaries <- read.csv("simulations/poisson_sim_summaries.csv")
+simul_summaries <- read.csv("simulations/poisson_sim_summaries_fixed-interactions.csv")
 ```
 
 The results of fitting a model in each simulation are stored in a *very long*
