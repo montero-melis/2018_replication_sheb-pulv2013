@@ -4,6 +4,19 @@
 
 library("mvtnorm")
 
+
+# NB: there are 2 versions of the function, simulate_poisson() and
+# simulate_poisson2(); the latter is the preferred one. It samples the fixed
+# effects from the covariance matrix estimated by the model but then it plugs
+# the interaction effect back into that sample's fixed effects. This makes
+# sense if we are evaluating the power conditioned on a specific effect size,
+# and it is required if we want to evaluate the Type I error rate. The relevant
+# discussion is found in email correspondence with Florian (see e-mail sent
+# by Jaeger, Florian <fjaeger@UR.Rochester.edu>; Subj: "Re: Pragmatic advice
+# on power analysis to determine sample size for conceptual replication",
+# sent on Sat 2018-10-13 04:46)
+
+
 simulate_poisson <- function (
   N = 3,  # Number of participants
   fixef_means  = my_fixef_means,  # vector of mean estimates for fixed effects
