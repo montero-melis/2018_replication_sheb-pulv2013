@@ -51,7 +51,7 @@ For `1810_replication-natives_analysis` there are the following columns:
 4. If the participant replaces a target word with another word, e.g. says "pluck" instead of the target word "pat", annotate this by writing `r=pluck` instead of the word "pat". Also separate `r=pluck` with commas and do not use any spaces. If the participant says more than one replacement word, e.g. "pluck, clutch" rather than just "pluck", separate the different replacement words with `/` like this: 
 `r=pluck/clutch`.
 5. If the participant says five words, and it is clearly not two replacement words for one target word (see example 3 below), we code it as an addition, which is alway put at the end of the responses, after the 4th slot. We code it like this: a=...
-and also separate it from the other responses with a comma, and use no spaces. 
+and also separate it from the other responses with a comma, and use no spaces. If there are more than one addition, we separate them the same way we do several replacements, i.e., a=strike/trot (see example 5 below)
 
 Here are some examples to clarify:
 
@@ -83,8 +83,8 @@ Ex.4:
 Ex.5:
 
 - Trial 5 target words: hop stomp hike kick
-- Participant's response: jog kick step jump strike 
-- Code like this: `r=jog,kick,r=step,r=jump,a=strike`
+- Participant's response: jog kick step jump strike trot
+- Code like this: `r=jog,kick,r=step,r=jump,a=strike/trot`
 
 **comment**: Write any comment that might seem relevant; for example, if the participants hesitates a lot. Take note of any coding difficulty you notice, so we can discuss it later.
 
