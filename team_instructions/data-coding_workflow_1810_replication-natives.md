@@ -47,9 +47,11 @@ For `1810_replication-natives_analysis` there are the following columns:
 
 1. Write the target words (i.e., the words that are in the corresponding trial) the participant says in the exact order the participant says them.
 2. Separate each word with a comma, and do not use any spaces.
-3. If the participant omits one word, or says "I don't know, I can't remember, something" or something similar that clearly indicates they cannot remember one of the target words, write x instead in the same slot where you would otherwise write the target word. Also separate x from the other target words with commas.
-4. If the participant replaces a target word with another word, e.g. says "pluck" instead of the target word "pat", annotate this by writing `y=pluck` instead of the word "pat". Also separate `y=pluck` with commas and do not use any spaces. If the participant says more than one replacement word, e.g. "pluck, clutch" rather than just "pluck", separate the different replacement words with `/` like this: 
-`y=pluck/clutch`.
+3. If the participant omits one word, or says "I don't know, I can't remember, something" or something similar that clearly indicates they cannot remember one of the target words, write o instead in the same slot where you would otherwise write the target word. Also separate o from the other target words with commas.
+4. If the participant replaces a target word with another word, e.g. says "pluck" instead of the target word "pat", annotate this by writing `r=pluck` instead of the word "pat". Also separate `r=pluck` with commas and do not use any spaces. If the participant says more than one replacement word, e.g. "pluck, clutch" rather than just "pluck", separate the different replacement words with `/` like this: 
+`r=pluck/clutch`.
+5. If the participant says five words, and it is clearly not two replacement words for one target word (see example 3 below), we code it as an addition, which is alway put at the end of the responses, after the 4th slot. We code it like this: a=...
+and also separate it from the other responses with a comma, and use no spaces. If there are more than one addition, we separate them the same way we do several replacements, i.e., a=strike/trot (see example 5 below)
 
 Here are some examples to clarify:
 
@@ -57,26 +59,32 @@ Ex.1:
 
 - Trial 1 target words: rub pat poke clean
 - Participant's response: "rub pluck something clean"
-- Code like this: `rub,y=pluck,x,clean`
+- Code like this: `rub,r=pluck,o,clean`
 
 Ex.2: 
 
 - Trial 2 target words: trudge glide wander skate
 - Participant's response: "trudge something something skate"
-- Code like this: `trudge,x,x,skate`
+- Code like this: `trudge,o,o,skate`
 
 Ex.3: 
 
 - Trial 3 target words: wipe pull snatch scoop
 - Participant's response: "wipe something snatch... scuffle? scratch?"
-- Code like this: `wipe,x,snatch,y=scuffle/scratch`
+- Code like this: `wipe,o,snatch,r=scuffle/scratch`
 
 Ex.4: 
 
 - Trial 4 target words: wash clap brush catch
 - Participant's response: wash brush clean clap
-- Code like this: `wash,brush,y=clean,clap`
-- NB: Remember to put the "y=..." In the same position as it appeared.
+- Code like this: `wash,brush,r=clean,clap`
+- NB: Remember to put the "r=..." In the same position as it appeared.
+
+Ex.5:
+
+- Trial 5 target words: hop stomp hike kick
+- Participant's response: jog kick step jump strike trot
+- Code like this: `r=jog,kick,r=step,r=jump,a=strike/trot`
 
 **comment**: Write any comment that might seem relevant; for example, if the participants hesitates a lot. Take note of any coding difficulty you notice, so we can discuss it later.
 
@@ -84,9 +92,10 @@ Ex.4:
 
 ## Errors
 
-- `R` = *replacement*: The participant replaces the target word with another word. This is the code y=...
-- `O` = *omission*: The participant omits a word, either by silence or saying "something", "I can't remember" or something similar that indicates that they don't know. This is the code x
+- `R` = *replacement*: The participant replaces the target word with another word. This is the code r=...
+- `O` = *omission*: The participant omits a word, either by silence or saying "something", "I can't remember" or something similar that indicates that they don't know. This is the code o
 - `S` = *shift/transposition*: The participant says the target words but in the wrong order. This error is why it is important to code the response words in the exact same order as the participant says them. 
+- `A` = *addition*: The participant adds a fifth word, which is clearly just an addition and NOT a replacement. This is the code a=...
 
 ## After coding
 
