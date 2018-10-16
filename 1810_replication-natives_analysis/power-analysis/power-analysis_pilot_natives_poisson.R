@@ -206,21 +206,27 @@ source("Rfunctions/fit_many_poisson_fnc.R")
 
 ############## Different ways to run the function ###############
 
+# NB: Be careful with what you run below. The parameters are set so that
+# not much harm can be done. E.g., "save_to_disk = FALSE" makes sure
+# the simulations are not saved to disk. The "fitAnew = TRUE" prevents
+# the function from loading the saved object (which can be large and take
+# much time to load).
+
 # Run following to add more simulations -- adjust nbSims argument
 my_poisson_sims <- fit_many_poisson(
   parameterList = params, nbSims = 5,
   loadOnly = FALSE, print_each_step = TRUE,
-  save_to_disk = TRUE)
+  save_to_disk = FALSE, fitAnew = TRUE)
 
 # To run the simulations in batches and saving back after each run
-for (thisrun in 1:5) {
+for (thisrun in 1:2) {
   print(paste("this is run:", thisrun))
   
   my_poisson_sims <- fit_many_poisson(
-    parameterList = params, nbSims = 2,
+    parameterList = params, nbSims = 1,
     loadOnly = FALSE, 
     print_each_step = TRUE,
-    save_to_disk = TRUE)
+    save_to_disk = FALSE, fitAnew = TRUE)
   
   # how many?
   my_poisson_sims %>%
@@ -231,7 +237,8 @@ for (thisrun in 1:5) {
 }
 
 # Run the following to just load existing (previously saved) simulations
-# my_poisson_sims <- fit_many_poisson(params, loadOnly = TRUE)
+# This is benign (it will fail if no file has been saved on disk)
+my_poisson_sims <- fit_many_poisson(params, loadOnly = TRUE)
 
 # check it out
 head(my_poisson_sims, 22)
