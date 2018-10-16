@@ -103,23 +103,13 @@ orig_data_model_coefficient_estimates
 # For readability, this function is sourced from a different file; check out
 # the source code for the details of its inner workings.
 source("Rfunctions/simulate_poisson_data_fnc.R")
-# NB: there are 2 versions of the function, simulate_poisson() and
-# simulate_poisson2(); the latter is the preferred one. It samples the fixed
-# effects from the covariance matrix estimated by the model but then it plugs
-# the interaction effect back into that sample's fixed effects. This makes
-# sense if we are evaluating the power conditioned on a specific effect size,
-# and it is required if we want to evaluate the Type I error rate. The relevant
-# discussion is found in email correspondence with Florian (see e-mail sent
-# by Jaeger, Florian <fjaeger@UR.Rochester.edu>; Subj: "Re: Pragmatic advice
-# on power analysis to determine sample size for conceptual replication",
-# sent on Sat 2018-10-13 04:46)
 
 # The functions take as their default arguments the means and covariances from
 # the model above: my_fixef_means, my_fixef_sigma, my_ranef_sigma.
 # Example output for illustration
-simulate_poisson2()
+simulate_poisson()
 # Change print_each_step parameter to TRUE to see intermediately created objects:
-simulate_poisson2(print_each_step = TRUE)  # prints out intermediate steps
+simulate_poisson(print_each_step = TRUE)  # prints out intermediate steps
 
 
 # Convenience function to plot simulated data
@@ -132,21 +122,22 @@ plot_sim <- function(sim_data = NULL, show_indiv_data = TRUE) {
   p
 }
 # Examples
-plot_sim(simulate_poisson2(N = 15))
-sim30 <- simulate_poisson2(N = 30)
+plot_sim(simulate_poisson(N = 15))
+sim30 <- simulate_poisson(N = 30)
 plot_sim(sim30, show_indiv_data = T)  # default
 plot_sim(sim30, show_indiv_data = F)
 
 
-# Wrapper function to *simulate many* data sets, calling simulate_poisson2()
+# Wrapper function to *simulate many* data sets, calling simulate_poisson()
 # through plyr::rdply. The three-dots syntax allows us to pass arguments
-# to simulate_poisson2(), which is critical:
+# to simulate_poisson(), which is critical:
 poisson_sims <- function(n_sims = 1, ...) {
-  out <- rdply(n_sims, simulate_poisson2(...)) %>% rename(Sim = .n)
+  out <- rdply(n_sims, simulate_poisson(...)) %>% rename(Sim = .n)
   out
 }
+# an example
 (x <- poisson_sims(n_sims = 2))
-# extreme fixed effects, just to showcase how it passes arguments
+# example with extreme fixed effects, just to showcase the use of 3-dot syntax
 (extreme <- poisson_sims(n_sims = 1, N = 20, fixef_means = c(6,-.05,.05,1)))
 plot_sim(extreme)
 rm(x, extreme)
@@ -172,17 +163,15 @@ fit_poi_glmm <- function(sim_data = NULL) {
 
 
 #  ------------------------------------------------------------------------
-#  Fit models on differently parametrized simulations and save to disk
+#  Define manipulated parameters for the simulations
 #  ------------------------------------------------------------------------
 
-# We want a function that fits models on differently parametrized simulations.
-# Because this is time consuming, we want the result to be saved to disk and
-# we want to be able to add new simulations if we run the functions on different
-# occasions.
+# The parameters we want to manipulate are: 
+# - effect size (as factor of the original), and
+# - number of participants (N)
 
-# Parameters we want to manipulate: effect size and N (number of participants)
-
-# Entertain different effect sizes for parameter of interest: *interaction* estimate
+# Entertain different effect sizes for *interaction* estimate (parameter of 
+# interest): 
 my_fixef_means  # original fixed effects estimates
 vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
   orig[4] <- orig[4] * factor
@@ -204,106 +193,79 @@ vary_effectsize <- function(factor = NULL, orig = my_fixef_means) {
     "orig.0" = orig_effsize.0),
   my_N = c(seq(15, 60, 15), 50)))  # N = 15,30,45,60 + 50
 
-# Function to fit models to differently parametrized simulations and save to disk
-# See source code to understand its inner mysteries.
+
+#  ------------------------------------------------------------------------
+#  Fit models on differently parametrized simulations and save to disk
+#  ------------------------------------------------------------------------
+
+# We want a function that fits models on differently parametrized simulations.
+# Because this is time consuming, we want the result to be saved to disk and
+# we want to be able to add new simulations if we run the functions on different
+# occasions. Source it (see source code to understand its inner mysteries):
 source("Rfunctions/fit_many_poisson_fnc.R")
 
+############## Different ways to run the function ###############
 
-# Version1 (obsolete): using fit_many_poisson() ---------------------------
-
-# Parameters taken by the function (for reference):
-
-# fit_many_poisson <- function(
-#   parameterList = NULL,  # list of manipulated parameters in the simulations
-#   nbSims = 1,  # number of simulations for each parameter setting
-#   fitAnew = FALSE,   # see source code (don't change unless you understand)
-#   loadOnly = FALSE,  # don't run new simulations, only load from disk
-#   output_folder = path_out,  # assumes this is defined in the script
-#   saved_obj_name = "my_poisson_simulations.RData",
-#   print_each_step = FALSE  # for use with myprint() function
-# ) { ...
-
-
-############## Comment/uncomment one of the following lines #############
-
-## Run following to add more simulations -- adjust nbSims argument
-
-# my_poisson_simulations <- fit_many_poisson(
-#   parameterList = params, nbSims = 1,
-#   loadOnly = FALSE, print_each_step = TRUE)
-
-# ## Run the following to just load existing (previously fitted) simulations
-# my_poisson_simulations <- fit_many_poisson(params, loadOnly = TRUE)
-# 
-# # check it out
-# head(my_poisson_simulations, 22)
-# tail(my_poisson_simulations, 30)
-# nrow(my_poisson_simulations)
-
-
-
-# Version2 (run this!): using fit_many_poisson2() -------------------------
-
-# the parameters taken by fit_many_poisson2() are the same as for 
-# fit_many_poisson(), but the default value for saved_obj_name differs
-# (i is "my_poisson_simulations_fixed-interaction.rds" now.)
-
-############## Comment/uncomment one of the following lines #############
-
-## Run following to add more simulations -- adjust nbSims argument
-
-my_poisson_sims2 <- fit_many_poisson2(
-  parameterList = params, nbSims = 4, fitAnew = FALSE,
+# Run following to add more simulations -- adjust nbSims argument
+my_poisson_sims <- fit_many_poisson(
+  parameterList = params, nbSims = 5,
   loadOnly = FALSE, print_each_step = TRUE,
   save_to_disk = TRUE)
 
-## Run the following to just load existing (previously fitted) simulations
-# my_poisson_sims2 <- fit_many_poisson2(params, loadOnly = TRUE)
+# To run the simulations in batches and saving back after each run
+for (thisrun in 1:5) {
+  print(paste("this is run:", thisrun))
+  
+  my_poisson_sims <- fit_many_poisson(
+    parameterList = params, nbSims = 2,
+    loadOnly = FALSE, 
+    print_each_step = TRUE,
+    save_to_disk = TRUE)
+  
+  # how many?
+  my_poisson_sims %>%
+    ungroup() %>%
+    group_by(N, effect_size) %>%
+    summarise(nbSims = n()) %>%
+    print(., n = 30)
+}
+
+# Run the following to just load existing (previously saved) simulations
+# my_poisson_sims <- fit_many_poisson(params, loadOnly = TRUE)
 
 # check it out
-head(my_poisson_sims2, 22)
-tail(my_poisson_sims2, 30)
-nrow(my_poisson_sims2)
-my_poisson_sims2 %>%
+head(my_poisson_sims, 22)
+tail(my_poisson_sims, 30)
+nrow(my_poisson_sims)
+my_poisson_sims %>%
   ungroup() %>%
   group_by(N, effect_size) %>%
-  summarise(nbSims = n())
-
+  summarise(nbSims = n()) %>%
+  print(., n = 30)
 
 
 #  ------------------------------------------------------------------------
-#  Extract useful model summaries
+#  Extract useful model summaries and save to disk
 #  ------------------------------------------------------------------------
 
-# The function I'm sourcing relies on the broom::tidy function
+# The function I'm sourcing relies on the broom::tidy function. It extracts
+# parameter estimates from model summaries and saves them to disk. Or it can
+# just read those estimates from a data file if they were previously saved.
 source("Rfunctions/load-or-extract_model-summaries.R")
 
 # Change extract_anew to TRUE if there are new models to summarize
-
-# NEW version of simulations
 simul_summaries <- load_or_extract_summaries(
-  extract_anew = TRUE,
+  extract_anew = FALSE,
   filename_load = file.path(path_out, "poisson_sim_summaries_fixed-interactions.csv"),
   filename_save = NULL,
-  my_simulations = my_poisson_sims2
+  my_simulations = my_poisson_sims
 )
 head(simul_summaries)
-
-# # OLD version of simulations
-# simul_summaries_OLD <- load_or_extract_summaries(
-#   extract_anew = FALSE,
-#   filename_load = file.path(path_out, "poisson_sim_summaries.csv"),
-#   filename_save = NULL,
-#   my_simulations = my_poisson_simulations
-# )
-# head(simul_summaries_OLD)
 
 
 #  ------------------------------------------------------------------------
 #  Where's the power Lebowsky?
 #  ------------------------------------------------------------------------
-
-# NEW version of simulations ----------------------------------------------
 
 # Distribution of t-values for the different model specifications
 
@@ -320,35 +282,8 @@ simul_summaries_interact %>%
   geom_vline(xintercept = 1.96)
 
 # Compute the proportion of significant models:
-
 simul_summaries_interact %>% 
   group_by(effect_size, N) %>%
   mutate(signif = statistic > 1.96) %>%
   summarise(Power = round(100 * sum(signif) / n(), 2),
             nbSimulations = n())
-
-
-
-# OLD (obsolete) version --------------------------------------------------
-
-# Distribution of t-values for the different model specifications
-
-# # Keep only data rows for critical interactions
-# simul_summaries_OLD_interact <- simul_summaries_OLD %>% 
-#   filter(term == "Movementlegs:WordTypeleg-word")
-# simul_summaries_OLD_interact$effect_size <- factor(simul_summaries_OLD_interact$effect_size,
-#                                       levels = c("orig", "orig.75", "orig.5", "orig.25", "orig.0"))
-# # plot
-# simul_summaries_OLD_interact %>%
-#   ggplot(aes(x = statistic, colour = factor(N), linetype = factor(N))) +
-#   facet_wrap(~effect_size) +
-#   geom_density() +
-#   geom_vline(xintercept = 1.96)
-# 
-# # Compute the proportion of significant models:
-# 
-# simul_summaries_OLD_interact %>% 
-#   group_by(effect_size, N) %>%
-#   mutate(signif = statistic > 1.96) %>%
-#   summarise(Power = round(100 * sum(signif) / n(), 2),
-#             nbSimulations = n())
