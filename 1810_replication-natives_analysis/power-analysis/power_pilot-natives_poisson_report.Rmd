@@ -160,7 +160,7 @@ factors:
 
 - *Size of the effect*: as in the original or fractions of it (orig times .75,
 .5, .25 and 0)
-- *N* or number of participants; 15, 30, 45, 60.
+- *N* or number of participants; 15, 30, 45, 50, and 60.
 
 
 ### The simulation data
@@ -202,15 +202,23 @@ simul_summaries_interact %>%
 
 ### Distribution of key statistic for effect of interest
 
-Plot of z-values *for the critical interaction* in the models:
+Plot of z-values *for the critical interaction* in the models. The vertical
+dashed lines show significance cut-offs (z-values of $-1.96$ and $1.96$).
+Signficant effects in the expected direction (an *interference* effect) fall
+to the right of the rightmost dashed line. Significant effects in the 
+*unexpected* direction fall to the left of the leftmost dashed line. Effects
+where we would not reject the null hypothesis fall between the two dashed
+lines.
 
 ```{r, fig.width=10, fig.height=5}
 # plot
 simul_summaries_interact %>%
+  filter(abs(statistic) < 8) %>%  # Don't let outliers distort the x-axis
   ggplot(aes(x = statistic, colour = factor(N), linetype = factor(N))) +
   facet_wrap(~effect_size) +
   geom_density() +
   geom_vline(xintercept = c(-1.96, 1.96), linetype = "dashed") +
+  # xlim(-3, 8) +
   xlab("z value")
 ```
 
@@ -242,7 +250,7 @@ ggplot(simul_significant, aes(x = effect_size, y = Power_expected_effect,
   geom_hline(yintercept = 5, linetype = "dotted") +
   ylab("Power of finding effect\nin expected direction") +
   xlab("Effect size as factors of original") +
-  ggtitle("Power")
+  ggtitle("Power to detect the critical effect")
 ```
 
 
@@ -256,7 +264,7 @@ ggplot(simul_significant, aes(x = effect_size, y = Proportion_inverse_effect,
   geom_hline(yintercept = 5, linetype = "dotted") +
   ylab("Percentage of simulations with effect\nin opposite direction") +
   xlab("Effect size as factors of original") +
-  ggtitle("Chances of finding opposite effect")
+  ggtitle("Chances of finding a significant opposite effect")
 ```
 
 ```{r}
@@ -265,11 +273,10 @@ ggplot(simul_significant, aes(x = effect_size, y = No_effect_detected,
   geom_point() +
   geom_line() +
   ylim(0,100) +
-  geom_hline(yintercept = 80, linetype = "dashed") +
-  geom_hline(yintercept = 5, linetype = "dotted") +
+  geom_hline(yintercept = 95, linetype = "dotted") +
   ylab("Percentage of simulations with\nno significant interaction") +
   xlab("Effect size as factors of original") +
-  ggtitle("Chances of accepting null (no effect)")
+  ggtitle("Chances of accepting the null (no effect)")
 ```
 
 
