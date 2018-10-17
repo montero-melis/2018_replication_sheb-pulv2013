@@ -103,4 +103,4 @@ Ex.5:
 
 ## After coding
 
-Look through the transcript and make sure there are no typos, as typos will mess up the script that we'll run on the coded data to get error statistics. Also double check that you correctly coded all the replacements as `y=...`
+Look through the transcript and make sure there are no typos, as typos will mess up the script that we'll run on the coded data to count the errors. Double check that you correctly coded all the replacements as `R=...`, etc.
