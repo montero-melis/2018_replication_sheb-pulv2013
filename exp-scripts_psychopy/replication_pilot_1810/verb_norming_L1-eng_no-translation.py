@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on september 28, 2018, at 11:19
+    on oktober 22, 2018, at 12:13
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -107,7 +107,7 @@ text = visual.TextStim(win=win, name='text',
 # Initialize components for Routine "instr_2"
 instr_2Clock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
-    text="You will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Use the number keys 1 to 7 to indicate your rating. Lock in your answer by pressing return."+cont
+    text="You will rate each verb twice: once for its " + firstrating + "-relatedness and once for its " +secondrating+ "-relatedness. Indicate your choice by clicking on the rating scale 1 to 7. Lock in your answer by clicking the button beneath the scale."+cont
 ,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
