@@ -1,1 +1,2 @@
-﻿pptID;age;sex;prof_SWE;AoA_SWE;v_1;v_2;v_3;v_4;v_5;h_1;h_2;h_3;h_4;h_5;h_6;h_7;h_8;h_9;h_10;AL_1;Aoa_al1;AL_2;AoA_al2;AL_3;AoA_al3
+pptID	age	sex	prof_SWE	AoA_SWE	v_1	v_2	v_3	v_4	v_5	h_1	h_2	h_3	h_4	h_5	h_6	h_7	h_8	h_9	h_10	AL_1	Aoa_al1	Prof_AL1	AL_2	AoA_al2	Prof_AL2	AL_3	AoA_al3	Prof_AL3
+701	30	F	5	25	7	5	7	7	4	RR	RR	RR	RR	RR	RR	RR	L,R	RR	L,R	Spanish	15	5						
