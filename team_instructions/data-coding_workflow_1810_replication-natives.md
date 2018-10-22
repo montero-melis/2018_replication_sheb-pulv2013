@@ -58,9 +58,10 @@ For `1810_replication-natives_analysis` there are the following columns:
 1. Write the correctly remembered target words (i.e., those words that actually appeared in the corresponding trial) in the exact order the participant says them. Think as each word occupying a slot, and there are four slots per trial.
 2. Separate each word with a comma, and do not use any spaces.
 3. If the participant omits one word, or says "I don't know, I can't remember, something" or something similar that clearly indicates they cannot remember one of the target words, write `O` (for omission) instead, in the same slot where you would otherwise write the target word. Also separate the `O` from the other target words with commas.
-4. If the participant replaces a target word with another word, e.g. says "pluck" instead of the target word "pat", annotate this by writing `R=pluck` ("R" for replacement) in the slot that would otherwise correspond to the word "pat". Also separate `R=pluck` with commas and do not use any spaces. If the participant says more than one replacement word for the same target word, e.g. "pluck, clutch" rather than just "pluck", separate the different replacement words with `/` like this: 
+4. If the participant says less than four words and does not clearly indicate an omission by saying "I don't know, something, I can't remember", we will put the omission code(s) in the slot(s) that allow for the least amount of shift errors, but without altering the order in which the participant says the words. For example, if the participant says the target words "w1,w3,w4," we code the omission in slot 2, if the participant says the target words "w2,w4,w3," we code the omission in slot 1 (see more examples below, ex. 6 and 7)
+5. If the participant replaces a target word with another word, e.g. says "pluck" instead of the target word "pat", annotate this by writing `R=pluck` ("R" for replacement) in the slot that would otherwise correspond to the word "pat". Also separate `R=pluck` with commas and do not use any spaces. If the participant says more than one replacement word for the same target word, e.g. "pluck, clutch" rather than just "pluck", separate the different replacement words with `/` like this: 
 `R=pluck/clutch`.
-5. If the participant says five words, and it is clear that there are not two replacement words for the same target word (see example 3 below), then we code it as an addition, which is alway put at the end of the responses, after the 4th slot. We code it like this: `A=<added_word>`
+6. If the participant says five words, and it is clear that there are not two replacement words for the same target word (see example 3 below), then we code it as an addition, which is alway put at the end of the responses, after the 4th slot. We code it like this: `A=<added_word>`
 and also separate it from the other responses with a comma, and use no spaces. If there is more than one addition, we separate them the same way we do with replacements, i.e., `A=strike/trot` (see example 5 below)
 
 Here are some examples to clarify:
@@ -96,6 +97,17 @@ Ex.5:
 - Participant's response: jog kick step jump strike trot
 - Code like this: `R=jog,kick,R=step,R=jump,A=strike/trot`
 
+Ex.6: 
+- Trial 6 target words: whip fold nip grab
+- Participant's response: grab nip fold
+- Code like this: `O,grab,nip,fold`
+
+Ex.7:
+- Trial 7 target words: hike strut stray skip
+- Participant's response: strut skip
+- Code like this: `O,strut,O,skip`
+
+
 **comment**: Write any comment that might seem relevant here. For example, if the participants hesitates a lot. Take note of any coding difficulty you notice, so we can discuss it later. Here you can also note the exact time if you have to stop coding a file half-way through and will continue at a later stage. 
 
 **coder**: write your initials in the first row. 
@@ -103,4 +115,4 @@ Ex.5:
 
 ## After coding
 
-Look through the transcript and make sure there are no typos, as typos will mess up the script that we'll run on the coded data to count the errors. Double check that you correctly coded all the replacements as `R=...`, etc.
+Look through the transcript and make sure there are no typos, as typos will mess up the script that we'll run on the coded data to count the errors. Double check that you correctly coded all the replacements as `R=...`, and make sure the omission codes are in the slots that allow for the least amount of shift errors. 
