@@ -1,14 +1,23 @@
 Notes on power analysis
 =======================
 
+TO DO
+-----
+
+### High prio
+
+- Find out what to do about model convergence failures? --> Slack @Zach
+
+
+### Low prio
+
+- Changing when the fit_many function loads the saved object (towards the end), might save time?
+- Replicate power analysis with binomial model?
+
+
 Qs
 ---
 
-- What to do about model convergence failures? (difficult to track them)
-- What is a pragmatic approach?
-- But how to choose the model, i.e. how to model the error data?
-- I would prefer model based on binary data (per verb) bc it allows us to model
-item (=verb) variability, which is not possible if we assume Normal or Poisson...
 - In LRT, comparing 2 models to test the significance of an interaction, how does
 one specify the random effects structure? Always with interaction if possible?
 
