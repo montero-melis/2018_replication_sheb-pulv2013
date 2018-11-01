@@ -1,0 +1,3262 @@
+13.7442 	WARNING 	User requested fullscreen with size [1280  720], but screen is actually [1366, 768]. Using actual size
+14.8857 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x1FDEE510>, multiSample=False, name='window1', numSamples=2, pos=[0, 0], screen=0, size=array([1366,  768]), stereo=False, units=u'norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType=u'pyglet')
+14.8858 	EXP 	window1: recordFrameIntervals = False
+15.0514 	EXP 	window1: recordFrameIntervals = True
+15.2350 	EXP 	window1: recordFrameIntervals = False
+15.4280 	EXP 	Created introtext = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='introtext', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+15.8075 	EXP 	Created text = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+16.0208 	EXP 	Created text_2 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_2', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+16.1063 	EXP 	Created text_4 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_4', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+16.1073 	EXP 	Created text_5 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_5', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+16.1225 	EXP 	Created text_10 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_10', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='default text', units=u'norm', win=Window(...), wrapWidth=1)
+16.3356 	EXP 	Created rating = RatingScale(acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText='accept?', autoLog=True, choices=False, depth=0, disappear=False, flipVert=False, high=7, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=1, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='rating', noMouse=False, pos=[0.0, -0.4], precision=1, respKeys=['1', '2', '3', '4', '5', '6', '7'], rightKeys=['right'], scale=str(...), self=UNKNOWN, showAccept=True, showValue=True, singleClick=False, size=0.6, skipKeys=['tab'], stretch=1.0, textColor='LightGray', textFont='Helvetica Bold', textSize=0.12, tickHeight=1.0, tickMarks=6.0, win=Window(...))
+16.3366 	EXP 	Created short_blank = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='short_blank', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+16.3376 	EXP 	Created text_5 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_5', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='', units=u'norm', win=Window(...), wrapWidth=1)
+16.3981 	EXP 	Created text_9 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, name='text_9', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=newstr(...), units=u'norm', win=Window(...), wrapWidth=1)
+16.4019 	EXP 	rating: flipVert = False
+16.4019 	EXP 	rating: autoLog = True
+37.0127 	DATA 	Keypress: space
+37.0336 	EXP 	introtext: autoDraw = True
+42.0277 	DATA 	Keypress: space
+42.0439 	EXP 	introtext: autoDraw = False
+42.0439 	EXP 	text: autoDraw = True
+68.7547 	DATA 	Keypress: space
+68.7705 	EXP 	text: autoDraw = False
+68.7705 	EXP 	text_2: autoDraw = True
+109.3605 	DATA 	Keypress: space
+109.3765 	EXP 	text_2: autoDraw = False
+109.3765 	EXP 	text_4: autoDraw = True
+112.3430 	DATA 	Keypress: space
+112.3592 	EXP 	text_4: autoDraw = False
+112.3592 	EXP 	text_5: autoDraw = True
+112.8593 	EXP 	Imported stimuli\english-targets_norming.csv as conditions, 80 conditions, 2 params
+112.8603 	EXP 	Created sequence: random, trialTypes=80, nReps=1, seed=None
+112.8608 	EXP 	New trial (rep=0, index=0): OrderedDict([('type', u'arm'), ('verb', u'CUT')])
+112.8712 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+112.8717 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+112.8721 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+112.9230 	EXP 	RatingScale rating: reset()
+112.9476 	EXP 	text_5: autoDraw = False
+112.9476 	EXP 	text_5: autoDraw = False
+112.9476 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CUT?'
+112.9476 	EXP 	text_10: autoDraw = True
+112.9476 	EXP 	rating: autoDraw = True
+123.8071 	DATA 	Mouse: Left button down, pos=(475,235)
+123.9396 	DATA 	Mouse:  Left button up, pos=(475,235)
+125.0435 	DATA 	Mouse: Left button down, pos=(604,143)
+125.0438 	DATA 	RatingScale rating: (mouse response) rating=1
+125.0438 	DATA 	RatingScale rating: rating RT=12.120
+125.0438 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 10.885), (1, 12.12)]
+125.0725 	EXP 	text_10: autoDraw = False
+125.0725 	EXP 	rating: autoDraw = False
+125.0725 	EXP 	short_blank: autoDraw = True
+125.1399 	DATA 	Mouse:  Left button up, pos=(604,143)
+125.2569 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+125.3156 	EXP 	RatingScale rating: reset()
+125.3223 	EXP 	short_blank: autoDraw = False
+125.3223 	EXP 	short_blank: autoDraw = False
+125.3223 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CUT?'
+125.3223 	EXP 	text_10: autoDraw = True
+125.3223 	EXP 	rating: autoDraw = True
+131.3549 	DATA 	Mouse: Left button down, pos=(820,233)
+131.5381 	DATA 	Mouse:  Left button up, pos=(820,233)
+132.6546 	DATA 	Mouse: Left button down, pos=(747,147)
+132.6584 	DATA 	RatingScale rating: (mouse response) rating=6
+132.6584 	DATA 	RatingScale rating: rating RT=7.342
+132.6584 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 6.041), (6, 7.342)]
+132.6873 	EXP 	text_10: autoDraw = False
+132.6873 	EXP 	rating: autoDraw = False
+132.6873 	EXP 	short_blank: autoDraw = True
+132.7378 	DATA 	Mouse:  Left button up, pos=(747,147)
+132.8868 	EXP 	short_blank: autoDraw = False
+132.8868 	EXP 	short_blank: autoDraw = False
+132.8868 	EXP 	text_5: autoDraw = True
+133.3713 	EXP 	New trial (rep=0, index=1): OrderedDict([('type', u'leg'), ('verb', u'BOUNCE')])
+133.3751 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+133.3755 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+133.3759 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+133.4425 	EXP 	RatingScale rating: reset()
+133.4493 	EXP 	text_5: autoDraw = False
+133.4493 	EXP 	text_5: autoDraw = False
+133.4493 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb BOUNCE?'
+133.4493 	EXP 	text_10: autoDraw = True
+133.4493 	EXP 	rating: autoDraw = True
+139.0196 	DATA 	Mouse: Left button down, pos=(616,234)
+139.1363 	DATA 	Mouse:  Left button up, pos=(616,234)
+143.0220 	DATA 	Mouse: Left button down, pos=(821,237)
+143.1187 	DATA 	Mouse:  Left button up, pos=(821,237)
+147.3843 	DATA 	Mouse: Left button down, pos=(745,238)
+147.4677 	DATA 	Mouse:  Left button up, pos=(745,238)
+152.6495 	DATA 	Mouse: Left button down, pos=(755,143)
+152.6533 	DATA 	RatingScale rating: (mouse response) rating=5
+152.6533 	DATA 	RatingScale rating: rating RT=19.209
+152.6533 	DATA 	RatingScale rating: history=[(None, 0.0), (3, 5.578), (6, 9.578), (5, 13.944), (5, 19.209)]
+152.6820 	EXP 	text_10: autoDraw = False
+152.6820 	EXP 	rating: autoDraw = False
+152.6820 	EXP 	short_blank: autoDraw = True
+152.7326 	DATA 	Mouse:  Left button up, pos=(755,143)
+152.8663 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+152.9280 	EXP 	RatingScale rating: reset()
+152.9348 	EXP 	short_blank: autoDraw = False
+152.9348 	EXP 	short_blank: autoDraw = False
+152.9348 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb BOUNCE?'
+152.9348 	EXP 	text_10: autoDraw = True
+152.9348 	EXP 	rating: autoDraw = True
+156.0346 	DATA 	Mouse: Left button down, pos=(549,233)
+156.1318 	DATA 	Mouse:  Left button up, pos=(549,233)
+156.6485 	DATA 	Mouse: Left button down, pos=(651,150)
+156.6523 	DATA 	RatingScale rating: (mouse response) rating=2
+156.6523 	DATA 	RatingScale rating: rating RT=3.723
+156.6524 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.122), (2, 3.723)]
+156.6812 	EXP 	text_10: autoDraw = False
+156.6812 	EXP 	rating: autoDraw = False
+156.6812 	EXP 	short_blank: autoDraw = True
+156.7150 	DATA 	Mouse:  Left button up, pos=(651,150)
+156.8811 	EXP 	short_blank: autoDraw = False
+156.8811 	EXP 	short_blank: autoDraw = False
+156.8811 	EXP 	text_5: autoDraw = True
+157.3654 	EXP 	New trial (rep=0, index=2): OrderedDict([('type', u'arm'), ('verb', u'KNOCK')])
+157.3689 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+157.3693 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+157.3697 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+157.4318 	EXP 	RatingScale rating: reset()
+157.4394 	EXP 	text_5: autoDraw = False
+157.4394 	EXP 	text_5: autoDraw = False
+157.4394 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb KNOCK?'
+157.4394 	EXP 	text_10: autoDraw = True
+157.4394 	EXP 	rating: autoDraw = True
+166.0625 	DATA 	Mouse: Left button down, pos=(541,232)
+166.2292 	DATA 	Mouse:  Left button up, pos=(541,232)
+167.4123 	DATA 	Mouse: Left button down, pos=(601,131)
+167.4162 	DATA 	RatingScale rating: (mouse response) rating=2
+167.4162 	DATA 	RatingScale rating: rating RT=9.983
+167.4162 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 8.632), (2, 9.983)]
+167.4449 	EXP 	text_10: autoDraw = False
+167.4449 	EXP 	rating: autoDraw = False
+167.4449 	EXP 	short_blank: autoDraw = True
+167.5121 	DATA 	Mouse:  Left button up, pos=(601,131)
+167.6291 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+167.6902 	EXP 	RatingScale rating: reset()
+167.6972 	EXP 	short_blank: autoDraw = False
+167.6972 	EXP 	short_blank: autoDraw = False
+167.6972 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb KNOCK?'
+167.6972 	EXP 	text_10: autoDraw = True
+167.6972 	EXP 	rating: autoDraw = True
+173.0274 	DATA 	Mouse: Left button down, pos=(888,234)
+173.1270 	DATA 	Mouse:  Left button up, pos=(888,234)
+176.3432 	DATA 	Mouse: Left button down, pos=(718,130)
+176.3470 	DATA 	RatingScale rating: (mouse response) rating=7
+176.3471 	DATA 	RatingScale rating: rating RT=8.656
+176.3471 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 5.339), (7, 8.656)]
+176.3759 	EXP 	text_10: autoDraw = False
+176.3759 	EXP 	rating: autoDraw = False
+176.3759 	EXP 	short_blank: autoDraw = True
+176.4104 	DATA 	Mouse:  Left button up, pos=(718,130)
+176.5759 	EXP 	short_blank: autoDraw = False
+176.5759 	EXP 	short_blank: autoDraw = False
+176.5759 	EXP 	text_5: autoDraw = True
+177.0598 	EXP 	New trial (rep=0, index=3): OrderedDict([('type', u'leg'), ('verb', u'SQUAT')])
+177.0634 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+177.0638 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+177.0642 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+177.1288 	EXP 	RatingScale rating: reset()
+177.1358 	EXP 	text_5: autoDraw = False
+177.1358 	EXP 	text_5: autoDraw = False
+177.1358 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SQUAT?'
+177.1358 	EXP 	text_10: autoDraw = True
+177.1358 	EXP 	rating: autoDraw = True
+182.3249 	DATA 	Mouse: Left button down, pos=(888,232)
+182.3911 	DATA 	Mouse:  Left button up, pos=(888,232)
+183.2747 	DATA 	Mouse: Left button down, pos=(737,130)
+183.2786 	DATA 	RatingScale rating: (mouse response) rating=7
+183.2786 	DATA 	RatingScale rating: rating RT=6.149
+183.2787 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 5.198), (7, 6.149)]
+183.3074 	EXP 	text_10: autoDraw = False
+183.3074 	EXP 	rating: autoDraw = False
+183.3074 	EXP 	short_blank: autoDraw = True
+183.3414 	DATA 	Mouse:  Left button up, pos=(737,130)
+183.4918 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+183.5527 	EXP 	RatingScale rating: reset()
+183.5595 	EXP 	short_blank: autoDraw = False
+183.5595 	EXP 	short_blank: autoDraw = False
+183.5595 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SQUAT?'
+183.5595 	EXP 	text_10: autoDraw = True
+183.5595 	EXP 	rating: autoDraw = True
+185.0077 	DATA 	Mouse: Left button down, pos=(486,233)
+185.0910 	DATA 	Mouse:  Left button up, pos=(486,233)
+185.7946 	DATA 	Mouse: Left button down, pos=(605,147)
+185.8109 	DATA 	RatingScale rating: (mouse response) rating=1
+185.8109 	DATA 	RatingScale rating: rating RT=2.257
+185.8110 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.456), (1, 2.257)]
+185.8400 	EXP 	text_10: autoDraw = False
+185.8400 	EXP 	rating: autoDraw = False
+185.8400 	EXP 	short_blank: autoDraw = True
+185.8740 	DATA 	Mouse:  Left button up, pos=(605,147)
+186.0401 	EXP 	short_blank: autoDraw = False
+186.0401 	EXP 	short_blank: autoDraw = False
+186.0401 	EXP 	text_5: autoDraw = True
+186.5241 	EXP 	New trial (rep=0, index=4): OrderedDict([('type', u'arm'), ('verb', u'THROW')])
+186.5277 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+186.5281 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+186.5285 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+186.5896 	EXP 	RatingScale rating: reset()
+186.5964 	EXP 	text_5: autoDraw = False
+186.5964 	EXP 	text_5: autoDraw = False
+186.5964 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb THROW?'
+186.5964 	EXP 	text_10: autoDraw = True
+186.5964 	EXP 	rating: autoDraw = True
+190.1231 	DATA 	Mouse: Left button down, pos=(479,240)
+190.2432 	DATA 	Mouse:  Left button up, pos=(479,240)
+191.0392 	DATA 	Mouse: Left button down, pos=(624,138)
+191.0430 	DATA 	RatingScale rating: (mouse response) rating=1
+191.0430 	DATA 	RatingScale rating: rating RT=4.452
+191.0430 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.535), (1, 4.452)]
+191.0721 	EXP 	text_10: autoDraw = False
+191.0721 	EXP 	rating: autoDraw = False
+191.0721 	EXP 	short_blank: autoDraw = True
+191.1392 	DATA 	Mouse:  Left button up, pos=(624,138)
+191.2561 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+191.3174 	EXP 	RatingScale rating: reset()
+191.3246 	EXP 	short_blank: autoDraw = False
+191.3246 	EXP 	short_blank: autoDraw = False
+191.3246 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb THROW?'
+191.3246 	EXP 	text_10: autoDraw = True
+191.3246 	EXP 	rating: autoDraw = True
+193.8715 	DATA 	Mouse: Left button down, pos=(891,232)
+193.9888 	DATA 	Mouse:  Left button up, pos=(891,232)
+194.5550 	DATA 	Mouse: Left button down, pos=(751,150)
+194.5588 	DATA 	RatingScale rating: (mouse response) rating=7
+194.5588 	DATA 	RatingScale rating: rating RT=3.240
+194.5588 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.555), (7, 3.24)]
+194.5878 	EXP 	text_10: autoDraw = False
+194.5878 	EXP 	rating: autoDraw = False
+194.5878 	EXP 	short_blank: autoDraw = True
+194.6386 	DATA 	Mouse:  Left button up, pos=(751,150)
+194.7879 	EXP 	short_blank: autoDraw = False
+194.7879 	EXP 	short_blank: autoDraw = False
+194.7879 	EXP 	text_5: autoDraw = True
+195.2721 	EXP 	New trial (rep=0, index=5): OrderedDict([('type', u'leg'), ('verb', u'RUSH')])
+195.2761 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+195.2765 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+195.2769 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+195.3375 	EXP 	RatingScale rating: reset()
+195.3445 	EXP 	text_5: autoDraw = False
+195.3445 	EXP 	text_5: autoDraw = False
+195.3445 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb RUSH?'
+195.3445 	EXP 	text_10: autoDraw = True
+195.3445 	EXP 	rating: autoDraw = True
+210.5177 	DATA 	Mouse: Left button down, pos=(754,233)
+210.6211 	DATA 	Mouse:  Left button up, pos=(754,233)
+211.0842 	DATA 	Mouse: Left button down, pos=(724,134)
+211.0880 	DATA 	RatingScale rating: (mouse response) rating=5
+211.0880 	DATA 	RatingScale rating: rating RT=15.749
+211.0880 	DATA 	RatingScale rating: history=[(None, 0.0), (5, 15.181), (5, 15.749)]
+211.1167 	EXP 	text_10: autoDraw = False
+211.1167 	EXP 	rating: autoDraw = False
+211.1167 	EXP 	short_blank: autoDraw = True
+211.1673 	DATA 	Mouse:  Left button up, pos=(724,134)
+211.3011 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+211.3614 	EXP 	RatingScale rating: reset()
+211.3689 	EXP 	short_blank: autoDraw = False
+211.3689 	EXP 	short_blank: autoDraw = False
+211.3689 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb RUSH?'
+211.3689 	EXP 	text_10: autoDraw = True
+211.3689 	EXP 	rating: autoDraw = True
+215.2830 	DATA 	Mouse: Left button down, pos=(542,232)
+215.3831 	DATA 	Mouse:  Left button up, pos=(542,232)
+215.8826 	DATA 	Mouse: Left button down, pos=(640,151)
+215.8863 	DATA 	RatingScale rating: (mouse response) rating=2
+215.8863 	DATA 	RatingScale rating: rating RT=4.523
+215.8864 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.922), (2, 4.523)]
+215.9157 	EXP 	text_10: autoDraw = False
+215.9157 	EXP 	rating: autoDraw = False
+215.9157 	EXP 	short_blank: autoDraw = True
+215.9495 	DATA 	Mouse:  Left button up, pos=(640,151)
+216.1156 	EXP 	short_blank: autoDraw = False
+216.1156 	EXP 	short_blank: autoDraw = False
+216.1156 	EXP 	text_5: autoDraw = True
+216.5997 	EXP 	New trial (rep=0, index=6): OrderedDict([('type', u'leg'), ('verb', u'STRAY')])
+216.6033 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+216.6037 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+216.6041 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+216.6644 	EXP 	RatingScale rating: reset()
+216.6714 	EXP 	text_5: autoDraw = False
+216.6714 	EXP 	text_5: autoDraw = False
+216.6714 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STRAY?'
+216.6714 	EXP 	text_10: autoDraw = True
+216.6714 	EXP 	rating: autoDraw = True
+220.7650 	DATA 	Mouse: Left button down, pos=(818,231)
+220.9017 	DATA 	Mouse:  Left button up, pos=(818,231)
+221.3982 	DATA 	Mouse: Left button down, pos=(730,148)
+221.4020 	DATA 	RatingScale rating: (mouse response) rating=6
+221.4020 	DATA 	RatingScale rating: rating RT=4.736
+221.4021 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 4.102), (6, 4.736)]
+221.4307 	EXP 	text_10: autoDraw = False
+221.4307 	EXP 	rating: autoDraw = False
+221.4307 	EXP 	short_blank: autoDraw = True
+221.4811 	DATA 	Mouse:  Left button up, pos=(730,148)
+221.6153 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+221.6773 	EXP 	RatingScale rating: reset()
+221.6845 	EXP 	short_blank: autoDraw = False
+221.6845 	EXP 	short_blank: autoDraw = False
+221.6845 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STRAY?'
+221.6845 	EXP 	text_10: autoDraw = True
+221.6845 	EXP 	rating: autoDraw = True
+225.3307 	DATA 	Mouse: Left button down, pos=(474,233)
+225.4304 	DATA 	Mouse:  Left button up, pos=(474,233)
+225.7803 	DATA 	Mouse: Left button down, pos=(601,162)
+225.8504 	DATA 	Mouse:  Left button up, pos=(601,162)
+226.6469 	DATA 	Mouse: Left button down, pos=(611,139)
+226.6508 	DATA 	RatingScale rating: (mouse response) rating=1
+226.6508 	DATA 	RatingScale rating: rating RT=4.972
+226.6508 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.654), (1, 4.972)]
+226.6795 	EXP 	text_10: autoDraw = False
+226.6795 	EXP 	rating: autoDraw = False
+226.6795 	EXP 	short_blank: autoDraw = True
+226.7135 	DATA 	Mouse:  Left button up, pos=(611,139)
+226.8795 	EXP 	short_blank: autoDraw = False
+226.8795 	EXP 	short_blank: autoDraw = False
+226.8795 	EXP 	text_5: autoDraw = True
+227.3634 	EXP 	New trial (rep=0, index=7): OrderedDict([('type', u'arm'), ('verb', u'PEEL')])
+227.3669 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+227.3673 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+227.3676 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+227.4277 	EXP 	RatingScale rating: reset()
+227.4347 	EXP 	text_5: autoDraw = False
+227.4347 	EXP 	text_5: autoDraw = False
+227.4347 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PEEL?'
+227.4347 	EXP 	text_10: autoDraw = True
+227.4347 	EXP 	rating: autoDraw = True
+229.7486 	DATA 	Mouse: Left button down, pos=(485,235)
+229.8459 	DATA 	Mouse:  Left button up, pos=(485,236)
+230.3792 	DATA 	Mouse: Left button down, pos=(602,147)
+230.3829 	DATA 	RatingScale rating: (mouse response) rating=1
+230.3830 	DATA 	RatingScale rating: rating RT=2.954
+230.3830 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.32), (1, 2.954)]
+230.4118 	EXP 	text_10: autoDraw = False
+230.4118 	EXP 	rating: autoDraw = False
+230.4118 	EXP 	short_blank: autoDraw = True
+230.4457 	DATA 	Mouse:  Left button up, pos=(602,147)
+230.5964 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+230.6579 	EXP 	RatingScale rating: reset()
+230.6648 	EXP 	short_blank: autoDraw = False
+230.6648 	EXP 	short_blank: autoDraw = False
+230.6648 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PEEL?'
+230.6648 	EXP 	text_10: autoDraw = True
+230.6648 	EXP 	rating: autoDraw = True
+232.1788 	DATA 	Mouse: Left button down, pos=(882,241)
+232.2948 	DATA 	Mouse:  Left button up, pos=(882,240)
+233.3950 	DATA 	Mouse: Left button down, pos=(736,154)
+233.3987 	DATA 	RatingScale rating: (mouse response) rating=7
+233.3987 	DATA 	RatingScale rating: rating RT=2.739
+233.3988 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.522), (7, 2.739)]
+233.4278 	EXP 	text_10: autoDraw = False
+233.4278 	EXP 	rating: autoDraw = False
+233.4278 	EXP 	short_blank: autoDraw = True
+233.5112 	DATA 	Mouse:  Left button up, pos=(736,154)
+233.6275 	EXP 	short_blank: autoDraw = False
+233.6275 	EXP 	short_blank: autoDraw = False
+233.6275 	EXP 	text_5: autoDraw = True
+234.1117 	EXP 	New trial (rep=0, index=8): OrderedDict([('type', u'leg'), ('verb', u'PEDAL')])
+234.1152 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+234.1156 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+234.1160 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+234.1791 	EXP 	RatingScale rating: reset()
+234.1859 	EXP 	text_5: autoDraw = False
+234.1859 	EXP 	text_5: autoDraw = False
+234.1859 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PEDAL?'
+234.1859 	EXP 	text_10: autoDraw = True
+234.1859 	EXP 	rating: autoDraw = True
+237.1440 	DATA 	Mouse: Left button down, pos=(888,236)
+237.2274 	DATA 	Mouse:  Left button up, pos=(888,236)
+237.8937 	DATA 	Mouse: Left button down, pos=(773,144)
+237.8974 	DATA 	RatingScale rating: (mouse response) rating=7
+237.8974 	DATA 	RatingScale rating: rating RT=3.717
+237.8975 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.966), (7, 3.717)]
+237.9264 	EXP 	text_10: autoDraw = False
+237.9264 	EXP 	rating: autoDraw = False
+237.9264 	EXP 	short_blank: autoDraw = True
+237.9605 	DATA 	Mouse:  Left button up, pos=(773,144)
+238.1107 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+238.1724 	EXP 	RatingScale rating: reset()
+238.1793 	EXP 	short_blank: autoDraw = False
+238.1793 	EXP 	short_blank: autoDraw = False
+238.1793 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PEDAL?'
+238.1793 	EXP 	text_10: autoDraw = True
+238.1793 	EXP 	rating: autoDraw = True
+240.5956 	DATA 	Mouse: Left button down, pos=(548,237)
+240.6764 	DATA 	Mouse:  Left button up, pos=(548,237)
+241.2428 	DATA 	Mouse: Left button down, pos=(628,137)
+241.2466 	DATA 	RatingScale rating: (mouse response) rating=2
+241.2466 	DATA 	RatingScale rating: rating RT=3.073
+241.2466 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 2.422), (2, 3.073)]
+241.2756 	EXP 	text_10: autoDraw = False
+241.2756 	EXP 	rating: autoDraw = False
+241.2756 	EXP 	short_blank: autoDraw = True
+241.3095 	DATA 	Mouse:  Left button up, pos=(628,137)
+241.4756 	EXP 	short_blank: autoDraw = False
+241.4756 	EXP 	short_blank: autoDraw = False
+241.4756 	EXP 	text_5: autoDraw = True
+241.9593 	EXP 	New trial (rep=0, index=9): OrderedDict([('type', u'leg'), ('verb', u'GLIDE')])
+241.9628 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+241.9632 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+241.9636 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+242.0264 	EXP 	RatingScale rating: reset()
+242.0334 	EXP 	text_5: autoDraw = False
+242.0334 	EXP 	text_5: autoDraw = False
+242.0334 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb GLIDE?'
+242.0334 	EXP 	text_10: autoDraw = True
+242.0334 	EXP 	rating: autoDraw = True
+246.4418 	DATA 	Mouse: Left button down, pos=(886,235)
+246.5249 	DATA 	Mouse:  Left button up, pos=(886,235)
+247.0119 	DATA 	Mouse: Left button down, pos=(752,146)
+247.0121 	DATA 	RatingScale rating: (mouse response) rating=7
+247.0122 	DATA 	RatingScale rating: rating RT=4.985
+247.0122 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 4.417), (7, 4.985)]
+247.0407 	EXP 	text_10: autoDraw = False
+247.0407 	EXP 	rating: autoDraw = False
+247.0407 	EXP 	short_blank: autoDraw = True
+247.0912 	DATA 	Mouse:  Left button up, pos=(752,146)
+247.2249 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+247.2860 	EXP 	RatingScale rating: reset()
+247.2932 	EXP 	short_blank: autoDraw = False
+247.2932 	EXP 	short_blank: autoDraw = False
+247.2932 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb GLIDE?'
+247.2932 	EXP 	text_10: autoDraw = True
+247.2932 	EXP 	rating: autoDraw = True
+249.0910 	DATA 	Mouse: Left button down, pos=(485,237)
+249.1911 	DATA 	Mouse:  Left button up, pos=(485,237)
+249.6442 	DATA 	Mouse: Left button down, pos=(612,148)
+249.6445 	DATA 	RatingScale rating: (mouse response) rating=1
+249.6445 	DATA 	RatingScale rating: rating RT=2.357
+249.6446 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.806), (1, 2.357)]
+249.6734 	EXP 	text_10: autoDraw = False
+249.6734 	EXP 	rating: autoDraw = False
+249.6734 	EXP 	short_blank: autoDraw = True
+249.7075 	DATA 	Mouse:  Left button up, pos=(612,148)
+249.8732 	EXP 	short_blank: autoDraw = False
+249.8732 	EXP 	short_blank: autoDraw = False
+249.8732 	EXP 	text_5: autoDraw = True
+250.3575 	EXP 	New trial (rep=0, index=10): OrderedDict([('type', u'arm'), ('verb', u'NIP')])
+250.3610 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+250.3614 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+250.3618 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+250.4213 	EXP 	RatingScale rating: reset()
+250.4282 	EXP 	text_5: autoDraw = False
+250.4282 	EXP 	text_5: autoDraw = False
+250.4282 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb NIP?'
+250.4282 	EXP 	text_10: autoDraw = True
+250.4282 	EXP 	rating: autoDraw = True
+267.8863 	DATA 	Mouse: Left button down, pos=(682,230)
+267.9860 	DATA 	Mouse:  Left button up, pos=(682,230)
+268.5356 	DATA 	Mouse: Left button down, pos=(687,129)
+268.5393 	DATA 	RatingScale rating: (mouse response) rating=4
+268.5393 	DATA 	RatingScale rating: rating RT=18.117
+268.5394 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 17.466), (4, 18.117)]
+268.5686 	EXP 	text_10: autoDraw = False
+268.5686 	EXP 	rating: autoDraw = False
+268.5686 	EXP 	short_blank: autoDraw = True
+268.6192 	DATA 	Mouse:  Left button up, pos=(687,129)
+268.7530 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+268.8131 	EXP 	RatingScale rating: reset()
+268.8200 	EXP 	short_blank: autoDraw = False
+268.8200 	EXP 	short_blank: autoDraw = False
+268.8200 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb NIP?'
+268.8200 	EXP 	text_10: autoDraw = True
+268.8200 	EXP 	rating: autoDraw = True
+270.7353 	DATA 	Mouse: Left button down, pos=(682,239)
+270.7886 	DATA 	Mouse:  Left button up, pos=(682,239)
+271.3352 	DATA 	Mouse: Left button down, pos=(694,134)
+271.3389 	DATA 	RatingScale rating: (mouse response) rating=4
+271.3389 	DATA 	RatingScale rating: rating RT=2.524
+271.3389 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 1.923), (4, 2.524)]
+271.3677 	EXP 	text_10: autoDraw = False
+271.3677 	EXP 	rating: autoDraw = False
+271.3677 	EXP 	short_blank: autoDraw = True
+271.4016 	DATA 	Mouse:  Left button up, pos=(694,134)
+271.5678 	EXP 	short_blank: autoDraw = False
+271.5678 	EXP 	short_blank: autoDraw = False
+271.5678 	EXP 	text_5: autoDraw = True
+272.0517 	EXP 	New trial (rep=0, index=11): OrderedDict([('type', u'leg'), ('verb', u'WOBBLE')])
+272.0553 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+272.0557 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+272.0561 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+272.1182 	EXP 	RatingScale rating: reset()
+272.1252 	EXP 	text_5: autoDraw = False
+272.1252 	EXP 	text_5: autoDraw = False
+272.1252 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WOBBLE?'
+272.1252 	EXP 	text_10: autoDraw = True
+272.1252 	EXP 	rating: autoDraw = True
+275.2509 	DATA 	Mouse: Left button down, pos=(888,236)
+275.4174 	DATA 	Mouse:  Left button up, pos=(888,236)
+277.9000 	DATA 	Mouse: Left button down, pos=(759,141)
+277.9039 	DATA 	RatingScale rating: (mouse response) rating=7
+277.9039 	DATA 	RatingScale rating: rating RT=5.784
+277.9039 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 3.134), (7, 5.784)]
+277.9327 	EXP 	text_10: autoDraw = False
+277.9327 	EXP 	rating: autoDraw = False
+277.9327 	EXP 	short_blank: autoDraw = True
+277.9667 	DATA 	Mouse:  Left button up, pos=(759,141)
+278.1170 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+278.1793 	EXP 	RatingScale rating: reset()
+278.1866 	EXP 	short_blank: autoDraw = False
+278.1866 	EXP 	short_blank: autoDraw = False
+278.1866 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WOBBLE?'
+278.1866 	EXP 	text_10: autoDraw = True
+278.1866 	EXP 	rating: autoDraw = True
+286.6979 	DATA 	Mouse: Left button down, pos=(481,234)
+286.8144 	DATA 	Mouse:  Left button up, pos=(481,234)
+287.2809 	DATA 	Mouse: Left button down, pos=(587,154)
+287.2847 	DATA 	RatingScale rating: (mouse response) rating=1
+287.2847 	DATA 	RatingScale rating: rating RT=9.104
+287.2848 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 8.52), (1, 9.104)]
+287.3136 	EXP 	text_10: autoDraw = False
+287.3136 	EXP 	rating: autoDraw = False
+287.3136 	EXP 	short_blank: autoDraw = True
+287.3643 	DATA 	Mouse:  Left button up, pos=(588,152)
+287.5133 	EXP 	short_blank: autoDraw = False
+287.5133 	EXP 	short_blank: autoDraw = False
+287.5133 	EXP 	text_5: autoDraw = True
+287.9979 	EXP 	New trial (rep=0, index=12): OrderedDict([('type', u'leg'), ('verb', u'TRUDGE')])
+288.0015 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+288.0019 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+288.0023 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+288.0667 	EXP 	RatingScale rating: reset()
+288.0742 	EXP 	text_5: autoDraw = False
+288.0742 	EXP 	text_5: autoDraw = False
+288.0742 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb TRUDGE?'
+288.0742 	EXP 	text_10: autoDraw = True
+288.0742 	EXP 	rating: autoDraw = True
+291.6298 	DATA 	Mouse: Left button down, pos=(883,234)
+291.7131 	DATA 	Mouse:  Left button up, pos=(883,234)
+292.2463 	DATA 	Mouse: Left button down, pos=(753,152)
+292.2501 	DATA 	RatingScale rating: (mouse response) rating=7
+292.2502 	DATA 	RatingScale rating: rating RT=4.182
+292.2502 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 3.564), (7, 4.182)]
+292.2787 	EXP 	text_10: autoDraw = False
+292.2787 	EXP 	rating: autoDraw = False
+292.2787 	EXP 	short_blank: autoDraw = True
+292.3296 	DATA 	Mouse:  Left button up, pos=(753,152)
+292.4631 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+292.5245 	EXP 	RatingScale rating: reset()
+292.5315 	EXP 	short_blank: autoDraw = False
+292.5315 	EXP 	short_blank: autoDraw = False
+292.5315 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb TRUDGE?'
+292.5315 	EXP 	text_10: autoDraw = True
+292.5315 	EXP 	rating: autoDraw = True
+298.8948 	DATA 	Mouse: Left button down, pos=(478,237)
+298.9779 	DATA 	Mouse:  Left button up, pos=(478,237)
+299.3778 	DATA 	Mouse: Left button down, pos=(629,134)
+299.3816 	DATA 	RatingScale rating: (mouse response) rating=1
+299.3816 	DATA 	RatingScale rating: rating RT=6.856
+299.3816 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 6.372), (1, 6.856)]
+299.4103 	EXP 	text_10: autoDraw = False
+299.4103 	EXP 	rating: autoDraw = False
+299.4103 	EXP 	short_blank: autoDraw = True
+299.4280 	DATA 	Mouse:  Left button up, pos=(629,134)
+299.6102 	EXP 	short_blank: autoDraw = False
+299.6102 	EXP 	short_blank: autoDraw = False
+299.6102 	EXP 	text_5: autoDraw = True
+300.0944 	EXP 	New trial (rep=0, index=13): OrderedDict([('type', u'leg'), ('verb', u'TIPTOE')])
+300.0979 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+300.0983 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+300.0987 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+300.1604 	EXP 	RatingScale rating: reset()
+300.1673 	EXP 	text_5: autoDraw = False
+300.1673 	EXP 	text_5: autoDraw = False
+300.1673 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb TIPTOE?'
+300.1673 	EXP 	text_10: autoDraw = True
+300.1673 	EXP 	rating: autoDraw = True
+302.5106 	DATA 	Mouse: Left button down, pos=(887,236)
+302.6270 	DATA 	Mouse:  Left button up, pos=(887,236)
+303.3269 	DATA 	Mouse: Left button down, pos=(712,143)
+303.3307 	DATA 	RatingScale rating: (mouse response) rating=7
+303.3307 	DATA 	RatingScale rating: rating RT=3.169
+303.3307 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.352), (7, 3.169)]
+303.3595 	EXP 	text_10: autoDraw = False
+303.3595 	EXP 	rating: autoDraw = False
+303.3595 	EXP 	short_blank: autoDraw = True
+303.4100 	DATA 	Mouse:  Left button up, pos=(712,143)
+303.5434 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+303.6054 	EXP 	RatingScale rating: reset()
+303.6127 	EXP 	short_blank: autoDraw = False
+303.6127 	EXP 	short_blank: autoDraw = False
+303.6127 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb TIPTOE?'
+303.6127 	EXP 	text_10: autoDraw = True
+303.6127 	EXP 	rating: autoDraw = True
+305.2597 	DATA 	Mouse: Left button down, pos=(468,235)
+305.3627 	DATA 	Mouse:  Left button up, pos=(468,234)
+305.8763 	DATA 	Mouse: Left button down, pos=(628,138)
+305.8801 	DATA 	RatingScale rating: (mouse response) rating=1
+305.8801 	DATA 	RatingScale rating: rating RT=2.273
+305.8801 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.655), (1, 2.273)]
+305.9088 	EXP 	text_10: autoDraw = False
+305.9088 	EXP 	rating: autoDraw = False
+305.9088 	EXP 	short_blank: autoDraw = True
+305.9427 	DATA 	Mouse:  Left button up, pos=(628,138)
+306.1087 	EXP 	short_blank: autoDraw = False
+306.1087 	EXP 	short_blank: autoDraw = False
+306.1087 	EXP 	text_5: autoDraw = True
+306.5927 	EXP 	New trial (rep=0, index=14): OrderedDict([('type', u'arm'), ('verb', u'SCRATCH')])
+306.5963 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+306.5966 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+306.5970 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+306.6592 	EXP 	RatingScale rating: reset()
+306.6661 	EXP 	text_5: autoDraw = False
+306.6661 	EXP 	text_5: autoDraw = False
+306.6661 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SCRATCH?'
+306.6661 	EXP 	text_10: autoDraw = True
+306.6661 	EXP 	rating: autoDraw = True
+309.8277 	DATA 	Mouse: Left button down, pos=(681,232)
+309.8918 	DATA 	Mouse:  Left button up, pos=(681,232)
+310.4917 	DATA 	Mouse: Left button down, pos=(721,138)
+310.4956 	DATA 	RatingScale rating: (mouse response) rating=4
+310.4956 	DATA 	RatingScale rating: rating RT=3.835
+310.4957 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 3.167), (4, 3.835)]
+310.5242 	EXP 	text_10: autoDraw = False
+310.5242 	EXP 	rating: autoDraw = False
+310.5242 	EXP 	short_blank: autoDraw = True
+310.5747 	DATA 	Mouse:  Left button up, pos=(721,138)
+310.7085 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+310.7715 	EXP 	RatingScale rating: reset()
+310.7788 	EXP 	short_blank: autoDraw = False
+310.7788 	EXP 	short_blank: autoDraw = False
+310.7788 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SCRATCH?'
+310.7788 	EXP 	text_10: autoDraw = True
+310.7788 	EXP 	rating: autoDraw = True
+313.5240 	DATA 	Mouse: Left button down, pos=(820,235)
+313.6108 	DATA 	Mouse:  Left button up, pos=(820,235)
+315.2773 	DATA 	Mouse: Left button down, pos=(738,133)
+315.2775 	DATA 	RatingScale rating: (mouse response) rating=6
+315.2776 	DATA 	RatingScale rating: rating RT=4.505
+315.2776 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 2.754), (6, 4.505)]
+315.3063 	EXP 	text_10: autoDraw = False
+315.3063 	EXP 	rating: autoDraw = False
+315.3063 	EXP 	short_blank: autoDraw = True
+315.3400 	DATA 	Mouse:  Left button up, pos=(738,133)
+315.5062 	EXP 	short_blank: autoDraw = False
+315.5062 	EXP 	short_blank: autoDraw = False
+315.5062 	EXP 	text_5: autoDraw = True
+315.9901 	EXP 	New trial (rep=0, index=15): OrderedDict([('type', u'arm'), ('verb', u'CHOP')])
+315.9937 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+315.9940 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+315.9945 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+316.0549 	EXP 	RatingScale rating: reset()
+316.0620 	EXP 	text_5: autoDraw = False
+316.0620 	EXP 	text_5: autoDraw = False
+316.0620 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CHOP?'
+316.0620 	EXP 	text_10: autoDraw = True
+316.0620 	EXP 	rating: autoDraw = True
+319.7084 	DATA 	Mouse: Left button down, pos=(550,238)
+319.8059 	DATA 	Mouse:  Left button up, pos=(550,238)
+320.3390 	DATA 	Mouse: Left button down, pos=(640,131)
+320.3428 	DATA 	RatingScale rating: (mouse response) rating=2
+320.3429 	DATA 	RatingScale rating: rating RT=4.287
+320.3429 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.652), (2, 4.287)]
+320.3716 	EXP 	text_10: autoDraw = False
+320.3716 	EXP 	rating: autoDraw = False
+320.3716 	EXP 	short_blank: autoDraw = True
+320.3888 	DATA 	Mouse:  Left button up, pos=(640,131)
+320.5562 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+320.6170 	EXP 	RatingScale rating: reset()
+320.6246 	EXP 	short_blank: autoDraw = False
+320.6246 	EXP 	short_blank: autoDraw = False
+320.6246 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CHOP?'
+320.6246 	EXP 	text_10: autoDraw = True
+320.6246 	EXP 	rating: autoDraw = True
+322.0911 	DATA 	Mouse: Left button down, pos=(884,233)
+322.2050 	DATA 	Mouse:  Left button up, pos=(884,233)
+322.6384 	DATA 	Mouse: Left button down, pos=(742,155)
+322.6423 	DATA 	RatingScale rating: (mouse response) rating=7
+322.6423 	DATA 	RatingScale rating: rating RT=2.024
+322.6424 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.473), (7, 2.024)]
+322.6710 	EXP 	text_10: autoDraw = False
+322.6710 	EXP 	rating: autoDraw = False
+322.6710 	EXP 	short_blank: autoDraw = True
+322.7216 	DATA 	Mouse:  Left button up, pos=(742,155)
+322.8704 	EXP 	short_blank: autoDraw = False
+322.8704 	EXP 	short_blank: autoDraw = False
+322.8704 	EXP 	text_5: autoDraw = True
+323.3550 	EXP 	New trial (rep=0, index=16): OrderedDict([('type', u'arm'), ('verb', u'PLUCK')])
+323.3586 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+323.3589 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+323.3594 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+323.4212 	EXP 	RatingScale rating: reset()
+323.4286 	EXP 	text_5: autoDraw = False
+323.4286 	EXP 	text_5: autoDraw = False
+323.4286 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PLUCK?'
+323.4286 	EXP 	text_10: autoDraw = True
+323.4286 	EXP 	rating: autoDraw = True
+325.8208 	DATA 	Mouse: Left button down, pos=(481,237)
+325.8912 	DATA 	Mouse:  Left button up, pos=(481,237)
+326.3376 	DATA 	Mouse: Left button down, pos=(611,139)
+326.3413 	DATA 	RatingScale rating: (mouse response) rating=1
+326.3413 	DATA 	RatingScale rating: rating RT=2.919
+326.3414 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.401), (1, 2.918)]
+326.3701 	EXP 	text_10: autoDraw = False
+326.3701 	EXP 	rating: autoDraw = False
+326.3701 	EXP 	short_blank: autoDraw = True
+326.3875 	DATA 	Mouse:  Left button up, pos=(611,139)
+326.5548 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+326.6172 	EXP 	RatingScale rating: reset()
+326.6245 	EXP 	short_blank: autoDraw = False
+326.6245 	EXP 	short_blank: autoDraw = False
+326.6245 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PLUCK?'
+326.6245 	EXP 	text_10: autoDraw = True
+326.6245 	EXP 	rating: autoDraw = True
+327.4702 	DATA 	Mouse: Left button down, pos=(893,237)
+327.5536 	DATA 	Mouse:  Left button up, pos=(893,237)
+328.0370 	DATA 	Mouse: Left button down, pos=(762,152)
+328.0408 	DATA 	RatingScale rating: (mouse response) rating=7
+328.0408 	DATA 	RatingScale rating: rating RT=1.422
+328.0409 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.854), (7, 1.422)]
+328.0697 	EXP 	text_10: autoDraw = False
+328.0697 	EXP 	rating: autoDraw = False
+328.0697 	EXP 	short_blank: autoDraw = True
+328.1036 	DATA 	Mouse:  Left button up, pos=(762,152)
+328.2698 	EXP 	short_blank: autoDraw = False
+328.2698 	EXP 	short_blank: autoDraw = False
+328.2698 	EXP 	text_5: autoDraw = True
+328.7537 	EXP 	New trial (rep=0, index=17): OrderedDict([('type', u'arm'), ('verb', u'PUSH')])
+328.7572 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+328.7576 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+328.7580 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+328.8180 	EXP 	RatingScale rating: reset()
+328.8251 	EXP 	text_5: autoDraw = False
+328.8251 	EXP 	text_5: autoDraw = False
+328.8251 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PUSH?'
+328.8251 	EXP 	text_10: autoDraw = True
+328.8251 	EXP 	rating: autoDraw = True
+334.3854 	DATA 	Mouse: Left button down, pos=(682,235)
+334.4853 	DATA 	Mouse:  Left button up, pos=(682,235)
+334.9686 	DATA 	Mouse: Left button down, pos=(680,143)
+334.9723 	DATA 	RatingScale rating: (mouse response) rating=4
+334.9723 	DATA 	RatingScale rating: rating RT=6.153
+334.9723 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 5.568), (4, 6.153)]
+335.0012 	EXP 	text_10: autoDraw = False
+335.0012 	EXP 	rating: autoDraw = False
+335.0012 	EXP 	short_blank: autoDraw = True
+335.0518 	DATA 	Mouse:  Left button up, pos=(680,143)
+335.1855 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+335.2466 	EXP 	RatingScale rating: reset()
+335.2539 	EXP 	short_blank: autoDraw = False
+335.2539 	EXP 	short_blank: autoDraw = False
+335.2539 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PUSH?'
+335.2539 	EXP 	text_10: autoDraw = True
+335.2539 	EXP 	rating: autoDraw = True
+336.6681 	DATA 	Mouse: Left button down, pos=(886,238)
+336.7715 	DATA 	Mouse:  Left button up, pos=(886,238)
+337.3344 	DATA 	Mouse: Left button down, pos=(709,143)
+337.3383 	DATA 	RatingScale rating: (mouse response) rating=7
+337.3383 	DATA 	RatingScale rating: rating RT=2.090
+337.3383 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.422), (7, 2.09)]
+337.3672 	EXP 	text_10: autoDraw = False
+337.3672 	EXP 	rating: autoDraw = False
+337.3672 	EXP 	short_blank: autoDraw = True
+337.4011 	DATA 	Mouse:  Left button up, pos=(709,143)
+337.5667 	EXP 	short_blank: autoDraw = False
+337.5667 	EXP 	short_blank: autoDraw = False
+337.5667 	EXP 	text_5: autoDraw = True
+338.0515 	EXP 	New trial (rep=0, index=18): OrderedDict([('type', u'leg'), ('verb', u'HIKE')])
+338.0552 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+338.0556 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+338.0560 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+338.1177 	EXP 	RatingScale rating: reset()
+338.1249 	EXP 	text_5: autoDraw = False
+338.1249 	EXP 	text_5: autoDraw = False
+338.1249 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb HIKE?'
+338.1249 	EXP 	text_10: autoDraw = True
+338.1249 	EXP 	rating: autoDraw = True
+340.7669 	DATA 	Mouse: Left button down, pos=(877,245)
+340.8997 	DATA 	Mouse:  Left button up, pos=(877,245)
+341.3672 	DATA 	Mouse: Left button down, pos=(765,152)
+341.3711 	DATA 	RatingScale rating: (mouse response) rating=7
+341.3712 	DATA 	RatingScale rating: rating RT=3.252
+341.3712 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.65), (7, 3.252)]
+341.3996 	EXP 	text_10: autoDraw = False
+341.3996 	EXP 	rating: autoDraw = False
+341.3996 	EXP 	short_blank: autoDraw = True
+341.4502 	DATA 	Mouse:  Left button up, pos=(765,151)
+341.5834 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+341.6444 	EXP 	RatingScale rating: reset()
+341.6516 	EXP 	short_blank: autoDraw = False
+341.6516 	EXP 	short_blank: autoDraw = False
+341.6516 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb HIKE?'
+341.6516 	EXP 	text_10: autoDraw = True
+341.6516 	EXP 	rating: autoDraw = True
+342.7830 	DATA 	Mouse: Left button down, pos=(481,235)
+342.8666 	DATA 	Mouse:  Left button up, pos=(481,235)
+343.3329 	DATA 	Mouse: Left button down, pos=(603,148)
+343.3368 	DATA 	RatingScale rating: (mouse response) rating=1
+343.3368 	DATA 	RatingScale rating: rating RT=1.691
+343.3369 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.14), (1, 1.691)]
+343.3660 	EXP 	text_10: autoDraw = False
+343.3660 	EXP 	rating: autoDraw = False
+343.3660 	EXP 	short_blank: autoDraw = True
+343.3992 	DATA 	Mouse:  Left button up, pos=(603,147)
+343.5657 	EXP 	short_blank: autoDraw = False
+343.5657 	EXP 	short_blank: autoDraw = False
+343.5657 	EXP 	text_5: autoDraw = True
+344.0498 	EXP 	New trial (rep=0, index=19): OrderedDict([('type', u'arm'), ('verb', u'CLICK')])
+344.0533 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+344.0536 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+344.0540 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+344.1155 	EXP 	RatingScale rating: reset()
+344.1224 	EXP 	text_5: autoDraw = False
+344.1224 	EXP 	text_5: autoDraw = False
+344.1224 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CLICK?'
+344.1224 	EXP 	text_10: autoDraw = True
+344.1224 	EXP 	rating: autoDraw = True
+346.8819 	DATA 	Mouse: Left button down, pos=(481,233)
+346.9819 	DATA 	Mouse:  Left button up, pos=(481,233)
+347.6153 	DATA 	Mouse: Left button down, pos=(621,153)
+347.6191 	DATA 	RatingScale rating: (mouse response) rating=1
+347.6191 	DATA 	RatingScale rating: rating RT=3.502
+347.6192 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.768), (1, 3.502)]
+347.6477 	EXP 	text_10: autoDraw = False
+347.6477 	EXP 	rating: autoDraw = False
+347.6477 	EXP 	short_blank: autoDraw = True
+347.6815 	DATA 	Mouse:  Left button up, pos=(621,153)
+347.8322 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+347.8940 	EXP 	RatingScale rating: reset()
+347.9013 	EXP 	short_blank: autoDraw = False
+347.9013 	EXP 	short_blank: autoDraw = False
+347.9013 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CLICK?'
+347.9013 	EXP 	text_10: autoDraw = True
+347.9013 	EXP 	rating: autoDraw = True
+350.6810 	DATA 	Mouse: Left button down, pos=(889,234)
+350.7642 	DATA 	Mouse:  Left button up, pos=(889,233)
+351.1808 	DATA 	Mouse: Left button down, pos=(722,149)
+351.1846 	DATA 	RatingScale rating: (mouse response) rating=7
+351.1846 	DATA 	RatingScale rating: rating RT=3.289
+351.1846 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.788), (7, 3.289)]
+351.2135 	EXP 	text_10: autoDraw = False
+351.2135 	EXP 	rating: autoDraw = False
+351.2135 	EXP 	short_blank: autoDraw = True
+351.2309 	DATA 	Mouse:  Left button up, pos=(722,149)
+351.4136 	EXP 	short_blank: autoDraw = False
+351.4136 	EXP 	short_blank: autoDraw = False
+351.4136 	EXP 	text_5: autoDraw = True
+351.8975 	EXP 	New trial (rep=0, index=20): OrderedDict([('type', u'arm'), ('verb', u'STIR')])
+351.9015 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+351.9018 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+351.9022 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+351.9628 	EXP 	RatingScale rating: reset()
+351.9698 	EXP 	text_5: autoDraw = False
+351.9698 	EXP 	text_5: autoDraw = False
+351.9698 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STIR?'
+351.9698 	EXP 	text_10: autoDraw = True
+351.9698 	EXP 	rating: autoDraw = True
+354.7632 	DATA 	Mouse: Left button down, pos=(480,239)
+354.8802 	DATA 	Mouse:  Left button up, pos=(480,239)
+355.2794 	DATA 	Mouse: Left button down, pos=(651,144)
+355.2832 	DATA 	RatingScale rating: (mouse response) rating=1
+355.2833 	DATA 	RatingScale rating: rating RT=3.319
+355.2833 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.802), (1, 3.319)]
+355.3125 	EXP 	text_10: autoDraw = False
+355.3125 	EXP 	rating: autoDraw = False
+355.3125 	EXP 	short_blank: autoDraw = True
+355.3298 	DATA 	Mouse:  Left button up, pos=(652,144)
+355.4971 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+355.5579 	EXP 	RatingScale rating: reset()
+355.5651 	EXP 	short_blank: autoDraw = False
+355.5651 	EXP 	short_blank: autoDraw = False
+355.5651 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STIR?'
+355.5651 	EXP 	text_10: autoDraw = True
+355.5651 	EXP 	rating: autoDraw = True
+356.4825 	DATA 	Mouse: Left button down, pos=(882,234)
+356.5497 	DATA 	Mouse:  Left button up, pos=(882,234)
+356.9793 	DATA 	Mouse: Left button down, pos=(748,152)
+356.9832 	DATA 	RatingScale rating: (mouse response) rating=7
+356.9832 	DATA 	RatingScale rating: rating RT=1.424
+356.9832 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.939), (7, 1.424)]
+357.0120 	EXP 	text_10: autoDraw = False
+357.0120 	EXP 	rating: autoDraw = False
+357.0120 	EXP 	short_blank: autoDraw = True
+357.0461 	DATA 	Mouse:  Left button up, pos=(748,152)
+357.2118 	EXP 	short_blank: autoDraw = False
+357.2118 	EXP 	short_blank: autoDraw = False
+357.2118 	EXP 	text_5: autoDraw = True
+357.6960 	EXP 	New trial (rep=0, index=21): OrderedDict([('type', u'leg'), ('verb', u'STOMP')])
+357.6996 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+357.6999 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+357.7003 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+357.7678 	EXP 	RatingScale rating: reset()
+357.7751 	EXP 	text_5: autoDraw = False
+357.7751 	EXP 	text_5: autoDraw = False
+357.7751 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STOMP?'
+357.7751 	EXP 	text_10: autoDraw = True
+357.7751 	EXP 	rating: autoDraw = True
+360.2453 	DATA 	Mouse: Left button down, pos=(893,236)
+360.3321 	DATA 	Mouse:  Left button up, pos=(894,236)
+360.7652 	DATA 	Mouse: Left button down, pos=(737,146)
+360.7655 	DATA 	RatingScale rating: (mouse response) rating=7
+360.7655 	DATA 	RatingScale rating: rating RT=2.996
+360.7656 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.478), (7, 2.996)]
+360.7944 	EXP 	text_10: autoDraw = False
+360.7944 	EXP 	rating: autoDraw = False
+360.7944 	EXP 	short_blank: autoDraw = True
+360.8285 	DATA 	Mouse:  Left button up, pos=(737,146)
+360.9788 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+361.0428 	EXP 	RatingScale rating: reset()
+361.0513 	EXP 	short_blank: autoDraw = False
+361.0513 	EXP 	short_blank: autoDraw = False
+361.0513 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STOMP?'
+361.0513 	EXP 	text_10: autoDraw = True
+361.0513 	EXP 	rating: autoDraw = True
+362.2947 	DATA 	Mouse: Left button down, pos=(479,237)
+362.3652 	DATA 	Mouse:  Left button up, pos=(479,237)
+362.7610 	DATA 	Mouse: Left button down, pos=(600,140)
+362.7649 	DATA 	RatingScale rating: (mouse response) rating=1
+362.7649 	DATA 	RatingScale rating: rating RT=1.720
+362.7650 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.252), (1, 1.72)]
+362.7938 	EXP 	text_10: autoDraw = False
+362.7938 	EXP 	rating: autoDraw = False
+362.7938 	EXP 	short_blank: autoDraw = True
+362.8281 	DATA 	Mouse:  Left button up, pos=(600,140)
+362.9937 	EXP 	short_blank: autoDraw = False
+362.9937 	EXP 	short_blank: autoDraw = False
+362.9937 	EXP 	text_5: autoDraw = True
+363.4779 	EXP 	New trial (rep=0, index=22): OrderedDict([('type', u'arm'), ('verb', u'SNATCH')])
+363.4816 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+363.4820 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+363.4824 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+363.5444 	EXP 	RatingScale rating: reset()
+363.5515 	EXP 	text_5: autoDraw = False
+363.5515 	EXP 	text_5: autoDraw = False
+363.5515 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SNATCH?'
+363.5515 	EXP 	text_10: autoDraw = True
+363.5515 	EXP 	rating: autoDraw = True
+369.0264 	DATA 	Mouse: Left button down, pos=(543,237)
+369.1262 	DATA 	Mouse:  Left button up, pos=(543,237)
+369.5093 	DATA 	Mouse: Left button down, pos=(598,140)
+369.5132 	DATA 	RatingScale rating: (mouse response) rating=2
+369.5132 	DATA 	RatingScale rating: rating RT=5.967
+369.5132 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 5.483), (2, 5.967)]
+369.5420 	EXP 	text_10: autoDraw = False
+369.5420 	EXP 	rating: autoDraw = False
+369.5420 	EXP 	short_blank: autoDraw = True
+369.5759 	DATA 	Mouse:  Left button up, pos=(598,140)
+369.7267 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+369.7888 	EXP 	RatingScale rating: reset()
+369.7959 	EXP 	short_blank: autoDraw = False
+369.7959 	EXP 	short_blank: autoDraw = False
+369.7959 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SNATCH?'
+369.7959 	EXP 	text_10: autoDraw = True
+369.7959 	EXP 	rating: autoDraw = True
+371.4255 	DATA 	Mouse: Left button down, pos=(886,237)
+371.4755 	DATA 	Mouse:  Left button up, pos=(886,237)
+371.9591 	DATA 	Mouse: Left button down, pos=(734,154)
+371.9629 	DATA 	RatingScale rating: (mouse response) rating=7
+371.9629 	DATA 	RatingScale rating: rating RT=2.173
+371.9630 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.638), (7, 2.173)]
+371.9914 	EXP 	text_10: autoDraw = False
+371.9914 	EXP 	rating: autoDraw = False
+371.9914 	EXP 	short_blank: autoDraw = True
+372.0419 	DATA 	Mouse:  Left button up, pos=(734,154)
+372.1913 	EXP 	short_blank: autoDraw = False
+372.1913 	EXP 	short_blank: autoDraw = False
+372.1913 	EXP 	text_5: autoDraw = True
+372.6754 	EXP 	New trial (rep=0, index=23): OrderedDict([('type', u'arm'), ('verb', u'SLAP')])
+372.6790 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+372.6794 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+372.6798 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+372.7415 	EXP 	RatingScale rating: reset()
+372.7488 	EXP 	text_5: autoDraw = False
+372.7488 	EXP 	text_5: autoDraw = False
+372.7488 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SLAP?'
+372.7488 	EXP 	text_10: autoDraw = True
+372.7488 	EXP 	rating: autoDraw = True
+375.4580 	DATA 	Mouse: Left button down, pos=(480,239)
+375.5409 	DATA 	Mouse:  Left button up, pos=(480,239)
+376.0450 	DATA 	Mouse: Left button down, pos=(597,146)
+376.0453 	DATA 	RatingScale rating: (mouse response) rating=1
+376.0453 	DATA 	RatingScale rating: rating RT=3.302
+376.0453 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.718), (1, 3.302)]
+376.0736 	EXP 	text_10: autoDraw = False
+376.0736 	EXP 	rating: autoDraw = False
+376.0736 	EXP 	short_blank: autoDraw = True
+376.1242 	DATA 	Mouse:  Left button up, pos=(597,146)
+376.2582 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+376.3193 	EXP 	RatingScale rating: reset()
+376.3271 	EXP 	short_blank: autoDraw = False
+376.3271 	EXP 	short_blank: autoDraw = False
+376.3271 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SLAP?'
+376.3271 	EXP 	text_10: autoDraw = True
+376.3271 	EXP 	rating: autoDraw = True
+377.0742 	DATA 	Mouse: Left button down, pos=(893,239)
+377.1408 	DATA 	Mouse:  Left button up, pos=(893,239)
+377.6573 	DATA 	Mouse: Left button down, pos=(731,149)
+377.6610 	DATA 	RatingScale rating: (mouse response) rating=7
+377.6611 	DATA 	RatingScale rating: rating RT=1.340
+377.6611 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.756), (7, 1.34)]
+377.6901 	EXP 	text_10: autoDraw = False
+377.6901 	EXP 	rating: autoDraw = False
+377.6901 	EXP 	short_blank: autoDraw = True
+377.7240 	DATA 	Mouse:  Left button up, pos=(731,149)
+377.8899 	EXP 	short_blank: autoDraw = False
+377.8899 	EXP 	short_blank: autoDraw = False
+377.8899 	EXP 	text_5: autoDraw = True
+378.3737 	EXP 	New trial (rep=0, index=24): OrderedDict([('type', u'leg'), ('verb', u'TRIP')])
+378.3772 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+378.3776 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+378.3780 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+378.5238 	EXP 	RatingScale rating: reset()
+378.5309 	EXP 	text_5: autoDraw = False
+378.5309 	EXP 	text_5: autoDraw = False
+378.5309 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb TRIP?'
+378.5309 	EXP 	text_10: autoDraw = True
+378.5309 	EXP 	rating: autoDraw = True
+384.3221 	DATA 	Mouse: Left button down, pos=(885,228)
+384.4391 	DATA 	Mouse:  Left button up, pos=(885,229)
+386.8750 	DATA 	Mouse: Left button down, pos=(731,136)
+386.8753 	DATA 	RatingScale rating: (mouse response) rating=7
+386.8753 	DATA 	RatingScale rating: rating RT=8.350
+386.8754 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 5.799), (7, 8.35)]
+386.9043 	EXP 	text_10: autoDraw = False
+386.9043 	EXP 	rating: autoDraw = False
+386.9043 	EXP 	short_blank: autoDraw = True
+386.9387 	DATA 	Mouse:  Left button up, pos=(731,136)
+387.0886 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+387.1492 	EXP 	RatingScale rating: reset()
+387.1567 	EXP 	short_blank: autoDraw = False
+387.1567 	EXP 	short_blank: autoDraw = False
+387.1567 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb TRIP?'
+387.1567 	EXP 	text_10: autoDraw = True
+387.1567 	EXP 	rating: autoDraw = True
+388.6713 	DATA 	Mouse: Left button down, pos=(488,233)
+388.7411 	DATA 	Mouse:  Left button up, pos=(488,233)
+389.1545 	DATA 	Mouse: Left button down, pos=(628,141)
+389.1582 	DATA 	RatingScale rating: (mouse response) rating=1
+389.1582 	DATA 	RatingScale rating: rating RT=2.007
+389.1583 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.523), (1, 2.007)]
+389.1870 	EXP 	text_10: autoDraw = False
+389.1870 	EXP 	rating: autoDraw = False
+389.1870 	EXP 	short_blank: autoDraw = True
+389.2211 	DATA 	Mouse:  Left button up, pos=(628,141)
+389.3871 	EXP 	short_blank: autoDraw = False
+389.3871 	EXP 	short_blank: autoDraw = False
+389.3871 	EXP 	text_5: autoDraw = True
+389.8708 	EXP 	New trial (rep=0, index=25): OrderedDict([('type', u'arm'), ('verb', u'GRIP')])
+389.8744 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+389.8747 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+389.8751 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+389.9352 	EXP 	RatingScale rating: reset()
+389.9421 	EXP 	text_5: autoDraw = False
+389.9421 	EXP 	text_5: autoDraw = False
+389.9421 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb GRIP?'
+389.9421 	EXP 	text_10: autoDraw = True
+389.9421 	EXP 	rating: autoDraw = True
+393.9223 	DATA 	Mouse: Left button down, pos=(545,235)
+394.0196 	DATA 	Mouse:  Left button up, pos=(545,235)
+394.5530 	DATA 	Mouse: Left button down, pos=(636,152)
+394.5567 	DATA 	RatingScale rating: (mouse response) rating=2
+394.5567 	DATA 	RatingScale rating: rating RT=4.620
+394.5567 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.986), (2, 4.62)]
+394.5855 	EXP 	text_10: autoDraw = False
+394.5855 	EXP 	rating: autoDraw = False
+394.5855 	EXP 	short_blank: autoDraw = True
+394.6196 	DATA 	Mouse:  Left button up, pos=(636,152)
+394.7702 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+394.8309 	EXP 	RatingScale rating: reset()
+394.8384 	EXP 	short_blank: autoDraw = False
+394.8384 	EXP 	short_blank: autoDraw = False
+394.8384 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb GRIP?'
+394.8384 	EXP 	text_10: autoDraw = True
+394.8384 	EXP 	rating: autoDraw = True
+396.0525 	DATA 	Mouse: Left button down, pos=(888,238)
+396.1188 	DATA 	Mouse:  Left button up, pos=(888,238)
+396.5728 	DATA 	Mouse: Left button down, pos=(729,143)
+396.5731 	DATA 	RatingScale rating: (mouse response) rating=7
+396.5731 	DATA 	RatingScale rating: rating RT=1.741
+396.5732 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.222), (7, 1.74)]
+396.6017 	EXP 	text_10: autoDraw = False
+396.6017 	EXP 	rating: autoDraw = False
+396.6017 	EXP 	short_blank: autoDraw = True
+396.6356 	DATA 	Mouse:  Left button up, pos=(729,143)
+396.8016 	EXP 	short_blank: autoDraw = False
+396.8016 	EXP 	short_blank: autoDraw = False
+396.8016 	EXP 	text_5: autoDraw = True
+397.2857 	EXP 	New trial (rep=0, index=26): OrderedDict([('type', u'leg'), ('verb', u'RUN')])
+397.2892 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+397.2896 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+397.2900 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+397.3494 	EXP 	RatingScale rating: reset()
+397.3563 	EXP 	text_5: autoDraw = False
+397.3563 	EXP 	text_5: autoDraw = False
+397.3563 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb RUN?'
+397.3563 	EXP 	text_10: autoDraw = True
+397.3563 	EXP 	rating: autoDraw = True
+399.3349 	DATA 	Mouse: Left button down, pos=(890,235)
+399.4183 	DATA 	Mouse:  Left button up, pos=(890,235)
+399.8052 	DATA 	Mouse: Left button down, pos=(724,132)
+399.8055 	DATA 	RatingScale rating: (mouse response) rating=7
+399.8055 	DATA 	RatingScale rating: rating RT=2.455
+399.8055 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.987), (7, 2.455)]
+399.8341 	EXP 	text_10: autoDraw = False
+399.8341 	EXP 	rating: autoDraw = False
+399.8341 	EXP 	short_blank: autoDraw = True
+399.8683 	DATA 	Mouse:  Left button up, pos=(724,132)
+400.0184 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+400.0781 	EXP 	RatingScale rating: reset()
+400.0856 	EXP 	short_blank: autoDraw = False
+400.0856 	EXP 	short_blank: autoDraw = False
+400.0856 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb RUN?'
+400.0856 	EXP 	text_10: autoDraw = True
+400.0856 	EXP 	rating: autoDraw = True
+402.6007 	DATA 	Mouse: Left button down, pos=(477,233)
+402.6674 	DATA 	Mouse:  Left button up, pos=(477,233)
+403.4839 	DATA 	Mouse: Left button down, pos=(554,238)
+403.5507 	DATA 	Mouse:  Left button up, pos=(554,238)
+403.9171 	DATA 	Mouse: Left button down, pos=(631,151)
+403.9210 	DATA 	RatingScale rating: (mouse response) rating=2
+403.9210 	DATA 	RatingScale rating: rating RT=3.841
+403.9210 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.524), (2, 3.408), (2, 3.841)]
+403.9498 	EXP 	text_10: autoDraw = False
+403.9498 	EXP 	rating: autoDraw = False
+403.9498 	EXP 	short_blank: autoDraw = True
+403.9671 	DATA 	Mouse:  Left button up, pos=(631,151)
+404.1500 	EXP 	short_blank: autoDraw = False
+404.1500 	EXP 	short_blank: autoDraw = False
+404.1500 	EXP 	text_5: autoDraw = True
+404.6337 	EXP 	New trial (rep=0, index=27): OrderedDict([('type', u'leg'), ('verb', u'STROLL')])
+404.6373 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+404.6376 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+404.6380 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+404.6994 	EXP 	RatingScale rating: reset()
+404.7061 	EXP 	text_5: autoDraw = False
+404.7061 	EXP 	text_5: autoDraw = False
+404.7061 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STROLL?'
+404.7061 	EXP 	text_10: autoDraw = True
+404.7061 	EXP 	rating: autoDraw = True
+407.6327 	DATA 	Mouse: Left button down, pos=(884,237)
+407.6995 	DATA 	Mouse:  Left button up, pos=(884,237)
+408.1162 	DATA 	Mouse: Left button down, pos=(762,152)
+408.1199 	DATA 	RatingScale rating: (mouse response) rating=7
+408.1200 	DATA 	RatingScale rating: rating RT=3.419
+408.1200 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.935), (7, 3.419)]
+408.1485 	EXP 	text_10: autoDraw = False
+408.1485 	EXP 	rating: autoDraw = False
+408.1485 	EXP 	short_blank: autoDraw = True
+408.1822 	DATA 	Mouse:  Left button up, pos=(762,152)
+408.3331 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+408.3956 	EXP 	RatingScale rating: reset()
+408.4027 	EXP 	short_blank: autoDraw = False
+408.4027 	EXP 	short_blank: autoDraw = False
+408.4027 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STROLL?'
+408.4027 	EXP 	text_10: autoDraw = True
+408.4027 	EXP 	rating: autoDraw = True
+410.4987 	DATA 	Mouse: Left button down, pos=(489,240)
+410.5989 	DATA 	Mouse:  Left button up, pos=(489,240)
+411.0150 	DATA 	Mouse: Left button down, pos=(603,145)
+411.0187 	DATA 	RatingScale rating: (mouse response) rating=1
+411.0187 	DATA 	RatingScale rating: rating RT=2.622
+411.0187 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.104), (1, 2.622)]
+411.0479 	EXP 	text_10: autoDraw = False
+411.0479 	EXP 	rating: autoDraw = False
+411.0479 	EXP 	short_blank: autoDraw = True
+411.0816 	DATA 	Mouse:  Left button up, pos=(603,145)
+411.2478 	EXP 	short_blank: autoDraw = False
+411.2478 	EXP 	short_blank: autoDraw = False
+411.2478 	EXP 	text_5: autoDraw = True
+411.7320 	EXP 	New trial (rep=0, index=28): OrderedDict([('type', u'leg'), ('verb', u'JOG')])
+411.7355 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+411.7358 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+411.7362 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+411.7996 	EXP 	RatingScale rating: reset()
+411.8069 	EXP 	text_5: autoDraw = False
+411.8069 	EXP 	text_5: autoDraw = False
+411.8069 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb JOG?'
+411.8069 	EXP 	text_10: autoDraw = True
+411.8069 	EXP 	rating: autoDraw = True
+413.6477 	DATA 	Mouse: Left button down, pos=(888,238)
+413.7147 	DATA 	Mouse:  Left button up, pos=(888,238)
+414.1312 	DATA 	Mouse: Left button down, pos=(768,143)
+414.1352 	DATA 	RatingScale rating: (mouse response) rating=7
+414.1352 	DATA 	RatingScale rating: rating RT=2.334
+414.1352 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.849), (7, 2.334)]
+414.1640 	EXP 	text_10: autoDraw = False
+414.1640 	EXP 	rating: autoDraw = False
+414.1640 	EXP 	short_blank: autoDraw = True
+414.1978 	DATA 	Mouse:  Left button up, pos=(768,143)
+414.3485 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+414.4098 	EXP 	RatingScale rating: reset()
+414.4171 	EXP 	short_blank: autoDraw = False
+414.4171 	EXP 	short_blank: autoDraw = False
+414.4171 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb JOG?'
+414.4171 	EXP 	text_10: autoDraw = True
+414.4171 	EXP 	rating: autoDraw = True
+415.4505 	DATA 	Mouse: Left button down, pos=(546,233)
+415.5307 	DATA 	Mouse:  Left button up, pos=(546,233)
+415.8844 	DATA 	Mouse: Left button down, pos=(610,144)
+415.8847 	DATA 	RatingScale rating: (mouse response) rating=2
+415.8847 	DATA 	RatingScale rating: rating RT=1.473
+415.8847 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 1.039), (2, 1.473)]
+415.9132 	EXP 	text_10: autoDraw = False
+415.9132 	EXP 	rating: autoDraw = False
+415.9132 	EXP 	short_blank: autoDraw = True
+415.9475 	DATA 	Mouse:  Left button up, pos=(610,144)
+416.1133 	EXP 	short_blank: autoDraw = False
+416.1133 	EXP 	short_blank: autoDraw = False
+416.1133 	EXP 	text_5: autoDraw = True
+416.5973 	EXP 	New trial (rep=0, index=29): OrderedDict([('type', u'leg'), ('verb', u'TRAMPLE')])
+416.6008 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+416.6012 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+416.6016 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+416.6671 	EXP 	RatingScale rating: reset()
+416.6740 	EXP 	text_5: autoDraw = False
+416.6740 	EXP 	text_5: autoDraw = False
+416.6740 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb TRAMPLE?'
+416.6740 	EXP 	text_10: autoDraw = True
+416.6740 	EXP 	rating: autoDraw = True
+418.9467 	DATA 	Mouse: Left button down, pos=(884,233)
+419.0299 	DATA 	Mouse:  Left button up, pos=(884,233)
+419.4629 	DATA 	Mouse: Left button down, pos=(777,157)
+419.4667 	DATA 	RatingScale rating: (mouse response) rating=7
+419.4667 	DATA 	RatingScale rating: rating RT=2.798
+419.4667 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.281), (7, 2.798)]
+419.4959 	EXP 	text_10: autoDraw = False
+419.4959 	EXP 	rating: autoDraw = False
+419.4959 	EXP 	short_blank: autoDraw = True
+419.5299 	DATA 	Mouse:  Left button up, pos=(777,156)
+419.6797 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+419.7458 	EXP 	RatingScale rating: reset()
+419.7531 	EXP 	short_blank: autoDraw = False
+419.7531 	EXP 	short_blank: autoDraw = False
+419.7531 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb TRAMPLE?'
+419.7531 	EXP 	text_10: autoDraw = True
+419.7531 	EXP 	rating: autoDraw = True
+420.7462 	DATA 	Mouse: Left button down, pos=(477,237)
+420.8292 	DATA 	Mouse:  Left button up, pos=(478,237)
+421.2127 	DATA 	Mouse: Left button down, pos=(618,134)
+421.2166 	DATA 	RatingScale rating: (mouse response) rating=1
+421.2166 	DATA 	RatingScale rating: rating RT=1.469
+421.2166 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.001), (1, 1.469)]
+421.2453 	EXP 	text_10: autoDraw = False
+421.2453 	EXP 	rating: autoDraw = False
+421.2453 	EXP 	short_blank: autoDraw = True
+421.2789 	DATA 	Mouse:  Left button up, pos=(618,134)
+421.4454 	EXP 	short_blank: autoDraw = False
+421.4454 	EXP 	short_blank: autoDraw = False
+421.4454 	EXP 	text_5: autoDraw = True
+421.9294 	EXP 	New trial (rep=0, index=30): OrderedDict([('type', u'arm'), ('verb', u'PUNCH')])
+421.9328 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+421.9332 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+421.9336 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+421.9944 	EXP 	RatingScale rating: reset()
+422.0014 	EXP 	text_5: autoDraw = False
+422.0014 	EXP 	text_5: autoDraw = False
+422.0014 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PUNCH?'
+422.0014 	EXP 	text_10: autoDraw = True
+422.0014 	EXP 	rating: autoDraw = True
+425.1447 	DATA 	Mouse: Left button down, pos=(481,233)
+425.2448 	DATA 	Mouse:  Left button up, pos=(481,233)
+425.7280 	DATA 	Mouse: Left button down, pos=(586,160)
+425.7317 	DATA 	RatingScale rating: (mouse response) rating=1
+425.7318 	DATA 	RatingScale rating: rating RT=3.736
+425.7318 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.152), (1, 3.736)]
+425.7604 	EXP 	text_10: autoDraw = False
+425.7604 	EXP 	rating: autoDraw = False
+425.7604 	EXP 	short_blank: autoDraw = True
+425.8447 	DATA 	Mouse:  Left button up, pos=(586,160)
+425.9451 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+426.0066 	EXP 	RatingScale rating: reset()
+426.0138 	EXP 	short_blank: autoDraw = False
+426.0138 	EXP 	short_blank: autoDraw = False
+426.0138 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PUNCH?'
+426.0138 	EXP 	text_10: autoDraw = True
+426.0138 	EXP 	rating: autoDraw = True
+427.9468 	DATA 	Mouse: Left button down, pos=(886,233)
+428.0441 	DATA 	Mouse:  Left button up, pos=(886,233)
+428.4607 	DATA 	Mouse: Left button down, pos=(744,144)
+428.4645 	DATA 	RatingScale rating: (mouse response) rating=7
+428.4646 	DATA 	RatingScale rating: rating RT=2.457
+428.4646 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.939), (7, 2.457)]
+428.4933 	EXP 	text_10: autoDraw = False
+428.4933 	EXP 	rating: autoDraw = False
+428.4933 	EXP 	short_blank: autoDraw = True
+428.5438 	DATA 	Mouse:  Left button up, pos=(744,144)
+428.6933 	EXP 	short_blank: autoDraw = False
+428.6933 	EXP 	short_blank: autoDraw = False
+428.6933 	EXP 	text_5: autoDraw = True
+429.1774 	EXP 	New trial (rep=0, index=31): OrderedDict([('type', u'leg'), ('verb', u'STUMBLE')])
+429.1809 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+429.1813 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+429.1817 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+429.2469 	EXP 	RatingScale rating: reset()
+429.2540 	EXP 	text_5: autoDraw = False
+429.2540 	EXP 	text_5: autoDraw = False
+429.2540 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STUMBLE?'
+429.2540 	EXP 	text_10: autoDraw = True
+429.2540 	EXP 	rating: autoDraw = True
+433.1428 	DATA 	Mouse: Left button down, pos=(818,236)
+433.2593 	DATA 	Mouse:  Left button up, pos=(818,236)
+433.6297 	DATA 	Mouse: Left button down, pos=(713,147)
+433.6299 	DATA 	RatingScale rating: (mouse response) rating=6
+433.6300 	DATA 	RatingScale rating: rating RT=4.381
+433.6300 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 3.897), (6, 4.381)]
+433.6588 	EXP 	text_10: autoDraw = False
+433.6588 	EXP 	rating: autoDraw = False
+433.6588 	EXP 	short_blank: autoDraw = True
+433.6926 	DATA 	Mouse:  Left button up, pos=(713,147)
+433.8430 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+433.9086 	EXP 	RatingScale rating: reset()
+433.9160 	EXP 	short_blank: autoDraw = False
+433.9160 	EXP 	short_blank: autoDraw = False
+433.9160 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STUMBLE?'
+433.9160 	EXP 	text_10: autoDraw = True
+433.9160 	EXP 	rating: autoDraw = True
+437.8748 	DATA 	Mouse: Left button down, pos=(613,233)
+437.9584 	DATA 	Mouse:  Left button up, pos=(613,233)
+438.3249 	DATA 	Mouse: Left button down, pos=(627,146)
+438.3288 	DATA 	RatingScale rating: (mouse response) rating=3
+438.3288 	DATA 	RatingScale rating: rating RT=4.418
+438.3289 	DATA 	RatingScale rating: history=[(None, 0.0), (3, 3.967), (3, 4.418)]
+438.3575 	EXP 	text_10: autoDraw = False
+438.3575 	EXP 	rating: autoDraw = False
+438.3575 	EXP 	short_blank: autoDraw = True
+438.3907 	DATA 	Mouse:  Left button up, pos=(625,145)
+438.5578 	EXP 	short_blank: autoDraw = False
+438.5578 	EXP 	short_blank: autoDraw = False
+438.5578 	EXP 	text_5: autoDraw = True
+439.0416 	EXP 	New trial (rep=0, index=32): OrderedDict([('type', u'arm'), ('verb', u'STAB')])
+439.0457 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+439.0461 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+439.0466 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+439.1073 	EXP 	RatingScale rating: reset()
+439.1140 	EXP 	text_5: autoDraw = False
+439.1140 	EXP 	text_5: autoDraw = False
+439.1140 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STAB?'
+439.1140 	EXP 	text_10: autoDraw = True
+439.1140 	EXP 	rating: autoDraw = True
+443.7732 	DATA 	Mouse: Left button down, pos=(476,239)
+443.8401 	DATA 	Mouse:  Left button up, pos=(476,239)
+444.2732 	DATA 	Mouse: Left button down, pos=(620,142)
+444.2770 	DATA 	RatingScale rating: (mouse response) rating=1
+444.2770 	DATA 	RatingScale rating: rating RT=5.169
+444.2770 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 4.667), (1, 5.168)]
+444.3059 	EXP 	text_10: autoDraw = False
+444.3059 	EXP 	rating: autoDraw = False
+444.3059 	EXP 	short_blank: autoDraw = True
+444.3230 	DATA 	Mouse:  Left button up, pos=(620,142)
+444.4901 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+444.5504 	EXP 	RatingScale rating: reset()
+444.5574 	EXP 	short_blank: autoDraw = False
+444.5574 	EXP 	short_blank: autoDraw = False
+444.5574 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STAB?'
+444.5574 	EXP 	text_10: autoDraw = True
+444.5574 	EXP 	rating: autoDraw = True
+446.7226 	DATA 	Mouse: Left button down, pos=(884,235)
+446.8429 	DATA 	Mouse:  Left button up, pos=(884,235)
+447.2562 	DATA 	Mouse: Left button down, pos=(734,146)
+447.2599 	DATA 	RatingScale rating: (mouse response) rating=7
+447.2600 	DATA 	RatingScale rating: rating RT=2.708
+447.2600 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.174), (7, 2.708)]
+447.2886 	EXP 	text_10: autoDraw = False
+447.2886 	EXP 	rating: autoDraw = False
+447.2886 	EXP 	short_blank: autoDraw = True
+447.3064 	DATA 	Mouse:  Left button up, pos=(734,146)
+447.4886 	EXP 	short_blank: autoDraw = False
+447.4886 	EXP 	short_blank: autoDraw = False
+447.4886 	EXP 	text_5: autoDraw = True
+447.9726 	EXP 	New trial (rep=0, index=33): OrderedDict([('type', u'leg'), ('verb', u'KNEEL')])
+447.9767 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+447.9771 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+447.9775 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+448.0387 	EXP 	RatingScale rating: reset()
+448.0458 	EXP 	text_5: autoDraw = False
+448.0458 	EXP 	text_5: autoDraw = False
+448.0458 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb KNEEL?'
+448.0458 	EXP 	text_10: autoDraw = True
+448.0458 	EXP 	rating: autoDraw = True
+451.0387 	DATA 	Mouse: Left button down, pos=(894,236)
+451.1215 	DATA 	Mouse:  Left button up, pos=(895,236)
+451.4880 	DATA 	Mouse: Left button down, pos=(747,142)
+451.4918 	DATA 	RatingScale rating: (mouse response) rating=7
+451.4919 	DATA 	RatingScale rating: rating RT=3.452
+451.4919 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 3.001), (7, 3.452)]
+451.5209 	EXP 	text_10: autoDraw = False
+451.5209 	EXP 	rating: autoDraw = False
+451.5209 	EXP 	short_blank: autoDraw = True
+451.5546 	DATA 	Mouse:  Left button up, pos=(747,142)
+451.7051 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+451.7670 	EXP 	RatingScale rating: reset()
+451.7742 	EXP 	short_blank: autoDraw = False
+451.7742 	EXP 	short_blank: autoDraw = False
+451.7742 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb KNEEL?'
+451.7742 	EXP 	text_10: autoDraw = True
+451.7742 	EXP 	rating: autoDraw = True
+452.8708 	DATA 	Mouse: Left button down, pos=(461,234)
+452.9542 	DATA 	Mouse:  Left button up, pos=(461,234)
+453.3873 	DATA 	Mouse: Left button down, pos=(622,131)
+453.3911 	DATA 	RatingScale rating: (mouse response) rating=1
+453.3911 	DATA 	RatingScale rating: rating RT=1.623
+453.3911 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.105), (1, 1.622)]
+453.4202 	EXP 	text_10: autoDraw = False
+453.4202 	EXP 	rating: autoDraw = False
+453.4202 	EXP 	short_blank: autoDraw = True
+453.4710 	DATA 	Mouse:  Left button up, pos=(621,132)
+453.6202 	EXP 	short_blank: autoDraw = False
+453.6202 	EXP 	short_blank: autoDraw = False
+453.6202 	EXP 	text_5: autoDraw = True
+454.1040 	EXP 	New trial (rep=0, index=34): OrderedDict([('type', u'arm'), ('verb', u'GRAB')])
+454.1076 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+454.1080 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+454.1084 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+454.1688 	EXP 	RatingScale rating: reset()
+454.1761 	EXP 	text_5: autoDraw = False
+454.1761 	EXP 	text_5: autoDraw = False
+454.1761 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb GRAB?'
+454.1761 	EXP 	text_10: autoDraw = True
+454.1761 	EXP 	rating: autoDraw = True
+457.0201 	DATA 	Mouse: Left button down, pos=(547,237)
+457.1201 	DATA 	Mouse:  Left button up, pos=(547,237)
+458.2531 	DATA 	Mouse: Left button down, pos=(491,235)
+458.3363 	DATA 	Mouse:  Left button up, pos=(491,235)
+458.6695 	DATA 	Mouse: Left button down, pos=(594,154)
+458.6733 	DATA 	RatingScale rating: (mouse response) rating=1
+458.6733 	DATA 	RatingScale rating: rating RT=4.503
+458.6734 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 2.852), (1, 4.086), (1, 4.503)]
+458.7020 	EXP 	text_10: autoDraw = False
+458.7020 	EXP 	rating: autoDraw = False
+458.7020 	EXP 	short_blank: autoDraw = True
+458.7694 	DATA 	Mouse:  Left button up, pos=(596,154)
+458.8868 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+458.9481 	EXP 	RatingScale rating: reset()
+458.9552 	EXP 	short_blank: autoDraw = False
+458.9552 	EXP 	short_blank: autoDraw = False
+458.9552 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb GRAB?'
+458.9552 	EXP 	text_10: autoDraw = True
+458.9552 	EXP 	rating: autoDraw = True
+460.3717 	DATA 	Mouse: Left button down, pos=(894,238)
+460.4358 	DATA 	Mouse:  Left button up, pos=(894,238)
+460.8691 	DATA 	Mouse: Left button down, pos=(719,150)
+460.8729 	DATA 	RatingScale rating: (mouse response) rating=7
+460.8730 	DATA 	RatingScale rating: rating RT=1.923
+460.8730 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.422), (7, 1.923)]
+460.9014 	EXP 	text_10: autoDraw = False
+460.9014 	EXP 	rating: autoDraw = False
+460.9014 	EXP 	short_blank: autoDraw = True
+460.9689 	DATA 	Mouse:  Left button up, pos=(719,150)
+461.1012 	EXP 	short_blank: autoDraw = False
+461.1012 	EXP 	short_blank: autoDraw = False
+461.1012 	EXP 	text_5: autoDraw = True
+461.5856 	EXP 	New trial (rep=0, index=35): OrderedDict([('type', u'arm'), ('verb', u'CLEAN')])
+461.5892 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+461.5895 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+461.5899 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+461.6517 	EXP 	RatingScale rating: reset()
+461.6590 	EXP 	text_5: autoDraw = False
+461.6590 	EXP 	text_5: autoDraw = False
+461.6590 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CLEAN?'
+461.6590 	EXP 	text_10: autoDraw = True
+461.6590 	EXP 	rating: autoDraw = True
+465.5677 	DATA 	Mouse: Left button down, pos=(682,236)
+465.6211 	DATA 	Mouse:  Left button up, pos=(682,236)
+466.5508 	DATA 	Mouse: Left button down, pos=(618,236)
+466.6210 	DATA 	Mouse:  Left button up, pos=(618,236)
+467.1873 	DATA 	Mouse: Left button down, pos=(677,128)
+467.1876 	DATA 	RatingScale rating: (mouse response) rating=3
+467.1876 	DATA 	RatingScale rating: rating RT=5.534
+467.1877 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 3.917), (3, 4.901), (3, 5.534)]
+467.2168 	EXP 	text_10: autoDraw = False
+467.2168 	EXP 	rating: autoDraw = False
+467.2168 	EXP 	short_blank: autoDraw = True
+467.2505 	DATA 	Mouse:  Left button up, pos=(677,128)
+467.4011 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+467.4633 	EXP 	RatingScale rating: reset()
+467.4708 	EXP 	short_blank: autoDraw = False
+467.4708 	EXP 	short_blank: autoDraw = False
+467.4708 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CLEAN?'
+467.4708 	EXP 	text_10: autoDraw = True
+467.4708 	EXP 	rating: autoDraw = True
+469.9167 	DATA 	Mouse: Left button down, pos=(759,231)
+470.0166 	DATA 	Mouse:  Left button up, pos=(759,230)
+470.3828 	DATA 	Mouse: Left button down, pos=(746,143)
+470.3867 	DATA 	RatingScale rating: (mouse response) rating=5
+470.3867 	DATA 	RatingScale rating: rating RT=2.922
+470.3867 	DATA 	RatingScale rating: history=[(None, 0.0), (5, 2.454), (5, 2.922)]
+470.4156 	EXP 	text_10: autoDraw = False
+470.4156 	EXP 	rating: autoDraw = False
+470.4156 	EXP 	short_blank: autoDraw = True
+470.4500 	DATA 	Mouse:  Left button up, pos=(746,143)
+470.6156 	EXP 	short_blank: autoDraw = False
+470.6156 	EXP 	short_blank: autoDraw = False
+470.6156 	EXP 	text_5: autoDraw = True
+471.0997 	EXP 	New trial (rep=0, index=36): OrderedDict([('type', u'leg'), ('verb', u'SLIP')])
+471.1033 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+471.1037 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+471.1041 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+471.1637 	EXP 	RatingScale rating: reset()
+471.1706 	EXP 	text_5: autoDraw = False
+471.1706 	EXP 	text_5: autoDraw = False
+471.1706 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SLIP?'
+471.1706 	EXP 	text_10: autoDraw = True
+471.1706 	EXP 	rating: autoDraw = True
+473.5491 	DATA 	Mouse: Left button down, pos=(818,234)
+473.6190 	DATA 	Mouse:  Left button up, pos=(818,234)
+474.0488 	DATA 	Mouse: Left button down, pos=(709,138)
+474.0527 	DATA 	RatingScale rating: (mouse response) rating=6
+474.0528 	DATA 	RatingScale rating: rating RT=2.888
+474.0528 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 2.387), (6, 2.888)]
+474.0814 	EXP 	text_10: autoDraw = False
+474.0814 	EXP 	rating: autoDraw = False
+474.0814 	EXP 	short_blank: autoDraw = True
+474.1487 	DATA 	Mouse:  Left button up, pos=(709,138)
+474.2660 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+474.3265 	EXP 	RatingScale rating: reset()
+474.3340 	EXP 	short_blank: autoDraw = False
+474.3340 	EXP 	short_blank: autoDraw = False
+474.3340 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SLIP?'
+474.3340 	EXP 	text_10: autoDraw = True
+474.3340 	EXP 	rating: autoDraw = True
+475.4839 	DATA 	Mouse: Left button down, pos=(549,237)
+475.5815 	DATA 	Mouse:  Left button up, pos=(549,237)
+476.0023 	DATA 	Mouse: Left button down, pos=(616,156)
+476.0184 	DATA 	RatingScale rating: (mouse response) rating=2
+476.0184 	DATA 	RatingScale rating: rating RT=1.690
+476.0184 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 1.156), (2, 1.69)]
+476.0477 	EXP 	text_10: autoDraw = False
+476.0477 	EXP 	rating: autoDraw = False
+476.0477 	EXP 	short_blank: autoDraw = True
+476.0823 	DATA 	Mouse:  Left button up, pos=(616,156)
+476.2476 	EXP 	short_blank: autoDraw = False
+476.2476 	EXP 	short_blank: autoDraw = False
+476.2476 	EXP 	text_5: autoDraw = True
+476.7317 	EXP 	New trial (rep=0, index=37): OrderedDict([('type', u'leg'), ('verb', u'MARCH')])
+476.7352 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+476.7356 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+476.7359 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+476.7985 	EXP 	RatingScale rating: reset()
+476.8060 	EXP 	text_5: autoDraw = False
+476.8060 	EXP 	text_5: autoDraw = False
+476.8060 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb MARCH?'
+476.8060 	EXP 	text_10: autoDraw = True
+476.8060 	EXP 	rating: autoDraw = True
+478.7168 	DATA 	Mouse: Left button down, pos=(885,233)
+478.7977 	DATA 	Mouse:  Left button up, pos=(885,233)
+479.4510 	DATA 	Mouse: Left button down, pos=(773,146)
+479.4513 	DATA 	RatingScale rating: (mouse response) rating=7
+479.4514 	DATA 	RatingScale rating: rating RT=2.651
+479.4514 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.916), (7, 2.651)]
+479.4800 	EXP 	text_10: autoDraw = False
+479.4800 	EXP 	rating: autoDraw = False
+479.4800 	EXP 	short_blank: autoDraw = True
+479.5146 	DATA 	Mouse:  Left button up, pos=(773,146)
+479.6645 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+479.7275 	EXP 	RatingScale rating: reset()
+479.7352 	EXP 	short_blank: autoDraw = False
+479.7352 	EXP 	short_blank: autoDraw = False
+479.7352 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb MARCH?'
+479.7352 	EXP 	text_10: autoDraw = True
+479.7352 	EXP 	rating: autoDraw = True
+481.0470 	DATA 	Mouse: Left button down, pos=(485,233)
+481.1303 	DATA 	Mouse:  Left button up, pos=(485,233)
+482.5002 	DATA 	Mouse: Left button down, pos=(598,156)
+482.5005 	DATA 	RatingScale rating: (mouse response) rating=1
+482.5005 	DATA 	RatingScale rating: rating RT=2.771
+482.5005 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.32), (1, 2.771)]
+482.5294 	EXP 	text_10: autoDraw = False
+482.5294 	EXP 	rating: autoDraw = False
+482.5294 	EXP 	short_blank: autoDraw = True
+482.5467 	DATA 	Mouse:  Left button up, pos=(598,156)
+482.7293 	EXP 	short_blank: autoDraw = False
+482.7293 	EXP 	short_blank: autoDraw = False
+482.7293 	EXP 	text_5: autoDraw = True
+483.2132 	EXP 	New trial (rep=0, index=38): OrderedDict([('type', u'arm'), ('verb', u'HUG')])
+483.2168 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+483.2172 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+483.2176 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+483.2771 	EXP 	RatingScale rating: reset()
+483.2843 	EXP 	text_5: autoDraw = False
+483.2843 	EXP 	text_5: autoDraw = False
+483.2843 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb HUG?'
+483.2843 	EXP 	text_10: autoDraw = True
+483.2843 	EXP 	rating: autoDraw = True
+487.7286 	DATA 	Mouse: Left button down, pos=(550,239)
+487.8117 	DATA 	Mouse:  Left button up, pos=(550,239)
+488.2285 	DATA 	Mouse: Left button down, pos=(651,148)
+488.2323 	DATA 	RatingScale rating: (mouse response) rating=2
+488.2323 	DATA 	RatingScale rating: rating RT=4.954
+488.2324 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 4.452), (2, 4.953)]
+488.2609 	EXP 	text_10: autoDraw = False
+488.2609 	EXP 	rating: autoDraw = False
+488.2609 	EXP 	short_blank: autoDraw = True
+488.2786 	DATA 	Mouse:  Left button up, pos=(651,148)
+488.4456 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+488.5049 	EXP 	RatingScale rating: reset()
+488.5124 	EXP 	short_blank: autoDraw = False
+488.5124 	EXP 	short_blank: autoDraw = False
+488.5124 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb HUG?'
+488.5124 	EXP 	text_10: autoDraw = True
+488.5124 	EXP 	rating: autoDraw = True
+489.4782 	DATA 	Mouse: Left button down, pos=(875,235)
+489.5447 	DATA 	Mouse:  Left button up, pos=(878,236)
+489.9481 	DATA 	Mouse: Left button down, pos=(768,154)
+489.9484 	DATA 	RatingScale rating: (mouse response) rating=7
+489.9484 	DATA 	RatingScale rating: rating RT=1.442
+489.9484 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.974), (7, 1.442)]
+489.9773 	EXP 	text_10: autoDraw = False
+489.9773 	EXP 	rating: autoDraw = False
+489.9773 	EXP 	short_blank: autoDraw = True
+490.0280 	DATA 	Mouse:  Left button up, pos=(768,154)
+490.1774 	EXP 	short_blank: autoDraw = False
+490.1774 	EXP 	short_blank: autoDraw = False
+490.1774 	EXP 	text_5: autoDraw = True
+490.6615 	EXP 	New trial (rep=0, index=39): OrderedDict([('type', u'arm'), ('verb', u'GESTURE')])
+490.6652 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+490.6656 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+490.6660 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+490.7298 	EXP 	RatingScale rating: reset()
+490.7371 	EXP 	text_5: autoDraw = False
+490.7371 	EXP 	text_5: autoDraw = False
+490.7371 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb GESTURE?'
+490.7371 	EXP 	text_10: autoDraw = True
+490.7371 	EXP 	rating: autoDraw = True
+492.7105 	DATA 	Mouse: Left button down, pos=(476,243)
+492.7808 	DATA 	Mouse:  Left button up, pos=(476,243)
+493.2273 	DATA 	Mouse: Left button down, pos=(594,148)
+493.2310 	DATA 	RatingScale rating: (mouse response) rating=1
+493.2310 	DATA 	RatingScale rating: rating RT=2.500
+493.2311 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.982), (1, 2.5)]
+493.2599 	EXP 	text_10: autoDraw = False
+493.2599 	EXP 	rating: autoDraw = False
+493.2599 	EXP 	short_blank: autoDraw = True
+493.3102 	DATA 	Mouse:  Left button up, pos=(594,148)
+493.4444 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+493.5077 	EXP 	RatingScale rating: reset()
+493.5147 	EXP 	short_blank: autoDraw = False
+493.5147 	EXP 	short_blank: autoDraw = False
+493.5147 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb GESTURE?'
+493.5147 	EXP 	text_10: autoDraw = True
+493.5147 	EXP 	rating: autoDraw = True
+494.8601 	DATA 	Mouse: Left button down, pos=(904,236)
+494.9468 	DATA 	Mouse:  Left button up, pos=(904,236)
+495.3966 	DATA 	Mouse: Left button down, pos=(711,132)
+495.3969 	DATA 	RatingScale rating: (mouse response) rating=7
+495.3970 	DATA 	RatingScale rating: rating RT=1.888
+495.3970 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.353), (7, 1.888)]
+495.4260 	EXP 	text_10: autoDraw = False
+495.4260 	EXP 	rating: autoDraw = False
+495.4260 	EXP 	short_blank: autoDraw = True
+495.4600 	DATA 	Mouse:  Left button up, pos=(711,132)
+495.6257 	EXP 	short_blank: autoDraw = False
+495.6257 	EXP 	short_blank: autoDraw = False
+495.6257 	EXP 	text_5: autoDraw = True
+496.1100 	EXP 	New trial (rep=0, index=40): OrderedDict([('type', u'arm'), ('verb', u'CATCH')])
+496.1157 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+496.1161 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+496.1165 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+496.1775 	EXP 	RatingScale rating: reset()
+496.1844 	EXP 	text_5: autoDraw = False
+496.1844 	EXP 	text_5: autoDraw = False
+496.1844 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CATCH?'
+496.1844 	EXP 	text_10: autoDraw = True
+496.1844 	EXP 	rating: autoDraw = True
+499.4256 	DATA 	Mouse: Left button down, pos=(477,240)
+499.5089 	DATA 	Mouse:  Left button up, pos=(477,240)
+500.0124 	DATA 	Mouse: Left button down, pos=(648,149)
+500.0127 	DATA 	RatingScale rating: (mouse response) rating=1
+500.0128 	DATA 	RatingScale rating: rating RT=3.834
+500.0128 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.249), (1, 3.834)]
+500.0414 	EXP 	text_10: autoDraw = False
+500.0414 	EXP 	rating: autoDraw = False
+500.0414 	EXP 	short_blank: autoDraw = True
+500.0754 	DATA 	Mouse:  Left button up, pos=(648,149)
+500.2259 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+500.2880 	EXP 	RatingScale rating: reset()
+500.2954 	EXP 	short_blank: autoDraw = False
+500.2954 	EXP 	short_blank: autoDraw = False
+500.2954 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CATCH?'
+500.2954 	EXP 	text_10: autoDraw = True
+500.2954 	EXP 	rating: autoDraw = True
+500.8587 	DATA 	Mouse: Left button down, pos=(887,242)
+500.9586 	DATA 	Mouse:  Left button up, pos=(889,242)
+501.5748 	DATA 	Mouse: Left button down, pos=(739,151)
+501.5786 	DATA 	RatingScale rating: (mouse response) rating=7
+501.5786 	DATA 	RatingScale rating: rating RT=1.289
+501.5786 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.572), (7, 1.289)]
+501.6074 	EXP 	text_10: autoDraw = False
+501.6074 	EXP 	rating: autoDraw = False
+501.6074 	EXP 	short_blank: autoDraw = True
+501.6423 	DATA 	Mouse:  Left button up, pos=(739,151)
+501.8074 	EXP 	short_blank: autoDraw = False
+501.8074 	EXP 	short_blank: autoDraw = False
+501.8074 	EXP 	text_5: autoDraw = True
+502.2917 	EXP 	New trial (rep=0, index=41): OrderedDict([('type', u'leg'), ('verb', u'SNEAK')])
+502.2953 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+502.2957 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+502.2961 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+502.3568 	EXP 	RatingScale rating: reset()
+502.3636 	EXP 	text_5: autoDraw = False
+502.3636 	EXP 	text_5: autoDraw = False
+502.3636 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SNEAK?'
+502.3636 	EXP 	text_10: autoDraw = True
+502.3636 	EXP 	rating: autoDraw = True
+505.0240 	DATA 	Mouse: Left button down, pos=(751,242)
+505.1074 	DATA 	Mouse:  Left button up, pos=(751,242)
+505.5238 	DATA 	Mouse: Left button down, pos=(754,155)
+505.5276 	DATA 	RatingScale rating: (mouse response) rating=5
+505.5276 	DATA 	RatingScale rating: rating RT=3.169
+505.5276 	DATA 	RatingScale rating: history=[(None, 0.0), (5, 2.668), (5, 3.169)]
+505.5566 	EXP 	text_10: autoDraw = False
+505.5566 	EXP 	rating: autoDraw = False
+505.5566 	EXP 	short_blank: autoDraw = True
+505.5738 	DATA 	Mouse:  Left button up, pos=(754,155)
+505.7411 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+505.8029 	EXP 	RatingScale rating: reset()
+505.8102 	EXP 	short_blank: autoDraw = False
+505.8102 	EXP 	short_blank: autoDraw = False
+505.8102 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SNEAK?'
+505.8102 	EXP 	text_10: autoDraw = True
+505.8102 	EXP 	rating: autoDraw = True
+506.5569 	DATA 	Mouse: Left button down, pos=(680,236)
+506.6105 	DATA 	Mouse:  Left button up, pos=(680,236)
+507.0270 	DATA 	Mouse: Left button down, pos=(673,150)
+507.0272 	DATA 	RatingScale rating: (mouse response) rating=4
+507.0273 	DATA 	RatingScale rating: rating RT=1.223
+507.0273 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 0.755), (4, 1.223)]
+507.0563 	EXP 	text_10: autoDraw = False
+507.0563 	EXP 	rating: autoDraw = False
+507.0563 	EXP 	short_blank: autoDraw = True
+507.0906 	DATA 	Mouse:  Left button up, pos=(673,150)
+507.2560 	EXP 	short_blank: autoDraw = False
+507.2560 	EXP 	short_blank: autoDraw = False
+507.2560 	EXP 	text_5: autoDraw = True
+507.7406 	EXP 	New trial (rep=0, index=42): OrderedDict([('type', u'leg'), ('verb', u'JUMP')])
+507.7442 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+507.7446 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+507.7450 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+507.8089 	EXP 	RatingScale rating: reset()
+507.8170 	EXP 	text_5: autoDraw = False
+507.8170 	EXP 	text_5: autoDraw = False
+507.8170 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb JUMP?'
+507.8170 	EXP 	text_10: autoDraw = True
+507.8170 	EXP 	rating: autoDraw = True
+509.5897 	DATA 	Mouse: Left button down, pos=(885,242)
+509.6426 	DATA 	Mouse:  Left button up, pos=(885,242)
+510.1058 	DATA 	Mouse: Left button down, pos=(754,147)
+510.1096 	DATA 	RatingScale rating: (mouse response) rating=7
+510.1097 	DATA 	RatingScale rating: rating RT=2.298
+510.1097 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.781), (7, 2.298)]
+510.1384 	EXP 	text_10: autoDraw = False
+510.1384 	EXP 	rating: autoDraw = False
+510.1384 	EXP 	short_blank: autoDraw = True
+510.1560 	DATA 	Mouse:  Left button up, pos=(754,147)
+510.3231 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+510.3864 	EXP 	RatingScale rating: reset()
+510.3939 	EXP 	short_blank: autoDraw = False
+510.3939 	EXP 	short_blank: autoDraw = False
+510.3939 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb JUMP?'
+510.3939 	EXP 	text_10: autoDraw = True
+510.3939 	EXP 	rating: autoDraw = True
+511.7721 	DATA 	Mouse: Left button down, pos=(613,237)
+511.8426 	DATA 	Mouse:  Left button up, pos=(613,237)
+512.3220 	DATA 	Mouse: Left button down, pos=(638,151)
+512.3259 	DATA 	RatingScale rating: (mouse response) rating=3
+512.3259 	DATA 	RatingScale rating: rating RT=1.937
+512.3259 	DATA 	RatingScale rating: history=[(None, 0.0), (3, 1.386), (3, 1.937)]
+512.3547 	EXP 	text_10: autoDraw = False
+512.3547 	EXP 	rating: autoDraw = False
+512.3547 	EXP 	short_blank: autoDraw = True
+512.3722 	DATA 	Mouse:  Left button up, pos=(638,150)
+512.5548 	EXP 	short_blank: autoDraw = False
+512.5548 	EXP 	short_blank: autoDraw = False
+512.5548 	EXP 	text_5: autoDraw = True
+513.0387 	EXP 	New trial (rep=0, index=43): OrderedDict([('type', u'arm'), ('verb', u'DIG')])
+513.0423 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+513.0427 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+513.0431 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+513.1025 	EXP 	RatingScale rating: reset()
+513.1101 	EXP 	text_5: autoDraw = False
+513.1101 	EXP 	text_5: autoDraw = False
+513.1101 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb DIG?'
+513.1101 	EXP 	text_10: autoDraw = True
+513.1101 	EXP 	rating: autoDraw = True
+516.9211 	DATA 	Mouse: Left button down, pos=(753,236)
+517.0042 	DATA 	Mouse:  Left button up, pos=(753,236)
+517.6911 	DATA 	Mouse: Left button down, pos=(708,132)
+517.6914 	DATA 	RatingScale rating: (mouse response) rating=5
+517.6914 	DATA 	RatingScale rating: rating RT=4.587
+517.6914 	DATA 	RatingScale rating: history=[(None, 0.0), (5, 3.82), (5, 4.587)]
+517.7201 	EXP 	text_10: autoDraw = False
+517.7201 	EXP 	rating: autoDraw = False
+517.7201 	EXP 	short_blank: autoDraw = True
+517.7546 	DATA 	Mouse:  Left button up, pos=(708,132)
+517.9045 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+517.9645 	EXP 	RatingScale rating: reset()
+517.9718 	EXP 	short_blank: autoDraw = False
+517.9718 	EXP 	short_blank: autoDraw = False
+517.9718 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb DIG?'
+517.9718 	EXP 	text_10: autoDraw = True
+517.9718 	EXP 	rating: autoDraw = True
+519.5064 	DATA 	Mouse: Left button down, pos=(679,231)
+519.5870 	DATA 	Mouse:  Left button up, pos=(679,231)
+521.4700 	DATA 	Mouse: Left button down, pos=(819,234)
+521.5732 	DATA 	Mouse:  Left button up, pos=(819,234)
+521.9564 	DATA 	Mouse: Left button down, pos=(755,153)
+521.9567 	DATA 	RatingScale rating: (mouse response) rating=6
+521.9568 	DATA 	RatingScale rating: rating RT=3.991
+521.9568 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 1.556), (6, 3.507), (6, 3.991)]
+521.9857 	EXP 	text_10: autoDraw = False
+521.9857 	EXP 	rating: autoDraw = False
+521.9857 	EXP 	short_blank: autoDraw = True
+522.0196 	DATA 	Mouse:  Left button up, pos=(755,152)
+522.1858 	EXP 	short_blank: autoDraw = False
+522.1858 	EXP 	short_blank: autoDraw = False
+522.1858 	EXP 	text_5: autoDraw = True
+522.6697 	EXP 	New trial (rep=0, index=44): OrderedDict([('type', u'leg'), ('verb', u'STAND')])
+522.6732 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+522.6736 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+522.6740 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+522.7348 	EXP 	RatingScale rating: reset()
+522.7417 	EXP 	text_5: autoDraw = False
+522.7417 	EXP 	text_5: autoDraw = False
+522.7417 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STAND?'
+522.7417 	EXP 	text_10: autoDraw = True
+522.7417 	EXP 	rating: autoDraw = True
+524.9856 	DATA 	Mouse: Left button down, pos=(888,232)
+525.0689 	DATA 	Mouse:  Left button up, pos=(888,232)
+525.4690 	DATA 	Mouse: Left button down, pos=(778,142)
+525.4729 	DATA 	RatingScale rating: (mouse response) rating=7
+525.4729 	DATA 	RatingScale rating: rating RT=2.737
+525.4729 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.252), (7, 2.737)]
+525.5013 	EXP 	text_10: autoDraw = False
+525.5013 	EXP 	rating: autoDraw = False
+525.5013 	EXP 	short_blank: autoDraw = True
+525.5348 	DATA 	Mouse:  Left button up, pos=(778,142)
+525.6856 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+525.7472 	EXP 	RatingScale rating: reset()
+525.7545 	EXP 	short_blank: autoDraw = False
+525.7545 	EXP 	short_blank: autoDraw = False
+525.7545 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STAND?'
+525.7545 	EXP 	text_10: autoDraw = True
+525.7545 	EXP 	rating: autoDraw = True
+526.8852 	DATA 	Mouse: Left button down, pos=(475,243)
+526.9554 	DATA 	Mouse:  Left button up, pos=(476,243)
+527.4017 	DATA 	Mouse: Left button down, pos=(606,146)
+527.4055 	DATA 	RatingScale rating: (mouse response) rating=1
+527.4055 	DATA 	RatingScale rating: rating RT=1.657
+527.4055 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.139), (1, 1.657)]
+527.4342 	EXP 	text_10: autoDraw = False
+527.4342 	EXP 	rating: autoDraw = False
+527.4342 	EXP 	short_blank: autoDraw = True
+527.4515 	DATA 	Mouse:  Left button up, pos=(606,146)
+527.6342 	EXP 	short_blank: autoDraw = False
+527.6342 	EXP 	short_blank: autoDraw = False
+527.6342 	EXP 	text_5: autoDraw = True
+528.1181 	EXP 	New trial (rep=0, index=45): OrderedDict([('type', u'arm'), ('verb', u'GRASP')])
+528.1217 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+528.1221 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+528.1225 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+528.1838 	EXP 	RatingScale rating: reset()
+528.1914 	EXP 	text_5: autoDraw = False
+528.1914 	EXP 	text_5: autoDraw = False
+528.1914 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb GRASP?'
+528.1914 	EXP 	text_10: autoDraw = True
+528.1914 	EXP 	rating: autoDraw = True
+530.7340 	DATA 	Mouse: Left button down, pos=(482,233)
+530.7875 	DATA 	Mouse:  Left button up, pos=(482,233)
+531.1873 	DATA 	Mouse: Left button down, pos=(593,149)
+531.1876 	DATA 	RatingScale rating: (mouse response) rating=1
+531.1876 	DATA 	RatingScale rating: rating RT=3.002
+531.1877 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.551), (1, 3.002)]
+531.2166 	EXP 	text_10: autoDraw = False
+531.2166 	EXP 	rating: autoDraw = False
+531.2166 	EXP 	short_blank: autoDraw = True
+531.2503 	DATA 	Mouse:  Left button up, pos=(593,149)
+531.4011 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+531.4637 	EXP 	RatingScale rating: reset()
+531.4712 	EXP 	short_blank: autoDraw = False
+531.4712 	EXP 	short_blank: autoDraw = False
+531.4712 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb GRASP?'
+531.4712 	EXP 	text_10: autoDraw = True
+531.4712 	EXP 	rating: autoDraw = True
+532.5864 	DATA 	Mouse: Left button down, pos=(884,229)
+532.6498 	DATA 	Mouse:  Left button up, pos=(884,229)
+533.1326 	DATA 	Mouse: Left button down, pos=(712,140)
+533.1364 	DATA 	RatingScale rating: (mouse response) rating=7
+533.1365 	DATA 	RatingScale rating: rating RT=1.671
+533.1365 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.137), (7, 1.671)]
+533.1660 	EXP 	text_10: autoDraw = False
+533.1660 	EXP 	rating: autoDraw = False
+533.1660 	EXP 	short_blank: autoDraw = True
+533.1998 	DATA 	Mouse:  Left button up, pos=(712,140)
+533.3657 	EXP 	short_blank: autoDraw = False
+533.3657 	EXP 	short_blank: autoDraw = False
+533.3657 	EXP 	text_5: autoDraw = True
+533.8507 	EXP 	New trial (rep=0, index=46): OrderedDict([('type', u'arm'), ('verb', u'CARVE')])
+533.8544 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+533.8548 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+533.8552 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+533.9234 	EXP 	RatingScale rating: reset()
+533.9311 	EXP 	text_5: autoDraw = False
+533.9311 	EXP 	text_5: autoDraw = False
+533.9311 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CARVE?'
+533.9311 	EXP 	text_10: autoDraw = True
+533.9311 	EXP 	rating: autoDraw = True
+536.8493 	DATA 	Mouse: Left button down, pos=(478,235)
+536.9491 	DATA 	Mouse:  Left button up, pos=(478,235)
+537.4152 	DATA 	Mouse: Left button down, pos=(601,154)
+537.4190 	DATA 	RatingScale rating: (mouse response) rating=1
+537.4190 	DATA 	RatingScale rating: rating RT=3.494
+537.4190 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.927), (1, 3.494)]
+537.4483 	EXP 	text_10: autoDraw = False
+537.4483 	EXP 	rating: autoDraw = False
+537.4483 	EXP 	short_blank: autoDraw = True
+537.4662 	DATA 	Mouse:  Left button up, pos=(601,154)
+537.6326 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+537.6970 	EXP 	RatingScale rating: reset()
+537.7048 	EXP 	short_blank: autoDraw = False
+537.7048 	EXP 	short_blank: autoDraw = False
+537.7048 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CARVE?'
+537.7048 	EXP 	text_10: autoDraw = True
+537.7048 	EXP 	rating: autoDraw = True
+538.2182 	DATA 	Mouse: Left button down, pos=(888,241)
+538.2986 	DATA 	Mouse:  Left button up, pos=(888,241)
+538.7320 	DATA 	Mouse: Left button down, pos=(736,149)
+538.7359 	DATA 	RatingScale rating: (mouse response) rating=7
+538.7360 	DATA 	RatingScale rating: rating RT=1.037
+538.7360 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.519), (7, 1.037)]
+538.7646 	EXP 	text_10: autoDraw = False
+538.7646 	EXP 	rating: autoDraw = False
+538.7646 	EXP 	short_blank: autoDraw = True
+538.7986 	DATA 	Mouse:  Left button up, pos=(736,149)
+538.9648 	EXP 	short_blank: autoDraw = False
+538.9648 	EXP 	short_blank: autoDraw = False
+538.9648 	EXP 	text_5: autoDraw = True
+539.4490 	EXP 	New trial (rep=0, index=47): OrderedDict([('type', u'arm'), ('verb', u'HACK')])
+539.4528 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+539.4532 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+539.4536 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+539.5140 	EXP 	RatingScale rating: reset()
+539.5213 	EXP 	text_5: autoDraw = False
+539.5213 	EXP 	text_5: autoDraw = False
+539.5213 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb HACK?'
+539.5213 	EXP 	text_10: autoDraw = True
+539.5213 	EXP 	rating: autoDraw = True
+558.0936 	DATA 	Mouse: Left button down, pos=(473,236)
+558.1769 	DATA 	Mouse:  Left button up, pos=(473,236)
+558.6102 	DATA 	Mouse: Left button down, pos=(589,145)
+558.6139 	DATA 	RatingScale rating: (mouse response) rating=1
+558.6139 	DATA 	RatingScale rating: rating RT=19.098
+558.6140 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 18.58), (1, 19.098)]
+558.6427 	EXP 	text_10: autoDraw = False
+558.6427 	EXP 	rating: autoDraw = False
+558.6427 	EXP 	short_blank: autoDraw = True
+558.7271 	DATA 	Mouse:  Left button up, pos=(589,145)
+558.8270 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+558.8876 	EXP 	RatingScale rating: reset()
+558.8945 	EXP 	short_blank: autoDraw = False
+558.8945 	EXP 	short_blank: autoDraw = False
+558.8945 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb HACK?'
+558.8945 	EXP 	text_10: autoDraw = True
+558.8945 	EXP 	rating: autoDraw = True
+561.1262 	DATA 	Mouse: Left button down, pos=(883,237)
+561.2130 	DATA 	Mouse:  Left button up, pos=(883,237)
+561.5588 	DATA 	Mouse: Left button down, pos=(726,141)
+561.5626 	DATA 	RatingScale rating: (mouse response) rating=7
+561.5626 	DATA 	RatingScale rating: rating RT=2.674
+561.5627 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.24), (7, 2.674)]
+561.5918 	EXP 	text_10: autoDraw = False
+561.5918 	EXP 	rating: autoDraw = False
+561.5918 	EXP 	short_blank: autoDraw = True
+561.6261 	DATA 	Mouse:  Left button up, pos=(726,141)
+561.7918 	EXP 	short_blank: autoDraw = False
+561.7918 	EXP 	short_blank: autoDraw = False
+561.7918 	EXP 	text_5: autoDraw = True
+562.2760 	EXP 	New trial (rep=0, index=48): OrderedDict([('type', u'arm'), ('verb', u'SCRUB')])
+562.2795 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+562.2799 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+562.2803 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+562.3414 	EXP 	RatingScale rating: reset()
+562.3485 	EXP 	text_5: autoDraw = False
+562.3485 	EXP 	text_5: autoDraw = False
+562.3485 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SCRUB?'
+562.3485 	EXP 	text_10: autoDraw = True
+562.3485 	EXP 	rating: autoDraw = True
+568.8575 	DATA 	Mouse: Left button down, pos=(691,237)
+568.9740 	DATA 	Mouse:  Left button up, pos=(691,237)
+570.5402 	DATA 	Mouse: Left button down, pos=(739,132)
+570.5440 	DATA 	RatingScale rating: (mouse response) rating=4
+570.5440 	DATA 	RatingScale rating: rating RT=8.201
+570.5440 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 6.517), (4, 8.201)]
+570.5729 	EXP 	text_10: autoDraw = False
+570.5729 	EXP 	rating: autoDraw = False
+570.5729 	EXP 	short_blank: autoDraw = True
+570.6070 	DATA 	Mouse:  Left button up, pos=(739,132)
+570.7572 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+570.8185 	EXP 	RatingScale rating: reset()
+570.8258 	EXP 	short_blank: autoDraw = False
+570.8258 	EXP 	short_blank: autoDraw = False
+570.8258 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SCRUB?'
+570.8258 	EXP 	text_10: autoDraw = True
+570.8258 	EXP 	rating: autoDraw = True
+579.2212 	DATA 	Mouse: Left button down, pos=(888,235)
+579.2878 	DATA 	Mouse:  Left button up, pos=(888,235)
+579.7080 	DATA 	Mouse: Left button down, pos=(798,152)
+579.7879 	DATA 	Mouse:  Left button up, pos=(796,151)
+580.1380 	DATA 	Mouse: Left button down, pos=(763,146)
+580.1418 	DATA 	RatingScale rating: (mouse response) rating=7
+580.1418 	DATA 	RatingScale rating: rating RT=9.322
+580.1418 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 8.404), (7, 9.322)]
+580.1704 	EXP 	text_10: autoDraw = False
+580.1704 	EXP 	rating: autoDraw = False
+580.1704 	EXP 	short_blank: autoDraw = True
+580.2044 	DATA 	Mouse:  Left button up, pos=(763,146)
+580.3700 	EXP 	short_blank: autoDraw = False
+580.3700 	EXP 	short_blank: autoDraw = False
+580.3700 	EXP 	text_5: autoDraw = True
+580.8544 	EXP 	New trial (rep=0, index=49): OrderedDict([('type', u'leg'), ('verb', u'TROT')])
+580.8579 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+580.8582 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+580.8586 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+580.9198 	EXP 	RatingScale rating: reset()
+580.9272 	EXP 	text_5: autoDraw = False
+580.9272 	EXP 	text_5: autoDraw = False
+580.9272 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb TROT?'
+580.9272 	EXP 	text_10: autoDraw = True
+580.9272 	EXP 	rating: autoDraw = True
+583.1206 	DATA 	Mouse: Left button down, pos=(879,237)
+583.1870 	DATA 	Mouse:  Left button up, pos=(879,237)
+584.1868 	DATA 	Mouse: Left button down, pos=(767,140)
+584.1907 	DATA 	RatingScale rating: (mouse response) rating=7
+584.1907 	DATA 	RatingScale rating: rating RT=3.269
+584.1907 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.202), (7, 3.269)]
+584.2195 	EXP 	text_10: autoDraw = False
+584.2195 	EXP 	rating: autoDraw = False
+584.2195 	EXP 	short_blank: autoDraw = True
+584.2533 	DATA 	Mouse:  Left button up, pos=(767,140)
+584.4034 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+584.4631 	EXP 	RatingScale rating: reset()
+584.4701 	EXP 	short_blank: autoDraw = False
+584.4701 	EXP 	short_blank: autoDraw = False
+584.4701 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb TROT?'
+584.4701 	EXP 	text_10: autoDraw = True
+584.4701 	EXP 	rating: autoDraw = True
+585.5223 	DATA 	Mouse: Left button down, pos=(489,234)
+585.6029 	DATA 	Mouse:  Left button up, pos=(489,234)
+586.6861 	DATA 	Mouse: Left button down, pos=(643,139)
+586.6899 	DATA 	RatingScale rating: (mouse response) rating=1
+586.6899 	DATA 	RatingScale rating: rating RT=2.226
+586.6899 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.058), (1, 2.226)]
+586.7189 	EXP 	text_10: autoDraw = False
+586.7189 	EXP 	rating: autoDraw = False
+586.7189 	EXP 	short_blank: autoDraw = True
+586.7526 	DATA 	Mouse:  Left button up, pos=(643,139)
+586.9182 	EXP 	short_blank: autoDraw = False
+586.9182 	EXP 	short_blank: autoDraw = False
+586.9182 	EXP 	text_5: autoDraw = True
+587.4027 	EXP 	New trial (rep=0, index=50): OrderedDict([('type', u'arm'), ('verb', u'RUB')])
+587.4068 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+587.4072 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+587.4076 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+587.4668 	EXP 	RatingScale rating: reset()
+587.4736 	EXP 	text_5: autoDraw = False
+587.4736 	EXP 	text_5: autoDraw = False
+587.4736 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb RUB?'
+587.4736 	EXP 	text_10: autoDraw = True
+587.4736 	EXP 	rating: autoDraw = True
+591.1708 	DATA 	Mouse: Left button down, pos=(553,235)
+591.2682 	DATA 	Mouse:  Left button up, pos=(553,235)
+592.2515 	DATA 	Mouse: Left button down, pos=(632,133)
+592.2553 	DATA 	RatingScale rating: (mouse response) rating=2
+592.2553 	DATA 	RatingScale rating: rating RT=4.787
+592.2553 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.703), (2, 4.787)]
+592.2840 	EXP 	text_10: autoDraw = False
+592.2840 	EXP 	rating: autoDraw = False
+592.2840 	EXP 	short_blank: autoDraw = True
+592.3012 	DATA 	Mouse:  Left button up, pos=(632,133)
+592.4682 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+592.5276 	EXP 	RatingScale rating: reset()
+592.5345 	EXP 	short_blank: autoDraw = False
+592.5345 	EXP 	short_blank: autoDraw = False
+592.5345 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb RUB?'
+592.5345 	EXP 	text_10: autoDraw = True
+592.5345 	EXP 	rating: autoDraw = True
+593.4035 	DATA 	Mouse: Left button down, pos=(879,241)
+593.4846 	DATA 	Mouse:  Left button up, pos=(880,240)
+594.0343 	DATA 	Mouse: Left button down, pos=(730,151)
+594.0380 	DATA 	RatingScale rating: (mouse response) rating=7
+594.0380 	DATA 	RatingScale rating: rating RT=1.509
+594.0380 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.875), (7, 1.509)]
+594.0668 	EXP 	text_10: autoDraw = False
+594.0668 	EXP 	rating: autoDraw = False
+594.0668 	EXP 	short_blank: autoDraw = True
+594.1173 	DATA 	Mouse:  Left button up, pos=(729,150)
+594.2667 	EXP 	short_blank: autoDraw = False
+594.2667 	EXP 	short_blank: autoDraw = False
+594.2667 	EXP 	text_5: autoDraw = True
+594.7512 	EXP 	New trial (rep=0, index=51): OrderedDict([('type', u'arm'), ('verb', u'POLISH')])
+594.7548 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+594.7552 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+594.7556 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+594.8176 	EXP 	RatingScale rating: reset()
+594.8246 	EXP 	text_5: autoDraw = False
+594.8246 	EXP 	text_5: autoDraw = False
+594.8246 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb POLISH?'
+594.8246 	EXP 	text_10: autoDraw = True
+594.8246 	EXP 	rating: autoDraw = True
+598.0664 	DATA 	Mouse: Left button down, pos=(476,244)
+598.1332 	DATA 	Mouse:  Left button up, pos=(476,244)
+598.7992 	DATA 	Mouse: Left button down, pos=(591,152)
+598.8031 	DATA 	RatingScale rating: (mouse response) rating=1
+598.8031 	DATA 	RatingScale rating: rating RT=3.984
+598.8031 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.25), (1, 3.984)]
+598.8321 	EXP 	text_10: autoDraw = False
+598.8321 	EXP 	rating: autoDraw = False
+598.8321 	EXP 	short_blank: autoDraw = True
+598.8828 	DATA 	Mouse:  Left button up, pos=(592,152)
+599.0168 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+599.0790 	EXP 	RatingScale rating: reset()
+599.0867 	EXP 	short_blank: autoDraw = False
+599.0867 	EXP 	short_blank: autoDraw = False
+599.0867 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb POLISH?'
+599.0867 	EXP 	text_10: autoDraw = True
+599.0867 	EXP 	rating: autoDraw = True
+599.5326 	DATA 	Mouse: Left button down, pos=(890,252)
+599.6195 	DATA 	Mouse:  Left button up, pos=(890,252)
+600.1159 	DATA 	Mouse: Left button down, pos=(718,159)
+600.1197 	DATA 	RatingScale rating: (mouse response) rating=7
+600.1197 	DATA 	RatingScale rating: rating RT=1.039
+600.1197 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.455), (7, 1.039)]
+600.1485 	EXP 	text_10: autoDraw = False
+600.1485 	EXP 	rating: autoDraw = False
+600.1485 	EXP 	short_blank: autoDraw = True
+600.1822 	DATA 	Mouse:  Left button up, pos=(718,159)
+600.3483 	EXP 	short_blank: autoDraw = False
+600.3483 	EXP 	short_blank: autoDraw = False
+600.3483 	EXP 	text_5: autoDraw = True
+600.8327 	EXP 	New trial (rep=0, index=52): OrderedDict([('type', u'arm'), ('verb', u'POKE')])
+600.8364 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+600.8368 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+600.8372 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+600.8979 	EXP 	RatingScale rating: reset()
+600.9053 	EXP 	text_5: autoDraw = False
+600.9053 	EXP 	text_5: autoDraw = False
+600.9053 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb POKE?'
+600.9053 	EXP 	text_10: autoDraw = True
+600.9053 	EXP 	rating: autoDraw = True
+604.1312 	DATA 	Mouse: Left button down, pos=(547,236)
+604.1814 	DATA 	Mouse:  Left button up, pos=(547,236)
+604.9481 	DATA 	Mouse: Left button down, pos=(481,237)
+605.0180 	DATA 	Mouse:  Left button up, pos=(481,237)
+605.5144 	DATA 	Mouse: Left button down, pos=(632,143)
+605.5183 	DATA 	RatingScale rating: (mouse response) rating=1
+605.5183 	DATA 	RatingScale rating: rating RT=4.619
+605.5183 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 3.234), (1, 4.052), (1, 4.619)]
+605.5473 	EXP 	text_10: autoDraw = False
+605.5473 	EXP 	rating: autoDraw = False
+605.5473 	EXP 	short_blank: autoDraw = True
+605.5810 	DATA 	Mouse:  Left button up, pos=(632,143)
+605.7316 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+605.7932 	EXP 	RatingScale rating: reset()
+605.8003 	EXP 	short_blank: autoDraw = False
+605.8003 	EXP 	short_blank: autoDraw = False
+605.8003 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb POKE?'
+605.8003 	EXP 	text_10: autoDraw = True
+605.8003 	EXP 	rating: autoDraw = True
+606.3308 	DATA 	Mouse: Left button down, pos=(883,241)
+606.4139 	DATA 	Mouse:  Left button up, pos=(883,241)
+606.8807 	DATA 	Mouse: Left button down, pos=(738,149)
+606.8844 	DATA 	RatingScale rating: (mouse response) rating=7
+606.8845 	DATA 	RatingScale rating: rating RT=1.090
+606.8845 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.539), (7, 1.09)]
+606.9130 	EXP 	text_10: autoDraw = False
+606.9130 	EXP 	rating: autoDraw = False
+606.9130 	EXP 	short_blank: autoDraw = True
+606.9640 	DATA 	Mouse:  Left button up, pos=(738,149)
+607.1133 	EXP 	short_blank: autoDraw = False
+607.1133 	EXP 	short_blank: autoDraw = False
+607.1133 	EXP 	text_5: autoDraw = True
+607.5973 	EXP 	New trial (rep=0, index=53): OrderedDict([('type', u'arm'), ('verb', u'SIGN')])
+607.6008 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+607.6012 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+607.6016 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+607.6618 	EXP 	RatingScale rating: reset()
+607.6687 	EXP 	text_5: autoDraw = False
+607.6687 	EXP 	text_5: autoDraw = False
+607.6687 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SIGN?'
+607.6687 	EXP 	text_10: autoDraw = True
+607.6687 	EXP 	rating: autoDraw = True
+611.9797 	DATA 	Mouse: Left button down, pos=(546,238)
+612.0660 	DATA 	Mouse:  Left button up, pos=(546,238)
+613.6124 	DATA 	Mouse: Left button down, pos=(470,248)
+613.6823 	DATA 	Mouse:  Left button up, pos=(473,248)
+614.1158 	DATA 	Mouse: Left button down, pos=(606,146)
+614.1161 	DATA 	RatingScale rating: (mouse response) rating=1
+614.1161 	DATA 	RatingScale rating: rating RT=6.453
+614.1162 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 4.319), (1, 5.953), (1, 6.453)]
+614.1449 	EXP 	text_10: autoDraw = False
+614.1449 	EXP 	rating: autoDraw = False
+614.1449 	EXP 	short_blank: autoDraw = True
+614.1956 	DATA 	Mouse:  Left button up, pos=(606,146)
+614.3290 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+614.3904 	EXP 	RatingScale rating: reset()
+614.3979 	EXP 	short_blank: autoDraw = False
+614.3979 	EXP 	short_blank: autoDraw = False
+614.3979 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SIGN?'
+614.3979 	EXP 	text_10: autoDraw = True
+614.3979 	EXP 	rating: autoDraw = True
+614.9314 	DATA 	Mouse: Left button down, pos=(886,241)
+615.0119 	DATA 	Mouse:  Left button up, pos=(886,241)
+615.4822 	DATA 	Mouse: Left button down, pos=(716,151)
+615.4985 	DATA 	RatingScale rating: (mouse response) rating=7
+615.4986 	DATA 	RatingScale rating: rating RT=1.107
+615.4986 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.54), (7, 1.107)]
+615.5278 	EXP 	text_10: autoDraw = False
+615.5278 	EXP 	rating: autoDraw = False
+615.5278 	EXP 	short_blank: autoDraw = True
+615.5785 	DATA 	Mouse:  Left button up, pos=(716,151)
+615.7278 	EXP 	short_blank: autoDraw = False
+615.7278 	EXP 	short_blank: autoDraw = False
+615.7278 	EXP 	text_5: autoDraw = True
+616.2119 	EXP 	New trial (rep=0, index=54): OrderedDict([('type', u'leg'), ('verb', u'KICK')])
+616.2155 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+616.2159 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+616.2163 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+616.2767 	EXP 	RatingScale rating: reset()
+616.2836 	EXP 	text_5: autoDraw = False
+616.2836 	EXP 	text_5: autoDraw = False
+616.2836 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb KICK?'
+616.2836 	EXP 	text_10: autoDraw = True
+616.2836 	EXP 	rating: autoDraw = True
+618.5945 	DATA 	Mouse: Left button down, pos=(891,245)
+618.6610 	DATA 	Mouse:  Left button up, pos=(891,245)
+619.1109 	DATA 	Mouse: Left button down, pos=(741,137)
+619.1148 	DATA 	RatingScale rating: (mouse response) rating=7
+619.1148 	DATA 	RatingScale rating: rating RT=2.837
+619.1148 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.319), (7, 2.837)]
+619.1435 	EXP 	text_10: autoDraw = False
+619.1435 	EXP 	rating: autoDraw = False
+619.1435 	EXP 	short_blank: autoDraw = True
+619.1944 	DATA 	Mouse:  Left button up, pos=(740,136)
+619.3284 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+619.3901 	EXP 	RatingScale rating: reset()
+619.3974 	EXP 	short_blank: autoDraw = False
+619.3974 	EXP 	short_blank: autoDraw = False
+619.3974 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb KICK?'
+619.3974 	EXP 	text_10: autoDraw = True
+619.3974 	EXP 	rating: autoDraw = True
+620.2775 	DATA 	Mouse: Left button down, pos=(487,239)
+620.3604 	DATA 	Mouse:  Left button up, pos=(487,239)
+621.1771 	DATA 	Mouse: Left button down, pos=(592,148)
+621.1809 	DATA 	RatingScale rating: (mouse response) rating=1
+621.1809 	DATA 	RatingScale rating: rating RT=1.789
+621.1809 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.889), (1, 1.789)]
+621.2097 	EXP 	text_10: autoDraw = False
+621.2097 	EXP 	rating: autoDraw = False
+621.2097 	EXP 	short_blank: autoDraw = True
+621.2604 	DATA 	Mouse:  Left button up, pos=(592,147)
+621.4098 	EXP 	short_blank: autoDraw = False
+621.4098 	EXP 	short_blank: autoDraw = False
+621.4098 	EXP 	text_5: autoDraw = True
+621.8937 	EXP 	New trial (rep=0, index=55): OrderedDict([('type', u'leg'), ('verb', u'WANDER')])
+621.8972 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+621.8976 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+621.8980 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+621.9594 	EXP 	RatingScale rating: reset()
+621.9664 	EXP 	text_5: autoDraw = False
+621.9664 	EXP 	text_5: autoDraw = False
+621.9664 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WANDER?'
+621.9664 	EXP 	text_10: autoDraw = True
+621.9664 	EXP 	rating: autoDraw = True
+624.1266 	DATA 	Mouse: Left button down, pos=(894,239)
+624.1964 	DATA 	Mouse:  Left button up, pos=(894,239)
+624.6927 	DATA 	Mouse: Left button down, pos=(760,144)
+624.6965 	DATA 	RatingScale rating: (mouse response) rating=7
+624.6966 	DATA 	RatingScale rating: rating RT=2.736
+624.6966 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.169), (7, 2.736)]
+624.7254 	EXP 	text_10: autoDraw = False
+624.7254 	EXP 	rating: autoDraw = False
+624.7254 	EXP 	short_blank: autoDraw = True
+624.7587 	DATA 	Mouse:  Left button up, pos=(760,143)
+624.9102 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+624.9727 	EXP 	RatingScale rating: reset()
+624.9795 	EXP 	short_blank: autoDraw = False
+624.9795 	EXP 	short_blank: autoDraw = False
+624.9795 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WANDER?'
+624.9795 	EXP 	text_10: autoDraw = True
+624.9795 	EXP 	rating: autoDraw = True
+625.7760 	DATA 	Mouse: Left button down, pos=(487,243)
+625.8425 	DATA 	Mouse:  Left button up, pos=(487,243)
+626.2591 	DATA 	Mouse: Left button down, pos=(629,152)
+626.2629 	DATA 	RatingScale rating: (mouse response) rating=1
+626.2629 	DATA 	RatingScale rating: rating RT=1.289
+626.2629 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.805), (1, 1.289)]
+626.2916 	EXP 	text_10: autoDraw = False
+626.2916 	EXP 	rating: autoDraw = False
+626.2916 	EXP 	short_blank: autoDraw = True
+626.3591 	DATA 	Mouse:  Left button up, pos=(629,151)
+626.4915 	EXP 	short_blank: autoDraw = False
+626.4915 	EXP 	short_blank: autoDraw = False
+626.4915 	EXP 	text_5: autoDraw = True
+626.9757 	EXP 	New trial (rep=0, index=56): OrderedDict([('type', u'leg'), ('verb', u'WALK')])
+626.9793 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+626.9796 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+626.9800 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+627.0401 	EXP 	RatingScale rating: reset()
+627.0469 	EXP 	text_5: autoDraw = False
+627.0469 	EXP 	text_5: autoDraw = False
+627.0469 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WALK?'
+627.0469 	EXP 	text_10: autoDraw = True
+627.0469 	EXP 	rating: autoDraw = True
+629.5083 	DATA 	Mouse: Left button down, pos=(879,240)
+629.5748 	DATA 	Mouse:  Left button up, pos=(879,240)
+630.0117 	DATA 	Mouse: Left button down, pos=(749,137)
+630.0119 	DATA 	RatingScale rating: (mouse response) rating=7
+630.0120 	DATA 	RatingScale rating: rating RT=2.971
+630.0120 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.47), (7, 2.971)]
+630.0408 	EXP 	text_10: autoDraw = False
+630.0408 	EXP 	rating: autoDraw = False
+630.0408 	EXP 	short_blank: autoDraw = True
+630.0586 	DATA 	Mouse:  Left button up, pos=(749,137)
+630.2252 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+630.2870 	EXP 	RatingScale rating: reset()
+630.2941 	EXP 	short_blank: autoDraw = False
+630.2941 	EXP 	short_blank: autoDraw = False
+630.2941 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WALK?'
+630.2941 	EXP 	text_10: autoDraw = True
+630.2941 	EXP 	rating: autoDraw = True
+632.2909 	DATA 	Mouse: Left button down, pos=(540,237)
+632.3575 	DATA 	Mouse:  Left button up, pos=(540,237)
+632.7408 	DATA 	Mouse: Left button down, pos=(611,144)
+632.7446 	DATA 	RatingScale rating: (mouse response) rating=2
+632.7446 	DATA 	RatingScale rating: rating RT=2.456
+632.7447 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 2.005), (2, 2.456)]
+632.7735 	EXP 	text_10: autoDraw = False
+632.7735 	EXP 	rating: autoDraw = False
+632.7735 	EXP 	short_blank: autoDraw = True
+632.8075 	DATA 	Mouse:  Left button up, pos=(611,144)
+632.9733 	EXP 	short_blank: autoDraw = False
+632.9733 	EXP 	short_blank: autoDraw = False
+632.9733 	EXP 	text_5: autoDraw = True
+633.4574 	EXP 	New trial (rep=0, index=57): OrderedDict([('type', u'leg'), ('verb', u'ROAM')])
+633.4610 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+633.4614 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+633.4618 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+633.5245 	EXP 	RatingScale rating: reset()
+633.5319 	EXP 	text_5: autoDraw = False
+633.5319 	EXP 	text_5: autoDraw = False
+633.5319 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb ROAM?'
+633.5319 	EXP 	text_10: autoDraw = True
+633.5319 	EXP 	rating: autoDraw = True
+636.0065 	DATA 	Mouse: Left button down, pos=(887,237)
+636.1062 	DATA 	Mouse:  Left button up, pos=(886,237)
+636.8730 	DATA 	Mouse: Left button down, pos=(766,149)
+636.8770 	DATA 	RatingScale rating: (mouse response) rating=7
+636.8770 	DATA 	RatingScale rating: rating RT=3.351
+636.8770 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.483), (7, 3.351)]
+636.9057 	EXP 	text_10: autoDraw = False
+636.9057 	EXP 	rating: autoDraw = False
+636.9057 	EXP 	short_blank: autoDraw = True
+636.9396 	DATA 	Mouse:  Left button up, pos=(766,149)
+637.0905 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+637.1536 	EXP 	RatingScale rating: reset()
+637.1611 	EXP 	short_blank: autoDraw = False
+637.1611 	EXP 	short_blank: autoDraw = False
+637.1611 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb ROAM?'
+637.1611 	EXP 	text_10: autoDraw = True
+637.1611 	EXP 	rating: autoDraw = True
+639.2918 	DATA 	Mouse: Left button down, pos=(481,236)
+639.3720 	DATA 	Mouse:  Left button up, pos=(482,236)
+639.8389 	DATA 	Mouse: Left button down, pos=(648,131)
+639.8427 	DATA 	RatingScale rating: (mouse response) rating=1
+639.8428 	DATA 	RatingScale rating: rating RT=2.687
+639.8428 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.136), (1, 2.687)]
+639.8715 	EXP 	text_10: autoDraw = False
+639.8715 	EXP 	rating: autoDraw = False
+639.8715 	EXP 	short_blank: autoDraw = True
+639.9221 	DATA 	Mouse:  Left button up, pos=(648,131)
+640.0714 	EXP 	short_blank: autoDraw = False
+640.0714 	EXP 	short_blank: autoDraw = False
+640.0714 	EXP 	text_5: autoDraw = True
+640.5555 	EXP 	New trial (rep=0, index=58): OrderedDict([('type', u'arm'), ('verb', u'FOLD')])
+640.5589 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+640.5593 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+640.5598 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+640.6195 	EXP 	RatingScale rating: reset()
+640.6265 	EXP 	text_5: autoDraw = False
+640.6265 	EXP 	text_5: autoDraw = False
+640.6265 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb FOLD?'
+640.6265 	EXP 	text_10: autoDraw = True
+640.6265 	EXP 	rating: autoDraw = True
+644.1235 	DATA 	Mouse: Left button down, pos=(493,240)
+644.2044 	DATA 	Mouse:  Left button up, pos=(493,240)
+644.7377 	DATA 	Mouse: Left button down, pos=(631,134)
+644.7415 	DATA 	RatingScale rating: (mouse response) rating=1
+644.7415 	DATA 	RatingScale rating: rating RT=4.121
+644.7415 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.503), (1, 4.121)]
+644.7704 	EXP 	text_10: autoDraw = False
+644.7704 	EXP 	rating: autoDraw = False
+644.7704 	EXP 	short_blank: autoDraw = True
+644.7877 	DATA 	Mouse:  Left button up, pos=(631,134)
+644.9542 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+645.0147 	EXP 	RatingScale rating: reset()
+645.0215 	EXP 	short_blank: autoDraw = False
+645.0215 	EXP 	short_blank: autoDraw = False
+645.0215 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb FOLD?'
+645.0215 	EXP 	text_10: autoDraw = True
+645.0215 	EXP 	rating: autoDraw = True
+646.7705 	DATA 	Mouse: Left button down, pos=(883,242)
+646.8703 	DATA 	Mouse:  Left button up, pos=(883,242)
+647.2741 	DATA 	Mouse: Left button down, pos=(761,153)
+647.2904 	DATA 	RatingScale rating: (mouse response) rating=7
+647.2904 	DATA 	RatingScale rating: rating RT=2.275
+647.2905 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.757), (7, 2.275)]
+647.3196 	EXP 	text_10: autoDraw = False
+647.3196 	EXP 	rating: autoDraw = False
+647.3196 	EXP 	short_blank: autoDraw = True
+647.3534 	DATA 	Mouse:  Left button up, pos=(760,153)
+647.5196 	EXP 	short_blank: autoDraw = False
+647.5196 	EXP 	short_blank: autoDraw = False
+647.5196 	EXP 	text_5: autoDraw = True
+648.0035 	EXP 	New trial (rep=0, index=59): OrderedDict([('type', u'leg'), ('verb', u'STEP')])
+648.0070 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+648.0074 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+648.0078 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+648.0680 	EXP 	RatingScale rating: reset()
+648.0746 	EXP 	text_5: autoDraw = False
+648.0746 	EXP 	text_5: autoDraw = False
+648.0746 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STEP?'
+648.0746 	EXP 	text_10: autoDraw = True
+648.0746 	EXP 	rating: autoDraw = True
+650.9385 	DATA 	Mouse: Left button down, pos=(901,244)
+651.0359 	DATA 	Mouse:  Left button up, pos=(901,244)
+651.5229 	DATA 	Mouse: Left button down, pos=(753,157)
+651.5232 	DATA 	RatingScale rating: (mouse response) rating=7
+651.5232 	DATA 	RatingScale rating: rating RT=3.454
+651.5232 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.869), (7, 3.454)]
+651.5515 	EXP 	text_10: autoDraw = False
+651.5515 	EXP 	rating: autoDraw = False
+651.5515 	EXP 	short_blank: autoDraw = True
+651.5864 	DATA 	Mouse:  Left button up, pos=(753,157)
+651.7362 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+651.7976 	EXP 	RatingScale rating: reset()
+651.8048 	EXP 	short_blank: autoDraw = False
+651.8048 	EXP 	short_blank: autoDraw = False
+651.8048 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STEP?'
+651.8048 	EXP 	text_10: autoDraw = True
+651.8048 	EXP 	rating: autoDraw = True
+652.2356 	DATA 	Mouse: Left button down, pos=(487,232)
+652.3020 	DATA 	Mouse:  Left button up, pos=(487,232)
+652.7019 	DATA 	Mouse: Left button down, pos=(646,147)
+652.7057 	DATA 	RatingScale rating: (mouse response) rating=1
+652.7057 	DATA 	RatingScale rating: rating RT=0.907
+652.7057 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.439), (1, 0.907)]
+652.7346 	EXP 	text_10: autoDraw = False
+652.7346 	EXP 	rating: autoDraw = False
+652.7346 	EXP 	short_blank: autoDraw = True
+652.7688 	DATA 	Mouse:  Left button up, pos=(646,147)
+652.9349 	EXP 	short_blank: autoDraw = False
+652.9349 	EXP 	short_blank: autoDraw = False
+652.9349 	EXP 	text_5: autoDraw = True
+653.4188 	EXP 	New trial (rep=0, index=60): OrderedDict([('type', u'leg'), ('verb', u'PACE')])
+653.4223 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+653.4227 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+653.4231 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+653.4835 	EXP 	RatingScale rating: reset()
+653.4904 	EXP 	text_5: autoDraw = False
+653.4904 	EXP 	text_5: autoDraw = False
+653.4904 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PACE?'
+653.4904 	EXP 	text_10: autoDraw = True
+653.4904 	EXP 	rating: autoDraw = True
+657.1179 	DATA 	Mouse: Left button down, pos=(825,239)
+657.2176 	DATA 	Mouse:  Left button up, pos=(825,239)
+660.1338 	DATA 	Mouse: Left button down, pos=(764,140)
+660.1377 	DATA 	RatingScale rating: (mouse response) rating=6
+660.1377 	DATA 	RatingScale rating: rating RT=6.653
+660.1377 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 3.636), (6, 6.653)]
+660.1662 	EXP 	text_10: autoDraw = False
+660.1662 	EXP 	rating: autoDraw = False
+660.1662 	EXP 	short_blank: autoDraw = True
+660.2169 	DATA 	Mouse:  Left button up, pos=(764,140)
+660.3505 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+660.4107 	EXP 	RatingScale rating: reset()
+660.4180 	EXP 	short_blank: autoDraw = False
+660.4180 	EXP 	short_blank: autoDraw = False
+660.4180 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PACE?'
+660.4180 	EXP 	text_10: autoDraw = True
+660.4180 	EXP 	rating: autoDraw = True
+663.0023 	DATA 	Mouse: Left button down, pos=(561,235)
+663.0996 	DATA 	Mouse:  Left button up, pos=(560,235)
+663.5827 	DATA 	Mouse: Left button down, pos=(680,126)
+663.5865 	DATA 	RatingScale rating: (mouse response) rating=2
+663.5865 	DATA 	RatingScale rating: rating RT=3.174
+663.5865 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 2.59), (2, 3.174)]
+663.6154 	EXP 	text_10: autoDraw = False
+663.6154 	EXP 	rating: autoDraw = False
+663.6154 	EXP 	short_blank: autoDraw = True
+663.6326 	DATA 	Mouse:  Left button up, pos=(680,126)
+663.8153 	EXP 	short_blank: autoDraw = False
+663.8153 	EXP 	short_blank: autoDraw = False
+663.8153 	EXP 	text_5: autoDraw = True
+664.2991 	EXP 	New trial (rep=0, index=61): OrderedDict([('type', u'arm'), ('verb', u'CLAP')])
+664.3031 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+664.3035 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+664.3039 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+664.3640 	EXP 	RatingScale rating: reset()
+664.3709 	EXP 	text_5: autoDraw = False
+664.3709 	EXP 	text_5: autoDraw = False
+664.3709 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb CLAP?'
+664.3709 	EXP 	text_10: autoDraw = True
+664.3709 	EXP 	rating: autoDraw = True
+667.2316 	DATA 	Mouse: Left button down, pos=(483,235)
+667.3150 	DATA 	Mouse:  Left button up, pos=(483,235)
+667.8816 	DATA 	Mouse: Left button down, pos=(598,138)
+667.8855 	DATA 	RatingScale rating: (mouse response) rating=1
+667.8855 	DATA 	RatingScale rating: rating RT=3.520
+667.8856 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.869), (1, 3.52)]
+667.9142 	EXP 	text_10: autoDraw = False
+667.9142 	EXP 	rating: autoDraw = False
+667.9142 	EXP 	short_blank: autoDraw = True
+667.9312 	DATA 	Mouse:  Left button up, pos=(598,138)
+668.0986 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+668.1593 	EXP 	RatingScale rating: reset()
+668.1667 	EXP 	short_blank: autoDraw = False
+668.1667 	EXP 	short_blank: autoDraw = False
+668.1667 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb CLAP?'
+668.1667 	EXP 	text_10: autoDraw = True
+668.1667 	EXP 	rating: autoDraw = True
+669.2673 	DATA 	Mouse: Left button down, pos=(888,232)
+669.3645 	DATA 	Mouse:  Left button up, pos=(888,232)
+669.7977 	DATA 	Mouse: Left button down, pos=(756,160)
+669.8014 	DATA 	RatingScale rating: (mouse response) rating=7
+669.8014 	DATA 	RatingScale rating: rating RT=1.641
+669.8015 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.107), (7, 1.641)]
+669.8301 	EXP 	text_10: autoDraw = False
+669.8301 	EXP 	rating: autoDraw = False
+669.8301 	EXP 	short_blank: autoDraw = True
+669.8810 	DATA 	Mouse:  Left button up, pos=(756,160)
+670.0300 	EXP 	short_blank: autoDraw = False
+670.0300 	EXP 	short_blank: autoDraw = False
+670.0300 	EXP 	text_5: autoDraw = True
+670.5145 	EXP 	New trial (rep=0, index=62): OrderedDict([('type', u'arm'), ('verb', u'WASH')])
+670.5181 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+670.5185 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+670.5189 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+670.5792 	EXP 	RatingScale rating: reset()
+670.5862 	EXP 	text_5: autoDraw = False
+670.5862 	EXP 	text_5: autoDraw = False
+670.5862 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WASH?'
+670.5862 	EXP 	text_10: autoDraw = True
+670.5862 	EXP 	rating: autoDraw = True
+675.7294 	DATA 	Mouse: Left button down, pos=(497,237)
+675.7962 	DATA 	Mouse:  Left button up, pos=(497,237)
+676.2830 	DATA 	Mouse: Left button down, pos=(625,140)
+676.2833 	DATA 	RatingScale rating: (mouse response) rating=1
+676.2833 	DATA 	RatingScale rating: rating RT=5.703
+676.2833 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 5.152), (1, 5.703)]
+676.3121 	EXP 	text_10: autoDraw = False
+676.3121 	EXP 	rating: autoDraw = False
+676.3121 	EXP 	short_blank: autoDraw = True
+676.3465 	DATA 	Mouse:  Left button up, pos=(625,140)
+676.4962 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+676.5568 	EXP 	RatingScale rating: reset()
+676.5638 	EXP 	short_blank: autoDraw = False
+676.5638 	EXP 	short_blank: autoDraw = False
+676.5638 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WASH?'
+676.5638 	EXP 	text_10: autoDraw = True
+676.5638 	EXP 	rating: autoDraw = True
+677.3122 	DATA 	Mouse: Left button down, pos=(881,244)
+677.4289 	DATA 	Mouse:  Left button up, pos=(883,244)
+677.8788 	DATA 	Mouse: Left button down, pos=(708,140)
+677.8826 	DATA 	RatingScale rating: (mouse response) rating=7
+677.8826 	DATA 	RatingScale rating: rating RT=1.324
+677.8826 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.757), (7, 1.324)]
+677.9111 	EXP 	text_10: autoDraw = False
+677.9111 	EXP 	rating: autoDraw = False
+677.9111 	EXP 	short_blank: autoDraw = True
+677.9457 	DATA 	Mouse:  Left button up, pos=(709,140)
+678.1114 	EXP 	short_blank: autoDraw = False
+678.1114 	EXP 	short_blank: autoDraw = False
+678.1114 	EXP 	text_5: autoDraw = True
+678.5957 	EXP 	New trial (rep=0, index=63): OrderedDict([('type', u'leg'), ('verb', u'SKIP')])
+678.5992 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+678.5996 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+678.6000 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+678.6602 	EXP 	RatingScale rating: reset()
+678.6673 	EXP 	text_5: autoDraw = False
+678.6673 	EXP 	text_5: autoDraw = False
+678.6673 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SKIP?'
+678.6673 	EXP 	text_10: autoDraw = True
+678.6673 	EXP 	rating: autoDraw = True
+682.1444 	DATA 	Mouse: Left button down, pos=(890,232)
+682.1942 	DATA 	Mouse:  Left button up, pos=(890,232)
+682.9776 	DATA 	Mouse: Left button down, pos=(750,152)
+682.9814 	DATA 	RatingScale rating: (mouse response) rating=7
+682.9814 	DATA 	RatingScale rating: rating RT=4.320
+682.9814 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 3.485), (7, 4.32)]
+683.0101 	EXP 	text_10: autoDraw = False
+683.0101 	EXP 	rating: autoDraw = False
+683.0101 	EXP 	short_blank: autoDraw = True
+683.0277 	DATA 	Mouse:  Left button up, pos=(750,152)
+683.1943 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+683.2554 	EXP 	RatingScale rating: reset()
+683.2627 	EXP 	short_blank: autoDraw = False
+683.2627 	EXP 	short_blank: autoDraw = False
+683.2627 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SKIP?'
+683.2627 	EXP 	text_10: autoDraw = True
+683.2627 	EXP 	rating: autoDraw = True
+683.8941 	DATA 	Mouse: Left button down, pos=(489,231)
+683.9606 	DATA 	Mouse:  Left button up, pos=(489,231)
+684.4271 	DATA 	Mouse: Left button down, pos=(655,146)
+684.4309 	DATA 	RatingScale rating: (mouse response) rating=1
+684.4309 	DATA 	RatingScale rating: rating RT=1.174
+684.4310 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.64), (1, 1.174)]
+684.4599 	EXP 	text_10: autoDraw = False
+684.4599 	EXP 	rating: autoDraw = False
+684.4599 	EXP 	short_blank: autoDraw = True
+684.5104 	DATA 	Mouse:  Left button up, pos=(655,146)
+684.6598 	EXP 	short_blank: autoDraw = False
+684.6598 	EXP 	short_blank: autoDraw = False
+684.6598 	EXP 	text_5: autoDraw = True
+685.1439 	EXP 	New trial (rep=0, index=64): OrderedDict([('type', u'leg'), ('verb', u'SPRINT')])
+685.1474 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+685.1478 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+685.1482 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+685.2098 	EXP 	RatingScale rating: reset()
+685.2173 	EXP 	text_5: autoDraw = False
+685.2173 	EXP 	text_5: autoDraw = False
+685.2173 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SPRINT?'
+685.2173 	EXP 	text_10: autoDraw = True
+685.2173 	EXP 	rating: autoDraw = True
+689.1760 	DATA 	Mouse: Left button down, pos=(879,233)
+689.2759 	DATA 	Mouse:  Left button up, pos=(879,233)
+689.7423 	DATA 	Mouse: Left button down, pos=(751,156)
+689.7462 	DATA 	RatingScale rating: (mouse response) rating=7
+689.7463 	DATA 	RatingScale rating: rating RT=4.535
+689.7463 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 3.967), (7, 4.535)]
+689.7750 	EXP 	text_10: autoDraw = False
+689.7750 	EXP 	rating: autoDraw = False
+689.7750 	EXP 	short_blank: autoDraw = True
+689.8259 	DATA 	Mouse:  Left button up, pos=(751,156)
+689.9591 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+690.0221 	EXP 	RatingScale rating: reset()
+690.0297 	EXP 	short_blank: autoDraw = False
+690.0297 	EXP 	short_blank: autoDraw = False
+690.0297 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SPRINT?'
+690.0297 	EXP 	text_10: autoDraw = True
+690.0297 	EXP 	rating: autoDraw = True
+690.5755 	DATA 	Mouse: Left button down, pos=(481,240)
+690.6420 	DATA 	Mouse:  Left button up, pos=(481,240)
+691.1254 	DATA 	Mouse: Left button down, pos=(634,148)
+691.1292 	DATA 	RatingScale rating: (mouse response) rating=1
+691.1292 	DATA 	RatingScale rating: rating RT=1.106
+691.1292 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.555), (1, 1.106)]
+691.1582 	EXP 	text_10: autoDraw = False
+691.1582 	EXP 	rating: autoDraw = False
+691.1582 	EXP 	short_blank: autoDraw = True
+691.1919 	DATA 	Mouse:  Left button up, pos=(634,148)
+691.3580 	EXP 	short_blank: autoDraw = False
+691.3580 	EXP 	short_blank: autoDraw = False
+691.3580 	EXP 	text_5: autoDraw = True
+691.8422 	EXP 	New trial (rep=0, index=65): OrderedDict([('type', u'arm'), ('verb', u'WHIP')])
+691.8458 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+691.8462 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+691.8466 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+691.9068 	EXP 	RatingScale rating: reset()
+691.9137 	EXP 	text_5: autoDraw = False
+691.9137 	EXP 	text_5: autoDraw = False
+691.9137 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WHIP?'
+691.9137 	EXP 	text_10: autoDraw = True
+691.9137 	EXP 	rating: autoDraw = True
+694.7909 	DATA 	Mouse: Left button down, pos=(493,235)
+694.8913 	DATA 	Mouse:  Left button up, pos=(493,235)
+695.5410 	DATA 	Mouse: Left button down, pos=(630,150)
+695.5450 	DATA 	RatingScale rating: (mouse response) rating=1
+695.5450 	DATA 	RatingScale rating: rating RT=3.637
+695.5450 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 2.885), (1, 3.637)]
+695.5735 	EXP 	text_10: autoDraw = False
+695.5735 	EXP 	rating: autoDraw = False
+695.5735 	EXP 	short_blank: autoDraw = True
+695.6576 	DATA 	Mouse:  Left button up, pos=(630,150)
+695.7582 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+695.8201 	EXP 	RatingScale rating: reset()
+695.8274 	EXP 	short_blank: autoDraw = False
+695.8274 	EXP 	short_blank: autoDraw = False
+695.8274 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WHIP?'
+695.8274 	EXP 	text_10: autoDraw = True
+695.8274 	EXP 	rating: autoDraw = True
+696.4908 	DATA 	Mouse: Left button down, pos=(885,235)
+696.5743 	DATA 	Mouse:  Left button up, pos=(885,235)
+697.0774 	DATA 	Mouse: Left button down, pos=(742,133)
+697.0777 	DATA 	RatingScale rating: (mouse response) rating=7
+697.0777 	DATA 	RatingScale rating: rating RT=1.256
+697.0777 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.672), (7, 1.256)]
+697.1068 	EXP 	text_10: autoDraw = False
+697.1068 	EXP 	rating: autoDraw = False
+697.1068 	EXP 	short_blank: autoDraw = True
+697.1572 	DATA 	Mouse:  Left button up, pos=(742,133)
+697.3066 	EXP 	short_blank: autoDraw = False
+697.3066 	EXP 	short_blank: autoDraw = False
+697.3066 	EXP 	text_5: autoDraw = True
+697.7906 	EXP 	New trial (rep=0, index=66): OrderedDict([('type', u'leg'), ('verb', u'STRUT')])
+697.7942 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+697.7945 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+697.7949 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+697.8561 	EXP 	RatingScale rating: reset()
+697.8628 	EXP 	text_5: autoDraw = False
+697.8628 	EXP 	text_5: autoDraw = False
+697.8628 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STRUT?'
+697.8628 	EXP 	text_10: autoDraw = True
+697.8628 	EXP 	rating: autoDraw = True
+700.0396 	DATA 	Mouse: Left button down, pos=(885,237)
+700.1065 	DATA 	Mouse:  Left button up, pos=(885,237)
+700.7064 	DATA 	Mouse: Left button down, pos=(776,145)
+700.7102 	DATA 	RatingScale rating: (mouse response) rating=7
+700.7102 	DATA 	RatingScale rating: rating RT=2.853
+700.7103 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.185), (7, 2.853)]
+700.7390 	EXP 	text_10: autoDraw = False
+700.7390 	EXP 	rating: autoDraw = False
+700.7390 	EXP 	short_blank: autoDraw = True
+700.7564 	DATA 	Mouse:  Left button up, pos=(775,145)
+700.9230 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+700.9848 	EXP 	RatingScale rating: reset()
+700.9923 	EXP 	short_blank: autoDraw = False
+700.9923 	EXP 	short_blank: autoDraw = False
+700.9923 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STRUT?'
+700.9923 	EXP 	text_10: autoDraw = True
+700.9923 	EXP 	rating: autoDraw = True
+701.9061 	DATA 	Mouse: Left button down, pos=(679,238)
+701.9725 	DATA 	Mouse:  Left button up, pos=(679,238)
+702.3558 	DATA 	Mouse: Left button down, pos=(739,143)
+702.3595 	DATA 	RatingScale rating: (mouse response) rating=4
+702.3595 	DATA 	RatingScale rating: rating RT=1.373
+702.3596 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 0.922), (4, 1.373)]
+702.3885 	EXP 	text_10: autoDraw = False
+702.3885 	EXP 	rating: autoDraw = False
+702.3885 	EXP 	short_blank: autoDraw = True
+702.4224 	DATA 	Mouse:  Left button up, pos=(739,143)
+702.5885 	EXP 	short_blank: autoDraw = False
+702.5885 	EXP 	short_blank: autoDraw = False
+702.5885 	EXP 	text_5: autoDraw = True
+703.0726 	EXP 	New trial (rep=0, index=67): OrderedDict([('type', u'arm'), ('verb', u'PULL')])
+703.0762 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+703.0766 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+703.0770 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+703.1373 	EXP 	RatingScale rating: reset()
+703.1441 	EXP 	text_5: autoDraw = False
+703.1441 	EXP 	text_5: autoDraw = False
+703.1441 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PULL?'
+703.1441 	EXP 	text_10: autoDraw = True
+703.1441 	EXP 	rating: autoDraw = True
+705.8546 	DATA 	Mouse: Left button down, pos=(544,239)
+705.9209 	DATA 	Mouse:  Left button up, pos=(544,239)
+706.3880 	DATA 	Mouse: Left button down, pos=(631,151)
+706.3918 	DATA 	RatingScale rating: (mouse response) rating=2
+706.3918 	DATA 	RatingScale rating: rating RT=3.253
+706.3918 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 2.718), (2, 3.253)]
+706.4203 	EXP 	text_10: autoDraw = False
+706.4203 	EXP 	rating: autoDraw = False
+706.4203 	EXP 	short_blank: autoDraw = True
+706.4547 	DATA 	Mouse:  Left button up, pos=(631,151)
+706.6053 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+706.6667 	EXP 	RatingScale rating: reset()
+706.6740 	EXP 	short_blank: autoDraw = False
+706.6740 	EXP 	short_blank: autoDraw = False
+706.6740 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PULL?'
+706.6740 	EXP 	text_10: autoDraw = True
+706.6740 	EXP 	rating: autoDraw = True
+707.8712 	DATA 	Mouse: Left button down, pos=(889,232)
+707.9412 	DATA 	Mouse:  Left button up, pos=(889,232)
+708.4207 	DATA 	Mouse: Left button down, pos=(749,144)
+708.4246 	DATA 	RatingScale rating: (mouse response) rating=7
+708.4246 	DATA 	RatingScale rating: rating RT=1.756
+708.4246 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.205), (7, 1.756)]
+708.4535 	EXP 	text_10: autoDraw = False
+708.4535 	EXP 	rating: autoDraw = False
+708.4535 	EXP 	short_blank: autoDraw = True
+708.4706 	DATA 	Mouse:  Left button up, pos=(749,144)
+708.6536 	EXP 	short_blank: autoDraw = False
+708.6536 	EXP 	short_blank: autoDraw = False
+708.6536 	EXP 	text_5: autoDraw = True
+709.1377 	EXP 	New trial (rep=0, index=68): OrderedDict([('type', u'leg'), ('verb', u'WADE')])
+709.1412 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+709.1417 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+709.1421 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+709.2025 	EXP 	RatingScale rating: reset()
+709.2096 	EXP 	text_5: autoDraw = False
+709.2096 	EXP 	text_5: autoDraw = False
+709.2096 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WADE?'
+709.2096 	EXP 	text_10: autoDraw = True
+709.2096 	EXP 	rating: autoDraw = True
+712.0200 	DATA 	Mouse: Left button down, pos=(760,236)
+712.0697 	DATA 	Mouse:  Left button up, pos=(760,236)
+712.5866 	DATA 	Mouse: Left button down, pos=(740,143)
+712.5905 	DATA 	RatingScale rating: (mouse response) rating=5
+712.5905 	DATA 	RatingScale rating: rating RT=3.387
+712.5905 	DATA 	RatingScale rating: history=[(None, 0.0), (5, 2.819), (5, 3.387)]
+712.6192 	EXP 	text_10: autoDraw = False
+712.6192 	EXP 	rating: autoDraw = False
+712.6192 	EXP 	short_blank: autoDraw = True
+712.6529 	DATA 	Mouse:  Left button up, pos=(740,143)
+712.8036 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+712.8650 	EXP 	RatingScale rating: reset()
+712.8727 	EXP 	short_blank: autoDraw = False
+712.8727 	EXP 	short_blank: autoDraw = False
+712.8727 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WADE?'
+712.8727 	EXP 	text_10: autoDraw = True
+712.8727 	EXP 	rating: autoDraw = True
+715.5883 	DATA 	Mouse: Left button down, pos=(688,235)
+715.6689 	DATA 	Mouse:  Left button up, pos=(688,235)
+716.0690 	DATA 	Mouse: Left button down, pos=(725,151)
+716.0728 	DATA 	RatingScale rating: (mouse response) rating=4
+716.0728 	DATA 	RatingScale rating: rating RT=3.206
+716.0729 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 2.722), (4, 3.206)]
+716.1015 	EXP 	text_10: autoDraw = False
+716.1015 	EXP 	rating: autoDraw = False
+716.1015 	EXP 	short_blank: autoDraw = True
+716.1688 	DATA 	Mouse:  Left button up, pos=(725,151)
+716.3014 	EXP 	short_blank: autoDraw = False
+716.3014 	EXP 	short_blank: autoDraw = False
+716.3014 	EXP 	text_5: autoDraw = True
+716.7859 	EXP 	New trial (rep=0, index=69): OrderedDict([('type', u'leg'), ('verb', u'FLEE')])
+716.7894 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+716.7898 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+716.7902 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+716.8510 	EXP 	RatingScale rating: reset()
+716.8583 	EXP 	text_5: autoDraw = False
+716.8583 	EXP 	text_5: autoDraw = False
+716.8583 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb FLEE?'
+716.8583 	EXP 	text_10: autoDraw = True
+716.8583 	EXP 	rating: autoDraw = True
+719.1873 	DATA 	Mouse: Left button down, pos=(890,226)
+719.2514 	DATA 	Mouse:  Left button up, pos=(890,226)
+719.7180 	DATA 	Mouse: Left button down, pos=(774,150)
+719.7218 	DATA 	RatingScale rating: (mouse response) rating=7
+719.7218 	DATA 	RatingScale rating: rating RT=2.869
+719.7218 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.335), (7, 2.869)]
+719.7505 	EXP 	text_10: autoDraw = False
+719.7505 	EXP 	rating: autoDraw = False
+719.7505 	EXP 	short_blank: autoDraw = True
+719.7845 	DATA 	Mouse:  Left button up, pos=(774,150)
+719.9352 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+719.9969 	EXP 	RatingScale rating: reset()
+720.0042 	EXP 	short_blank: autoDraw = False
+720.0042 	EXP 	short_blank: autoDraw = False
+720.0042 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb FLEE?'
+720.0042 	EXP 	text_10: autoDraw = True
+720.0042 	EXP 	rating: autoDraw = True
+720.9843 	DATA 	Mouse: Left button down, pos=(551,237)
+721.0510 	DATA 	Mouse:  Left button up, pos=(551,237)
+721.5173 	DATA 	Mouse: Left button down, pos=(638,145)
+721.5211 	DATA 	RatingScale rating: (mouse response) rating=2
+721.5211 	DATA 	RatingScale rating: rating RT=1.523
+721.5211 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 0.988), (2, 1.522)]
+721.5501 	EXP 	text_10: autoDraw = False
+721.5501 	EXP 	rating: autoDraw = False
+721.5501 	EXP 	short_blank: autoDraw = True
+721.5507 	DATA 	Mouse:  Left button up, pos=(638,145)
+721.7501 	EXP 	short_blank: autoDraw = False
+721.7501 	EXP 	short_blank: autoDraw = False
+721.7501 	EXP 	text_5: autoDraw = True
+722.2340 	EXP 	New trial (rep=0, index=70): OrderedDict([('type', u'arm'), ('verb', u'BRUSH')])
+722.2375 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+722.2379 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+722.2383 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+722.2990 	EXP 	RatingScale rating: reset()
+722.3063 	EXP 	text_5: autoDraw = False
+722.3063 	EXP 	text_5: autoDraw = False
+722.3063 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb BRUSH?'
+722.3063 	EXP 	text_10: autoDraw = True
+722.3063 	EXP 	rating: autoDraw = True
+726.0665 	DATA 	Mouse: Left button down, pos=(482,231)
+726.1497 	DATA 	Mouse:  Left button up, pos=(482,231)
+726.5865 	DATA 	Mouse: Left button down, pos=(601,134)
+726.5868 	DATA 	RatingScale rating: (mouse response) rating=1
+726.5868 	DATA 	RatingScale rating: rating RT=4.286
+726.5869 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.768), (1, 4.286)]
+726.6155 	EXP 	text_10: autoDraw = False
+726.6155 	EXP 	rating: autoDraw = False
+726.6155 	EXP 	short_blank: autoDraw = True
+726.6662 	DATA 	Mouse:  Left button up, pos=(601,134)
+726.8002 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+726.8629 	EXP 	RatingScale rating: reset()
+726.8705 	EXP 	short_blank: autoDraw = False
+726.8705 	EXP 	short_blank: autoDraw = False
+726.8705 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb BRUSH?'
+726.8705 	EXP 	text_10: autoDraw = True
+726.8705 	EXP 	rating: autoDraw = True
+727.5159 	DATA 	Mouse: Left button down, pos=(871,243)
+727.6324 	DATA 	Mouse:  Left button up, pos=(873,244)
+728.3156 	DATA 	Mouse: Left button down, pos=(756,137)
+728.3194 	DATA 	RatingScale rating: (mouse response) rating=7
+728.3194 	DATA 	RatingScale rating: rating RT=1.455
+728.3194 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.654), (7, 1.455)]
+728.3484 	EXP 	text_10: autoDraw = False
+728.3484 	EXP 	rating: autoDraw = False
+728.3484 	EXP 	short_blank: autoDraw = True
+728.3823 	DATA 	Mouse:  Left button up, pos=(756,137)
+728.5482 	EXP 	short_blank: autoDraw = False
+728.5482 	EXP 	short_blank: autoDraw = False
+728.5482 	EXP 	text_5: autoDraw = True
+729.0323 	EXP 	New trial (rep=0, index=71): OrderedDict([('type', u'leg'), ('verb', u'HOP')])
+729.0358 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+729.0362 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+729.0366 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+729.0964 	EXP 	RatingScale rating: reset()
+729.1034 	EXP 	text_5: autoDraw = False
+729.1034 	EXP 	text_5: autoDraw = False
+729.1034 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb HOP?'
+729.1034 	EXP 	text_10: autoDraw = True
+729.1034 	EXP 	rating: autoDraw = True
+730.8180 	DATA 	Mouse: Left button down, pos=(892,237)
+730.8815 	DATA 	Mouse:  Left button up, pos=(892,237)
+731.3316 	DATA 	Mouse: Left button down, pos=(749,140)
+731.3354 	DATA 	RatingScale rating: (mouse response) rating=7
+731.3354 	DATA 	RatingScale rating: rating RT=2.238
+731.3354 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.736), (7, 2.238)]
+731.3642 	EXP 	text_10: autoDraw = False
+731.3642 	EXP 	rating: autoDraw = False
+731.3642 	EXP 	short_blank: autoDraw = True
+731.3813 	DATA 	Mouse:  Left button up, pos=(749,140)
+731.5488 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+731.6092 	EXP 	RatingScale rating: reset()
+731.6164 	EXP 	short_blank: autoDraw = False
+731.6164 	EXP 	short_blank: autoDraw = False
+731.6164 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb HOP?'
+731.6164 	EXP 	text_10: autoDraw = True
+731.6164 	EXP 	rating: autoDraw = True
+732.5980 	DATA 	Mouse: Left button down, pos=(491,241)
+732.6811 	DATA 	Mouse:  Left button up, pos=(491,241)
+733.0976 	DATA 	Mouse: Left button down, pos=(627,155)
+733.1015 	DATA 	RatingScale rating: (mouse response) rating=1
+733.1015 	DATA 	RatingScale rating: rating RT=1.491
+733.1016 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.99), (1, 1.491)]
+733.1302 	EXP 	text_10: autoDraw = False
+733.1302 	EXP 	rating: autoDraw = False
+733.1302 	EXP 	short_blank: autoDraw = True
+733.1646 	DATA 	Mouse:  Left button up, pos=(627,155)
+733.3305 	EXP 	short_blank: autoDraw = False
+733.3305 	EXP 	short_blank: autoDraw = False
+733.3305 	EXP 	text_5: autoDraw = True
+733.8143 	EXP 	New trial (rep=0, index=72): OrderedDict([('type', u'arm'), ('verb', u'WIPE')])
+733.8179 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+733.8183 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+733.8187 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+733.8792 	EXP 	RatingScale rating: reset()
+733.8862 	EXP 	text_5: autoDraw = False
+733.8862 	EXP 	text_5: autoDraw = False
+733.8862 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb WIPE?'
+733.8862 	EXP 	text_10: autoDraw = True
+733.8862 	EXP 	rating: autoDraw = True
+737.1158 	DATA 	Mouse: Left button down, pos=(471,237)
+737.2132 	DATA 	Mouse:  Left button up, pos=(471,237)
+737.5800 	DATA 	Mouse: Left button down, pos=(618,131)
+737.5838 	DATA 	RatingScale rating: (mouse response) rating=1
+737.5838 	DATA 	RatingScale rating: rating RT=3.703
+737.5838 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.235), (1, 3.703)]
+737.6125 	EXP 	text_10: autoDraw = False
+737.6125 	EXP 	rating: autoDraw = False
+737.6125 	EXP 	short_blank: autoDraw = True
+737.6300 	DATA 	Mouse:  Left button up, pos=(618,131)
+737.7973 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+737.8577 	EXP 	RatingScale rating: reset()
+737.8650 	EXP 	short_blank: autoDraw = False
+737.8650 	EXP 	short_blank: autoDraw = False
+737.8650 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb WIPE?'
+737.8650 	EXP 	text_10: autoDraw = True
+737.8650 	EXP 	rating: autoDraw = True
+738.4992 	DATA 	Mouse: Left button down, pos=(874,233)
+738.6299 	DATA 	Mouse:  Left button up, pos=(874,233)
+739.1332 	DATA 	Mouse: Left button down, pos=(739,134)
+739.1335 	DATA 	RatingScale rating: (mouse response) rating=7
+739.1335 	DATA 	RatingScale rating: rating RT=1.274
+739.1336 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.64), (7, 1.274)]
+739.1621 	EXP 	text_10: autoDraw = False
+739.1621 	EXP 	rating: autoDraw = False
+739.1621 	EXP 	short_blank: autoDraw = True
+739.1792 	DATA 	Mouse:  Left button up, pos=(739,134)
+739.3621 	EXP 	short_blank: autoDraw = False
+739.3621 	EXP 	short_blank: autoDraw = False
+739.3621 	EXP 	text_5: autoDraw = True
+739.8467 	EXP 	New trial (rep=0, index=73): OrderedDict([('type', u'arm'), ('verb', u'SCOOP')])
+739.8504 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+739.8508 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+739.8513 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+739.9152 	EXP 	RatingScale rating: reset()
+739.9225 	EXP 	text_5: autoDraw = False
+739.9225 	EXP 	text_5: autoDraw = False
+739.9225 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SCOOP?'
+739.9225 	EXP 	text_10: autoDraw = True
+739.9225 	EXP 	rating: autoDraw = True
+742.9786 	DATA 	Mouse: Left button down, pos=(486,233)
+743.0449 	DATA 	Mouse:  Left button up, pos=(486,233)
+743.4616 	DATA 	Mouse: Left button down, pos=(623,140)
+743.4654 	DATA 	RatingScale rating: (mouse response) rating=1
+743.4654 	DATA 	RatingScale rating: rating RT=3.549
+743.4654 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.064), (1, 3.548)]
+743.4944 	EXP 	text_10: autoDraw = False
+743.4944 	EXP 	rating: autoDraw = False
+743.4944 	EXP 	short_blank: autoDraw = True
+743.5116 	DATA 	Mouse:  Left button up, pos=(623,140)
+743.6791 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+743.7412 	EXP 	RatingScale rating: reset()
+743.7485 	EXP 	short_blank: autoDraw = False
+743.7485 	EXP 	short_blank: autoDraw = False
+743.7485 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SCOOP?'
+743.7485 	EXP 	text_10: autoDraw = True
+743.7485 	EXP 	rating: autoDraw = True
+744.3281 	DATA 	Mouse: Left button down, pos=(892,240)
+744.3815 	DATA 	Mouse:  Left button up, pos=(892,240)
+744.9320 	DATA 	Mouse: Left button down, pos=(736,153)
+744.9323 	DATA 	RatingScale rating: (mouse response) rating=7
+744.9323 	DATA 	RatingScale rating: rating RT=1.189
+744.9323 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.588), (7, 1.189)]
+744.9607 	EXP 	text_10: autoDraw = False
+744.9607 	EXP 	rating: autoDraw = False
+744.9607 	EXP 	short_blank: autoDraw = True
+745.0280 	DATA 	Mouse:  Left button up, pos=(736,153)
+745.1607 	EXP 	short_blank: autoDraw = False
+745.1607 	EXP 	short_blank: autoDraw = False
+745.1607 	EXP 	text_5: autoDraw = True
+745.6446 	EXP 	New trial (rep=0, index=74): OrderedDict([('type', u'leg'), ('verb', u'STRIDE')])
+745.6481 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+745.6485 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+745.6489 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+745.7108 	EXP 	RatingScale rating: reset()
+745.7178 	EXP 	text_5: autoDraw = False
+745.7178 	EXP 	text_5: autoDraw = False
+745.7178 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb STRIDE?'
+745.7178 	EXP 	text_10: autoDraw = True
+745.7178 	EXP 	rating: autoDraw = True
+750.7269 	DATA 	Mouse: Left button down, pos=(820,231)
+750.7762 	DATA 	Mouse:  Left button up, pos=(820,231)
+751.7966 	DATA 	Mouse: Left button down, pos=(741,140)
+751.7969 	DATA 	RatingScale rating: (mouse response) rating=6
+751.7969 	DATA 	RatingScale rating: rating RT=6.085
+751.7969 	DATA 	RatingScale rating: history=[(None, 0.0), (6, 5.017), (6, 6.085)]
+751.8256 	EXP 	text_10: autoDraw = False
+751.8256 	EXP 	rating: autoDraw = False
+751.8256 	EXP 	short_blank: autoDraw = True
+751.8597 	DATA 	Mouse:  Left button up, pos=(741,140)
+752.0103 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+752.0728 	EXP 	RatingScale rating: reset()
+752.0803 	EXP 	short_blank: autoDraw = False
+752.0803 	EXP 	short_blank: autoDraw = False
+752.0803 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb STRIDE?'
+752.0803 	EXP 	text_10: autoDraw = True
+752.0803 	EXP 	rating: autoDraw = True
+752.6095 	DATA 	Mouse: Left button down, pos=(693,233)
+752.6761 	DATA 	Mouse:  Left button up, pos=(693,233)
+753.0425 	DATA 	Mouse: Left button down, pos=(696,130)
+753.0464 	DATA 	RatingScale rating: (mouse response) rating=4
+753.0464 	DATA 	RatingScale rating: rating RT=0.972
+753.0464 	DATA 	RatingScale rating: history=[(None, 0.0), (4, 0.537), (4, 0.972)]
+753.0752 	EXP 	text_10: autoDraw = False
+753.0752 	EXP 	rating: autoDraw = False
+753.0752 	EXP 	short_blank: autoDraw = True
+753.1096 	DATA 	Mouse:  Left button up, pos=(696,130)
+753.2753 	EXP 	short_blank: autoDraw = False
+753.2753 	EXP 	short_blank: autoDraw = False
+753.2753 	EXP 	text_5: autoDraw = True
+753.7594 	EXP 	New trial (rep=0, index=75): OrderedDict([('type', u'leg'), ('verb', u'SKATE')])
+753.7630 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+753.7634 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+753.7638 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+753.8255 	EXP 	RatingScale rating: reset()
+753.8325 	EXP 	text_5: autoDraw = False
+753.8325 	EXP 	text_5: autoDraw = False
+753.8325 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb SKATE?'
+753.8325 	EXP 	text_10: autoDraw = True
+753.8325 	EXP 	rating: autoDraw = True
+756.5750 	DATA 	Mouse: Left button down, pos=(890,237)
+756.6583 	DATA 	Mouse:  Left button up, pos=(890,237)
+757.1083 	DATA 	Mouse: Left button down, pos=(770,153)
+757.1120 	DATA 	RatingScale rating: (mouse response) rating=7
+757.1120 	DATA 	RatingScale rating: rating RT=3.285
+757.1121 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 2.751), (7, 3.285)]
+757.1406 	EXP 	text_10: autoDraw = False
+757.1406 	EXP 	rating: autoDraw = False
+757.1406 	EXP 	short_blank: autoDraw = True
+757.1744 	DATA 	Mouse:  Left button up, pos=(769,153)
+757.3246 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+757.3868 	EXP 	RatingScale rating: reset()
+757.3939 	EXP 	short_blank: autoDraw = False
+757.3939 	EXP 	short_blank: autoDraw = False
+757.3939 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb SKATE?'
+757.3939 	EXP 	text_10: autoDraw = True
+757.3939 	EXP 	rating: autoDraw = True
+757.9746 	DATA 	Mouse: Left button down, pos=(540,237)
+758.0245 	DATA 	Mouse:  Left button up, pos=(540,237)
+758.4745 	DATA 	Mouse: Left button down, pos=(644,128)
+758.4783 	DATA 	RatingScale rating: (mouse response) rating=2
+758.4783 	DATA 	RatingScale rating: rating RT=1.090
+758.4783 	DATA 	RatingScale rating: history=[(None, 0.0), (2, 0.589), (2, 1.09)]
+758.5070 	EXP 	text_10: autoDraw = False
+758.5070 	EXP 	rating: autoDraw = False
+758.5070 	EXP 	short_blank: autoDraw = True
+758.5576 	DATA 	Mouse:  Left button up, pos=(644,128)
+758.7072 	EXP 	short_blank: autoDraw = False
+758.7072 	EXP 	short_blank: autoDraw = False
+758.7072 	EXP 	text_5: autoDraw = True
+759.1914 	EXP 	New trial (rep=0, index=76): OrderedDict([('type', u'arm'), ('verb', u'PINCH')])
+759.1950 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+759.1954 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+759.1958 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+759.2584 	EXP 	RatingScale rating: reset()
+759.2656 	EXP 	text_5: autoDraw = False
+759.2656 	EXP 	text_5: autoDraw = False
+759.2656 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PINCH?'
+759.2656 	EXP 	text_10: autoDraw = True
+759.2656 	EXP 	rating: autoDraw = True
+761.2102 	DATA 	Mouse: Left button down, pos=(483,236)
+761.2739 	DATA 	Mouse:  Left button up, pos=(483,236)
+761.7071 	DATA 	Mouse: Left button down, pos=(594,152)
+761.7109 	DATA 	RatingScale rating: (mouse response) rating=1
+761.7110 	DATA 	RatingScale rating: rating RT=2.451
+761.7110 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 1.966), (1, 2.451)]
+761.7397 	EXP 	text_10: autoDraw = False
+761.7397 	EXP 	rating: autoDraw = False
+761.7397 	EXP 	short_blank: autoDraw = True
+761.7738 	DATA 	Mouse:  Left button up, pos=(594,152)
+761.9242 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+761.9865 	EXP 	RatingScale rating: reset()
+761.9937 	EXP 	short_blank: autoDraw = False
+761.9937 	EXP 	short_blank: autoDraw = False
+761.9937 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PINCH?'
+761.9937 	EXP 	text_10: autoDraw = True
+761.9937 	EXP 	rating: autoDraw = True
+762.6401 	DATA 	Mouse: Left button down, pos=(879,239)
+762.7068 	DATA 	Mouse:  Left button up, pos=(879,239)
+763.2767 	DATA 	Mouse: Left button down, pos=(721,138)
+763.2770 	DATA 	RatingScale rating: (mouse response) rating=7
+763.2770 	DATA 	RatingScale rating: rating RT=1.289
+763.2770 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.655), (7, 1.289)]
+763.3059 	EXP 	text_10: autoDraw = False
+763.3059 	EXP 	rating: autoDraw = False
+763.3059 	EXP 	short_blank: autoDraw = True
+763.3567 	DATA 	Mouse:  Left button up, pos=(721,138)
+763.5058 	EXP 	short_blank: autoDraw = False
+763.5058 	EXP 	short_blank: autoDraw = False
+763.5058 	EXP 	text_5: autoDraw = True
+763.9900 	EXP 	New trial (rep=0, index=77): OrderedDict([('type', u'leg'), ('verb', u'LIMP')])
+763.9936 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+763.9939 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+763.9943 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+764.0576 	EXP 	RatingScale rating: reset()
+764.0651 	EXP 	text_5: autoDraw = False
+764.0651 	EXP 	text_5: autoDraw = False
+764.0651 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb LIMP?'
+764.0651 	EXP 	text_10: autoDraw = True
+764.0651 	EXP 	rating: autoDraw = True
+765.5227 	DATA 	Mouse: Left button down, pos=(896,239)
+765.6100 	DATA 	Mouse:  Left button up, pos=(896,238)
+766.1892 	DATA 	Mouse: Left button down, pos=(724,141)
+766.1931 	DATA 	RatingScale rating: (mouse response) rating=7
+766.1931 	DATA 	RatingScale rating: rating RT=2.134
+766.1931 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 1.466), (7, 2.134)]
+766.2218 	EXP 	text_10: autoDraw = False
+766.2218 	EXP 	rating: autoDraw = False
+766.2218 	EXP 	short_blank: autoDraw = True
+766.2725 	DATA 	Mouse:  Left button up, pos=(724,141)
+766.4063 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+766.4697 	EXP 	RatingScale rating: reset()
+766.4778 	EXP 	short_blank: autoDraw = False
+766.4778 	EXP 	short_blank: autoDraw = False
+766.4778 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb LIMP?'
+766.4778 	EXP 	text_10: autoDraw = True
+766.4778 	EXP 	rating: autoDraw = True
+767.1724 	DATA 	Mouse: Left button down, pos=(478,240)
+767.2259 	DATA 	Mouse:  Left button up, pos=(478,240)
+769.6213 	DATA 	Mouse: Left button down, pos=(610,150)
+769.6252 	DATA 	RatingScale rating: (mouse response) rating=1
+769.6252 	DATA 	RatingScale rating: rating RT=3.153
+769.6253 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.703), (1, 3.153)]
+769.6542 	EXP 	text_10: autoDraw = False
+769.6542 	EXP 	rating: autoDraw = False
+769.6542 	EXP 	short_blank: autoDraw = True
+769.8541 	EXP 	short_blank: autoDraw = False
+769.8541 	EXP 	short_blank: autoDraw = False
+769.8541 	EXP 	text_5: autoDraw = True
+769.9213 	DATA 	Mouse:  Left button up, pos=(610,150)
+770.3384 	EXP 	New trial (rep=0, index=78): OrderedDict([('type', u'arm'), ('verb', u'PAT')])
+770.3421 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+770.3424 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+770.3428 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+770.4021 	EXP 	RatingScale rating: reset()
+770.4092 	EXP 	text_5: autoDraw = False
+770.4092 	EXP 	text_5: autoDraw = False
+770.4092 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb PAT?'
+770.4092 	EXP 	text_10: autoDraw = True
+770.4092 	EXP 	rating: autoDraw = True
+773.9562 	DATA 	Mouse: Left button down, pos=(491,240)
+774.0204 	DATA 	Mouse:  Left button up, pos=(491,240)
+774.4538 	DATA 	Mouse: Left button down, pos=(605,156)
+774.4576 	DATA 	RatingScale rating: (mouse response) rating=1
+774.4577 	DATA 	RatingScale rating: rating RT=4.054
+774.4577 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 3.553), (1, 4.054)]
+774.4864 	EXP 	text_10: autoDraw = False
+774.4864 	EXP 	rating: autoDraw = False
+774.4864 	EXP 	short_blank: autoDraw = True
+774.5036 	DATA 	Mouse:  Left button up, pos=(605,156)
+774.6709 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+774.7315 	EXP 	RatingScale rating: reset()
+774.7386 	EXP 	short_blank: autoDraw = False
+774.7386 	EXP 	short_blank: autoDraw = False
+774.7386 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb PAT?'
+774.7386 	EXP 	text_10: autoDraw = True
+774.7386 	EXP 	rating: autoDraw = True
+775.3703 	DATA 	Mouse: Left button down, pos=(883,241)
+775.4533 	DATA 	Mouse:  Left button up, pos=(883,240)
+775.9736 	DATA 	Mouse: Left button down, pos=(733,153)
+775.9739 	DATA 	RatingScale rating: (mouse response) rating=7
+775.9739 	DATA 	RatingScale rating: rating RT=1.241
+775.9739 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 0.64), (7, 1.241)]
+776.0026 	EXP 	text_10: autoDraw = False
+776.0026 	EXP 	rating: autoDraw = False
+776.0026 	EXP 	short_blank: autoDraw = True
+776.0532 	DATA 	Mouse:  Left button up, pos=(733,153)
+776.2027 	EXP 	short_blank: autoDraw = False
+776.2027 	EXP 	short_blank: autoDraw = False
+776.2027 	EXP 	text_5: autoDraw = True
+776.6867 	EXP 	New trial (rep=0, index=79): OrderedDict([('type', u'leg'), ('verb', u'LEAP')])
+776.6902 	EXP 	Imported rating_leg_first.csv as conditions, 2 conditions, 2 params
+776.6906 	EXP 	Created sequence: sequential, trialTypes=2, nReps=1, seed=None
+776.6910 	EXP 	New trial (rep=0, index=0): OrderedDict([('category', u'Leg'), ('category_lowercase', u'leg')])
+776.7513 	EXP 	RatingScale rating: reset()
+776.7584 	EXP 	text_5: autoDraw = False
+776.7584 	EXP 	text_5: autoDraw = False
+776.7584 	EXP 	text_10: text = u'Leg-relatedness\n\nHow leg-related is the verb LEAP?'
+776.7584 	EXP 	text_10: autoDraw = True
+776.7584 	EXP 	rating: autoDraw = True
+781.2688 	DATA 	Mouse: Left button down, pos=(882,236)
+781.3347 	DATA 	Mouse:  Left button up, pos=(882,236)
+781.7720 	DATA 	Mouse: Left button down, pos=(734,151)
+781.7723 	DATA 	RatingScale rating: (mouse response) rating=7
+781.7723 	DATA 	RatingScale rating: rating RT=5.020
+781.7724 	DATA 	RatingScale rating: history=[(None, 0.0), (7, 4.519), (7, 5.02)]
+781.8010 	EXP 	text_10: autoDraw = False
+781.8010 	EXP 	rating: autoDraw = False
+781.8010 	EXP 	short_blank: autoDraw = True
+781.8348 	DATA 	Mouse:  Left button up, pos=(735,151)
+781.9851 	EXP 	New trial (rep=0, index=1): OrderedDict([('category', u'Arm'), ('category_lowercase', u'arm')])
+782.0468 	EXP 	RatingScale rating: reset()
+782.0546 	EXP 	short_blank: autoDraw = False
+782.0546 	EXP 	short_blank: autoDraw = False
+782.0546 	EXP 	text_10: text = u'Arm-relatedness\n\nHow arm-related is the verb LEAP?'
+782.0546 	EXP 	text_10: autoDraw = True
+782.0546 	EXP 	rating: autoDraw = True
+782.7182 	DATA 	Mouse: Left button down, pos=(480,241)
+782.7847 	DATA 	Mouse:  Left button up, pos=(480,241)
+783.3346 	DATA 	Mouse: Left button down, pos=(637,142)
+783.3383 	DATA 	RatingScale rating: (mouse response) rating=1
+783.3384 	DATA 	RatingScale rating: rating RT=1.290
+783.3384 	DATA 	RatingScale rating: history=[(None, 0.0), (1, 0.672), (1, 1.29)]
+783.3675 	EXP 	text_10: autoDraw = False
+783.3675 	EXP 	rating: autoDraw = False
+783.3675 	EXP 	short_blank: autoDraw = True
+783.4018 	DATA 	Mouse:  Left button up, pos=(637,142)
+783.5671 	EXP 	short_blank: autoDraw = False
+783.5671 	EXP 	short_blank: autoDraw = False
+783.5671 	EXP 	text_5: autoDraw = True
+784.0669 	EXP 	text_5: autoDraw = False
+784.0669 	EXP 	text_5: autoDraw = False
+784.0669 	EXP 	text_9: autoDraw = True
+785.4341 	DATA 	Mouse: Left button down, pos=(751,159)
+785.5174 	DATA 	Mouse:  Left button up, pos=(751,159)
+796.6476 	DATA 	Keypress: return
+799.9134 	DATA 	Keypress: return
+800.6299 	DATA 	Keypress: space
+801.4119 	EXP 	window1: mouseVisible = True
