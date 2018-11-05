@@ -20,7 +20,7 @@ input_folder <- "exp-scripts_psychopy/replication_pilot_1810/data"
 if (! dir.exists(input_folder)) stop("Path to input folder doesn't exist!")
 
 # Create output folder if it doesn't yet exist
-output_folder <- "1810_replication-natives_analysis/data_coding/"
+output_folder <- "1810_replication-natives_analysis/data_coding"
 if (! dir.exists(output_folder)) dir.create(output_folder)
 
 
@@ -71,14 +71,15 @@ process_memory_task <- function(filename, path_output) {
   # write to disk
   # define the filename for output, including path to right folder
   pptID <- unique(df$participant)  # participant ID number
-  output_filename <- paste(path_output, "TOCODE_", pptID,
-                           "_sheb_replication.csv", sep = "")
+  output_filename <- file.path(path_output, 
+                               paste("TOCODE_", pptID, 
+                                     "_sheb_replication.csv", sep = ""))
   print(output_filename)
   write.csv(df, output_filename, row.names = FALSE, fileEncoding = "UTF-8")
   df
 }
 
-# Uncomment and run following line for running function with data from ppt 990
+# # Uncomment and run following line for running function with data from ppt 990
 # x <- process_memory_task(
 #   filename = file.path(input_folder, "990_sheb_replication_1810_2018_Sep_28_1240.csv"),
 #   path_output = output_folder)
@@ -104,7 +105,8 @@ verb_norming_L1eng <- function(filename, path_output) {
   # write to disk
   # define the filename for output, including path to right folder
   pptID <- unique(df$participant)  # participant ID number
-  output_filename <- paste(path_output, pptID, "_verb_rating_L1eng.csv", sep = "")
+  output_filename <- file.path(path_output, 
+                               paste(pptID, "_verb_rating_L1eng.csv", sep = ""))
   print(output_filename)
   write.csv(df, output_filename, row.names = FALSE, fileEncoding = "UTF-8")
   df
@@ -135,34 +137,27 @@ verb_norming_L1eng(
   path_output = output_folder)
 
 
+# wrapper function to combine the above for actual participants
+process_raw_data <- function(
+  path_input = input_folder,   # path to the raw data (CSV) files
+  path_output = output_folder  # path where the processed data should be stored
+  ) {
+  
+  # Memory task
+  memory_files <- get_data_filenames(path_input, "sheb_replication")
+  for (myfile in memory_files) {
+    print(myfile)
+    process_memory_task(filename = file.path(path_input, myfile),
+                        path_output = file.path(path_output))
+  }
 
-## WILL NEED ADAPTING!!!
+  # Verb_norming task
+  verbnorming_files <- get_data_filenames(path_input, "verb_norming")
+  for (myfile in verbnorming_files) {
+    print(myfile)
+    verb_norming_L1eng(filename = file.path(path_input, myfile),
+                       path_output = file.path(path_output))
+  }
 
-# # wrapper function to combine the above
-# process_raw_data <- function() {
-#   path_input <- "exp-scripts_psychopy/pilot/data/"
-#   path_output <- "analysis/data_coding/"
-#   
-#   # First, for pilot-control experiment
-#   control_files <- get_data_filenames(path_input, "sheb_replic_pilot_control")
-#   for (myfile in control_files) {
-#     process_control(paste(path_input, myfile, sep=""), path_output)
-#   }
-#   
-#   # Then for verb_norming task - multiple choice translation (NB: the expname
-#   # argument passed to the call below ensures that data files for psychopy exp
-#   # "verb_norming_oral_input" are excluded
-#   verbnorming_files <- get_data_filenames(path_input, "verb_norming_2")
-#   for (myfile in verbnorming_files) {
-#     verb_norming(paste(path_input, myfile, sep=""), path_output)
-#   }
-#   
-#   # for verb_norming_oral_input task - translation is free and spoken
-#   verbnormingoral_files <- get_data_filenames(path_input, "verb_norming_oral")
-#   for (myfile in verbnormingoral_files) {
-#     verb_norming_oral(paste(path_input, myfile, sep=""), path_output)
-#   }
-#   
-# }
-# uncomment and run
-# process_raw_data()
+}
+process_raw_data()
