@@ -797,8 +797,10 @@ Looks okay
 ```{r}
 select_en_fin %>%
   arrange(verb_category, verb) %>%
-  select(verb : cognate, Score, bias) %>%
-  kable
+  select(verb : cognate, Score, bias) %T>%  # Note the tee operator https://www.datacamp.com/community/tutorials/pipe-r-tutorial
+  kable() %>%
+  write.csv("english-targets_with-info.csv", row.names = FALSE,
+            fileEncoding = "UTF-8")
 ```
 
 
