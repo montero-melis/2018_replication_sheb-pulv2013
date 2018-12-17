@@ -62,7 +62,7 @@ simulate_poisson <- function (
   
   # 4) Simulate the by-subject cell means *in link space* by multiplying model
   # matrix X and subject coefficients. Each column corresponds to multiplying
-  # a row of X by a (transposed) row-vector of sbj_coef, and thus give us the 
+  # a row of X by a (transposed) row-vector of sbj_coef, and thus gives us the 
   # expected cell means for a given subject (4 values per subject).
   cell_means_link <- X %*% t(sbj_coef)
   myprint(cell_means_link)
