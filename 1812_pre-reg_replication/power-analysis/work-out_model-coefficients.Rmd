@@ -1,0 +1,207 @@
+---
+title: "Work out model coefficients"
+author: "Guillermo Montero-Melis"
+date: "16 januari 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Introduction
+===========
+
+To do the power analysis, we need to come up with model parameters for which
+we don't have estimates based on existing data. (The situation is described in
+the script "`power-analysis_L1-L2_poisson.R`", and in even more detail in the
+email correspondence in 
+"`190111_Re power analysis for replication study dealing with simulation parameters for which I don't have estimates.msg`".)
+
+This document works out the details of how the new model for the data needs
+to be specified once we add the factor *Language* (L1 Swedish, L2 English) into
+the mix. In particular, I look at how the model estimates change given that we
+are using contrast coding (all factors coded as 1 / -1) and adding a new factor
+that interacts with all the other factors.
+We are only going to focus on the **estimates for the fixed effect factors**.
+
+The situation is described as follows:
+
+1) We have estimates for a subset of the predictors based on the original data.
+2) We need to come up with estimates for predictors without having data.
+3) We need to formulate the model correctly by integrating 1 and 2.
+
+
+What we have and what we don't
+==============================
+
+Estimates based on previous data -- the original model
+-------------------------
+
+```{r, echo=FALSE}
+# main components of the model fitted to the original data set
+load("orig_data_model_estimates.RData")
+# It's a list of 3 elements:
+# 1) Estimates of fixed effects coefficients
+# 2) Covariance matrix of the fixed effects
+# 3) Covariance matrix of by-subject random effects
+```
+
+Here is the (truncated) output for the model fit on the original data.
+Below we refer to this model as the **original model**.
+
+```
+> summary(glmm_poi)
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+Family: poisson  ( log )
+Formula: nbErrors ~ 1 + Movement * WordType + (1 + Movement * WordType | Subject)
+Data: d_crit
+Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e+05))
+
+AIC      BIC   logLik deviance df.resid
+397.1    426.4   -184.5    369.1       46
+
+Scaled residuals:
+  Min       1Q   Median       3Q      Max
+-1.68516 -0.46864  0.06156  0.43853  1.45481
+
+...
+
+Fixed effects:
+                                           Estimate Std. Error z value Pr(>|z|)
+(Intercept)                                2.619681   0.125145  20.933   <2e-16 ***
+Movementarms_vs_legs                       0.005052   0.058905   0.086   0.9317
+WordTypearmW_vs_legW                      -0.043961   0.038500  -1.142   0.2535
+Movementarms_vs_legs:WordTypearmW_vs_legW  0.087994   0.037113   2.371   0.0177 *
+```
+
+We are specifically focusing on the fixed effect estimates from this 
+**original model**. Here they are again, shown as a named vector and rounded:
+
+```{r}
+fixef_orig <- orig_data_model_coefficient_estimates[[1]]
+round(fixef_orig, 3)
+```
+
+
+Estimates we don't have data for and assumptions made in simulations
+--------------------------------------------------------------
+
+Now to the fixed effects estimates which we cannot base on an analysis of
+previous data, and the assumptions we make for them: 
+
+1) *Main effect of language*: tells us how many more errors participants will
+make overall in their L2 vs L1. We'll let that number vary between 3 plausible
+values, expressed as a function of the number of errors made in the L1: 1.25,
+1.625 or 2 times the L1 coefficient (i.e., the intercept in the original model).
+Note that overall we expect more errors in the L2 than in the L1. Different
+values will allow us to see how ceiling effects might come on. Ceiling effects
+might arise because there is a maximum number of errors that we can detect
+given the paradigm. In the last step of the simulations, when we estimate the 
+actual counts, we will choose this max number as a cutoff point above which
+all simulated values are just equal to that cutoff point (I think this is 
+called "censored data")
+2) *Movement:Language* interaction: set to zero.
+3) *WordType:Language* interaction: set to zero.
+4) *Movement:WordType:Language* 3-way interaction: This tells us how much
+stronger we assume the embodiment effect to be in the L1 compared to the L2.
+The approach will be to choose a range of values for the L2 expressed as a
+factor of the interaction effect in the L1. In particular, so that the L2
+effect is either equal (=100%), 67%, 33% or 0% of that in the L1.
+
+
+Summary of the model(s) for the data simulations
+============================================
+
+Summarizing, then, we have the following model(s) specification (s).
+(I write "models" because some parameters we let value along different values,
+and one can think of each of those combinations as a model.) Note that we are
+already thinking about it in terms of a Generalized Linear Model for data
+generated from a 2x2x2 experiment. Given that it's a Poisson model, the 
+estimates should be interpreted as the expected values of log counts (i.e.,
+the log of lambda). The effects of higher-order terms are best thought of as
+*multiples* of lower-level terms:
+
+- *Intercept*: Will reflect the grand mean (of expected log counts)
+- *MovementType* (arm/leg movements): We'll use the estimate obtained from the
+original data
+- *WordType* (arm/leg words): We'll use the estimate obtained from the original
+data
+- *Language*: We'll let that value vary so as to reflect an error rate in the L2
+that is either 1.25, 1.625 or 2 times the L1 rate (the latter is given by the
+intercept in the original model above)
+- *MovementType:WordType*: We'll choose it so that the marginal interaction for
+this effect in L1 speakers is either `r seq(1, 0, -.25)` times the original 
+effect (the latter is given by the 2-way interaction of the original model)
+- *MovementType:Language*: We'll set it to zero.
+- *WordType:Language*: We'll set it to zero.
+- *MovementType:WordType:Language*: Choose a range of values corresponding to
+a *MovementType:WordType* interaction effect in the L2 that is either 
+`r round(seq(0, 1, length.out = 4), 2)` times the interaction effect in the L1.
+
+
+Working out the coefficeint estimates
+==============================
+
+The coefficient estimates for the model are dependent on the coding scheme. We
+will use contrast coding for all predictors:
+
+
+Main effect of language
+----------------------
+
+We want the `Lang` (=language) coefficient, $\beta_L$ to represent the
+deviation in each language from the grand mean, which is given by the 
+intercept, $\beta_0$. We also want to try out different error rates, $\rho$
+in the L2, expressed as a function of the L1 error rates. We call the error
+rate in the L1 $\beta_{L1}$ and that in the L2 $\beta_{L2}$. 
+
+We have:
+
+\[
+\beta_0 = \beta_{L1} + \beta_L
+\]
+
+And also:
+
+\[
+\beta_L = \rho \times \beta_{L1} - \beta_{L1} =
+(\rho - 1) \beta_{L1}
+\]
+
+with $\rho = \{`r seq(1.25, 2, length.out = 3)`\}$
+and, importantly, $\beta_{L1} = `r round(fixef_orig[1], 2)`$, given by the
+intercept estimate in the original model.
+
+
+To visualize it, let's take an example where we set $\rho = 1.25$:
+
+
+```{r, echo = FALSE}
+lang <- expand.grid(
+  Lang = c(-1, 1),
+  rho = seq(1.25, 2, length.out = 3)
+)
+lang$beta <- fixef_orig[1]
+lang[lang$Lang == 1, "beta"] <- lang$beta[lang$Lang == 1] * lang$rho[lang$Lang == 1]
+```
+
+```{r, echo=FALSE, fig.height=3}
+ggplot(lang, aes(x = Lang, y = beta, colour = factor(rho))) +
+  geom_point(size = 1.5) +
+  geom_line() +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  ylim(0,6)
+```
+
+
+The intersection of the lines with the y axis gives us the intercept $\beta_0$
+for each of our choices of $\rho$.
+
+
+MovementType:WordType:Language interaction
+----------------------
+
+A similar logic can be applied to the other coefficients.
