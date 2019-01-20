@@ -241,8 +241,8 @@ simul_significant <- simul_summaries_interact %>%
 
 
 ```{r}
-ggplot(simul_significant, aes(x = effect_size, y = Power_expected_effect,
-                              colour = factor(N), group = factor(N))) +
+ggplot(simul_significant, aes(x = N, y = Power_expected_effect,
+                              colour = effect_size, group = effect_size)) +
   geom_point() +
   geom_line() +
   ylim(0,100) +
@@ -250,13 +250,14 @@ ggplot(simul_significant, aes(x = effect_size, y = Power_expected_effect,
   geom_hline(yintercept = 5, linetype = "dotted") +
   ylab("Power of finding effect\nin expected direction") +
   xlab("Effect size as factors of original") +
-  ggtitle("Power to detect the critical effect")
+  ggtitle("Power to detect the critical effect") +
+  theme_bw(base_size=16)
 ```
 
 
 ```{r}
-ggplot(simul_significant, aes(x = effect_size, y = Proportion_inverse_effect,
-                              colour = factor(N), group = factor(N))) +
+ggplot(simul_significant, aes(x = N, y = Proportion_inverse_effect,
+                              colour = effect_size, group = effect_size)) +
   geom_point() +
   geom_line() +
   ylim(0,100) +
@@ -268,8 +269,8 @@ ggplot(simul_significant, aes(x = effect_size, y = Proportion_inverse_effect,
 ```
 
 ```{r}
-ggplot(simul_significant, aes(x = effect_size, y = No_effect_detected,
-                              colour = factor(N), group = factor(N))) +
+ggplot(simul_significant, aes(x = N, y = No_effect_detected,
+                              colour = effect_size, group = effect_size)) +
   geom_point() +
   geom_line() +
   ylim(0,100) +
