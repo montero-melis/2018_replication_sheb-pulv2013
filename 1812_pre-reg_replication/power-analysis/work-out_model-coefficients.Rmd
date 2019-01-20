@@ -116,7 +116,7 @@ Summary of the model(s) for the data simulations
 ============================================
 
 Summarizing, then, we have the following model(s) specification (s).
-(I write "models" because some parameters we let value along different values,
+(I write "models" because some parameters we let vary along different values,
 and one can think of each of those combinations as a model.) Note that we are
 already thinking about it in terms of a Generalized Linear Model for data
 generated from a 2x2x2 experiment. Given that it's a Poisson model, the 
@@ -132,8 +132,8 @@ data
 - *Language*: We'll let that value vary so as to reflect an error rate in the L2
 that is either 1.25, 1.625 or 2 times the L1 rate (the latter is given by the
 intercept in the original model above)
-- *MovementType:WordType*: We'll choose it so that the marginal interaction for
-this effect in L1 speakers is either `r seq(1, 0, -.25)` times the original 
+- *MovementType:WordType*: We'll choose it so that the simple interaction 
+effect in L1 speakers is either `r seq(1, 0, -.25)` times the original 
 effect (the latter is given by the 2-way interaction of the original model)
 - *MovementType:Language*: We'll set it to zero.
 - *WordType:Language*: We'll set it to zero.
@@ -152,8 +152,8 @@ will use contrast coding for all predictors:
 Main effect of language
 ----------------------
 
-We want the `Lang` (=language) coefficient, $\beta_L$ to represent the
-deviation in each language from the grand mean, which is given by the 
+We want the language coefficient, $\beta_L$ to represent the
+deviation of each language from the grand mean, which is given by the 
 intercept, $\beta_0$. We also want to try out different error rates, $\rho$
 in the L2, expressed as a function of the L1 error rates. We call the error
 rate in the L1 $\beta_{L1}$ and that in the L2 $\beta_{L2}$. 
@@ -167,8 +167,10 @@ We have:
 And also:
 
 \[
-\beta_L = \rho \times \beta_{L1} - \beta_{L1} =
-(\rho - 1) \beta_{L1}
+\beta_L = 
+\frac{ \beta_{L2} - \beta_{L1} } {2} =
+\frac{ \rho \beta_{L1} - \beta_{L1} } {2} =
+\frac{ \rho - 1 }{2} \beta_{L1}
 \]
 
 with $\rho = \{`r seq(1.25, 2, length.out = 3)`\}$
@@ -176,7 +178,7 @@ and, importantly, $\beta_{L1} = `r round(fixef_orig[1], 2)`$, given by the
 intercept estimate in the original model.
 
 
-To visualize it, let's take an example where we set $\rho = 1.25$:
+Let's visualize it:
 
 
 ```{r, echo = FALSE}
@@ -205,3 +207,53 @@ MovementType:WordType:Language interaction
 ----------------------
 
 A similar logic can be applied to the other coefficients.
+In particular, we are interested in the 3-way *MovementType:WordType:Language*
+interaction, which gives us the difference in the interference effect in the
+L2 vs L1. We expect this effect to be negative, meaning that the interference
+("embodiment") effect should be weaker in the L2. But we also want to manipulate
+some of the estimates systematically.
+(We assume 1/-1 contrast coding for all factors, so that estimates indicate
+deviations from the mean for each level.)
+
+Let us write $\beta_{M:W}$ for the coefficient of the 2-way *MovementType:WordType*
+interaction (which is the average of the simple interaction effects in each 
+language) and $\beta_{M:W:L}$ for the coefficient of the 3-way 
+*MovementType:WordType:Language* interaction.
+We further write the simple *MovementType:WordType* interaction effect in each
+language as $\beta_{M:W\_L1}$ and $\beta_{M:W\_L2}$ for L1 and L2, respectively.
+Recall that we do have an estimate for $\beta_{M:W\_L1}$, namely the 2-way
+interaction effect in the original model, which we call $\beta_{M:W\_orig}$.
+
+Now to the estimates we want to manipulate systematically in the simulations:
+
+- We want to let $\beta_{M:W\_L1}$ vary by a factor of
+$\omega = \{ `r seq(1, 0, -.25)` \}$ times the original effect, 
+$\beta_{M:W\_orig}$.
+- We also want to let $\beta_{M:W\_L2}$ vary as a factor 
+$\phi = `r round(seq(0, 1, length.out = 4), 2)`$ times $\beta_{M:W\_L1}$.
+
+Starting with the 3-way interaction, we thus have:
+
+\begin{align}
+\beta_{M:W:L} &= ( \beta_{M:W\_L2} - \beta_{M:W\_L1} ) / 2 \\
+&= ( \beta_{M:W\_L2} - \omega \beta_{M:W\_orig} ) / 2 \\
+&= ( \phi \beta_{M:W\_L1} - \omega \beta_{M:W\_orig} ) / 2 \\
+&= ( \phi \omega \beta_{M:W\_orig} - \omega \beta_{M:W\_orig} ) / 2 \\
+&= (\phi - 1) \omega \beta_{M:W\_orig} / 2
+\end{align}
+
+
+And for the 2-way interaction:
+
+\begin{align}
+\beta_{M:W} &= \beta_{M:W\_L1} + \beta_{M:W:L} \\
+&= \omega \beta_{M:W\_orig} + (\phi - 1) \omega \beta_{M:W\_orig} / 2 \\
+&= \frac{ (1 + \phi) \omega \beta_{M:W\_orig} } {2}
+\end{align}
+
+The figure below should provide a visual interpretation of all the equations
+above.
+
+![Visual interpretation of coefficient estimates in the model.](pic_3-way-interaction.png)
+
+
