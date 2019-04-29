@@ -18,6 +18,15 @@ output:
 Introduction
 ============
 
+This report summarizes the results of a set of norms we collected about English
+and Swedish verbs regarding their arm/leg relatedness. All of the norms were
+collected from L1 Swedish--L2 English speakers. Additionally, we carried out
+a translation task for the (L2) English verbs, where we asked Swedish speakers
+to translate them into Swedish.
+
+The data collection took place on two occasions: June and September 2018.
+
+
 Set up workspace
 ================
 
@@ -71,6 +80,29 @@ head(ppt)
 # und_free[und_free$score == -99, "score"] <- 0
 ```
 
+
+
+Descriptives of data sets
+================
+
+What follows are some numbers to get a quick idea of the data sets. A fuller
+description is found in the Appendices.
+
+**English verbs**
+
+- Number of unique participants who rated English verbs:
+`r length(unique(bias_en_l$participant))`
+- Number of unique English verbs that were rated:
+`r length(unique(bias_en_l$verb))`
+- NB: Not all participants rated all verbs (see Appendices)!
+
+**Swedish verbs**
+
+- Number of unique participants who rated Swedish verbs:
+`r length(unique(bias_sw_l$participant))`
+- Number of unique Swedish verbs that were rated:
+`r length(unique(bias_sw_l$verb))`
+- NB: I am pretty sure that all these participants rated all Swedish verbs...
 
 
 
@@ -821,6 +853,193 @@ write.csv(select_en_fin_out, "../exp-scripts_psychopy/replication_pilot_1810/sti
 
 Swedish verbs
 -------------
+
+We now run the same analyses but for the L1 Swedish norms we collected.
+In Swedish it is simpler because for now we only have two sources:
+
+- Verb bias (arm vs leg)
+- Other word-related measures (frequency, etc.)
+
+
+```{r}
+cutoff_swe <- 2.5
+```
+
+### Verb bias cut-off at `r cutoff_swe`
+
+We take cut-off point at `r cutoff_swe`, so that we have some leeway later for
+filtering out verbs as a function of frequency and other measures:
+
+There are 
+`r sum(with(bias_sw, bias_absol >= cutoff_swe & category == "arm"))` arm verbs 
+(out of `r sum(with(bias_sw, category == "arm"))`) that satisfy this condition,
+but only `r sum(with(bias_sw, bias_absol >= cutoff_swe & category == "leg"))` 
+leg verbs (out of `r sum(with(bias_sw, category == "leg"))`) that qualify.
+
+Here are the leg verbs that have a bias >= `r cutoff_swe`:
+
+```{r, fig.height = 5}
+ggplot(bias_sw[with(bias_sw, bias_absol >= cutoff_swe & category == "leg"), ],
+       aes(x = verb, y = bias)) +
+  geom_point() +
+  theme(axis.text.x = element_text(size = 6)) +
+  coord_flip() +
+  ggtitle("Swedish leg verbs with strongest leg bias")
+```
+
+
+### First selection of Swedish verbs for further norming
+
+We need to match arm and leg verbs with respect to the variables that Shebani
+and Pulvermüller (2013) matched (see their Table 1 on p.225). So we better take
+as large a selection as possible so that we can later match them and still have
+enough verbs left.
+
+```{r}
+select_sw <- bias_sw %>% filter(bias_absol >= cutoff_swe)
+select_sw$verb <- as.character(select_sw$verb)  # prevents unexpected problems
+```
+
+
+How many of each type are there?
+
+```{r}
+table(select_sw$category)
+```
+
+
+We select all leg verbs and 64 arm verbs, for a total of 120 verbs.
+
+```{r}
+# 64 Swedish arm verbs with strongest arm bias:
+sw_top64_arm <- as.character(pull(select_sw[order(- select_sw$bias), ], verb))[1:64]
+select_sw <- select_sw %>%
+  filter(category == "leg" | verb %in% sw_top64_arm)
+```
+
+Here are the verbs we have selected now:
+
+```{r, fig.height = 10}
+ggplot(select_sw, aes(x = verb, y = bias, colour = category)) +
+  geom_point() +
+  geom_hline(yintercept = 0) +
+  theme(axis.text.x = element_text(size = 5)) +
+  coord_flip() +
+  ggtitle("Mean leg/arm bias of selection of Swedish verbs")
+```
+
+
+```{r}
+ggplot(select_sw, aes(x = category, y = bias_absol, colour = category)) + 
+  geom_boxplot() +
+  ylab("Size of bias in predicted direction") +
+  ggtitle("Size of congruent bias of selected Swedish verbs")
+```
+
+
+Save this list to disk for furhter norming:
+
+
+```{r}
+select_sw %>%
+  ungroup() %>%
+  arrange(category, verb) %>%
+  select(verb, category) %>%
+  write.csv("swe-targets_for-norming.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+
+
+### Check other variables
+
+We go through the variables listed in Shebani and Pulvermüller (2013, p.225 
+Table 1):
+
+
+
+#### Word length (Number of letters)
+
+Summary of number of letters:
+
+```{r}
+select_sw$nbLetters <- nchar(select_sw$verb)
+with(select_sw, addmargins(table(nbLetters, category)))
+select_sw %>% 
+  group_by(category) %>%
+  summarise(M_letters = mean(nbLetters),
+            SD_letters = sd(nbLetters),
+            min_letters = min(nbLetters),
+            max_letters = max(nbLetters)) %>%
+  kable
+```
+
+Looks good.
+
+What are the longest words?
+
+```{r}
+select_sw %>%
+  ungroup() %>%
+  arrange(-nbLetters) %>%
+  # select(- c(cognate_bin : binnedScore, bias_absol, SUBTL_US_fpmw : SUBTL_UK_zipf)) %>%
+  head(8) %>%
+  kable
+```
+
+
+And the shortest?
+
+```{r}
+select_sw %>%
+  ungroup() %>%
+  arrange(-nbLetters) %>%
+  # select(- c(cognate_bin : binnedScore, bias_absol, SUBTL_US_fpmw : SUBTL_UK_zipf)) %>%
+  tail(8) %>%
+  kable
+```
+
+
+#### Number of phonemes
+
+
+#### Word frequency (really: lemma frequency)
+
+
+#### Bigram frequency
+
+
+#### Trigram frequency
+
+
+#### Grammatical ambiguity (?)
+
+Can we obtain a measure of this?
+
+
+#### Valence
+
+
+#### Arousal
+
+
+#### Imageability
+
+
+#### Visual relatedness
+
+
+#### Body relatedness
+
+
+#### Action relatedness
+
+
+
+
+### Save to disk final selection
+
+See corresponding section for English verbs...
+
 
 
 

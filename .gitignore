@@ -49,3 +49,6 @@ exp-scripts_psychopy/replication_pilot_1810/data/99[0-9]*
 # Power analyses -- some files are too large to push them
 1810_replication-natives_analysis/power-analysis/simulations/my_poisson_simulations.RData
 1810_replication-natives_analysis/power-analysis/simulations/my_poisson_simulations_fixed-interaction.rds
+
+# Figures automatically created by knitr report(s)
+1806_pilot_analysis/pilot_analysis_files/*
