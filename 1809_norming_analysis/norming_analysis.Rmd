@@ -897,7 +897,6 @@ enough verbs left.
 
 ```{r}
 select_sw <- bias_sw %>% filter(bias_absol >= cutoff_swe)
-select_sw$verb <- as.character(select_sw$verb)  # prevents unexpected problems
 ```
 
 
@@ -941,6 +940,8 @@ Save this list to disk for furhter norming:
 
 
 ```{r}
+# for alphabetic ordering of verbs to work (if a factor, it orders factor values)
+select_sw$verb <- as.character(select_sw$verb)  
 select_sw %>%
   ungroup() %>%
   arrange(category, verb) %>%
