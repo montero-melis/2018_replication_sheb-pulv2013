@@ -36,6 +36,7 @@ library(ggplot2)
 library(GGally)
 library(dplyr)
 library(tidyr)
+library(readr)  # Improves the base functions for reading data files.
 library(lme4)
 knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 ```
@@ -144,8 +145,8 @@ kable(head(bias_en))
 
 ```{r}
 # order factor levels of verbs depending on their bias (for plotting)
-ordered_verbs_bias <- as.character(pull(bias_en[order(bias_en$bias), ], verb))
-bias_en$verb <- factor(bias_en$verb, levels = ordered_verbs_bias)
+ordered_verbs_bias_en <- as.character(pull(bias_en[order(bias_en$bias), ], verb))
+bias_en$verb <- factor(bias_en$verb, levels = ordered_verbs_bias_en)
 ```
 
 
@@ -242,7 +243,7 @@ bias_spread_en <- bias_en_l %>%
   spread(rated_category, rating) %>%
   mutate(bias = Arm - Leg)
 # order verbs according to bias
-bias_spread_en$verb <- factor(bias_spread_en$verb, levels = ordered_verbs_bias)
+bias_spread_en$verb <- factor(bias_spread_en$verb, levels = ordered_verbs_bias_en)
 ```
 
 
@@ -315,8 +316,8 @@ kable(head(bias_sw))
 
 ```{r}
 # order factor levels of verbs depending on their bias (for plotting)
-ordered_verbs_bias <- as.character(pull(bias_sw[order(bias_sw$bias), ], verb))
-bias_sw$verb <- factor(bias_sw$verb, levels = ordered_verbs_bias)
+ordered_verbs_bias_sw <- as.character(pull(bias_sw[order(bias_sw$bias), ], verb))
+bias_sw$verb <- factor(bias_sw$verb, levels = ordered_verbs_bias_sw)
 ```
 
 
@@ -400,7 +401,7 @@ bias_spread_sw <- bias_sw_l %>%
   spread(rated_category, rating) %>%
   mutate(bias = Arm - Leg)
 # order verbs according to bias
-bias_spread_sw$verb <- factor(bias_spread_sw$verb, levels = ordered_verbs_bias)
+bias_spread_sw$verb <- factor(bias_spread_sw$verb, levels = ordered_verbs_bias_sw)
 ```
 
 
@@ -854,16 +855,138 @@ write.csv(select_en_fin_out, "../exp-scripts_psychopy/replication_pilot_1810/sti
 Swedish verbs
 -------------
 
-We now run the same analyses but for the L1 Swedish norms we collected.
-In Swedish it is simpler because for now we only have two sources:
-
-- Verb bias (arm vs leg)
-- Other word-related measures (frequency, etc.)
-
-
 ```{r}
 cutoff_swe <- 2.5
 ```
+
+We now run the same analyses but for the L1 Swedish norms we collected.
+In Swedish it is simpler because for now we only have two sources:
+
+- Verb bias (arm vs leg): we want verbs with a bias of at least `r cutoff_swe`.
+- Other word-related measures (frequency, etc.)
+
+
+
+### Add frequency measures and do a first comparison of arm vs leg verbs
+
+A short excursion to add the frequency information (from Swedish SubtLex corpus,
+kindly provided by Jeroen van Paridon). The frequency counts come from a corpus
+of more than a 100 million words extracted from a database of Swedish subtitles
+(101,270,590 word tokens based on the data file I have).
+
+```{r}
+# Retrieve frequency data for words and lemmas
+freq_word_sw <- read_tsv(
+  "frequency_measures/filtered_word_unigram_freqs_sv.tsv", col_names = FALSE
+  ) %>%
+  rename(word = X1, word_freq = X2)
+freq_lemma_sw <- read_tsv(
+  "frequency_measures/filtered_lemma_unigram_freqs_sv.tsv", col_names = FALSE
+  ) %>%
+  rename(lemma = X1, lemma_freq = X2)
+head(freq_word_sw)
+head(freq_lemma_sw)
+```
+
+```{r}
+# We will trust the parts-of-speech (POS) tagged lemmatization, even if some of
+# the POS assignments are probably off. We hope that they are in the right 
+# ballpark.
+# Divide "lemma" column into the actual lemma and the POS tag (using regular
+# expressions (regex), see https://www.regular-expressions.info/rlanguage.html)
+freq_lemma_sw$lemma_true <- sub("(.*)_([a-z]*)$", "\\1", freq_lemma_sw$lemma)
+freq_lemma_sw$POS <- sub("(.*)_([a-z]*)$", "\\2", freq_lemma_sw$lemma)
+head(freq_lemma_sw)
+# This is mostly what we want, but it also results in some inaccuracies because
+# not all lemmas actually have a tag.
+# To illustrate, consider the unique values in the POS column:
+unique(freq_lemma_sw$POS)
+# Some of them are clearly not POS tags, but the verbs themselves!
+# But it's a pain to sort this out, so let's just ignore those exceptional cases
+# and focus on lemmas tagged as verbs:
+freq_verblemmas_sw <- freq_lemma_sw %>% filter(POS == "verb")
+```
+
+Sanity checks:
+
+```{r}
+# Sanity check: is any of our Swedish verbs not present in freq_verblemmas_sw or
+# freq_word_sw?
+sum(! bias_sw$verb %in% freq_verblemmas_sw$lemma_true)  # none is missing
+sum(! bias_sw$verb %in% freq_word_sw$word)  # none is missing
+```
+
+Join the verb list with frequency measures:
+
+```{r}
+bias_sw <- bias_sw %>% 
+  left_join(freq_word_sw, by = c("verb" = "word")) %>%
+  left_join(freq_verblemmas_sw %>% select(lemma_freq, lemma_true),
+            by = c("verb" = "lemma_true"))
+# order factor levels of verbs depending on their bias (for plotting)
+bias_sw$verb <- factor(bias_sw$verb, levels = ordered_verbs_bias_sw)
+```
+
+Log-frequencies probably make more sense
+
+```{r}
+bias_sw$word_logfreq <- log10(bias_sw$word_freq)
+bias_sw$lemma_logfreq <- log10(bias_sw$lemma_freq)
+bias_sw %>% head %>% kable
+```
+
+As a further check, do lemma and word frequency correlate?
+
+```{r}
+ggplot(bias_sw, aes(x = word_freq, y = lemma_freq)) + geom_point()
+ggplot(bias_sw, aes(x = word_logfreq, y = lemma_logfreq)) + geom_point()
+```
+
+Note that the log-transformed frequency makes much more sense and that the
+correlations are pretty high, which is good.
+
+The following plot shows the actual verbs
+
+```{r}
+ggplot(bias_sw, aes(x = word_logfreq, y = lemma_logfreq, label = verb)) +
+  geom_text()
+```
+
+
+Compare the log frequency of arm and leg words:
+
+```{r}
+ggplot(bias_sw, aes(x = category, y = word_logfreq, colour = category)) +
+  geom_boxplot()
+ggplot(bias_sw, aes(x = category, y = lemma_logfreq, colour = category)) +
+  geom_boxplot()
+```
+
+Their frequencies overlap, but arm verbs tend to be more frequent than leg verbs.
+
+
+Show the verbs with the lowest lemma frequencies:
+
+```{r}
+bias_sw[order(bias_sw$lemma_logfreq)[1:10], ] %>% kable
+```
+
+
+What is the relation between the absolute bias (i.e., size of congruent bias)
+and (log) lemma frequency?
+
+
+```{r}
+ggplot(bias_sw, aes(x = lemma_logfreq, y = bias_absol, colour = category)) +
+  geom_point() +
+  geom_hline(aes(yintercept = cutoff_swe)) +
+  geom_vline(aes(xintercept = 1))
+```
+
+We want to basically only have verbs in the upper right quadrant.
+
+
+
 
 ### Verb bias cut-off at `r cutoff_swe`
 
@@ -890,13 +1013,25 @@ ggplot(bias_sw[with(bias_sw, bias_absol >= cutoff_swe & category == "leg"), ],
 
 ### First selection of Swedish verbs for further norming
 
-We need to match arm and leg verbs with respect to the variables that Shebani
+We will need to match arm and leg verbs with respect to the variables Shebani
 and Pulvermüller (2013) matched (see their Table 1 on p.225). So we better take
 as large a selection as possible so that we can later match them and still have
 enough verbs left.
 
+For now we want the following:
+
+1) Verbs with maximal arm or leg bias
+2) Verbs that are not too infrequent
+
+
+Filter out verbs with *both* lemma and word log-frequency below 1 (i.e., raw
+frequencies below 10).
+Then filter out verbs with a bias lower than 2.5.
+
 ```{r}
-select_sw <- bias_sw %>% filter(bias_absol >= cutoff_swe)
+select_sw <- bias_sw %>% 
+  filter(! (word_logfreq < 1 & lemma_logfreq < 1)) %>%
+  filter(bias_absol >= cutoff_swe)
 ```
 
 
@@ -907,11 +1042,11 @@ table(select_sw$category)
 ```
 
 
-We select all leg verbs and 64 arm verbs, for a total of 120 verbs.
+We select all leg verbs and 65 arm verbs, for a total of 120 verbs.
 
 ```{r}
-# 64 Swedish arm verbs with strongest arm bias:
-sw_top64_arm <- as.character(pull(select_sw[order(- select_sw$bias), ], verb))[1:64]
+# 66 Swedish arm verbs with strongest arm bias:
+sw_top64_arm <- as.character(pull(select_sw[order(- select_sw$bias), ], verb))[1:65]
 select_sw <- select_sw %>%
   filter(category == "leg" | verb %in% sw_top64_arm)
 ```
@@ -936,7 +1071,17 @@ ggplot(select_sw, aes(x = category, y = bias_absol, colour = category)) +
 ```
 
 
-Save this list to disk for furhter norming:
+And here are their lemma frequencies
+
+```{r}
+ggplot(select_sw, aes(x = category, y = lemma_logfreq, colour = category)) + 
+  geom_boxplot() +
+  ylab("Size of bias in predicted direction") +
+  ggtitle("Log lemma frequency of selected Swedish verbs")
+```
+
+
+Save this list to disk for further norming:
 
 
 ```{r}
