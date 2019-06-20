@@ -1,6 +1,6 @@
 ---
 title: "Analysis of norming study (Sept 2018)"
-author: '[Guillermo Montero-Melis](http://www.biling.su.se/montero_melis_guillermo)'
+author: '[Guillermo Montero-Melis](https://www.mpi.nl/people/montero-melis-guillermo)'
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
 output:
   html_document:
@@ -55,17 +55,16 @@ ggpairs_he <- 4.5  # default height for ggpairs plots
 # verb norming English
 bias_en_l <- read.csv("data_verb-bias_L2eng.csv", fileEncoding = "UTF-8")
 head(bias_en_l)
-# verb norming Swedish
+# verb norming Swedish: leg/arm bias
 bias_sw_l <- read.csv("data_verb-bias_L1swe.csv", fileEncoding = "UTF-8")
 head(bias_sw_l)
-# verb comprehension/understanding
-# compr <- read.csv(".csv",
-#                   fileEncoding = "UTF-8")
-# lextale task
-# scored
+# verb norming Swedish: imageability, valence and arousal ratings
+norms_sw <- read.csv("data_verb-norming_swe_ratings.csv", fileEncoding = "UTF-8")
+# verb comprehension/understanding:
+# lextale task scored
 lext <- read.csv("data_lextale_scored.csv", fileEncoding = "UTF-8")
 head(lext)
-# raw
+# lextrale raw
 lext_raw <- read.csv("data_lextale_raw.csv", fileEncoding = "UTF-8")
 head(lext_raw)
 # participant info
@@ -424,6 +423,20 @@ way.
 Note also the some ratings have no bias (verb bias = 0). This is unlikely to
 be due to Swedish speakers not knowing the verbs (since they were native 
 speakers).
+
+
+## Other norms collected for Swedish verbs (Imageability, Valence, Arousal)
+
+We also collected later (May 2019) norms for the Swedish verbs to match
+them for psycholexical variables they had been matched for in SP14.
+
+This is the corresponding data file:
+
+```{r}
+head(norms_sw, 4)
+tail(norms_sw, 4)
+```
+
 
 
 L2 verb comprehension task
@@ -1097,6 +1110,9 @@ select_sw %>%
 
 
 ### Check other variables
+
+
+**NB: THIS IS NOW DONE IN THE SCRIPT "select_target_verbs_swedish.Rmd"!**
 
 We go through the variables listed in Shebani and Pulvermüller (2013, p.225 
 Table 1):
