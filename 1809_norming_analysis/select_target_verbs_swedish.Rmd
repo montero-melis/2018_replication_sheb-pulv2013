@@ -1,0 +1,326 @@
+---
+title: "Selection of Swedish target verbs"
+author: '[Guillermo Montero-Melis](https://www.mpi.nl/people/montero-melis-guillermo)'
+date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+---
+
+
+
+Introduction
+============
+
+This script selects the Swedish verbs that will be used in the replication of
+Shebani and Pulvermüller (2014, Cortex, henceforth SP14).
+Because we had to control for the same variables as in the original study,
+we needed to collect quite a lot of norms for the Swedish verbs.
+
+NB:
+There is a previous report in this gitrepo 
+("1809_norming_analysis/norming_analysis.Rmd") that does many of the pre-selection
+on which this report builds. But it was getting so long (among others because it
+contained norms for Swedish and English verbs) that I prefered to start a new
+report/script that focuses precisely on the selection of Swedish target verbs.
+
+
+Goal
+====
+
+We want to select an equal amount of leg- and arm-related verbs that differ
+maximally in their arm/leg relatedness, while they are matched for the
+following variables:
+
+- Number of letters
+- Number of phonemes
+- Word frequency 
+- Lemma frequency 
+- Bigram frequency 
+- Trigram frequency 
+- Grammatical ambiguity 
+- Valence 
+- Arousal
+- Imageability 
+
+Note that SP14 mention three additional variables in Table 1, p.225:
+Visual relatedness, body relatedness, and action relatedness. We checked with
+the correspondin author, Friedemann Pulvermüller, and it turns out these
+measures were actually redundant, so he acknowledged we did not need to collect
+them (see correspondence from Tue 2019-04-30, 10:19 PM; subject "Short query
+about word norms in Shebani & Pulvermüller (2013)").
+
+
+
+Set up workspace
+================
+
+Libraries
+---------
+
+```{r setup, include=TRUE}
+library(knitr)
+library(ggplot2)
+# library(GGally)
+library(dplyr)
+library(tidyr)
+library(readr)  # Improves the base functions for reading data files.
+# library(lme4)
+knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
+```
+
+Data import and processing
+---------------------
+
+### Arm/leg bias
+
+```{r, include = TRUE}
+## load data files
+# Arm/leg verb bias Swedish (note this already contains average ratings, for
+# details about how it was generated, see "norming_analysis.Rmd")
+bias <- read_csv("verb-bias_sw_mean.csv")
+head(bias)
+```
+
+### Norms (imageability, valence and arousal ratings)
+
+```{r}
+# verb norming Swedish: imageability, valence and arousal ratings
+# (this processed file is created in "norming_imageability-etc_preprocess.R")
+norms <- read_csv("data_verb-norming_swe_ratings.csv")
+head(norms)
+```
+
+
+Among the verbs in `norms` we have arm verbs, leg verbs and control verbs.
+Let's add that info:
+
+```{r}
+# arm/leg words
+norms <- left_join(norms, bias %>% select(Word = verb, Category = category))
+# the rest are control words
+norms[is.na(norms$Category), "Category"] <- "control"
+norms$Category <- factor(norms$Category, levels = c("arm", "leg", "control"))
+head(norms)
+```
+
+We only want mean ratings:
+
+```{r}
+norms_mean <- norms %>%
+  filter(Category != "control") %>%
+  group_by(Word, Category, Task) %>%
+  summarise(Rating = mean(Rating))
+```
+
+
+### Combine norms with bias ratings into single `stim` file
+
+It's easiest to have a wide data set where each column is one property of
+the stimuli:
+
+```{r}
+norms_mean <- spread(norms_mean, Task, Rating)
+head(norms_mean, 4)
+```
+
+
+
+```{r}
+stim <- left_join(norms_mean, bias %>% select(Word = verb, Arm : bias_absol))
+head(stim, 4)
+```
+
+
+
+### Frequency and other lexical measures obtained from a corpus
+
+These measures were obtained from Jeroen vP's big Sub2vec Swedish corpus:
+
+
+#### Word frequency
+
+The frequency of the actual word form (infinitives):
+
+```{r}
+freq_word <- read_tsv(
+  "frequency_measures/filtered_word_unigram_freqs_sv.tsv", col_names = FALSE
+  ) %>%
+  rename(Word = X1, word_freq = X2) %>%
+  mutate(word_logfreq = log10(word_freq))
+head(freq_word)
+```
+
+
+Add to `stim`
+
+```{r}
+stim <- left_join(stim, freq_word %>% select(-word_freq))
+head(stim, 4) %>% kable
+```
+
+
+
+#### Lemma frequency
+
+The frequency of the lemma word forms can be computed in different ways
+(see Brysbaert and New, 2009, p.982-984). I define it here as the (logged) sum
+of the frequencies of all forms of the word of the same part-of-speech (POS).
+This means that for the verb *play* I would add the frequencies of play (used as
+a verb), plays (used as a verb), played, playing; but not of play/plays used as
+nouns (singular and plural).
+Of course I will rely on the automatic POS tagging for this, which in itself
+might contain some errors.
+
+```{r}
+freq_lemma <- read_tsv(
+  "frequency_measures/filtered_lemma_unigram_freqs_sv.tsv", col_names = FALSE
+  ) %>%
+  rename(lemma = X1, lemma_freq = X2)
+head(freq_lemma)
+```
+
+
+Parts-of-speech (POS) tagging
+
+```{r}
+# We will trust the parts-of-speech (POS) tagged lemmatization, even if some of
+# the POS assignments are probably off. We hope that they are in the right 
+# ballpark.
+# Divide "lemma" column into the actual lemma and the POS tag (using regular
+# expressions (regex), see https://www.regular-expressions.info/rlanguage.html)
+freq_lemma$lemma_true <- sub("(.*)_([a-z]*)$", "\\1", freq_lemma$lemma)
+freq_lemma$POS <- sub("(.*)_([a-z]*)$", "\\2", freq_lemma$lemma)
+head(freq_lemma)
+# This is mostly what we want, but it also results in some inaccuracies because
+# not all lemmas actually have a tag.
+# To illustrate, consider some of the unique values in the POS column:
+unique(freq_lemma$POS)[1:12]
+# Some of them are clearly not POS tags, but the verbs themselves!
+# But it's a pain to sort this out, so let's just ignore those exceptional cases
+# and focus on lemmas tagged as verbs. Hopefully this will only remove some
+# evenly distributed noise.
+freq_verblemmas <- freq_lemma %>% filter(POS == "verb")
+```
+
+
+Add that info to our growing `stim` data frame:
+
+```{r}
+stim <- stim %>%
+  left_join(freq_verblemmas %>%
+              mutate(lemma_logfreq = log10(lemma_freq)) %>%
+              select(Word = lemma_true, lemma_logfreq))
+head(stim, 4) %>% kable
+```
+
+
+
+#### Grammatical ambiguity (of the lemma)
+
+We define grammatical ambiguity as 1 minus the proportion of verb occurrences
+of a lemma divided by all occurrences of the same lemma (tagged as any POS).
+Thus we obtain a score between 0 and 1:
+
+- A score close to zero tells us that there is little ambiguity, i.e. the word
+almost always appears as a verb
+- A score close to 1 would tell us that there is maximal ambiguity, i.e. the
+word hardly ever occurs as a verb.
+- Note that this number only tells us about relative occurrence (proportion of
+occurrences) so it doesn't take into account if a word is frequent or not.
+
+Note that this is not giving us the grammatical ambiguity of the wordfrom itself
+(e.g., "play") but of its lemma. This is a limitation imposed by the nature of
+the corpus being used (see correspondence with Jeroen van Paridon, especially
+emails from or around Mon 05-06, 3:00 PM, Subject: "automatically collecting
+psycholinguistic features of Swedish words from corpora?")
+
+
+```{r}
+# Select only verb occurrences
+gramm_ambig <- freq_lemma %>%
+  filter(POS == "verb") %>% select(lemma_true, lemma_freq) %>%
+  # join with the overall frequency
+  left_join(freq_lemma %>%
+              group_by(lemma_true) %>%
+              summarise(overall_freq = sum(lemma_freq))
+            ) %>%
+  mutate(POS_ambig = 1 - lemma_freq / overall_freq)
+head(gramm_ambig)
+```
+
+Add info to our growing `stim` data frame:
+
+```{r}
+stim <- stim %>%
+  left_join(gramm_ambig %>%
+              select(Word = lemma_true, POS_ambig))
+head(stim, 4) %>% kable
+```
+
+
+
+Explore norms
+=============
+
+
+Distribution of ratings -- trial-level
+------------------
+
+```{r}
+ggplot(norms, aes(x = Rating)) + 
+  geom_histogram() +
+  facet_wrap(~ Task)
+```
+
+
+
+```{r}
+ggplot(norms, aes(x = Category, y = Rating, colour = Category)) + 
+  geom_boxplot() +
+  facet_wrap(~ Task)
+```
+
+Let us look specifically at arm vs leg words:
+
+```{r}
+ggplot(norms %>% filter(Category != "control"),
+       aes(x = Category, y = Rating, colour = Category)) + 
+  geom_boxplot() +
+  facet_wrap(~ Task)
+```
+
+
+- Arm words received slightly higher arousal and imageability ratings than
+leg words.
+- Valence was pretty much identical between the two sets.
+
+
+Sanity checks
+------------
+
+Are any verbs in the norms not in the bias list?
+
+```{r}
+! norms %>% filter(Category != "control") %>%  # exclude control verbs
+  pull(Word) %>%
+  unique %in% 
+  bias$verb %>%
+  sum
+```
+
+Are any verbs in the bias list not in the norms?
+
+```{r}
+sum(! bias$verb %in% norms$Word)
+```
+
+Yes, these are the verbs we had excluded previously:
+
+```{r}
+bias[! bias$verb %in% norms$Word, ]
+```
+
