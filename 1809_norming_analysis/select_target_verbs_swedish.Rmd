@@ -38,10 +38,10 @@ following variables:
 - Number of letters
 - Number of phonemes
 - Word frequency 
+- Grammatical ambiguity 
 - Lemma frequency 
 - Bigram frequency 
 - Trigram frequency 
-- Grammatical ambiguity 
 - Valence 
 - Arousal
 - Imageability 
@@ -74,6 +74,8 @@ knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 
 Data import and processing
 ---------------------
+
+We want to sequentially integrate all relevant variables into the same dataframe.
 
 ### Arm/leg bias
 
@@ -111,7 +113,7 @@ We only want mean ratings:
 
 ```{r}
 norms_mean <- norms %>%
-  filter(Category != "control") %>%
+  filter(Category != "control") %>% 
   group_by(Word, Category, Task) %>%
   summarise(Rating = mean(Rating))
 ```
@@ -136,12 +138,10 @@ head(stim, 4)
 
 
 
-### Frequency and other lexical measures obtained from a corpus
+### Word frequency
 
-These measures were obtained from Jeroen vP's big Sub2vec Swedish corpus:
-
-
-#### Word frequency
+The different frequency measures were obtained from Jeroen vP's big Sub2vec 
+Swedish corpus with his help:
 
 The frequency of the actual word form (infinitives):
 
@@ -164,7 +164,7 @@ head(stim, 4) %>% kable
 
 
 
-#### Lemma frequency
+### Lemma frequency
 
 The frequency of the lemma word forms can be computed in different ways
 (see Brysbaert and New, 2009, p.982-984). I define it here as the (logged) sum
@@ -219,7 +219,7 @@ head(stim, 4) %>% kable
 
 
 
-#### Grammatical ambiguity (of the lemma)
+### Grammatical ambiguity (of the lemma)
 
 We define grammatical ambiguity as 1 minus the proportion of verb occurrences
 of a lemma divided by all occurrences of the same lemma (tagged as any POS).
@@ -263,64 +263,143 @@ head(stim, 4) %>% kable
 
 
 
-Explore norms
-=============
+### Bi- and trigram frequency ($log_{10}$ frequency)
 
-
-Distribution of ratings -- trial-level
-------------------
+These two measures per word are computed from raw bigram frequencies in the
+corpus. The script that does the computation is 
+`1809_norming_analysis/bi-trigram_freqs.R`.
 
 ```{r}
-ggplot(norms, aes(x = Rating)) + 
-  geom_histogram() +
-  facet_wrap(~ Task)
+# Bigram frequency
+bigrams <- read_csv("frequency_measures/word_bigram_freqs_sv.csv")
+head(bigrams)
+# Trigram frequency
+trigrams <- read_csv("frequency_measures/word_trigram_freqs_sv.csv")
+head(trigrams)
+```
+
+
+Add that info to our growing `stim` data frame:
+
+```{r}
+stim <- stim %>%
+  left_join(bigrams) %>%
+  left_join(trigrams)
+head(stim, 4) %>% kable
+```
+
+
+### Number of letters
+
+Add number of letters:
+
+```{r}
+stim$nletters <- nchar(stim$Word)
 ```
 
 
 
+### Number of phonemes
+
+
+
+### Variable names to lower case
+
+Only for consistency and stylstic purism:
+
 ```{r}
-ggplot(norms, aes(x = Category, y = Rating, colour = Category)) + 
+stim <- stim %>% rename(word = Word, category = Category, arm = Arm, leg = Leg,
+                        pos_ambig = POS_ambig)
+```
+
+
+
+Verb selection
+==============
+
+Our constraints are as follows. We want:
+
+- An equal amount of arm and leg verbs
+(there are `r sum(stim$category == "arm")` arm verbs and 
+`r sum(stim$category == "leg")` leg verbs among the 120 verbs in the list)
+- The number of verbs per category has to be a multiple of 4 (preferably)
+- The arm and leg bias in each category should be maximized
+- The verbs should be matched across categories for all the other variables
+
+
+A quick look at arm/leg bias
+----------------------------
+
+How well does our general arm/leg bias measure (arm-relatedness minus 
+leg-relatedness rating) capture the individual arm and leg ratings?
+
+```{r}
+ggplot(stim, aes(x = arm, y = leg, colour = category)) +
+  geom_point(alpha = .5) +
+  geom_hline(yintercept = 4, linetype = "dashed") +
+  geom_vline(xintercept = 4, linetype = "dashed") +
+  xlab("arm-relatedness") +
+  ylab("leg-relatedness")
+```
+
+The verbs cluster well within each category and there are no cases where they
+receive a high rating from the opposite category.
+
+Then let's simplify the dataframe and leave only the absolute bias measure:
+
+```{r}
+stim <- stim %>% 
+  select(- c("arm", "leg", "bias")) %>%
+  rename(arm_leg_bias = bias_absol)
+```
+
+
+Going about selecting verbs
+--------------------------
+
+We will use a bit of a trial-and-error strategy. For that it's useful to create
+a function that plots the category comparison (arm vs legs) for each of the
+variables and carries out t-tests for each comparison.
+
+From wide to long format:
+
+```{r}
+# From current wide format
+kable(head(stim))
+# to long format
+stiml <- gather(stim, var, value, arousal : nletters)
+kable(head(stiml))
+kable(tail(stiml))
+```
+
+
+```{r}
+# Choose a meaninful order for the features (rather than alphabetical)
+unique(stiml$var)
+stiml$var <- factor(
+  stiml$var, 
+  levels = c("arm_leg_bias", "arousal", "imageability", "valence", "nletters",
+             "word_logfreq", "lemma_logfreq", "bigram_logfreq", "trigram_logfreq",
+             "pos_ambig"))
+```
+
+
+
+
+Plotting all variables
+---------------------
+
+```{r, fig.width=12, fig.height=10}
+ggplot(stiml, aes(x = category, y = value, colour = category)) +
   geom_boxplot() +
-  facet_wrap(~ Task)
+  facet_wrap(~ var, scales = "free_y")
 ```
 
-Let us look specifically at arm vs leg words:
+Convenience function for plotting
 
 ```{r}
-ggplot(norms %>% filter(Category != "control"),
-       aes(x = Category, y = Rating, colour = Category)) + 
-  geom_boxplot() +
-  facet_wrap(~ Task)
-```
-
-
-- Arm words received slightly higher arousal and imageability ratings than
-leg words.
-- Valence was pretty much identical between the two sets.
-
-
-Sanity checks
-------------
-
-Are any verbs in the norms not in the bias list?
-
-```{r}
-! norms %>% filter(Category != "control") %>%  # exclude control verbs
-  pull(Word) %>%
-  unique %in% 
-  bias$verb %>%
-  sum
-```
-
-Are any verbs in the bias list not in the norms?
-
-```{r}
-sum(! bias$verb %in% norms$Word)
-```
-
-Yes, these are the verbs we had excluded previously:
-
-```{r}
-bias[! bias$verb %in% norms$Word, ]
+compar_plot <- function(df) {
+  
+}
 ```
 
