@@ -64,10 +64,12 @@ Libraries
 ```{r setup, include=TRUE}
 library(knitr)
 library(ggplot2)
+library(ggrepel)
 # library(GGally)
 library(dplyr)
 library(tidyr)
 library(readr)  # Improves the base functions for reading data files.
+library(purrr)
 # library(lme4)
 knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5)
 ```
@@ -116,6 +118,7 @@ norms_mean <- norms %>%
   filter(Category != "control") %>% 
   group_by(Word, Category, Task) %>%
   summarise(Rating = mean(Rating))
+norms_mean$Category <- factor(norms_mean$Category)
 ```
 
 
@@ -322,7 +325,7 @@ Our constraints are as follows. We want:
 - An equal amount of arm and leg verbs
 (there are `r sum(stim$category == "arm")` arm verbs and 
 `r sum(stim$category == "leg")` leg verbs among the 120 verbs in the list)
-- The number of verbs per category has to be a multiple of 4 (preferably)
+- The number of verbs per category has to be a multiple of 4
 - The arm and leg bias in each category should be maximized
 - The verbs should be matched across categories for all the other variables
 
@@ -345,14 +348,6 @@ ggplot(stim, aes(x = arm, y = leg, colour = category)) +
 The verbs cluster well within each category and there are no cases where they
 receive a high rating from the opposite category.
 
-Then let's simplify the dataframe and leave only the absolute bias measure:
-
-```{r}
-stim <- stim %>% 
-  select(- c("arm", "leg", "bias")) %>%
-  rename(arm_leg_bias = bias_absol)
-```
-
 
 Going about selecting verbs
 --------------------------
@@ -361,20 +356,23 @@ We will use a bit of a trial-and-error strategy. For that it's useful to create
 a function that plots the category comparison (arm vs legs) for each of the
 variables and carries out t-tests for each comparison.
 
-From wide to long format:
+First, we want to go from wide to long format:
 
 ```{r}
 # From current wide format
 kable(head(stim))
-# to long format
-stiml <- gather(stim, var, value, arousal : nletters)
+# to long format (we also simplify somewhat, removing redundant columns)
+stiml <- gather(stim %>%
+                  select(- c("arm", "leg", "bias")) %>%
+                  rename(arm_leg_bias = bias_absol),
+                var, value, arousal : nletters)
 kable(head(stiml))
 kable(tail(stiml))
 ```
 
 
 ```{r}
-# Choose a meaninful order for the features (rather than alphabetical)
+# Choose a meaningful order for plotting the features (rather than alphabetical)
 unique(stiml$var)
 stiml$var <- factor(
   stiml$var, 
@@ -389,17 +387,192 @@ stiml$var <- factor(
 Plotting all variables
 ---------------------
 
-```{r, fig.width=12, fig.height=10}
-ggplot(stiml, aes(x = category, y = value, colour = category)) +
-  geom_boxplot() +
-  facet_wrap(~ var, scales = "free_y")
-```
-
-Convenience function for plotting
+Convenience functions for plotting and pairwise t-tests:
 
 ```{r}
-compar_plot <- function(df) {
-  
+# Modify the data set to plot 2 max and 2 min values per category and variable.
+# The input is going to be stiml but without certain rows, so we know its
+# column names (i.e., this is not a generic function).
+data4plot <- function(df) {
+  df$labels <- df$word
+  df %>%
+    ungroup() %>%
+    split(list(.$var, .$category)) %>%
+    map(function(d) mutate(d, myrank = rank(value, ties.method = "first"))) %>%
+    map(function(d) {
+      d$labels[! d$myrank %in% c(1, 2, max(d$myrank), max(d$myrank) - 1)] <- NA
+      d
+      }) %>%
+    bind_rows()
 }
+
+# comparison plot
+compar_plot <- function(df) {
+  p <- ggplot(df, aes(x = category, y = value, colour = category, label = labels)) +
+    geom_boxplot() +
+    geom_text_repel() +
+    facet_wrap(~ var, scales = "free_y") +
+    theme_bw()
+  print(p)
+}
+
+# t-test for each variable. I use the nesting approach from purrr, see
+# https://www.rstudio.com/resources/cheatsheets/#purrr
+compar_ttest <- function(df) {
+  df %>%
+    ungroup() %>%
+    group_by(var) %>%
+    nest() %>%
+    mutate(ttest = map(data, function(df) t.test(value ~ category, data = df)),
+           estim_arm = map_dbl(ttest, function(x) x$estimate[1]),
+           estim_leg = map_dbl(ttest, function(x) x$estimate[2]),
+           t  = map_dbl(ttest, "statistic"),
+           df = map_dbl(ttest, "parameter"),
+           p  = map_dbl(ttest, "p.value")) %>%
+    select(-data, -ttest)
+}
+
+# wrapper function
+compar_wrap <- function (df) {
+  df %>% data4plot %>% compar_plot
+  compar_ttest(df)
+}
+```
+
+
+Comparison of the full list:
+
+```{r, fig.height=7, fig.width=10}
+compar_wrap(stiml)
+```
+
+
+
+Trial and error
+--------------
+
+We need to reduce the number of arm and leg verbs to 52 in each category
+(from `r sum(stim$category == "arm")` and `r sum(stim$category == "leg")`, 
+respectively).
+
+```{r}
+# Create two dataframes with our current stimuli selection - from them we are
+# going to remove some verbs and plot the results + run t-tests iteratively:
+sel_l <- stiml  # long format needed for plotting
+sel_w <- stim   # wide format needed for looking up extreme values more easily
+```
+
+
+A handy function is one that gives you the `n` verbs in a category (`categ` =
+"arm"/"leg") that have the lowest/highest (`tail` = "min"/"max") value on some
+variable (`var`):
+
+```{r}
+extreme_val <- function(categ, var, tail, n = 2, df = sel_w) {
+  df <- df %>% filter(category == categ)
+  ordered <- df$word[order(df[[var]])]
+  l <- list(min = ordered[1 : n],
+            max = ordered[(length(ordered) - n + 1) : length(ordered)])
+  l[[tail]]
+}
+# E.g.:
+extreme_val("arm", "valence", "min")
+extreme_val("leg", "valence", "max")
+```
+
+
+```{r}
+# Function to remove words from both sel_l and sel_w
+remove_word <- function (categ, var, tail, n = 2, df = sel_w) {
+  words2remove <- extreme_val(categ, var, tail, n, df)
+  cat(paste("Removing the", n, tail, categ, "words for", var, ":\n"))
+  cat(words2remove)
+  # The <<- assignment modifies objects in the workspace (bypassing usual scope)
+  sel_l <<- sel_l %>% filter(! word %in% words2remove)
+  sel_w <<- sel_w %>% filter(! word %in% words2remove)
+}
+```
+
+
+
+We start by removing low frequency words (specifically low *lemma* frequency):
+
+```{r}
+stim[order(stim$lemma_logfreq), ][1:8, ] %>% kable
+```
+
+
+```{r}
+remove_word("arm", "lemma_logfreq", "min", 5)
+remove_word("leg", "lemma_logfreq", "min", 1)
+```
+
+
+```{r, fig.height=7, fig.width=10}
+compar_wrap(sel_l)
+```
+
+
+To fix imageability, remove least imageable leg word and some highly imageable
+arm words:
+  
+```{r}
+remove_word("arm", "imageability", "max", 3)
+remove_word("leg", "imageability", "min", 1)
+```
+
+```{r, fig.height=7, fig.width=10}
+compar_wrap(sel_l)
+```
+
+
+This is our current count of verbs:
+  
+```{r}
+with(unique(sel_l[, c("word", "category")]), table(category))
+```
+
+
+Fix word frequency:
+  
+```{r}
+remove_word("arm", "word_logfreq", "max", 1)
+```
+
+```{r, fig.height=7, fig.width=10}
+compar_wrap(sel_l)
+```
+
+
+This is our current count of verbs:
+  
+```{r}
+with(unique(sel_l[, c("word", "category")]), table(category))
+```
+
+
+
+We need to remove 4 arm verbs and 1 leg verb and main difference continues to be
+imageability:
+  
+  
+```{r}
+remove_word("arm", "imageability", "max", 4)
+remove_word("leg", "imageability", "min", 1)
+```
+
+```{r, fig.height=7, fig.width=10}
+compar_wrap(sel_l)
+```
+
+
+
+Final list
+==========
+
+Here is the final list of verbs:
+
+```{r}
+sel_w %>% arrange(category, word) %>% kable
 ```
 
