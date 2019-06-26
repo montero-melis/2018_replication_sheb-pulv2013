@@ -304,6 +304,61 @@ stim$nletters <- nchar(stim$Word)
 
 ### Number of phonemes
 
+Margareta M counted the phonemes. Here are some of her explanatory comments:
+
+
+>
+- I have made a /phonemic/, not a [phonetic] transcription, since we've decided
+that we won’t be concentrating on the quality of vowels and consonants stemming
+from their length (although I did mark the length with a colon). But even if we
+used a phonetic transcription, it would hardly change the number of phonemes in
+each word.
+- I have therefore only concentrated on phonemes and not on different allophones,
+and I didn’t pay any attention to the vowel- and consonant length. The quality
+of vowels and consonants that I have taken into consideration is only of the
+kind that is meaning differentiating.
+- Thus, the phoneme /s/ corresponds to such allophones as [s] and  [ş] and to 
+such orthographic symbols as \<s\>, \<c\> and \<rs\> (eg. stol, cykel, barstol).
+I have counted them as one phoneme, /s/ (stol = 4 phonemes, cykel = 5 phonemes, 
+barstool = 6 phonemes). That means that I have counted all the supradental sounds
+as one phoneme (since /r/ disappears as it “melts in” with other consonants). 
+>
+> I hope I have understood the mail correspondence correctly!
+>
+In order to transform the (kind of) phonetic transcription offered by Lexin,
+I have used 
+[Tomas Riad’s document]([https://www.su.se/polopoly_fs/1.29950.1320939955!/ArtikulatoriskFonetik.pdf) (page 5-6). By means of that, the transcription is more consequent and
+simplified, without claiming phonetic correctness.
+
+
+
+```{r}
+# Phoneme count
+phonemes <- read_csv("swe-verbs_phoneme-count.csv")
+head(phonemes) %>% kable
+```
+
+
+Add that info to our growing `stim` data frame:
+
+```{r}
+stim <- stim %>%
+  left_join(phonemes %>% select(Word = verb, nphon = nb_phonemes))
+head(stim, 4) %>% kable
+```
+
+
+### Number of letters
+
+Add number of letters:
+
+```{r}
+stim$nletters <- nchar(stim$Word)
+```
+
+
+
+
 
 
 ### Variable names to lower case
@@ -365,7 +420,7 @@ kable(head(stim))
 stiml <- gather(stim %>%
                   select(- c("arm", "leg", "bias")) %>%
                   rename(arm_leg_bias = bias_absol),
-                var, value, arousal : nletters)
+                var, value, arousal : nphon)
 kable(head(stiml))
 kable(tail(stiml))
 ```
@@ -377,8 +432,8 @@ unique(stiml$var)
 stiml$var <- factor(
   stiml$var, 
   levels = c("arm_leg_bias", "arousal", "imageability", "valence", "nletters",
-             "word_logfreq", "lemma_logfreq", "bigram_logfreq", "trigram_logfreq",
-             "pos_ambig"))
+             "nphon", "word_logfreq", "lemma_logfreq", "bigram_logfreq", 
+             "trigram_logfreq", "pos_ambig"))
 ```
 
 
@@ -423,7 +478,8 @@ compar_ttest <- function(df) {
     ungroup() %>%
     group_by(var) %>%
     nest() %>%
-    mutate(ttest = map(data, function(df) t.test(value ~ category, data = df)),
+    mutate(ttest = map(data, function(df) t.test(value ~ category, data = df,
+                                                 var.equal = TRUE)),
            estim_arm = map_dbl(ttest, function(x) x$estimate[1]),
            estim_leg = map_dbl(ttest, function(x) x$estimate[2]),
            t  = map_dbl(ttest, "statistic"),
@@ -567,12 +623,37 @@ compar_wrap(sel_l)
 
 
 
+  
+```{r}
+with(unique(sel_l[, c("word", "category")]), table(category))
+```
+
+
 Final list
 ==========
 
 Here is the final list of verbs:
 
 ```{r}
-sel_w %>% arrange(category, word) %>% kable
+sel_w <- sel_w %>% arrange(category, word)
+sel_w %>% kable
+```
+
+```{r}
+# save to disk:
+# verbs
+sel_w %>% write_csv("sw_verb_selection_1906.csv")
+# t-test comparison of arm/leg verbs along each variable
+compar_ttest(sel_l) %>% write_csv("sw_verb_selection_t-test_1906.csv")
+```
+
+
+```{r}
+# Mean and SE for each category and variable (as in SP13 Table 1)
+sel_l %>% ungroup() %>% group_by(var, category) %>%
+  summarise(M  = mean(value, na.rm = TRUE),
+            SD = sd(value, na.rm = TRUE),
+            SE = SD / sqrt(n())) %>%
+  write_csv("sw_verb_selection_means_SE_1906.csv")
 ```
 
