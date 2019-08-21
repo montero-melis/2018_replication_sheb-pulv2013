@@ -16,16 +16,15 @@ Introduction
 ============
 
 This script selects the Swedish verbs that will be used in the replication of
-Shebani and Pulvermüller (2014, Cortex, henceforth SP14).
+Shebani and Pulvermüller (2013, Cortex, henceforth SP13).
 Because we had to control for the same variables as in the original study,
 we needed to collect quite a lot of norms for the Swedish verbs.
 
-NB:
+**NB**:
 There is a previous report in this gitrepo 
 ("1809_norming_analysis/norming_analysis.Rmd") that does many of the pre-selection
-on which this report builds. But it was getting so long (among others because it
-contained norms for Swedish and English verbs) that I prefered to start a new
-report/script that focuses precisely on the selection of Swedish target verbs.
+on which the current report builds (see for details). The present report/script
+focuses on the final selection of Swedish target verbs.
 
 
 Goal
@@ -46,7 +45,7 @@ following variables:
 - Arousal
 - Imageability 
 
-Note that SP14 mention three additional variables in Table 1, p.225:
+Note that SP13 mention three additional variables in Table 1, p.225:
 Visual relatedness, body relatedness, and action relatedness. We checked with
 the correspondin author, Friedemann Pulvermüller, and it turns out these
 measures were actually redundant, so he acknowledged we did not need to collect
