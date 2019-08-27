@@ -31,7 +31,7 @@ analysis/audiorecordings/*
 
 
 # Stimuli list in Swedish experiment -- REMOVE LATER
-1908_sp13_replic_swe/psychopy_exp/stimuli/*
+# 1908_sp13_replic_swe/psychopy_exp/stimuli/random_lists/
 
 # Use participant ID's in range 990-999 for testing -- these will not be tracked by git
 exp-scripts_psychopy/data/99[0-9]*
