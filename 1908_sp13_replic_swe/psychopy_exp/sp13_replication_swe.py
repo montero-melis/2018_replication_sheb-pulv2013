@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on August 27, 2019, at 13:20
+    on August 27, 2019, at 18:41
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -223,9 +223,9 @@ sound_2.setVolume(1)
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
@@ -233,9 +233,9 @@ text_5 = visual.TextStim(win=win, name='text_5',
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text=u"Nu vet du vad uppgiften går ut på.\n\nSjälva experimentet består av två delar. I varje del kommer du att behöva memorera sekvenser av fyra ord (precis som du nyss har gjort), men under tiden du håller orden i minnet ska du också göra rytmiska rörelser med antingen händerna eller fötterna.\n\nExperimentledaren kommer att ge dig mer detaljerade instruktioner och du kommer att ha gott om tid för att öva in dessa rörelser." + cont,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp3"
@@ -253,45 +253,45 @@ block_instrClock = core.Clock()
 
 block_intro = visual.TextStim(win=win, name='block_intro',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 text_19 = visual.TextStim(win=win, name='text_19',
-    text='Instructions 1 of 3',
-    font='Arial',
+    text=u'Instruktion 1 av 3',
+    font=u'Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 
 # Initialize components for Routine "block_instr3"
 block_instr3Clock = core.Clock()
 text_11 = visual.TextStim(win=win, name='text_11',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_20 = visual.TextStim(win=win, name='text_20',
-    text='Instructions 2 of 3',
-    font='Arial',
+    text=u'Instruktion 2 av 3',
+    font=u'Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 
 # Initialize components for Routine "train"
 trainClock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_21 = visual.TextStim(win=win, name='text_21',
-    text='Instructions 3 of 3',
-    font='Arial',
+    text=u'Instruktion 3 av 3',
+    font=u'Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-2.0);
 
 # Initialize components for Routine "fixation"
@@ -346,19 +346,19 @@ sound_2.setVolume(1)
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
 # Initialize components for Routine "instr_start_real_thing"
 instr_start_real_thingClock = core.Clock()
 text_3 = visual.TextStim(win=win, name='text_3',
-    text='Ready?\n\nPress space bar to start',
-    font='Arial',
+    text=u'Redo?\n\nTryck p\xe5 mellanslag f\xf6r att starta',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "fixation"
@@ -413,18 +413,18 @@ sound_2.setVolume(1)
 end_blockClock = core.Clock()
 text_6 = visual.TextStim(win=win, name='text_6',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='The experiment is over.\n\nThank you for participating!',
-    font='Arial',
+    text=u'Experimentet \xe4r avslutat.\n\nTack f\xf6r din medverkan!',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Create some handy timers
@@ -1305,7 +1305,7 @@ for thisBlock in block:
     
     curr_list_targets = path2stimuli + curr_ppt_block + '_memory_targets.csv'
     print(curr_list_targets)
-    block_intro.setText("Part " + `myBlockCount` + "\n\nYou will see four words flashed one after another and you have to memorize them in the order they were presented.\n\nThis time, immediately after the fourth word, you will have to " + BlockInstructions + " until you hear a beep. At the beep, you have to repeat the four words." + cont)
+    block_intro.setText("Del " + `myBlockCount` + u"\n\nDu kommer att få se fyra ord som snabbt visas ett i taget på skärmen. Din uppgift är att komma ihåg dem i exakt samma ordning som de har visats.\n\nDen här gången, omedelbart efter det fjärde ordet, kommer du att få göra en rytmisk övning med dina " + Effector + u" tills du hör pipet. Direkt efter pipet ska du säga alla de fyra orden högt." + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instrComponents = [block_intro, key_resp_4, text_19]
@@ -1384,7 +1384,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_11.setText("The experimenter will now explain to you the rhythmic pattern you have to perform with your " + Effector + ". You will get plenty of practice before starting with the actual task.")
+    text_11.setText(u"Experimentledaren kommer nu att visa dig den rytmiska övningen som du ska göra med dina " + Effector + u". Du kommer att få gott om tid för att öva på den innan du börjar med uppgiften.")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr3Components = [text_11, key_resp_15, text_20]
@@ -1470,7 +1470,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_4.setText("Now you will first do some practice trials before starting the real task." + cont)
+    text_4.setText(u"Du ska nu få öva en stund innan du börjar med uppgiften." + cont)
     key_resp_6 = event.BuilderKeyResponse()
     # keep track of which components have finished
     trainComponents = [text_4, key_resp_6, text_21]
@@ -2240,7 +2240,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_6.setText("End of part " + `myBlockCount` + cont)
+    text_6.setText(u"Slut på del " + `myBlockCount` + cont)
     key_resp_9 = event.BuilderKeyResponse()
     # keep track of which components have finished
     end_blockComponents = [text_6, key_resp_9]
