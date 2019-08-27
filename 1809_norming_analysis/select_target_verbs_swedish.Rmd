@@ -642,6 +642,7 @@ sel_w %>% kable
 # save to disk:
 # verbs
 sel_w %>% write_csv("sw_verb_selection_1906.csv")
+sel_w %>% write_csv("../1908_sp13_replic_swe/psychopy_exp/stimuli/sw_verb_selection_1906.csv")
 # t-test comparison of arm/leg verbs along each variable
 compar_ttest(sel_l) %>% write_csv("sw_verb_selection_t-test_1906.csv")
 ```
