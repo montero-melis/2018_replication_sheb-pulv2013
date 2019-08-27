@@ -250,7 +250,7 @@
         <Param name="name" updates="None" val="text_12" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Let's do some practice trials right away so you can get acquainted with the basic task.&amp;#10;&amp;#10;If you do not have any questions so far, press space bar to start practicing" valType="str"/>
+        <Param name="text" updates="constant" val="Du kommer nu att få några exempeluppgifter för att öva.&amp;#10;&amp;#10;Om du inte har några frågor, tryck på mellanslag för att påbörja övningen." valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -286,7 +286,7 @@
         <Param name="name" updates="None" val="text_16" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Instructions 3 of 3" valType="str"/>
+        <Param name="text" updates="constant" val="Instruktion 3 av 3" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
@@ -332,7 +332,7 @@
         <Param name="name" updates="None" val="text_8" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to silently keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words. To start the next trial, simply press space bar.&quot; + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Det funkar så här:\n\nDu kommer att få se fyra ord som visas ett i taget på skärmen. Efter orden följer en paus. Du ska då försöka hålla dessa fyra ord i minnet i samma ordning som de har visats, utan att säga orden. Du kommer sedan att höra ett pip. Direkt efter pipet ska du repetera alla dessa fyra ord högt. Din röst kommer att spelas in när du säger orden. För att gå vidare till nästa omgång, tryck på mellanslag.&quot; + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -368,7 +368,7 @@
         <Param name="name" updates="None" val="text_15" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Instructions 2 of 3" valType="str"/>
+        <Param name="text" updates="constant" val="Instruktion 2 av 3" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
@@ -390,7 +390,7 @@
         <Param name="name" updates="None" val="text_9" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;Okay, now you are acquainted with the basic memory task.\n\nThe actual experiment has two parts. In each part, you will be asked to memorize groups of four words (as you just did), but you will also carry out different rhythmic exercises with your hands or feet while having to keep the words in memory. The experimenter is going to provide detailed instructions and you will have plenty of time to practice.&quot; + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Nu vet du vad uppgiften går ut på.\n\nSjälva experimentet består av två delar. I varje del kommer du att behöva memorera sekvenser av fyra ord (precis som du nyss har gjort), men under tiden du håller orden i minnet ska du också göra rytmiska rörelser med antingen händerna eller fötterna.\n\nExperimentledaren kommer att ge dig mer detaljerade instruktioner och du kommer att ha gott om tid för att öva in dessa rörelser.&quot; + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -428,7 +428,7 @@
         <Param name="name" updates="None" val="text_10" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;You will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now.&quot; + $cont&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du kommer att kunna ta paus i slutet av varje del. Du kan också ta paus mellan de olika omgångarna om du behöver det.\n\nOm du har några frågor så kan du ställa dem till experimentledaren nu.&quot; + $cont&amp;#10;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -629,7 +629,7 @@
         <Param name="name" updates="None" val="text_7" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="&quot;Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order.&quot; + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Välkommen till det här experimentet!\n\nI den här uppgiften kommer du att få se fyra ord i en följd och du ska försöka komma ihåg dem. Kort därefter ska du repetera orden i exakt samma ordning.&quot; + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -665,7 +665,7 @@
         <Param name="name" updates="None" val="text_13" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Instructions 1 of 3" valType="str"/>
+        <Param name="text" updates="constant" val="Instruktion 1 av 3" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
@@ -697,7 +697,7 @@
         <Param name="name" updates="None" val="text_5" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'." valType="str"/>
+        <Param name="text" updates="constant" val="Om du behöver öva mer, tryck 'm'. Om du känner dig redo att börja med det riktiga experimentet, tryck 'b'." valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -721,7 +721,7 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'p','s'" valType="code"/>
+        <Param name="allowedKeys" updates="constant" val="'b','m'" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="store" updates="constant" val="last key" valType="str"/>
@@ -731,14 +731,14 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="name" updates="None" val="code_3" valType="code"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="if key_resp_8.keys == &quot;s&quot;: break  # allow to repeat training until ready (max 20, see loop)" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if key_resp_8.keys == &quot;b&quot;: break  # allow to repeat training until ready (max 20, see loop)" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
       </CodeComponent>
     </Routine>
     <Routine name="blank_initialize">
       <CodeComponent name="code_5">
-        <Param name="Begin Experiment" updates="constant" val="## Set global (experiment-level) variables&amp;#10;&amp;#10;pptID = int(expInfo['participant'])  # participant ID&amp;#10;# print(&quot;participant ID is &quot; + `pptID`)&amp;#10;&amp;#10;sess = int(expInfo['session'])  # session converted to int&amp;#10;print(&quot;Session is &quot; + `sess`)&amp;#10;&amp;#10;valid_sessions = [1,2,9]&amp;#10;if sess not in valid_sessions:&amp;#10;    sys.exit(&quot;ERROR: session number needs to be either 1 or 2 (or 9 for speeded version)&quot;)&amp;#10;&amp;#10;&amp;#10;# sess determines whether block order is hand-feet/feet-hand&amp;#10;cond_block = 'block_conditions_' + `sess` + '.csv'&amp;#10;print(cond_block)&amp;#10;&amp;#10;# count blocks to use in text displays and to load stimulus files&amp;#10;myBlockCount = 0 &amp;#10;&amp;#10;&amp;#10;path2stimuli = u'stimuli\\random_lists\\'&amp;#10;print(path2stimuli)&amp;#10;&amp;#10;## Duration-related variables (set here rather than in individ elements)&amp;#10;&amp;#10;# If session = 9, then speed through the screens&amp;#10;if sess == 9: &amp;#10;    fix_point_duration = .05  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .15  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = .05 # time during which words have to be kept in memory (orig = 6)&amp;#10;else:  # otherwise use the standard duration&amp;#10;    fix_point_duration = 3  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .5  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = 6 # time during which words have to be kept in memory (orig = 6)&amp;#10;&amp;#10;max_response_time = 120  # max time to repeat words before moving to next trial&amp;#10;min_response_time = 0  # minimum time before participants can press SPACE to move on&amp;#10;&amp;#10;&amp;#10;## Other&amp;#10;cont = &quot;\n\nPress space bar to continue&quot;  # At the end of instructions slides" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="## Set global (experiment-level) variables&amp;#10;&amp;#10;pptID = int(expInfo['participant'])  # participant ID&amp;#10;# print(&quot;participant ID is &quot; + `pptID`)&amp;#10;&amp;#10;sess = int(expInfo['session'])  # session converted to int&amp;#10;print(&quot;Session is &quot; + `sess`)&amp;#10;&amp;#10;valid_sessions = [1,2,9]&amp;#10;if sess not in valid_sessions:&amp;#10;    sys.exit(&quot;ERROR: session number needs to be either 1 or 2 (or 9 for speeded version)&quot;)&amp;#10;&amp;#10;&amp;#10;# sess determines whether block order is hand-feet/feet-hand&amp;#10;cond_block = 'block_conditions_' + `sess` + '.csv'&amp;#10;print(cond_block)&amp;#10;&amp;#10;# count blocks to use in text displays and to load stimulus files&amp;#10;myBlockCount = 0 &amp;#10;&amp;#10;&amp;#10;path2stimuli = u'stimuli\\random_lists\\'&amp;#10;print(path2stimuli)&amp;#10;&amp;#10;## Duration-related variables (set here rather than in individ elements)&amp;#10;&amp;#10;# If session = 9, then speed through the screens&amp;#10;if sess == 9: &amp;#10;    fix_point_duration = .05  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .15  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = .05 # time during which words have to be kept in memory (orig = 6)&amp;#10;else:  # otherwise use the standard duration&amp;#10;    fix_point_duration = 3  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .5  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = 6 # time during which words have to be kept in memory (orig = 6)&amp;#10;&amp;#10;max_response_time = 120  # max time to repeat words before moving to next trial&amp;#10;min_response_time = 0  # minimum time before participants can press SPACE to move on&amp;#10;&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instructions slides" valType="extendedCode"/>
         <Param name="name" updates="None" val="code_5" valType="code"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>

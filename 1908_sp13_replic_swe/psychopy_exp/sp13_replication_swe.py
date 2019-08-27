@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on August 27, 2019, at 12:48
+    on August 27, 2019, at 13:20
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -109,7 +109,7 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 
 
 ## Other
-cont = "\n\nPress space bar to continue"  # At the end of instructions slides
+cont = u"\n\nTryck på mellanslag för att fortsätta"  # At the end of instructions slides
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
     font='Arial',
@@ -120,13 +120,13 @@ text_14 = visual.TextStim(win=win, name='text_14',
 # Initialize components for Routine "instr_welcome"
 instr_welcomeClock = core.Clock()
 text_7 = visual.TextStim(win=win, name='text_7',
-    text="Welcome to this experiment!\n\nIn this task you will see four words in a sequence and you will have to remember them. Shortly after, you will be asked to repeat the words in the exact same order." + cont,
+    text=u"Välkommen till det här experimentet!\n\nI den här uppgiften kommer du att få se fyra ord i en följd och du ska försöka komma ihåg dem. Kort därefter ska du repetera orden i exakt samma ordning." + cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_13 = visual.TextStim(win=win, name='text_13',
-    text='Instructions 1 of 3',
+    text='Instruktion 1 av 3',
     font='Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -135,13 +135,13 @@ text_13 = visual.TextStim(win=win, name='text_13',
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
-    text="It works like this:\n\nYou see four words presented on the screen one after another, followed by a pause during which you have to silently keep the four words in memory in the exact order they were presented. You will then hear a beep. At the beep, you have to repeat the four words out loud. Your voice will be recorded as you repeat the words. To start the next trial, simply press space bar." + cont,
+    text=u"Det funkar så här:\n\nDu kommer att få se fyra ord som visas ett i taget på skärmen. Efter orden följer en paus. Du ska då försöka hålla dessa fyra ord i minnet i samma ordning som de har visats, utan att säga orden. Du kommer sedan att höra ett pip. Direkt efter pipet ska du repetera alla dessa fyra ord högt. Din röst kommer att spelas in när du säger orden. För att gå vidare till nästa omgång, tryck på mellanslag." + cont,
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_15 = visual.TextStim(win=win, name='text_15',
-    text='Instructions 2 of 3',
+    text='Instruktion 2 av 3',
     font='Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -150,13 +150,13 @@ text_15 = visual.TextStim(win=win, name='text_15',
 # Initialize components for Routine "instr_TryItOut"
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
-    text="Let's do some practice trials right away so you can get acquainted with the basic task.\n\nIf you do not have any questions so far, press space bar to start practicing",
+    text=u'Du kommer nu att f\xe5 n\xe5gra exempeluppgifter f\xf6r att \xf6va.\n\nOm du inte har n\xe5gra fr\xe5gor, tryck p\xe5 mellanslag f\xf6r att p\xe5b\xf6rja \xf6vningen.',
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_16 = visual.TextStim(win=win, name='text_16',
-    text='Instructions 3 of 3',
+    text='Instruktion 3 av 3',
     font='Arial',
     pos=(0.8, -0.8), height=0.05, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -222,7 +222,7 @@ sound_2.setVolume(1)
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
-    text="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -232,20 +232,20 @@ text_5 = visual.TextStim(win=win, name='text_5',
 # Initialize components for Routine "instr_exp2"
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
-    text="Okay, now you are acquainted with the basic memory task.\n\nThe actual experiment has two parts. In each part, you will be asked to memorize groups of four words (as you just did), but you will also carry out different rhythmic exercises with your hands or feet while having to keep the words in memory. The experimenter is going to provide detailed instructions and you will have plenty of time to practice." + cont,
-    font='Arial',
+    text=u"Nu vet du vad uppgiften går ut på.\n\nSjälva experimentet består av två delar. I varje del kommer du att behöva memorera sekvenser av fyra ord (precis som du nyss har gjort), men under tiden du håller orden i minnet ska du också göra rytmiska rörelser med antingen händerna eller fötterna.\n\nExperimentledaren kommer att ge dig mer detaljerade instruktioner och du kommer att ha gott om tid för att öva in dessa rörelser." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp3"
 instr_exp3Clock = core.Clock()
 text_10 = visual.TextStim(win=win, name='text_10',
-    text="You will be able to take a break at the end of each part. You can also take a break between trials if needed.\n\nIf you have questions so far, you may ask the experimenter now." + cont
+    text=u"Du kommer att kunna ta paus i slutet av varje del. Du kan också ta paus mellan de olika omgångarna om du behöver det.\n\nOm du har några frågor så kan du ställa dem till experimentledaren nu." + cont
 ,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "block_instr"
@@ -345,7 +345,7 @@ sound_2.setVolume(1)
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
-    text="If you need more practice, press 'p'; if you are ready to start the actual experiment, press 's'.",
+    text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
     font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1,
@@ -1085,7 +1085,7 @@ for thisPractice_block in practice_block:
             win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
             event.clearEvents(eventType='keyboard')
         if key_resp_8.status == STARTED:
-            theseKeys = event.getKeys(keyList=['p', 's'])
+            theseKeys = event.getKeys(keyList=['b', 'm'])
             
             # check for quit:
             if "escape" in theseKeys:
@@ -1124,7 +1124,7 @@ for thisPractice_block in practice_block:
     practice_block.addData('key_resp_8.keys',key_resp_8.keys)
     if key_resp_8.keys != None:  # we had a response
         practice_block.addData('key_resp_8.rt', key_resp_8.rt)
-    if key_resp_8.keys == "s": break  # allow to repeat training until ready (max 20, see loop)
+    if key_resp_8.keys == "b": break  # allow to repeat training until ready (max 20, see loop)
     # the Routine "repeat_training" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
@@ -1858,7 +1858,7 @@ for thisBlock in block:
                 win.callOnFlip(key_resp_8.clock.reset)  # t=0 on next screen flip
                 event.clearEvents(eventType='keyboard')
             if key_resp_8.status == STARTED:
-                theseKeys = event.getKeys(keyList=['p', 's'])
+                theseKeys = event.getKeys(keyList=['b', 'm'])
                 
                 # check for quit:
                 if "escape" in theseKeys:
@@ -1897,7 +1897,7 @@ for thisBlock in block:
         training_block.addData('key_resp_8.keys',key_resp_8.keys)
         if key_resp_8.keys != None:  # we had a response
             training_block.addData('key_resp_8.rt', key_resp_8.rt)
-        if key_resp_8.keys == "s": break  # allow to repeat training until ready (max 20, see loop)
+        if key_resp_8.keys == "b": break  # allow to repeat training until ready (max 20, see loop)
         # the Routine "repeat_training" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
