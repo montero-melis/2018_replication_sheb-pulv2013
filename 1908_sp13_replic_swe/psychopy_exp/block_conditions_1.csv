@@ -1,3 +1,3 @@
-BlockType,Effector,BlockLabel,BlockInstructions
-HANDS,hands,with hand drumming,perform a rhythmic exercise with your hands
-FEET,feet,with foot drumming,perform a rhythmic exercise with your feet
+BlockType,Effector
+HANDS,händer
+FEET,fötter
