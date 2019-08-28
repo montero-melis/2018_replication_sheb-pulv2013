@@ -4,19 +4,6 @@ TO DO (sp13_replication_swe.psyexp)
 Higher prio
 ===========
 
-## Swedish instructions!
-
-
-## Signal for Experimenter to check accuracy of paradiddles
-
-- A flash (or something) that coincides with the offset of 4th word
-- A counter for the trial to help filling in the "paradiddle error monitor form"
-
-
-## Choice of words/stimuli
-
-- Selection of Swedish verbs
-
 
 ## Create presentation lists with final set of target verbs
 
@@ -24,12 +11,13 @@ Higher prio
 - Choose a convenient range of participant IDs
 
 
+## Choose condition order depending on participant ID
+Use the modulo/rest operator.
+
+
 ## Check for possible inconsistencies in the instructions to RAs (see team_instructions)
 
 Go through them and perhaps merge?
-
-
-## Power analysis to determine N
 
 
 Lower prio
@@ -38,3 +26,10 @@ Lower prio
 ## Simplify output data file
 
 Remove unnecessary (uninformative) columns in generated data files?
+
+
+## Signal for Experimenter to check accuracy of paradiddles
+
+- A flash (or something) that coincides with the offset of 4th word
+- A counter for the trial to help filling in the "paradiddle error monitor form"
+

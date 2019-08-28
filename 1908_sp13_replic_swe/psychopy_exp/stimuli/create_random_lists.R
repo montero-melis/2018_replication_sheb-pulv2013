@@ -47,17 +47,31 @@ nrow(tr) %% 4 == 0  # Check is a multiple of 4 (TRUE)
 #  Create (pseudo-)random presentation lists of TARGETS for memory task
 #  ------------------------------------------------------------------------
 
-# A quadruple consists of a set of 4 words of the same type. In the pilot,
-# quadruples will be different and random for each participant-block combination.
+# An item consists of a quadruple of words, i.e. a set of 4 words of the same 
+# type. Since there are 52 arm and 52 leg words, we can form 26 unique items
+# (13 arm items and 13 leg items).
+# We will create 3 sets of items, i.e. 3 different groupings of the target words
+# into items. We call each of these sets an item List (Lists A, B and C).
+# Each participant will see 2 of these lists, one per block, which makes for
+# 3 different combinations ({A,B},{A,C},{B,C}). In addition, they can see them
+# in two orders, e.g. for {A,B}: A-B, B-A. Finally, participants can do the
+# interference tasks (hand/feet paradiddle) in two orders: hands-feet or feet-hands.
+# This means we want to create stimulus lists that are multiples of
+# 12 = 3 (List identity) x 2 (List order) x 2 (condition order).
+# The specific order in which the items are shown will be randomized between
+# participants, with the constraint explained below.
 
-## function to create a new set of random items from the list
+## function to create a new set of random items, i.e. an item list
 
-arm <- tv[tv$type == "arm", ] %>% pull(verb)
-leg <- tv[tv$type == "leg", ] %>% pull(verb)
 
-random_items <- function(a = arm, l = leg) {
+random_items <- function(df = tv) {
+  # Put arm and leg words into a vector
+  a <- df[df$type == "arm", ] %>% pull(verb)
+  l <- df[df$type == "leg", ] %>% pull(verb)
+  # randomize the two vectors
   a <- sample(sample(a))
   l <- sample(sample(l))
+  # Put into data frame
   items <- data.frame(
     type = c(rep("arm", length(a) / 4), rep("leg", length(l) / 4)),
     rbind(matrix(a, ncol = 4), matrix(l, ncol = 4)))
@@ -66,15 +80,24 @@ random_items <- function(a = arm, l = leg) {
 }
 random_items()
 
+set.seed(752200)
+listA <- random_items()
+set.seed(565286)
+listB <- random_items()
+set.seed(362578)
+listC <- random_items()
+
+
 # Presentation of items is randomized with certain constraints:
 # The sequence of items presented in a block is random "with the 
 # constraint that not more than three trials of the same word category appeared
 # consecutively." (Shebani & Pulvermüller, 2013:225)
 
-# NB: I've factored out the functions into a separate script to keep this tidy.
+# NB: I've factored out the function that does this (valid_seq()) into a
+# separate script to keep things tidy.
 source("Rfunctions/randomise.R")
 
-# Function valid_seq() takes the "items" dataframe by default and shuffles the
+# Function valid_seq() takes the items List dataframe by default and shuffles the
 # rows until it finds an order that obeys the above constraint. It returns the
 # reordered data frame. (Note that training items can be randomised in Psychopy,
 # as no constraints apply in this case, so these will not be randomised by this
