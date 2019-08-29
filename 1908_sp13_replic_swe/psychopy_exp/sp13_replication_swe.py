@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on August 29, 2019, at 16:41
+    on August 29, 2019, at 17:01
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,8 +26,8 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'sheb_replication_1810'  # from the Builder filename that created this script
-expInfo = {u'session': u'please specify: 1 or 2!', u'participant': u''}
+expName = u'sheb_replication_1810'  # from the Builder filename that created this script
+expInfo = {u'session': u'1', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -74,13 +74,16 @@ pptID = int(expInfo['participant'])  # participant ID
 sess = int(expInfo['session'])  # session converted to int
 print("Session is " + `sess`)
 
-valid_sessions = [1,2,9]
+valid_sessions = [1,9]
 if sess not in valid_sessions:
-    sys.exit("ERROR: session number needs to be either 1 or 2 (or 9 for speeded version)")
+    sys.exit("ERROR: session number needs to be either 1 or 9 (for speeded version)")
 
 
-# sess determines whether block order is hand-feet/feet-hand
-cond_block = 'block_conditions_' + `sess` + '.csv'
+# Whether participant number is odd or even determines block order:
+# odd:  hand-feet 
+# even: feet-hand)
+block_order = pptID % 2
+cond_block = 'block_conditions_' + `block_order` + '.csv'
 print(cond_block)
 
 # count blocks to use in text displays and to load stimulus files
