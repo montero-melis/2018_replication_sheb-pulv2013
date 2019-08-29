@@ -9,14 +9,9 @@ getwd()  # should be "[whatever...]/2018_replication_sheb-pulv2013"
 
 library(tidyverse)
 
-
-# Participant IDs for which we want to generate random lists
-pptIDs <- c(990:999)
-
 # All files generated in this script go to the same folder, so save path as
 # variable:
 path_output <- "1908_sp13_replic_swe/psychopy_exp/stimuli/"
-
 
 
 #  ------------------------------------------------------------------------
@@ -44,7 +39,7 @@ nrow(tr) %% 4 == 0  # Check is a multiple of 4 (TRUE)
 
 
 #  ------------------------------------------------------------------------
-#  Create (pseudo-)random presentation lists of TARGETS for memory task
+#  Create 3 (pseudo-)random presentation lists of TARGETS for memory task
 #  ------------------------------------------------------------------------
 
 # An item consists of a quadruple of words, i.e. a set of 4 words of the same 
@@ -62,7 +57,6 @@ nrow(tr) %% 4 == 0  # Check is a multiple of 4 (TRUE)
 # participants, with the constraint explained below.
 
 ## function to create a new set of random items, i.e. an item list
-
 
 random_items <- function(df = tv) {
   # Put arm and leg words into a vector
@@ -88,14 +82,22 @@ set.seed(362578)
 listC <- random_items()
 
 
-# Presentation of items is randomized with certain constraints:
-# The sequence of items presented in a block is random "with the 
-# constraint that not more than three trials of the same word category appeared
+#  ------------------------------------------------------------------------
+#  Save target stimuli files for each participant and block
+#  ------------------------------------------------------------------------
+
+# NB: These are the files that will be read from the PsychoPy script
+
+# Which list a participant sees in which block (1, 2) and whether that block is
+# a arms/legs interference block is counterbalanced across participants.
+# However, the *order* of the items within a block is randomized, with certain
+# constraints: sequence of items within a block is random "with the  constraint
+# that not more than three trials of the same word category appeared
 # consecutively." (Shebani & Pulvermüller, 2013:225)
 
-# NB: I've factored out the function that does this (valid_seq()) into a
-# separate script to keep things tidy.
-source("Rfunctions/randomise.R")
+# The function that does this is valid_seq(), but I've factored it out into a
+# separate script to keep things tidy here.
+source("Rfunctions/randomise.R")  # see source code for details
 
 # Function valid_seq() takes the items List dataframe by default and shuffles the
 # rows until it finds an order that obeys the above constraint. It returns the
@@ -108,24 +110,60 @@ valid_seq(random_items())  # the function is wordy...
 x <- valid_seq(random_items())  
 x  # but it only returns the valid data frame!
 
-# wrap into a function that applies the 2 functions in sequence and saves
-# with participant ID and block number (2 lists per participant)
-# NB: Probably not very efficient; 200 participants take about a minute.
-gener_target_lists <- function(pptID = 997:999, ite = NULL, nbBlocks = 2) {
-  for (ppt in pptID) {
-    for (block in 1:nbBlocks) {
-      targets <- valid_seq(random_items())
-      fname_lead <- paste(path_output, "random_lists/p", ppt, "_b", block,
-                          "_memory", sep = "")
-      write.csv(targets, paste(fname_lead, "_targets.csv", sep = ""), 
-                row.names = FALSE, fileEncoding = "UTF-8")
-    }
-  }
-}
-gener_target_lists()
 
-# Uncomment and run following line
-# gener_target_lists(pptID = pptIDs)
+# To generate the final lists that a participant will see we use the following
+# function. It makes sure that list identity (A,B,C), list order, and task order
+# is counterbalanced (participant number should be a multiple of 12!).
+# It then randomizes the items within a block and saves the final list to file.
+gener_target_lists <- function(pptID = 997:999) {
+  
+  # Check participant IDs for counterbalancing purposes
+  if (length(pptID) %% 12 != 0) {
+    warning("For a balanced design, N has to be a multiple of 12, but it isn't!")
+  }
+  if (pptID[1] %% 100 != 1) {
+    warning("Participants ID should start with 101, 201, etc.")
+  }
+  
+  # Create a table that keeps track of the exact list assigned to a participant:
+  nr <- 2 * length(pptID)  # number of rows in table (2 per participant)
+  overview <- tibble::tibble(
+    id         = rep(pptID, each = 2),
+    list_seq   = rep(c("AB", "BA", "AC", "CA", "BC", "CB"),
+                     each = 4, length.out = nr),
+    task_order = rep(c("arms-legs", "legs-arms"), each = 2, length.out = nr),
+    block      = rep(c(1, 2), length.out = nr),
+    list       = NA,
+    task       = rep(c("arms", "legs", "legs", "arms"), length.out = nr)
+  )
+  # Fix list shown per block (a bit messy but didn't know how else to do this):
+  overview$list <- pmap(overview %>% select(list_seq, block),
+                        function(list_seq, block) { substr(list_seq, block, block) }
+  ) %>% unlist
+  
+  # Now we have to create a separate stimulus file for each participant-block,
+  # after randomizing the items
+  list2file <- function(id, block, list) {
+    curr_list <- get(paste("list", list, sep = ""))  # select list for this block
+    curr_list <- valid_seq(curr_list)  # randomize item order with constraints
+    # save to file with appropriate name
+    write_csv(curr_list,
+              paste(path_output, "random_lists/p_", id, "_b", block, "_targets.csv",
+                    sep = ""))
+  }
+  # Execute function for each row (this will save the individual files)
+  pmap(overview %>% select(id, block, list), list2file)
+  
+  # Save the overview file
+  write_csv(overview, paste(path_output, "random_lists/list_assignment.csv", sep = ""))
+}
+
+# As an example:
+gener_target_lists(901)
+
+# Generate the real lists
+set.seed(5724619)
+gener_target_lists(pptID = c(1 : 120, 990 : 1001))
 
 
 
