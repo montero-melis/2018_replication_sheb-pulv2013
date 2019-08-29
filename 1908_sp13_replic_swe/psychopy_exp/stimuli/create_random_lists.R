@@ -192,7 +192,8 @@ gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 0:
     }
   }
 }
-gener_training_lists()
+# gener_training_lists()
 
 # Uncomment and run following line
-# gener_training_lists(pptID = pptIDs)
+set.seed(447778441)
+gener_training_lists(pptID = pptIDs)
