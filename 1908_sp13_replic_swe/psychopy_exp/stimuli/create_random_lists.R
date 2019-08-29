@@ -161,9 +161,12 @@ gener_target_lists <- function(pptID = 997:999) {
 # As an example:
 gener_target_lists(901)
 
+# Participants IDs for which to create lists
+pptIDs <- c(1 : 120, 990 : 1001)
+
 # Generate the real lists
 set.seed(5724619)
-gener_target_lists(pptID = c(1 : 120, 990 : 1001))
+gener_target_lists(pptIDs)
 
 
 
@@ -183,9 +186,9 @@ gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 0:
         type = "training",
         matrix(training_verbs, ncol = 4))
       names(df)[2:5] <- paste("word", 1:4, sep = "")  # sensible names to columns
-      fname <- paste(path_output, "random_lists/p", ppt, "_b", block,
-                     "_memory_training.csv", sep = "")
-      write.csv(df, fname, row.names = FALSE, fileEncoding = "UTF-8")
+      fname <- paste(path_output, "random_lists/p_", ppt, "_b", block,
+                     "_training.csv", sep = "")
+      write_csv(df, fname)
     }
   }
 }
