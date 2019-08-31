@@ -47,7 +47,7 @@ following variables:
 
 Note that SP13 mention three additional variables in Table 1, p.225:
 Visual relatedness, body relatedness, and action relatedness. We checked with
-the correspondin author, Friedemann Pulvermüller, and it turns out these
+the corresponding author, Friedemann Pulvermüller, and it turns out these
 measures were actually redundant, so he acknowledged we did not need to collect
 them (see correspondence from Tue 2019-04-30, 10:19 PM; subject "Short query
 about word norms in Shebani & Pulvermüller (2013)").
@@ -417,7 +417,7 @@ First, we want to go from wide to long format:
 kable(head(stim))
 # to long format (we also simplify somewhat, removing redundant columns)
 stiml <- gather(stim %>%
-                  select(- c("arm", "leg", "bias")) %>%
+                  select(- c("bias")) %>%
                   rename(arm_leg_bias = bias_absol),
                 var, value, arousal : nphon)
 kable(head(stiml))
@@ -430,8 +430,8 @@ kable(tail(stiml))
 unique(stiml$var)
 stiml$var <- factor(
   stiml$var, 
-  levels = c("arm_leg_bias", "arousal", "imageability", "valence", "nletters",
-             "nphon", "word_logfreq", "lemma_logfreq", "bigram_logfreq", 
+  levels = c("arm", "leg", "arm_leg_bias", "arousal", "imageability", "valence",
+             "nletters", "nphon", "word_logfreq", "lemma_logfreq", "bigram_logfreq",
              "trigram_logfreq", "pos_ambig"))
 ```
 
