@@ -638,6 +638,28 @@ sel_w <- sel_w %>% arrange(category, word)
 sel_w %>% kable
 ```
 
+
+Descriptive table
+
+```{r}
+# 
+sel_l %>% ungroup() %>% group_by(var, category) %>%
+  summarise(M  = mean(value, na.rm = TRUE),
+            SD = sd(value, na.rm = TRUE),
+            SE = SD / sqrt(n())) %>%
+#  gather(variable, val, M : SE) %>%
+#  spread(category, val) %>%
+  kable(digits = 2)
+```
+
+t-test on all variables:
+
+```{r}
+compar_ttest(sel_l) %>% kable(digits = 3)
+```
+
+
+
 ```{r}
 # save to disk:
 # verbs
