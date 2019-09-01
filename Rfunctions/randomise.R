@@ -46,7 +46,7 @@ valid_seq <- function(df = items) {
     while_counter <- while_counter + 1
     print(paste("Okay, we have tried", while_counter, "time(s)"))
     df <- df[sample(seq.int(nb_items)),]  # shuffle the items
-    categ_seq <- df$type  # exytract sequence of item category (e.g., arm-arm-leg-...)
+    categ_seq <- df$type  # extract sequence of item category (e.g., arm-arm-leg-...)
     counter <- 1  # counts number of same-category items repeated in a row
     valid_items <- 1  # counts number of items so far that don't violate constraint
     curr_val <- categ_seq[1]  # last value looped through
@@ -55,7 +55,7 @@ valid_seq <- function(df = items) {
         curr_val <- categ_seq[i]  # update
         counter  <- 1  # reset
       } else {  # it's the same category as previous trial
-        if (counter == 3) {  # Have we violated the constraint?
+        if (counter == 3) {  # We have violated the constraint
           print(paste("Failure! see for yourself: I'm breaking after row", valid_items))
           print(df)  # print the failure
           break  # the important statement
