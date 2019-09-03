@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on August 29, 2019, at 17:01
+    on september 03, 2019, at 12:36
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'sheb_replication_1810'  # from the Builder filename that created this script
+expName = 'sheb_replication_1810'  # from the Builder filename that created this script
 expInfo = {u'session': u'1', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1920, 1200], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -138,10 +138,10 @@ text_13 = visual.TextStim(win=win, name='text_13',
 # Initialize components for Routine "instr_exp1"
 instr_exp1Clock = core.Clock()
 text_8 = visual.TextStim(win=win, name='text_8',
-    text=u"Det funkar så här:\n\nDu kommer att få se fyra ord som visas ett i taget på skärmen. Efter orden följer en paus. Du ska då försöka hålla dessa fyra ord i minnet i samma ordning som de har visats, utan att säga orden. Du kommer sedan att höra ett pip. Direkt efter pipet ska du repetera alla dessa fyra ord högt. Din röst kommer att spelas in när du säger orden. För att gå vidare till nästa omgång, tryck på mellanslag." + cont,
-    font='Arial',
+    text=u"Det funkar så här:\n\nDu kommer att få se fyra ord som visas ett i taget på skärmen. Efter orden följer en paus. Du ska då försöka hålla dessa fyra ord i minnet i samma ordning som de har visats, utan att säga orden. Du kommer sedan att höra ett pip. Direkt efter pipet ska du repetera alla dessa fyra ord högt. Kom ihåg att repetera orden i samma ordning som du såg dem. Din röst kommer att spelas in när du säger orden. För att gå vidare till nästa omgång, tryck på mellanslag." + cont,
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_15 = visual.TextStim(win=win, name='text_15',
     text='Instruktion 2 av 3',
@@ -154,9 +154,9 @@ text_15 = visual.TextStim(win=win, name='text_15',
 instr_TryItOutClock = core.Clock()
 text_12 = visual.TextStim(win=win, name='text_12',
     text=u'Du kommer nu att f\xe5 n\xe5gra exempeluppgifter f\xf6r att \xf6va.\n\nOm du inte har n\xe5gra fr\xe5gor, tryck p\xe5 mellanslag f\xf6r att p\xe5b\xf6rja \xf6vningen.',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_16 = visual.TextStim(win=win, name='text_16',
     text='Instruktion 3 av 3',
@@ -226,9 +226,9 @@ sound_2.setVolume(1)
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
@@ -236,9 +236,9 @@ text_5 = visual.TextStim(win=win, name='text_5',
 instr_exp2Clock = core.Clock()
 text_9 = visual.TextStim(win=win, name='text_9',
     text=u"Nu vet du vad uppgiften går ut på.\n\nSjälva experimentet består av två delar. I varje del kommer du att behöva memorera sekvenser av fyra ord (precis som du nyss har gjort), men under tiden du håller orden i minnet ska du också göra rytmiska rörelser med antingen händerna eller fötterna.\n\nExperimentledaren kommer att ge dig mer detaljerade instruktioner och du kommer att ha gott om tid för att öva in dessa rörelser." + cont,
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Initialize components for Routine "instr_exp3"
@@ -256,9 +256,9 @@ block_instrClock = core.Clock()
 
 block_intro = visual.TextStim(win=win, name='block_intro',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 text_19 = visual.TextStim(win=win, name='text_19',
     text='Instruktion 1 av 3',
@@ -271,9 +271,9 @@ text_19 = visual.TextStim(win=win, name='text_19',
 block_instr3Clock = core.Clock()
 text_11 = visual.TextStim(win=win, name='text_11',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_20 = visual.TextStim(win=win, name='text_20',
     text='Instruktion 2 av 3',
@@ -286,9 +286,9 @@ text_20 = visual.TextStim(win=win, name='text_20',
 trainClock = core.Clock()
 text_4 = visual.TextStim(win=win, name='text_4',
     text='default text',
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 text_21 = visual.TextStim(win=win, name='text_21',
     text='Instruktion 3 av 3',
@@ -349,9 +349,9 @@ sound_2.setVolume(1)
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
     text=u"Om du beh\xf6ver \xf6va mer, tryck 'm'. Om du k\xe4nner dig redo att b\xf6rja med det riktiga experimentet, tryck 'b'.",
-    font='Arial',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 
@@ -424,10 +424,10 @@ text_6 = visual.TextStim(win=win, name='text_6',
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text=u'Experimentet \xe4r avslutat.\n\nTack f\xf6r din medverkan!',
-    font='Arial',
+    text=u'Nu \xe4r experimentet slut.\n\nTack f\xf6r din medverkan!',
+    font=u'Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1,
+    color=u'white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
 # Create some handy timers
@@ -1308,7 +1308,7 @@ for thisBlock in block:
     
     curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'
     print(curr_list_targets)
-    block_intro.setText("Del " + `myBlockCount` + u"\n\nDu kommer att få se fyra ord som snabbt visas ett i taget på skärmen. Din uppgift är att komma ihåg dem i exakt samma ordning som de har visats.\n\nDen här gången, omedelbart efter det fjärde ordet, kommer du att få göra en rytmisk övning med dina " + Effector + u" tills du hör pipet. Direkt efter pipet ska du säga alla de fyra orden högt." + cont)
+    block_intro.setText("Del " + `myBlockCount` + u"\n\nDu kommer att få se fyra ord som snabbt visas ett i taget på skärmen. Din uppgift är att komma ihåg dem i exakt samma ordning som de har visats.\n\nDen här gången, omedelbart efter det fjärde ordet, kommer du att få göra en rytmisk rörelse med dina " + Effector + u" tills du hör pipet. Direkt efter pipet ska du säga alla de fyra orden högt. Kom ihåg att repetera orden i samma ordning som du såg dem." + cont)
     key_resp_4 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instrComponents = [block_intro, key_resp_4, text_19]
@@ -1387,7 +1387,7 @@ for thisBlock in block:
     frameN = -1
     continueRoutine = True
     # update component parameters for each repeat
-    text_11.setText(u"Experimentledaren kommer nu att visa dig den rytmiska övningen som du ska göra med dina " + Effector + u". Du kommer att få gott om tid för att öva på den innan du börjar med uppgiften.")
+    text_11.setText(u"Experimentledaren kommer nu att visa dig den rytmiska rörelsen som du ska göra med dina " + Effector + u". Du kommer att få gott om tid för att öva på den innan du börjar med uppgiften.")
     key_resp_15 = event.BuilderKeyResponse()
     # keep track of which components have finished
     block_instr3Components = [text_11, key_resp_15, text_20]
