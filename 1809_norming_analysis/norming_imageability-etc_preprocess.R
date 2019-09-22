@@ -15,7 +15,7 @@ library("tidyr")
 # Load and check out ------------------------------------------------------
 
 # raw data -- note that the output from google forms is completely wide
-d_raw <- read_csv("1809_norming_analysis/190523_verb-norming_raw_google-docs.csv")
+d_raw <- read_csv("1809_norming_analysis/data_verb-norming_swe_raw_google-docs.csv")
 head(d_raw)
 
 # change name of last column
@@ -39,8 +39,8 @@ d_raw$SubjID <- seq_len(nrow(d_raw))
 d_meta <- d_raw %>% 
   select(SubjID, TimeDate, Age, Sex, SwedishStatus, Comment)
 d_meta
-# save to disk
-write_csv(d_meta, "1809_norming_analysis/190523_verb-norming_participant-data.csv")
+# # save to disk
+# write_csv(d_meta, "1809_norming_analysis/190523_verb-norming_participant-data.csv")
 
 
 
@@ -101,4 +101,4 @@ length(unique(d$Word))  # 160 looks good
 
 # Save to disk ------------------------------------------------------------
 
-write_csv(d, "1809_norming_analysis/190523_verb-norming_ratings.csv")
+write_csv(d, "1809_norming_analysis/data_verb-norming_swe_ratings.csv")
