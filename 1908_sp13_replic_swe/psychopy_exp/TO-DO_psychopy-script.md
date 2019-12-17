@@ -5,19 +5,16 @@ Higher prio
 ===========
 
 
-## Create presentation lists with final set of target verbs
-
-- Needs to be adjusted once we have final item lists (training + target); this choice will be based on our norming tasks in the pilot.
-- Choose a convenient range of participant IDs
-
-
-## Choose condition order depending on participant ID
-Use the modulo/rest operator.
+- Choose condition order depending on participant ID: Use the modulo/rest operator.
+- Record sound from within psychopy
+- Record ExpTime into output file
 
 
-## Check for possible inconsistencies in the instructions to RAs (see team_instructions)
 
-Go through them and perhaps merge?
+Paradiddle tap recording
+---------------------
+
+- Check with Jeroen: the pad only records taps during the 6 s memory phase, right? This means we don't know if Ss start too early.
 
 
 Lower prio
@@ -25,11 +22,9 @@ Lower prio
 
 ## Simplify output data file
 
-Remove unnecessary (uninformative) columns in generated data files?
+- Remove unnecessary (uninformative) columns in generated data files?
 
 
-## Signal for Experimenter to check accuracy of paradiddles
+## Check for possible inconsistencies in the instructions to RAs (see team_instructions)
 
-- A flash (or something) that coincides with the offset of 4th word
-- A counter for the trial to help filling in the "paradiddle error monitor form"
-
+Go through them and perhaps merge?
