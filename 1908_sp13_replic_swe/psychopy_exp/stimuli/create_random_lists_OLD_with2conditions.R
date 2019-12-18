@@ -1,3 +1,7 @@
+## NB: This is the old script I used for the first submission, when there were
+## only two conditions (Arm-/Leg-interference). I created a new script for 2nd
+## round bc we added control condition, but I keep this script for reference.
+
 ## Script to generate experimental lists from the list of target verbs
 
 # NB: Script is written to be sourced from the Rproject in the root directory
