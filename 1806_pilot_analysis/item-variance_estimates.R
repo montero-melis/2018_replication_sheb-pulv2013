@@ -8,6 +8,7 @@
 
 library("tidyverse")
 library("lme4")
+library("brms")
 
 
 # load data file for memory task (in long format)
@@ -17,7 +18,7 @@ head(meml)
 
 
 
-# Logistic mixed model analysis -------------------------------------------
+# Prepare data for model fitting ------------------------------------------
 
 # The dependent variable is binary ('correct').
 # The predictor variables are:
@@ -35,6 +36,9 @@ meml$block <- as.vector(scale(meml$block, scale = FALSE))
 meml$wordInTrial <- as.vector(scale(meml$wordInTrial, scale = FALSE))
 
 head(meml)
+
+
+# Logistic mixed model analysis with lme4 ---------------------------------
 
 # Model with all the data
 fm_all_data <- glmer(
@@ -59,3 +63,38 @@ VarCorr(fm_100)
 
 # Note that the by-participant estimate is very close to what we obtain from
 # our re-analysis of the SP13 data (SD = 0.66), which is reassuring!
+
+
+
+# Bayesian logistic mixed model analysis with brms ------------------------
+
+# Is the by-item variability we get from an lme4 model comparable to what we
+# obtain from a brms model?
+
+# See which priors can be specified for this model and what defaults there are?
+
+get_prior(
+  correct ~ block + type + wordInTrial +  (1 | participant) + (1 | verb),
+  data = meml %>% filter(word_duration == 100),
+  family = "bernoulli"
+)
+
+# Specify weakly informative priors $N(0,\sigma^2 = 4)$ for population-level
+# fixed effects:
+myprior <- set_prior("normal(0, 2)", class = "b")  
+# NB: In Stan a normal distribution is specified with sigma (*not* sigma^2), see
+# https://mc-stan.org/docs/2_18/functions-reference/normal-distribution.html
+# and
+# https://stackoverflow.com/questions/52893379/stan-in-r-standard-deviation-or-variance-in-normal-distribution
+
+bfm_100 <- brm(
+  correct ~ block + type + wordInTrial +  (1 | participant) + (1 | verb),
+  data = meml %>% filter(word_duration == 100),
+  family = 'bernoulli',
+  prior = myprior,
+  iter = 10000, warmup = 1000, chains = 4  # https://discourse.mc-stan.org/t/bayes-factor-using-brms/4469/3
+  )
+summary(bfm_100)
+# The mean estimates for by-item random intercepts are very similar (SDs):
+# lme4: 0.61
+# brms: 0.65
