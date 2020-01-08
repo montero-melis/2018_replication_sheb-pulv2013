@@ -10,6 +10,8 @@
 
 
 ## Level 1 - words within items
+# NB [20-01-07]: This function is not used for our study submitted to Cortex!
+# Instead we have three lists and the words within a quadruple is fixed.
 
 # function to shuffle the order of the 4 words in each item
 shuffle_words <- function(df) {
@@ -39,7 +41,7 @@ shuffle_words <- function(df) {
 # that works. It returns the reordered data frame.
 # (A wordy function, but I had to do massive debugging, so I prefer being super clear)
 valid_seq <- function(df = items) {
-  found_valid = FALSE  # terminate the while loop when found_valid
+  found_valid <- FALSE  # terminate the while loop when found_valid
   while_counter <- 0  # counts through while loop
   nb_items <- nrow(df)  # number of items for convenience
   while (! found_valid) {
