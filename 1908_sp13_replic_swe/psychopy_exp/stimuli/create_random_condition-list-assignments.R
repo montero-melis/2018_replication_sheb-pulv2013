@@ -376,11 +376,24 @@ stim_file_train <- function(id, block, ...) {  # input is a row of list_cond_l
     matrix(training_verbs, ncol = 4))
   # sensible names to columns
   names(df)[2:5] <- paste("word", 1:4, sep = "")
-
   # save to file with appropriate name
   fname <- paste(path_output, "random_lists/p_", id, "_b", block, "_training.csv",
                  sep = "")
   write_csv(df, fname)
+  # What follows is a clumsy solution to also have a list for block 0 (first training)
+  if (block == 1) {
+    training_verbs <- sample(training_verbs)
+    df <- data.frame(
+      type = "training",
+      matrix(training_verbs, ncol = 4))
+    # sensible names to columns
+    names(df)[2:5] <- paste("word", 1:4, sep = "")
+    # save to file with appropriate name
+    fname <- paste(path_output, "random_lists/p_", id, "_b", 0, "_training.csv",
+                   sep = "")
+    write_csv(df, fname)
+    
+  }
 }
 
 list_cond_l[1:3, ]

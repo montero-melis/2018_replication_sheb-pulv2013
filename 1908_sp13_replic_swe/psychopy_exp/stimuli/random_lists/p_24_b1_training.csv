@@ -1,5 +1,5 @@
 type,word1,word2,word3,word4
-training,prata,gråta,ropa,le
-training,sova,rodna,falla,lukta
-training,grubbla,viska,anta,smaka
-training,titta,stanna,skratta,vakna
+training,viska,sova,rodna,vakna
+training,ropa,anta,grubbla,smaka
+training,stanna,gråta,prata,lukta
+training,falla,le,skratta,titta
