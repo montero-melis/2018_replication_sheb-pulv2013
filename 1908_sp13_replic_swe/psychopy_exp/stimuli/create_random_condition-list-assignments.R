@@ -226,7 +226,7 @@ list_cond <- as_tibble(listcond_assignment) %>%
   mutate(id = c(1 : (nrow(listcond_assignment) - 36), (999 - 35) : 999))
 list_cond
 
-# wide format to save to disk (I'm ashamed of this repetition)
+# wide format to save to disk (I'm ashamed of this repetition in the code)
 list_cond_w <- list_cond %>%
   mutate(
     condition = paste(
@@ -264,7 +264,50 @@ write_csv(list_cond_l, paste(path_output, "random_lists/cond-list_assignment_lon
 #  Check counterbalancing (sanity check)
 #  ------------------------------------------------------------------------
 
+# copy df for sanity check
+sc <- list_cond_l
+sc$cycle_6  <- (sc$id - 1) %/% 6
+sc$cycle_36 <- (sc$id - 1) %/% 36
+head(sc, 20)
+tail(sc, 20)
 
+# basic
+table(sc$condition)
+table(sc$list)
+with(sc, table(list, condition))
+
+# Perfect balance every cycle of 36?
+# Cycle 1
+sc %>%
+  filter(cycle_36 == 0) %>%
+  group_by(block, condition, list) %>%
+  count() %>%
+  print(n = 200)
+# All cycles? (excluding participant IDs in the 900s - for testing only)
+sc %>%
+  filter(id < 900) %>%
+  group_by(cycle_36, block, condition, list) %>%
+  count() %>%
+  print(n = 300)
+
+# Cycles of 6
+# Without considering block it's perfectly balanced
+sc %>%
+  filter(cycle_36 == 0) %>%
+  group_by(cycle_6, condition, list) %>%
+  count() %>%
+  print(n = 200)
+# Taking block into account it shows this harmonious pattern that balances out
+# after each cycle of 36
+sc %>%
+  filter(cycle_36 == 0) %>%
+  group_by(cycle_6, block, condition, list) %>%
+  count() %>%
+  print(n = 200)
+# In a more visual fashion: look at how the diagonals of 4s covers all positions
+by(sc[sc$cycle_36 == 0, c("block", "list")], sc[sc$cycle_36 == 0, ]$cycle_6, table)
+
+# So yes, we conclude the design is fully balanced!
 
 
 #  ------------------------------------------------------------------------
@@ -297,63 +340,22 @@ x  # but it only returns the valid data frame!
 
 
 # To generate the final lists that a participant will see we use the following
-# function. It makes sure that list order and condition order are counterbalanced
-# (participant numbers should be multiples of 6 - and ideally of 36!).
-# It then randomizes the items within a block and saves the final list to file.
-gener_target_lists <- function(pptID = 997:999) {
-  
-  # Check participant IDs for counterbalancing purposes
-  if (length(pptID) %% 6 != 0) {
-    warning("For a balanced design, N has to be a multiple of 12, but it isn't!")
-  }
-  if (pptID[1] %% 100 != 1) {
-    warning("Participants ID should start with 101, 201, etc.")
-  }
-  
-  # Create a table that keeps track of the exact list assigned to a participant:
-  nr <- 2 * length(pptID)  # number of rows in table (2 per participant)
-  overview <- tibble::tibble(
-    id         = rep(pptID, each = 2),
-    list_seq   = rep(c("AB", "BA", "AC", "CA", "BC", "CB"),
-                     each = 4, length.out = nr),
-    task_order = rep(c("arms-legs", "legs-arms"), each = 2, length.out = nr),
-    block      = rep(c(1, 2), length.out = nr),
-    list       = NA,
-    task       = rep(c("arms", "legs", "legs", "arms"), length.out = nr)
-  )
-  # Fix list shown per block (a bit messy but didn't know how else to do this):
-  overview$list <- pmap(overview %>% select(list_seq, block),
-                        function(list_seq, block) { substr(list_seq, block, block) }
-  ) %>% unlist
-  
-  # Now we have to create a separate stimulus file for each participant-block,
-  # after randomizing the items
-  list2file <- function(id, block, list) {
-    # select list for this block: one of list1, list2 or list3 (in global env.)
-    curr_list <- get(paste("list", list, sep = ""))
-    curr_list <- valid_seq(curr_list)  # randomize item order with constraints
-    # save to file with appropriate name
-    write_csv(curr_list,
-              paste(path_output, "random_lists/p_", id, "_b", block, "_targets.csv",
-                    sep = ""))
-  }
-  # Execute function for each row (this will save the individual files)
-  pmap(overview %>% select(id, block, list), list2file)
-  
-  # Save the overview file
-  write_csv(overview, paste(path_output, "random_lists/list_assignment.csv", sep = ""))
+# function, which starts from the list_cond_l dataframe and generates text files
+# with the right stimulus list correctly randomized for each block-participant.
+
+stim_file <- function(id, block, list, ...) {  # input is a row of list_cond_l
+  # Retrieve the right list and randomize its order with constraints
+  curr_list <- get(paste("list", list, sep = ""))
+  curr_list <- valid_seq(curr_list)
+  # save to file with appropriate name
+  fname <- paste(path_output, "random_lists/p_", id, "_b", block, "_targets.csv",
+                 sep = "")
+  write_csv(curr_list, fname)
 }
 
-# As an example:
-gener_target_lists(901)
-
-# Participants IDs for which to create lists
-pptIDs <- c(1 : 120, 990 : 1001)
-
-# Generate the real lists
-set.seed(5724619)
-gener_target_lists(pptIDs)
-
+# Generate the lists for all participants with a reproducible seed.
+set.seed(1174688796)
+pmap(list_cond_l, stim_file)
 
 
 #  ------------------------------------------------------------------------
@@ -362,24 +364,28 @@ gener_target_lists(pptIDs)
 
 # The randomizing is simpler for training items: we need to randomly generate
 # quadruples and format them correctly, but without constraints on order.
-# We need three such lists per participant: initial training and one additional
-# practice list per experimental block (arm/leg interference)
-gener_training_lists <- function(pptID = 997:999, items = tr$verb, nbBlocks = 0:2) {
-  for (ppt in pptID) {
-    for (block in nbBlocks) {
-      training_verbs <- sample(items)
-      df <- data.frame(
-        type = "training",
-        matrix(training_verbs, ncol = 4))
-      names(df)[2:5] <- paste("word", 1:4, sep = "")  # sensible names to columns
-      fname <- paste(path_output, "random_lists/p_", ppt, "_b", block,
-                     "_training.csv", sep = "")
-      write_csv(df, fname)
-    }
-  }
-}
-# gener_training_lists()
+# We need four such lists per participant: initial training and one additional
+# practice list per experimental block.
+# NB: It's not efficient but hopefully we just need to do this once.
 
-# Uncomment and run following line
+stim_file_train <- function(id, block, ...) {  # input is a row of list_cond_l
+  # Retrieve the list of training verbs, randomize and arrange into df
+  training_verbs <- sample(tr$verb)
+  df <- data.frame(
+    type = "training",
+    matrix(training_verbs, ncol = 4))
+  # sensible names to columns
+  names(df)[2:5] <- paste("word", 1:4, sep = "")
+
+  # save to file with appropriate name
+  fname <- paste(path_output, "random_lists/p_", id, "_b", block, "_training.csv",
+                 sep = "")
+  write_csv(df, fname)
+}
+
+list_cond_l[1:3, ]
+pmap(list_cond_l[1:3, ], stim_file_train)
+
+# Generate all training lists:
 set.seed(447778441)
-gener_training_lists(pptID = pptIDs)
+pmap(list_cond_l, stim_file_train)
