@@ -202,17 +202,68 @@ assign_cond_list <- function(
 
   }
   m <- do.call(rbind, l)  # convert to single matrix
+  colnames(m) <- paste("B", c(1:3), sep = "")
   m
 }
 assign_cond_list()
 assign_cond_list(mult36 = 2)
 
+
+#  ------------------------------------------------------------------------
+#  Generate the assignment list
+#  ------------------------------------------------------------------------
+
 # Actual assignment
 set.seed(11131127)
-assign_cond_list(
-  conds = c("Arm-", "Control-", "Leg-"),
-  mult36 = 8
+listcond_assignment <- assign_cond_list(
+  conds = c("arm_", "control_", "leg_"),
+  mult36 = 10
   )
+
+# Convert to tibble / dataframe with subject IDs:
+list_cond <- as_tibble(listcond_assignment) %>%
+  # NB: I want to generate lists for participant IDs in the 900s for testing
+  mutate(id = c(1 : (nrow(listcond_assignment) - 36), (999 - 35) : 999))
+list_cond
+
+# wide format to save to disk (I'm ashamed of this repetition)
+list_cond_w <- list_cond %>%
+  mutate(
+    condition = paste(
+      gsub("([a-z]*)_([1-3])", "\\1", B1),
+      gsub("([a-z]*)_([1-3])", "\\1", B2),
+      gsub("([a-z]*)_([1-3])", "\\1", B3),
+      sep = "-"
+      ),
+    list = paste(
+      gsub("([a-z]*)_([1-3])", "\\2", B1),
+      gsub("([a-z]*)_([1-3])", "\\2", B2),
+      gsub("([a-z]*)_([1-3])", "\\2", B3),
+      sep = "-"
+      )
+    ) %>%
+  select(id : list)
+list_cond_w
+# to disk
+write_csv(list_cond_w, paste(path_output, "random_lists/cond-list_assignment_wide.csv", sep = ""))
+
+# Long format:
+list_cond_l <- gather(list_cond, block, cond, B1:B3) %>%
+  mutate(
+    block = sub("B?([0-9])", "\\1", block),
+    condition = sub("(.*)_([0-9])", "\\1", cond),
+    list = sub("(.*)_([0-9])", "\\2", cond)
+    ) %>%
+  select(-cond) %>%
+  arrange(id, block)
+list_cond_l
+write_csv(list_cond_l, paste(path_output, "random_lists/cond-list_assignment_long.csv", sep = ""))
+
+
+#  ------------------------------------------------------------------------
+#  Check counterbalancing (sanity check)
+#  ------------------------------------------------------------------------
+
 
 
 
@@ -223,7 +274,7 @@ assign_cond_list(
 # NB: These are the files that will be read from the PsychoPy script
 
 # Which list a participant sees in a block and whether that block is
-# a arms/legs interference block is counterbalanced across participants.
+# an arms, legs or control block is specified in "list_cond" (previous section).
 # However, the *order* of the items within a block is randomized, with certain
 # constraints: sequence of items within a block is random "with the  constraint
 # that not more than three trials of the same word category appeared
