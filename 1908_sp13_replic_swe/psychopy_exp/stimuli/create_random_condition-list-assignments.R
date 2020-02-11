@@ -1,9 +1,9 @@
-## NB: This is the new script for our resubmission to Cortex. We now include 3
-## conditions (Arm-/Leg-interference and control).
+## Script to generate experimental lists from the list of target verbs.
 
-## Script to generate experimental lists from the list of target verbs
-
-# NB: Script is written to be sourced from the Rproject in the root directory
+# NB:
+# 1) This is the new script for our resubmission to Cortex. We now include 3
+# conditions (Arm-/Leg-interference and control).
+# 2) Script is written to be sourced from the Rproject in the root directory
 # of the project. All paths are relative to that root! (I.e., things will not
 # work if script is called from the folder where it is actually located.)
 
@@ -172,7 +172,7 @@ assign_cond_list <- function(
   conds = c("A", "B", "C"),
   lists = c(1, 2, 3),
   mult36 = 1  # How many multiples of 36 participants?
-) {
+  ) {
   
   # List that will contain the row of the matrix:
   l <- list()
@@ -182,7 +182,7 @@ assign_cond_list <- function(
   lat_sqs <- perm_conds[c(1, 4, 5, 2, 3, 6), ]
   
   # Loop through mult36:
-  for(loop in 1:mult36) {
+  for(loop in 1 : mult36) {
     
     # Based on each row of lat_sqs we create a different condition-to-list assignment
     for(i in 1:nrow(lat_sqs)) {
@@ -244,7 +244,21 @@ list_cond_w <- list_cond %>%
     ) %>%
   select(id : list)
 list_cond_w
-# to disk
+# Add one column that specifies the file that PsychoPy needs to read to assign
+# the right order of conditions to a participant:
+filenames <- tibble(
+  condition = unique(list_cond_w$condition)
+  ) %>%
+  mutate(
+    condit_order_file = paste("block_order_", condition, ".csv", sep = "")
+  ) %>% 
+  arrange(condition)
+filenames
+
+list_cond_w <- left_join(list_cond_w, filenames)
+list_cond_w
+
+# save to disk
 write_csv(list_cond_w, paste(path_output, "random_lists/cond-list_assignment_wide.csv", sep = ""))
 
 # Long format:
@@ -258,6 +272,44 @@ list_cond_l <- gather(list_cond, block, cond, B1:B3) %>%
   arrange(id, block)
 list_cond_l
 write_csv(list_cond_l, paste(path_output, "random_lists/cond-list_assignment_long.csv", sep = ""))
+
+
+#  ------------------------------------------------------------------------
+#  Create condition-order lists and save to disk
+#  ------------------------------------------------------------------------
+
+# Create the actual condition order files to be loaded by Psychopy:
+conds <- read_csv("1908_sp13_replic_swe/psychopy_exp/block_conditions_0.csv")
+conds
+
+# List the row ids as read from cond corresponding to the conditions in each
+# row of filenames
+filenames <- filenames %>%
+  mutate(
+    row_ids = c(
+      list(c(1,2,3)),
+      list(c(1,3,2)),
+      list(c(2,1,3)),
+      list(c(2,3,1)),
+      list(c(3,1,2)),
+      list(c(3,2,1))
+    )
+  )
+filenames
+filenames$row_ids
+
+save_condfiles <- function (
+  condition, condit_order_file, row_ids, df_cond = conds, ...
+  ) {
+  cond_file <- df_cond[row_ids,]
+  print(condition)
+  print(cond_file)
+  write_csv(
+    cond_file,
+    path = paste("1908_sp13_replic_swe/psychopy_exp/", condit_order_file, sep = "")
+  )
+}
+pmap(filenames, save_condfiles)
 
 
 #  ------------------------------------------------------------------------
