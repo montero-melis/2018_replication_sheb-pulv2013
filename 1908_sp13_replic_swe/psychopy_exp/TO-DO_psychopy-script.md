@@ -4,8 +4,6 @@ TO DO (sp13_replication_swe.psyexp)
 Higher prio
 ===========
 
-
-- Choose condition order depending on participant ID: Use the modulo/rest operator.
 - Record sound from within psychopy
 - Record ExpTime into output file
 
@@ -14,7 +12,7 @@ Higher prio
 Paradiddle tap recording
 ---------------------
 
-- Check with Jeroen: the pad only records taps during the 6 s memory phase, right? This means we don't know if Ss start too early.
+- Are the 2 MIDI devices consistently assigned to one port or does it depend on how/where they were plugged in? Check this so that the data is consistent.
 
 
 Lower prio
