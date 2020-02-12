@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on februari 11, 2020, at 18:50
+    on februari 12, 2020, at 16:18
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -74,17 +74,12 @@ pptID = int(expInfo['participant'])  # participant ID
 path2stimuli = u'stimuli\\random_lists\\'
 print(path2stimuli)
 
-# Retrieve condition order for participant
-import csv
-def cond_order(fname, id):
-    with open(fname, 'rb') as f:
-        freader = csv.reader(f)
-        your_list = list(freader)
-        return(your_list)
-#        for row in freader:
-#            print(row)
 
-#print cond_order(path2stimuli + 'cond-list_assignment_wide.csv', pptID)
+import pandas as pd
+df = pd.read_csv(path2stimuli + 'cond-list_assignment_wide.csv')
+# .values accesses the actual values of the row, [0] gets you the first value of that row
+condition_block_file = df.loc[df['id'] == pptID, 'condit_order_file'].values[0]
+print(condition_block_file)
 
 
 sess = int(expInfo['session'])  # session converted to int
@@ -95,12 +90,6 @@ if sess not in valid_sessions:
     sys.exit("ERROR: session number needs to be either 1 or 9 (for speeded version)")
 
 
-# Whether participant number is odd or even determines block order:
-# odd:  hand-feet 
-# even: feet-hand)
-block_order = pptID % 2
-condition_block_file = 'block_conditions_' + `block_order` + '.csv'
-print(condition_block_file)
 
 # count blocks to use in text displays and to load stimulus files
 myBlockCount = 0 
@@ -129,6 +118,7 @@ cont = u"\n\nTryck på mellanslag för att fortsätta"  # At the end of instruct
 
 # register midi taps
 import mido
+midi_devices = mido.get_input_names()
 register_taps = False
 def log_pads(hit):
     if register_taps:
@@ -137,7 +127,8 @@ def log_pads(hit):
             str(currentLoop.thisTrialN),
             str(hit),
         ]))
-port = mido.open_input(callback=log_pads)
+port_a = mido.open_input(midi_devices[0], callback=log_pads)
+port_b = mido.open_input(midi_devices[1], callback=log_pads)
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
     font='Arial',
@@ -236,9 +227,19 @@ w4 = visual.TextStim(win=win, name='w4',
     color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 
+# Initialize components for Routine "memory_paradiddle"
+memory_paradiddleClock = core.Clock()
+
+b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound('880', secs=0.25)
+sound_2 = sound.Sound(u'880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -353,9 +354,19 @@ w4 = visual.TextStim(win=win, name='w4',
     color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 
+# Initialize components for Routine "memory_paradiddle"
+memory_paradiddleClock = core.Clock()
+
+b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound('880', secs=0.25)
+sound_2 = sound.Sound(u'880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -414,9 +425,19 @@ w4 = visual.TextStim(win=win, name='w4',
     color='white', colorSpace='rgb', opacity=1,
     depth=-3.0);
 
+# Initialize components for Routine "memory_paradiddle"
+memory_paradiddleClock = core.Clock()
+
+b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
+    text=None,
+    font=u'Arial',
+    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color=u'white', colorSpace='rgb', opacity=1,
+    depth=-1.0);
+
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound('880', secs=0.25)
+sound_2 = sound.Sound(u'880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "end_block"
@@ -965,6 +986,67 @@ for thisPractice_block in practice_block:
         # the Routine "display_words" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
+        # ------Prepare to start Routine "memory_paradiddle"-------
+        t = 0
+        memory_paradiddleClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        # update component parameters for each repeat
+        logging.exp('\t'.join([
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+            'start of memory period/paradiddle',
+        ]))
+        register_taps = True
+        # keep track of which components have finished
+        memory_paradiddleComponents = [b_memory_period_2_]
+        for thisComponent in memory_paradiddleComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "memory_paradiddle"-------
+        while continueRoutine:
+            # get current time
+            t = memory_paradiddleClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            
+            # *b_memory_period_2_* updates
+            if t >= 0 and b_memory_period_2_.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                b_memory_period_2_.tStart = t
+                b_memory_period_2_.frameNStart = frameN  # exact frame index
+                b_memory_period_2_.setAutoDraw(True)
+            frameRemains = 0 + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if b_memory_period_2_.status == STARTED and t >= frameRemains:
+                b_memory_period_2_.setAutoDraw(False)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in memory_paradiddleComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "memory_paradiddle"-------
+        for thisComponent in memory_paradiddleComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        register_taps = False
+        # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
         # ------Prepare to start Routine "repeat_words"-------
         t = 0
         repeat_wordsClock.reset()  # clock
@@ -986,7 +1068,7 @@ for thisPractice_block in practice_block:
             # update/draw components on each frame
             
             # *key_resp_2* updates
-            if t >= mem_per and key_resp_2.status == NOT_STARTED:
+            if t >= 0 and key_resp_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 key_resp_2.tStart = t
                 key_resp_2.frameNStart = frameN  # exact frame index
@@ -1006,7 +1088,7 @@ for thisPractice_block in practice_block:
                     # a response ends the routine
                     continueRoutine = False
             # start/stop sound_2
-            if t >= mem_per and sound_2.status == NOT_STARTED:
+            if t >= 0 and sound_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 sound_2.tStart = t
                 sound_2.frameNStart = frameN  # exact frame index
@@ -1728,6 +1810,67 @@ for thisBlock in block:
             # the Routine "display_words" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
+            # ------Prepare to start Routine "memory_paradiddle"-------
+            t = 0
+            memory_paradiddleClock.reset()  # clock
+            frameN = -1
+            continueRoutine = True
+            # update component parameters for each repeat
+            logging.exp('\t'.join([
+                str(currentLoop.name),
+                str(currentLoop.thisTrialN),
+                'start of memory period/paradiddle',
+            ]))
+            register_taps = True
+            # keep track of which components have finished
+            memory_paradiddleComponents = [b_memory_period_2_]
+            for thisComponent in memory_paradiddleComponents:
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            
+            # -------Start Routine "memory_paradiddle"-------
+            while continueRoutine:
+                # get current time
+                t = memory_paradiddleClock.getTime()
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                
+                
+                # *b_memory_period_2_* updates
+                if t >= 0 and b_memory_period_2_.status == NOT_STARTED:
+                    # keep track of start time/frame for later
+                    b_memory_period_2_.tStart = t
+                    b_memory_period_2_.frameNStart = frameN  # exact frame index
+                    b_memory_period_2_.setAutoDraw(True)
+                frameRemains = 0 + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
+                if b_memory_period_2_.status == STARTED and t >= frameRemains:
+                    b_memory_period_2_.setAutoDraw(False)
+                
+                # check if all components have finished
+                if not continueRoutine:  # a component has requested a forced-end of Routine
+                    break
+                continueRoutine = False  # will revert to True if at least one component still running
+                for thisComponent in memory_paradiddleComponents:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # check for quit (the Esc key)
+                if endExpNow or event.getKeys(keyList=["escape"]):
+                    core.quit()
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # -------Ending Routine "memory_paradiddle"-------
+            for thisComponent in memory_paradiddleComponents:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            register_taps = False
+            # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
+            
             # ------Prepare to start Routine "repeat_words"-------
             t = 0
             repeat_wordsClock.reset()  # clock
@@ -1749,7 +1892,7 @@ for thisBlock in block:
                 # update/draw components on each frame
                 
                 # *key_resp_2* updates
-                if t >= mem_per and key_resp_2.status == NOT_STARTED:
+                if t >= 0 and key_resp_2.status == NOT_STARTED:
                     # keep track of start time/frame for later
                     key_resp_2.tStart = t
                     key_resp_2.frameNStart = frameN  # exact frame index
@@ -1769,7 +1912,7 @@ for thisBlock in block:
                         # a response ends the routine
                         continueRoutine = False
                 # start/stop sound_2
-                if t >= mem_per and sound_2.status == NOT_STARTED:
+                if t >= 0 and sound_2.status == NOT_STARTED:
                     # keep track of start time/frame for later
                     sound_2.tStart = t
                     sound_2.frameNStart = frameN  # exact frame index
@@ -2132,6 +2275,67 @@ for thisBlock in block:
         # the Routine "display_words" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
+        # ------Prepare to start Routine "memory_paradiddle"-------
+        t = 0
+        memory_paradiddleClock.reset()  # clock
+        frameN = -1
+        continueRoutine = True
+        # update component parameters for each repeat
+        logging.exp('\t'.join([
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+            'start of memory period/paradiddle',
+        ]))
+        register_taps = True
+        # keep track of which components have finished
+        memory_paradiddleComponents = [b_memory_period_2_]
+        for thisComponent in memory_paradiddleComponents:
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        
+        # -------Start Routine "memory_paradiddle"-------
+        while continueRoutine:
+            # get current time
+            t = memory_paradiddleClock.getTime()
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            
+            # *b_memory_period_2_* updates
+            if t >= 0 and b_memory_period_2_.status == NOT_STARTED:
+                # keep track of start time/frame for later
+                b_memory_period_2_.tStart = t
+                b_memory_period_2_.frameNStart = frameN  # exact frame index
+                b_memory_period_2_.setAutoDraw(True)
+            frameRemains = 0 + mem_per- win.monitorFramePeriod * 0.75  # most of one frame period left
+            if b_memory_period_2_.status == STARTED and t >= frameRemains:
+                b_memory_period_2_.setAutoDraw(False)
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in memory_paradiddleComponents:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # check for quit (the Esc key)
+            if endExpNow or event.getKeys(keyList=["escape"]):
+                core.quit()
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # -------Ending Routine "memory_paradiddle"-------
+        for thisComponent in memory_paradiddleComponents:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        register_taps = False
+        # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
         # ------Prepare to start Routine "repeat_words"-------
         t = 0
         repeat_wordsClock.reset()  # clock
@@ -2153,7 +2357,7 @@ for thisBlock in block:
             # update/draw components on each frame
             
             # *key_resp_2* updates
-            if t >= mem_per and key_resp_2.status == NOT_STARTED:
+            if t >= 0 and key_resp_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 key_resp_2.tStart = t
                 key_resp_2.frameNStart = frameN  # exact frame index
@@ -2173,7 +2377,7 @@ for thisBlock in block:
                     # a response ends the routine
                     continueRoutine = False
             # start/stop sound_2
-            if t >= mem_per and sound_2.status == NOT_STARTED:
+            if t >= 0 and sound_2.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 sound_2.tStart = t
                 sound_2.frameNStart = frameN  # exact frame index
@@ -2361,6 +2565,9 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thanksComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
+
+
 
 
 
