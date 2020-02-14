@@ -45,26 +45,34 @@ nrow(tr) %% 4 == 0  # Check is a multiple of 4 (TRUE)
 #  Create 3 (pseudo-)random presentation lists of TARGETS for memory task
 #  ------------------------------------------------------------------------
 
+
 # An item consists of a quadruple of words, i.e. a set of 4 words of the same 
-# type. Since there are 52 arm and 52 leg words, we can form 26 unique items
-# (13 arm items and 13 leg items).
-# We will create 3 sets of items, i.e. 3 different groupings of the target words
-# into items. We call each of these sets an item List (Lists A, B and C).
-# Each participant will see all three lists, one per block. So there are 6
-# different permutations (ABC, ACB, BAC, ...). At the same time, participants
-# carry out the task in three conditions (arm, leg, control), so there are 6
-# permutations here as well. All in all, there are 36 unique combinations of
-# condition-list assignments.
-# We want to make sure that each batch of 6 participants gets assigned all
-# possible conditions -- and also that each 36 participants we have a full
-# cycle of conditions-to-lists assignments.
-# This is done in the functions below.
+# type that participants see in a trial. Since there are 52 arm and 52 leg words,
+# we can form 26 unique items (13 arm items and 13 leg items).
 # 
+# We create 3 sets of items, i.e. 3 different groupings of the same 104 target
+# words into items (quadruples). We call each of these sets an item List 
+# (Lists 1, 2 and 3). Each participant will see all three lists, one per block.
+# So there are 6 different permutations (123, 132, 213, ...).
+# 
+# At the same time, participants carry out the task in three conditions (arm,
+# leg, control), so there are 6 permutations of conditions as well. All in all,
+# there are 36 unique ordered combinations of condition-list assignments.
+# 
+# Our counterbalancing scheme makes sure that:
+# 
+# a) Each batch of 6 participants gets assigned all possible conditions (because
+#    counterbalancing conditions is the most important);
+# b) That all lists are seen equally often across each batch of 6 participants.
+# c) That each 36 participants we have a full cycle of conditions-to-lists
+#    assignments where both are completely balanced.
+# 
+# This is done in this script:
+
 # NB: The specific order in which the items are shown within a block is
 # randomized with the constraint explained below.
 
 ## function to create a new set of random items, i.e. an item list
-
 random_items <- function(df = tv) {
   # Put arm and leg words into a vector
   a <- df[df$type == "arm", ] %>% pull(verb)
