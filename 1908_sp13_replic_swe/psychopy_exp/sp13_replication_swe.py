@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maart 12, 2020, at 21:36
+    on maart 12, 2020, at 23:54
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -125,6 +125,7 @@ def log_pads_device(devicename):
         if register_taps:
             logging.exp('/'.join([
                 str(currentLoop.name),
+                str(myBlockCount),
                 str(currentLoop.thisTrialN),
                 str(devicename),
                 str(hit),
