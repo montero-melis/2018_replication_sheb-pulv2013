@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on februari 12, 2020, at 16:18
+    on maart 12, 2020, at 21:36
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -120,15 +120,19 @@ cont = u"\n\nTryck på mellanslag för att fortsätta"  # At the end of instruct
 import mido
 midi_devices = mido.get_input_names()
 register_taps = False
-def log_pads(hit):
-    if register_taps:
-        logging.exp('\t'.join([
-            str(currentLoop.name),
-            str(currentLoop.thisTrialN),
-            str(hit),
-        ]))
-port_a = mido.open_input(midi_devices[0], callback=log_pads)
-port_b = mido.open_input(midi_devices[1], callback=log_pads)
+def log_pads_device(devicename):
+    def log_pads(hit):
+        if register_taps:
+            logging.exp('/'.join([
+                str(currentLoop.name),
+                str(currentLoop.thisTrialN),
+                str(devicename),
+                str(hit),
+            ]))
+    return log_pads
+port_a = mido.open_input(midi_devices[0], callback=log_pads_device(midi_devices[0]))
+port_b = mido.open_input(midi_devices[1], callback=log_pads_device(midi_devices[1]))
+
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
     font='Arial',
@@ -232,14 +236,14 @@ memory_paradiddleClock = core.Clock()
 
 b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound(u'880', secs=0.25)
+sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -359,14 +363,14 @@ memory_paradiddleClock = core.Clock()
 
 b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound(u'880', secs=0.25)
+sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "repeat_training"
@@ -430,14 +434,14 @@ memory_paradiddleClock = core.Clock()
 
 b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
     text=None,
-    font=u'Arial',
+    font='Arial',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color=u'white', colorSpace='rgb', opacity=1,
+    color='white', colorSpace='rgb', opacity=1,
     depth=-1.0);
 
 # Initialize components for Routine "repeat_words"
 repeat_wordsClock = core.Clock()
-sound_2 = sound.Sound(u'880', secs=0.25)
+sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
 # Initialize components for Routine "end_block"
