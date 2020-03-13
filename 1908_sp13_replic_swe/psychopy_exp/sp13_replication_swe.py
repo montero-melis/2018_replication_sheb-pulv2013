@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maart 12, 2020, at 23:54
+    on maart 13, 2020, at 13:38
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -997,10 +997,11 @@ for thisPractice_block in practice_block:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        logging.exp('\t'.join([
+        logging.exp('/'.join([
             str(currentLoop.name),
+            str(myBlockCount),
             str(currentLoop.thisTrialN),
-            'start of memory period/paradiddle',
+            'start of memory period',
         ]))
         register_taps = True
         # keep track of which components have finished
@@ -1821,10 +1822,11 @@ for thisBlock in block:
             frameN = -1
             continueRoutine = True
             # update component parameters for each repeat
-            logging.exp('\t'.join([
+            logging.exp('/'.join([
                 str(currentLoop.name),
+                str(myBlockCount),
                 str(currentLoop.thisTrialN),
-                'start of memory period/paradiddle',
+                'start of memory period',
             ]))
             register_taps = True
             # keep track of which components have finished
@@ -2286,10 +2288,11 @@ for thisBlock in block:
         frameN = -1
         continueRoutine = True
         # update component parameters for each repeat
-        logging.exp('\t'.join([
+        logging.exp('/'.join([
             str(currentLoop.name),
+            str(myBlockCount),
             str(currentLoop.thisTrialN),
-            'start of memory period/paradiddle',
+            'start of memory period',
         ]))
         register_taps = True
         # keep track of which components have finished
