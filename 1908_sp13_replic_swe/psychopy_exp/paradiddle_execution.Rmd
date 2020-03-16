@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -185,20 +185,28 @@ Visualize
 
 ```{r}
 # Function to plot different routines:
-plot_taps <- function (df, rout) {
-  df <- df %>% filter(routine == rout)
-  p <- if (rout == "word_presentation_practice") {
-    ggplot(df) +
+plot_taps <- function (df, rout, nomapping = TRUE)  {
+  df <- df %>% 
+    filter(routine == rout) %>%
+    mutate(note = factor(note))
+  if (rout == "word_presentation_practice") {
+    p <- ggplot(df) +
       geom_vline(aes(xintercept = time, linetype = effector), size = 1.5)
   } else {
-    ggplot(df) +
-      geom_vline(
-        aes(xintercept = time, colour = side, linetype = effector),
-        size = 1
-        ) +
-      facet_grid(trial ~ condition)
+    if (nomapping) {
+      p <- ggplot(df) +
+        geom_vline(aes(xintercept = time, colour = note), size = 1)
+    } else if (! nomapping) {
+        p <- ggplot(df) +
+          geom_vline(
+              aes(xintercept = time, colour = side, linetype = effector),
+              size = 1)
+    } else {
+          stop("nomapping must be logical")
+    }
+    p <- p + facet_grid(trial ~ condition)
   }
-  p + ggtitle(rout)
+  p + geom_vline(xintercept = 3) + ggtitle(rout)
 }
 ```
 
@@ -227,3 +235,10 @@ The same but make the figure longer:
 plot_taps(taps, "word_presentation")
 ```
 
+
+Visualize with mapping
+--------------------
+
+```{r, fig.height=10}
+plot_taps(taps, "word_presentation", nomapping = FALSE)
+```
