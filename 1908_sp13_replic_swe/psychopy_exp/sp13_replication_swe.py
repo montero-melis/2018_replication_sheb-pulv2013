@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maart 13, 2020, at 13:38
+    on maart 16, 2020, at 14:19
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = 'sheb_replication_1810'  # from the Builder filename that created this script
+expName = u'sp13_replication_swe'  # from the Builder filename that created this script
 expInfo = {u'session': u'1', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -53,9 +53,9 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=[1920, 1200], fullscr=True, screen=0,
+    size=[1536, 864], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
