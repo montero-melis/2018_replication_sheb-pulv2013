@@ -116,6 +116,12 @@ min_response_time = 0  # minimum time before participants can press SPACE to mov
 ## Other
 cont = u"\n\nTryck på mellanslag för att fortsätta"  # At the end of instructions slides
 
+import sounddevice as sd
+import soundfile as sf
+samplerate = 48000
+sd.default.samplerate = samplerate
+sd.default.channels = 1
+
 # register midi taps
 import mido
 midi_devices = mido.get_input_names()
@@ -1000,7 +1006,10 @@ for thisPractice_block in practice_block:
             str(currentLoop.thisTrialN),
             'start of memory period/paradiddle',
         ]))
+        # start recording taps
         register_taps = True
+        # start recording audio
+        trial_audio = sd.rec(int(30 * samplerate))
         # keep track of which components have finished
         memory_paradiddleComponents = [b_memory_period_2_]
         for thisComponent in memory_paradiddleComponents:
@@ -1046,7 +1055,17 @@ for thisPractice_block in practice_block:
         for thisComponent in memory_paradiddleComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        # end recording taps
         register_taps = False
+        # end recording audio
+        audio_fname = '_'.join([
+            str(expInfo['participant']),
+            str(expName),
+            str(expInfo['date']),
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+        ])
+        sf.write(audio_fname + '.wav', trial_audio, samplerate)
         # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
 
@@ -1824,7 +1843,10 @@ for thisBlock in block:
                 str(currentLoop.thisTrialN),
                 'start of memory period/paradiddle',
             ]))
+            # start recording taps
             register_taps = True
+            # start recording audio
+            trial_audio = sd.rec(int(30 * samplerate))
             # keep track of which components have finished
             memory_paradiddleComponents = [b_memory_period_2_]
             for thisComponent in memory_paradiddleComponents:
@@ -1870,7 +1892,17 @@ for thisBlock in block:
             for thisComponent in memory_paradiddleComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
+            # end recording taps
             register_taps = False
+            # end recording audio
+            audio_fname = '_'.join([
+                str(expInfo['participant']),
+                str(expName),
+                str(expInfo['date']),
+                str(currentLoop.name),
+                str(currentLoop.thisTrialN),
+            ])
+            sf.write(audio_fname + '.wav', trial_audio, samplerate)
             # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
 
@@ -2289,7 +2321,10 @@ for thisBlock in block:
             str(currentLoop.thisTrialN),
             'start of memory period/paradiddle',
         ]))
+        # start recording taps
         register_taps = True
+        # start recording audio
+        trial_audio = sd.rec(int(30 * samplerate))
         # keep track of which components have finished
         memory_paradiddleComponents = [b_memory_period_2_]
         for thisComponent in memory_paradiddleComponents:
@@ -2335,7 +2370,17 @@ for thisBlock in block:
         for thisComponent in memory_paradiddleComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        # end recording taps
         register_taps = False
+        # end recording audio
+        audio_fname = '_'.join([
+            str(expInfo['participant']),
+            str(expName),
+            str(expInfo['date']),
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+        ])
+        sf.write(audio_fname + '.wav', trial_audio, samplerate)
         # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
 
