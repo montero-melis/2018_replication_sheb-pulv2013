@@ -147,22 +147,14 @@
         <Param name="letterHeight" updates="constant" val="0.15" valType="code"/>
       </TextComponent>
     </Routine>
-    <Routine name="block_instr">
-      <CodeComponent name="code_4">
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="name" updates="None" val="code_4" valType="code"/>
-        <Param name="Begin Routine" updates="constant" val="myBlockCount += 1&amp;#10;&amp;#10;curr_ppt_block = &quot;p_&quot; + `pptID` + &quot;_b&quot; + `myBlockCount`&amp;#10;print(curr_ppt_block)&amp;#10;&amp;#10;curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'&amp;#10;print(curr_list_training)&amp;#10;&amp;#10;curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'&amp;#10;print(curr_list_targets)" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-      </CodeComponent>
-      <TextComponent name="block_intro">
+    <Routine name="instr_exp3">
+      <TextComponent name="text_10">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="block_intro" valType="code"/>
+        <Param name="name" updates="None" val="text_10" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="set every repeat" val="&quot;Del &quot; + `$myBlockCount` + u&quot;\n\nDu kommer att få se fyra ord som snabbt visas ett i taget på skärmen. Din uppgift är att komma ihåg dem i exakt samma ordning som de har visats.\n\nDen här gången, omedelbart efter det fjärde ordet, kommer du att &quot; + $ShortInstr + u&quot; tills du hör pipet. Direkt efter pipet ska du säga alla de fyra orden högt. Kom ihåg att repetera orden i samma ordning som du såg dem.&quot; + $cont" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Du kommer att kunna ta paus i slutet av varje del. Du kan också ta paus mellan de olika omgångarna om du behöver det.\n\nOm du har några frågor så kan du ställa dem till experimentledaren nu.&quot; + $cont&amp;#10;" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -176,10 +168,10 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_4">
+      <KeyboardComponent name="key_resp_13">
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_4" valType="code"/>
+        <Param name="name" updates="None" val="key_resp_13" valType="code"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
@@ -192,26 +184,6 @@
         <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
-      <TextComponent name="text_19">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_19" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Instruktion 1 av 3" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
-      </TextComponent>
     </Routine>
     <Routine name="init_vars">
       <CodeComponent name="code">
@@ -401,14 +373,22 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="instr_exp3">
-      <TextComponent name="text_10">
+    <Routine name="block_instr">
+      <CodeComponent name="code_4">
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_4" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="myBlockCount += 1&amp;#10;&amp;#10;curr_ppt_block = &quot;p_&quot; + `pptID` + &quot;_b&quot; + `myBlockCount`&amp;#10;print(curr_ppt_block)&amp;#10;&amp;#10;curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'&amp;#10;print(curr_list_training)&amp;#10;&amp;#10;curr_list_targets = path2stimuli + curr_ppt_block + '_targets.csv'&amp;#10;print(curr_list_targets)" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+      </CodeComponent>
+      <TextComponent name="block_intro">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_10" valType="code"/>
+        <Param name="name" updates="None" val="block_intro" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Du kommer att kunna ta paus i slutet av varje del. Du kan också ta paus mellan de olika omgångarna om du behöver det.\n\nOm du har några frågor så kan du ställa dem till experimentledaren nu.&quot; + $cont&amp;#10;" valType="str"/>
+        <Param name="text" updates="set every repeat" val="&quot;Del &quot; + `$myBlockCount` + u&quot;\n\nDu kommer att få se fyra ord som snabbt visas ett i taget på skärmen. Din uppgift är att komma ihåg dem i exakt samma ordning som de har visats.\n\nDen här gången, omedelbart efter det fjärde ordet, kommer du att &quot; + $ShortInstr + u&quot; tills du hör pipet. Direkt efter pipet ska du säga alla de fyra orden högt. Kom ihåg att repetera orden i samma ordning som du såg dem.&quot; + $cont" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -422,10 +402,10 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_13">
+      <KeyboardComponent name="key_resp_4">
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_13" valType="code"/>
+        <Param name="name" updates="None" val="key_resp_4" valType="code"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
@@ -438,24 +418,36 @@
         <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
-    </Routine>
-    <Routine name="memory_paradiddle">
-      <CodeComponent name="b_code_7_">
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="name" updates="None" val="b_code_7_" valType="code"/>
-        <Param name="Begin Routine" updates="constant" val="logging.exp('/'.join([&amp;#10;    str(currentLoop.name),&amp;#10;    str(myBlockCount),&amp;#10;    str(currentLoop.thisTrialN),&amp;#10;    'start of memory period',&amp;#10;]))&amp;#10;register_taps = True" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="register_taps = False" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-      </CodeComponent>
-      <TextComponent name="b_memory_period_2_">
+      <TextComponent name="text_19">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="b_memory_period_2_" valType="code"/>
+        <Param name="name" updates="None" val="text_19" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="" valType="str"/>
-        <Param name="stopVal" updates="constant" val="$mem_per" valType="code"/>
+        <Param name="text" updates="constant" val="Instruktion 1 av 3" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="block_instr2">
+      <TextComponent name="text_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_2" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="set every repeat" val="&quot;In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to &quot; + $BlockInstructions + &quot; until you hear a beep. At the beep, you will have to repeat the four words.&quot; + $cont" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -464,10 +456,26 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
+      <KeyboardComponent name="key_resp_5">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
     </Routine>
     <Routine name="repeat_words">
       <KeyboardComponent name="key_resp_2">
@@ -497,6 +505,14 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0" valType="code"/>
       </SoundComponent>
+      <CodeComponent name="code_6">
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_6" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="# end recording audio&amp;#10;audio_fname = '_'.join([&amp;#10;    str(expInfo['participant']),&amp;#10;    str(expName),&amp;#10;    str(expInfo['date']),&amp;#10;    &quot;block&quot;,&amp;#10;    str(myBlockCount),&amp;#10;    str(currentLoop.name),&amp;#10;    str(currentLoop.thisTrialN),&amp;#10;])&amp;#10;sf.write('sound_recording/' + audio_fname + '.wav', trial_audio, samplerate)" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+      </CodeComponent>
     </Routine>
     <Routine name="instr_start_real_thing">
       <TextComponent name="text_3">
@@ -533,6 +549,52 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="blank_initialize">
+      <CodeComponent name="code_5">
+        <Param name="Begin Experiment" updates="constant" val="## Set global (experiment-level) variables&amp;#10;&amp;#10;pptID = int(expInfo['participant'])  # participant ID&amp;#10;# print(&quot;participant ID is &quot; + `pptID`)&amp;#10;&amp;#10;path2stimuli = u'stimuli\\random_lists\\'&amp;#10;print(path2stimuli)&amp;#10;&amp;#10;&amp;#10;import pandas as pd&amp;#10;df = pd.read_csv(path2stimuli + 'cond-list_assignment_wide.csv')&amp;#10;# .values accesses the actual values of the row, [0] gets you the first value of that row&amp;#10;condition_block_file = df.loc[df['id'] == pptID, 'condit_order_file'].values[0]&amp;#10;print(condition_block_file)&amp;#10;&amp;#10;&amp;#10;sess = int(expInfo['session'])  # session converted to int&amp;#10;print(&quot;Session is &quot; + `sess`)&amp;#10;&amp;#10;valid_sessions = [1,9]&amp;#10;if sess not in valid_sessions:&amp;#10;    sys.exit(&quot;ERROR: session number needs to be either 1 or 9 (for speeded version)&quot;)&amp;#10;&amp;#10;&amp;#10;&amp;#10;# count blocks to use in text displays and to load stimulus files&amp;#10;myBlockCount = 0 &amp;#10;&amp;#10;&amp;#10;## Duration-related variables (set here rather than in individ elements)&amp;#10;&amp;#10;# If session = 9, then speed through the screens&amp;#10;if sess == 9: &amp;#10;    fix_point_duration = .05  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .15  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = .05 # time during which words have to be kept in memory (orig = 6)&amp;#10;else:  # otherwise use the standard duration&amp;#10;    fix_point_duration = 3  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .5  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = 6 # time during which words have to be kept in memory (orig = 6)&amp;#10;&amp;#10;max_response_time = 120  # max time to repeat words before moving to next trial&amp;#10;min_response_time = 0  # minimum time before participants can press SPACE to move on&amp;#10;&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instructions slides&amp;#10;&amp;#10;# register midi taps&amp;#10;import mido&amp;#10;midi_devices = mido.get_input_names()&amp;#10;register_taps = False&amp;#10;def log_pads_device(devicename):&amp;#10;    def log_pads(hit):&amp;#10;        if register_taps:&amp;#10;            logging.exp('/'.join([&amp;#10;                str(currentLoop.name),&amp;#10;                str(myBlockCount),&amp;#10;                str(currentLoop.thisTrialN),&amp;#10;                str(devicename),&amp;#10;                str(hit),&amp;#10;            ]))&amp;#10;    return log_pads&amp;#10;port_a = mido.open_input(midi_devices[0], callback=log_pads_device(midi_devices[0]))&amp;#10;port_b = mido.open_input(midi_devices[1], callback=log_pads_device(midi_devices[1]))&amp;#10;&amp;#10;# record sound&amp;#10;import sounddevice as sd&amp;#10;import soundfile as sf&amp;#10;samplerate = 11025&amp;#10;sd.default.samplerate = samplerate&amp;#10;sd.default.channels = 1" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_5" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+      </CodeComponent>
+      <TextComponent name="text_14">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_14" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_17">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_17" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
@@ -632,64 +694,6 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="instr_welcome">
-      <TextComponent name="text_7">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_7" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="u&quot;Välkommen till det här experimentet!\n\nI den här uppgiften kommer du att få se fyra ord i en följd och du ska försöka komma ihåg dem. Kort därefter ska du repetera orden i exakt samma ordning.&quot; + $cont" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-      </TextComponent>
-      <KeyboardComponent name="key_resp_10">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_10" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="nothing" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-      <TextComponent name="text_13">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_13" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Instruktion 1 av 3" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
-      </TextComponent>
-    </Routine>
     <Routine name="get_filename">
       <CodeComponent name="code_2">
         <Param name="Begin Experiment" updates="constant" val="curr_ppt_block = &quot;p_&quot; + `pptID` + &quot;_b&quot; + `myBlockCount`&amp;#10;print(curr_ppt_block)&amp;#10;&amp;#10;curr_list_training = path2stimuli + curr_ppt_block + '_training.csv'&amp;#10;print(curr_list_training)&amp;#10;" valType="extendedCode"/>
@@ -700,69 +704,23 @@
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
       </CodeComponent>
     </Routine>
-    <Routine name="repeat_training">
-      <TextComponent name="text_5">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_5" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="constant" val="Om du behöver öva mer, tryck 'm'. Om du känner dig redo att börja med det riktiga experimentet, tryck 'b'." valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-      </TextComponent>
-      <KeyboardComponent name="key_resp_8">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_8" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'b','m'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-      <CodeComponent name="code_3">
+    <Routine name="memory_paradiddle">
+      <CodeComponent name="b_code_7_">
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="name" updates="None" val="code_3" valType="code"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="if key_resp_8.keys == &quot;b&quot;: break  # allow to repeat training until ready (max 20, see loop)" valType="extendedCode"/>
+        <Param name="name" updates="None" val="b_code_7_" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="logging.exp('/'.join([&amp;#10;    str(currentLoop.name),&amp;#10;    str(myBlockCount),&amp;#10;    str(currentLoop.thisTrialN),&amp;#10;    'start of memory period',&amp;#10;]))&amp;#10;# start recording taps&amp;#10;register_taps = True&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="# end recording taps&amp;#10;register_taps = False&amp;#10;# start recording audio&amp;#10;trial_audio = sd.rec(int(30 * samplerate))" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
       </CodeComponent>
-    </Routine>
-    <Routine name="blank_initialize">
-      <CodeComponent name="code_5">
-        <Param name="Begin Experiment" updates="constant" val="## Set global (experiment-level) variables&amp;#10;&amp;#10;pptID = int(expInfo['participant'])  # participant ID&amp;#10;# print(&quot;participant ID is &quot; + `pptID`)&amp;#10;&amp;#10;path2stimuli = u'stimuli\\random_lists\\'&amp;#10;print(path2stimuli)&amp;#10;&amp;#10;&amp;#10;import pandas as pd&amp;#10;df = pd.read_csv(path2stimuli + 'cond-list_assignment_wide.csv')&amp;#10;# .values accesses the actual values of the row, [0] gets you the first value of that row&amp;#10;condition_block_file = df.loc[df['id'] == pptID, 'condit_order_file'].values[0]&amp;#10;print(condition_block_file)&amp;#10;&amp;#10;&amp;#10;sess = int(expInfo['session'])  # session converted to int&amp;#10;print(&quot;Session is &quot; + `sess`)&amp;#10;&amp;#10;valid_sessions = [1,9]&amp;#10;if sess not in valid_sessions:&amp;#10;    sys.exit(&quot;ERROR: session number needs to be either 1 or 9 (for speeded version)&quot;)&amp;#10;&amp;#10;&amp;#10;&amp;#10;# count blocks to use in text displays and to load stimulus files&amp;#10;myBlockCount = 0 &amp;#10;&amp;#10;&amp;#10;## Duration-related variables (set here rather than in individ elements)&amp;#10;&amp;#10;# If session = 9, then speed through the screens&amp;#10;if sess == 9: &amp;#10;    fix_point_duration = .05  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .15  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = .05 # time during which words have to be kept in memory (orig = 6)&amp;#10;else:  # otherwise use the standard duration&amp;#10;    fix_point_duration = 3  # orig = 3&amp;#10;    word_duration = .1  # how long is each word shown for (orig = .1)&amp;#10;    SOA = .5  # stimulus onset asynchrony (orig = .5)&amp;#10;    mem_per = 6 # time during which words have to be kept in memory (orig = 6)&amp;#10;&amp;#10;max_response_time = 120  # max time to repeat words before moving to next trial&amp;#10;min_response_time = 0  # minimum time before participants can press SPACE to move on&amp;#10;&amp;#10;&amp;#10;## Other&amp;#10;cont = u&quot;\n\nTryck på mellanslag för att fortsätta&quot;  # At the end of instructions slides&amp;#10;&amp;#10;# register midi taps&amp;#10;import mido&amp;#10;midi_devices = mido.get_input_names()&amp;#10;register_taps = False&amp;#10;def log_pads_device(devicename):&amp;#10;    def log_pads(hit):&amp;#10;        if register_taps:&amp;#10;            logging.exp('/'.join([&amp;#10;                str(currentLoop.name),&amp;#10;                str(myBlockCount),&amp;#10;                str(currentLoop.thisTrialN),&amp;#10;                str(devicename),&amp;#10;                str(hit),&amp;#10;            ]))&amp;#10;    return log_pads&amp;#10;port_a = mido.open_input(midi_devices[0], callback=log_pads_device(midi_devices[0]))&amp;#10;port_b = mido.open_input(midi_devices[1], callback=log_pads_device(midi_devices[1]))&amp;#10;" valType="extendedCode"/>
-        <Param name="name" updates="None" val="code_5" valType="code"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-      </CodeComponent>
-      <TextComponent name="text_14">
+      <TextComponent name="b_memory_period_2_">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_14" valType="code"/>
+        <Param name="name" updates="None" val="b_memory_period_2_" valType="code"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
         <Param name="color" updates="constant" val="white" valType="str"/>
         <Param name="text" updates="constant" val="" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="$mem_per" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
@@ -771,64 +729,10 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_17">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_17" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="nothing" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-    </Routine>
-    <Routine name="block_instr2">
-      <TextComponent name="text_2">
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="name" updates="None" val="text_2" valType="code"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="text" updates="set every repeat" val="&quot;In each trial, you will see four words flashed one after the other, and your task is to memorize them in the order they were presented. Immediately after the fourth word, you will have to &quot; + $BlockInstructions + &quot; until you hear a beep. At the beep, you will have to repeat the four words.&quot; + $cont" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-      </TextComponent>
-      <KeyboardComponent name="key_resp_5">
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_5" valType="code"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
     </Routine>
     <Routine name="block_instr3">
       <TextComponent name="text_11">
@@ -887,6 +791,110 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
       </TextComponent>
+    </Routine>
+    <Routine name="instr_welcome">
+      <TextComponent name="text_7">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_7" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="u&quot;Välkommen till det här experimentet!\n\nI den här uppgiften kommer du att få se fyra ord i en följd och du ska försöka komma ihåg dem. Kort därefter ska du repetera orden i exakt samma ordning.&quot; + $cont" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_10">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_10" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'space'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <TextComponent name="text_13">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_13" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="Instruktion 1 av 3" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0.8, -0.8)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="repeat_training">
+      <TextComponent name="text_5">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="text_5" valType="code"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="text" updates="constant" val="Om du behöver öva mer, tryck 'm'. Om du känner dig redo att börja med det riktiga experimentet, tryck 'b'." valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_8">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_8" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'b','m'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="code_3">
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_3" valType="code"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if key_resp_8.keys == &quot;b&quot;: break  # allow to repeat training until ready (max 20, see loop)" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+      </CodeComponent>
     </Routine>
   </Routines>
   <Flow>

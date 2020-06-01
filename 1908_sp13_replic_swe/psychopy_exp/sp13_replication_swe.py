@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.90.1),
-    on maart 16, 2020, at 14:19
+    on juni 01, 2020, at 14:43
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -26,7 +26,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__)).decode(sys.getfilesystemen
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-expName = u'sp13_replication_swe'  # from the Builder filename that created this script
+expName = 'sp13_replication_swe'  # from the Builder filename that created this script
 expInfo = {u'session': u'1', u'participant': u''}
 dlg = gui.DlgFromDict(dictionary=expInfo, title=expName)
 if dlg.OK == False:
@@ -55,7 +55,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 win = visual.Window(
     size=[1536, 864], fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
-    monitor=u'testMonitor', color=[0,0,0], colorSpace='rgb',
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
@@ -134,6 +134,12 @@ def log_pads_device(devicename):
 port_a = mido.open_input(midi_devices[0], callback=log_pads_device(midi_devices[0]))
 port_b = mido.open_input(midi_devices[1], callback=log_pads_device(midi_devices[1]))
 
+# record sound
+import sounddevice as sd
+import soundfile as sf
+samplerate = 11025
+sd.default.samplerate = samplerate
+sd.default.channels = 1
 text_14 = visual.TextStim(win=win, name='text_14',
     text=None,
     font='Arial',
@@ -246,6 +252,7 @@ b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
 repeat_wordsClock = core.Clock()
 sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
+
 
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
@@ -374,6 +381,7 @@ repeat_wordsClock = core.Clock()
 sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
 
+
 # Initialize components for Routine "repeat_training"
 repeat_trainingClock = core.Clock()
 text_5 = visual.TextStim(win=win, name='text_5',
@@ -444,6 +452,7 @@ b_memory_period_2_ = visual.TextStim(win=win, name='b_memory_period_2_',
 repeat_wordsClock = core.Clock()
 sound_2 = sound.Sound('880', secs=0.25)
 sound_2.setVolume(1)
+
 
 # Initialize components for Routine "end_block"
 end_blockClock = core.Clock()
@@ -1003,7 +1012,9 @@ for thisPractice_block in practice_block:
             str(currentLoop.thisTrialN),
             'start of memory period',
         ]))
+        # start recording taps
         register_taps = True
+        
         # keep track of which components have finished
         memory_paradiddleComponents = [b_memory_period_2_]
         for thisComponent in memory_paradiddleComponents:
@@ -1049,7 +1060,10 @@ for thisPractice_block in practice_block:
         for thisComponent in memory_paradiddleComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        # end recording taps
         register_taps = False
+        # start recording audio
+        trial_audio = sd.rec(int(30 * samplerate))
         # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -1060,6 +1074,7 @@ for thisPractice_block in practice_block:
         continueRoutine = True
         # update component parameters for each repeat
         key_resp_2 = event.BuilderKeyResponse()
+        
         # keep track of which components have finished
         repeat_wordsComponents = [key_resp_2, sound_2]
         for thisComponent in repeat_wordsComponents:
@@ -1100,6 +1115,7 @@ for thisPractice_block in practice_block:
                 sound_2.frameNStart = frameN  # exact frame index
                 sound_2.play()  # start the sound (it finishes automatically)
             
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -1128,6 +1144,17 @@ for thisPractice_block in practice_block:
         if key_resp_2.keys != None:  # we had a response
             word_presentation_practice.addData('key_resp_2.rt', key_resp_2.rt)
         sound_2.stop()  # ensure sound has stopped at end of routine
+        # end recording audio
+        audio_fname = '_'.join([
+            str(expInfo['participant']),
+            str(expName),
+            str(expInfo['date']),
+            "block",
+            str(myBlockCount),
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+        ])
+        sf.write('sound_recording/' + audio_fname + '.wav', trial_audio, samplerate)
         # the Routine "repeat_words" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
@@ -1828,7 +1855,9 @@ for thisBlock in block:
                 str(currentLoop.thisTrialN),
                 'start of memory period',
             ]))
+            # start recording taps
             register_taps = True
+            
             # keep track of which components have finished
             memory_paradiddleComponents = [b_memory_period_2_]
             for thisComponent in memory_paradiddleComponents:
@@ -1874,7 +1903,10 @@ for thisBlock in block:
             for thisComponent in memory_paradiddleComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
+            # end recording taps
             register_taps = False
+            # start recording audio
+            trial_audio = sd.rec(int(30 * samplerate))
             # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -1885,6 +1917,7 @@ for thisBlock in block:
             continueRoutine = True
             # update component parameters for each repeat
             key_resp_2 = event.BuilderKeyResponse()
+            
             # keep track of which components have finished
             repeat_wordsComponents = [key_resp_2, sound_2]
             for thisComponent in repeat_wordsComponents:
@@ -1925,6 +1958,7 @@ for thisBlock in block:
                     sound_2.frameNStart = frameN  # exact frame index
                     sound_2.play()  # start the sound (it finishes automatically)
                 
+                
                 # check if all components have finished
                 if not continueRoutine:  # a component has requested a forced-end of Routine
                     break
@@ -1953,6 +1987,17 @@ for thisBlock in block:
             if key_resp_2.keys != None:  # we had a response
                 word_presentation_training.addData('key_resp_2.rt', key_resp_2.rt)
             sound_2.stop()  # ensure sound has stopped at end of routine
+            # end recording audio
+            audio_fname = '_'.join([
+                str(expInfo['participant']),
+                str(expName),
+                str(expInfo['date']),
+                "block",
+                str(myBlockCount),
+                str(currentLoop.name),
+                str(currentLoop.thisTrialN),
+            ])
+            sf.write('sound_recording/' + audio_fname + '.wav', trial_audio, samplerate)
             # the Routine "repeat_words" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             thisExp.nextEntry()
@@ -2294,7 +2339,9 @@ for thisBlock in block:
             str(currentLoop.thisTrialN),
             'start of memory period',
         ]))
+        # start recording taps
         register_taps = True
+        
         # keep track of which components have finished
         memory_paradiddleComponents = [b_memory_period_2_]
         for thisComponent in memory_paradiddleComponents:
@@ -2340,7 +2387,10 @@ for thisBlock in block:
         for thisComponent in memory_paradiddleComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
+        # end recording taps
         register_taps = False
+        # start recording audio
+        trial_audio = sd.rec(int(30 * samplerate))
         # the Routine "memory_paradiddle" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -2351,6 +2401,7 @@ for thisBlock in block:
         continueRoutine = True
         # update component parameters for each repeat
         key_resp_2 = event.BuilderKeyResponse()
+        
         # keep track of which components have finished
         repeat_wordsComponents = [key_resp_2, sound_2]
         for thisComponent in repeat_wordsComponents:
@@ -2391,6 +2442,7 @@ for thisBlock in block:
                 sound_2.frameNStart = frameN  # exact frame index
                 sound_2.play()  # start the sound (it finishes automatically)
             
+            
             # check if all components have finished
             if not continueRoutine:  # a component has requested a forced-end of Routine
                 break
@@ -2419,6 +2471,17 @@ for thisBlock in block:
         if key_resp_2.keys != None:  # we had a response
             word_presentation.addData('key_resp_2.rt', key_resp_2.rt)
         sound_2.stop()  # ensure sound has stopped at end of routine
+        # end recording audio
+        audio_fname = '_'.join([
+            str(expInfo['participant']),
+            str(expName),
+            str(expInfo['date']),
+            "block",
+            str(myBlockCount),
+            str(currentLoop.name),
+            str(currentLoop.thisTrialN),
+        ])
+        sf.write('sound_recording/' + audio_fname + '.wav', trial_audio, samplerate)
         # the Routine "repeat_words" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         thisExp.nextEntry()
@@ -2573,6 +2636,9 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thanksComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
+
+
 
 
 
