@@ -19,9 +19,6 @@ If I make a change that I want Petrus to test:
 		need to "rewrite" history [I])
 
 
-A good explanation of rebase vs merge
-https://www.atlassian.com/git/tutorials/merging-vs-rebasing
-
 Step by step (for Petrus)
 ------------
 
@@ -41,7 +38,24 @@ git checkout -b petrus
 
 Now depending on whether work has been committed to master or not, Petrus will need to either commit from his own branch or merge from master
 
+git remote show origin
+--> Take a look at which local branches track which remote branches
+
 git push -u origin petrus
 --> Push your branch to the remote repository
 
-Now from Github you can initiate a "pull request"
+git remote show origin
+--> Take a look at which local branches track which remote branches. Now petrus should track remote petrus
+
+Now from Github you can initiate a "pull request", which Guillermo will have to approve.
+
+
+Potentially useful stuff
+------------------------
+
+A good explanation of rebase vs merge
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+
+Use of git fetch
+https://www.atlassian.com/git/tutorials/syncing/git-fetch
+See "git fetch a remote branch" to see how to check out a remote branch and see what's in it.
