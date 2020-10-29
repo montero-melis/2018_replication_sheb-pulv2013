@@ -27,16 +27,21 @@ Step by step (for Petrus)
 
 AS A GENERAL RULE, WE WILL ALWAYS WORK (AND PUSH) FROM OUR OWN BRANCHES!
 
+git pull
+--> fetch and merge from origin/master (this assumes you are on branch master locally)
+
 git branch
 --> see branches in your local repo
 
 git branch -r
 --> see remote branches
 
+Now depending on whether work has already been committed to master or not, Petrus might need to first do a git push from master
+
 git checkout -b petrus
 --> create local branch called petrus and checkout (switch to) that branch
 
-Now depending on whether work has been committed to master or not, Petrus will need to either commit from his own branch or merge from master
+do your work here, commit what there is to commit
 
 git remote show origin
 --> Take a look at which local branches track which remote branches
@@ -48,6 +53,15 @@ git remote show origin
 --> Take a look at which local branches track which remote branches. Now petrus should track remote petrus
 
 Now from Github you can initiate a "pull request", which Guillermo will have to approve.
+
+Once your branch is merged with master on Github...
+
+- git checkout master
+- git pull
+- git branch -D petrus
+- git checkout -b petrus
+- do your work and commit and when ready to push:
+- git push --force -u origin petrus (this will overwrite the petrus branch in origin)
 
 
 Potentially useful stuff
