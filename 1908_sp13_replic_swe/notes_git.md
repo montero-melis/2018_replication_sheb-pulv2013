@@ -24,8 +24,27 @@ Step by step (for Petrus)
 
 (see https://forum.freecodecamp.org/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222)
 
-
 AS A GENERAL RULE, WE WILL ALWAYS WORK (AND PUSH) FROM OUR OWN BRANCHES!
+
+Workflow:
+
+1. git checkout master
+2. git pull
+3. git branch -D petrus
+4. git checkout -b petrus
+5. do your work and commit and when ready to push:
+6. git push --force -u origin petrus (this will overwrite the petrus branch in origin)
+7. do more work locally and commit as needed
+8. git push
+9. repeat if necessary
+10. when ready to merge to master, initiate a pull request from github 
+11. once the pull request is accepted, start again from 1. ...
+
+
+Here is a bit of an explanation of te different steps involved:
+
+git pull
+--> fetch and merge from origin/master (this assumes you are on branch master locally)
 
 git branch
 --> see branches in your local repo
@@ -33,21 +52,25 @@ git branch
 git branch -r
 --> see remote branches
 
+Now, the firs time, depending on whether work has already been committed to master or not, Petrus might need to first do a git push from master
+
 git checkout -b petrus
 --> create local branch called petrus and checkout (switch to) that branch
 
-Now depending on whether work has been committed to master or not, Petrus will need to either commit from his own branch or merge from master
+do your work here, commit what there is to commit
 
 git remote show origin
 --> Take a look at which local branches track which remote branches
 
 git push -u origin petrus
---> Push your branch to the remote repository
+--> Push your branch to the remote repository; this will work the first time, but after deleting the branch locally and if there is such a branch in the remote, you will need to use the --force argument (see step 6 above)
 
 git remote show origin
 --> Take a look at which local branches track which remote branches. Now petrus should track remote petrus
 
 Now from Github you can initiate a "pull request", which Guillermo will have to approve.
+
+Once your branch is merged with master on Github, you start all over again.
 
 
 Potentially useful stuff
