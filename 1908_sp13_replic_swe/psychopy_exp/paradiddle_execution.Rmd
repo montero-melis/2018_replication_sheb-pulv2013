@@ -8,6 +8,8 @@ output:
     number_sections: yes
     theme: default
     toc: yes
+    code_folding: hide
+
 ---
 
 ```{r setup, include=FALSE}
@@ -27,7 +29,7 @@ Setup workspace
 
 Libraries:
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library("knitr")
 library("tidyverse")  # ggplot2, dplyr, readr, purrr, etc
 theme_set(theme_bw())
@@ -45,6 +47,7 @@ logf <- read.delim(
   f, sep = "\t", header = FALSE,
   col.names = c("t", "type", paste("msg", seq_len(ncols-2), sep = ""))
   )
+print(f)
 ```
 
 ```{r}
@@ -92,10 +95,11 @@ get_structure <- function(df) {
   if (! ( nrow(trials) == nrow(start) & nrow(trials) == nrow(end) )) {
     stop("Number of trials and timings don't match!")
   } 
+
   tibble(
-    routine = gsub("(.*)/([0-9])/([0-9])/.*", "\\1", trials$msg1),
-    block   = as.numeric(gsub("(.*)/([0-9])/([0-9])/.*", "\\2", trials$msg1)),
-    trial   = as.numeric(gsub("(.*)/([0-9])/([0-9])/.*", "\\3", trials$msg1)),
+    routine = gsub("(.*)/([0-9])/([0-9]+)/.*", "\\1", trials$msg1),
+    block   = as.numeric(gsub("(.*)/([0-9])/([0-9]+)/.*", "\\2", trials$msg1)),
+    trial   = as.numeric(gsub("(.*)/([0-9])/([0-9]+)/.*", "\\3", trials$msg1)),
     t0      = start$t,
     tend    = end$t,
     # 1st and last lines that contain paradiddle info if carried out:
@@ -104,13 +108,14 @@ get_structure <- function(df) {
   )
 }
 (mystr <- get_structure(logf)) %>% head %>% kable
+mystr %>% tail %>% kable
 ```
 
 
 Function to extract the relevant tapping info:
 
 ```{r}
-# as input it takes a df is a data frame, information about the block and trial
+# as input it takes a dataframe, information about the block and trial
 # it is in, the first and last Lines where it should look for taps, etc.
 get_taps <- function(df, routine, block, trial,  t0, L0, Lend, ...) {
   # Look only in rows specified as argument
@@ -148,34 +153,31 @@ Put it all together in a data frame:
 
 ```{r}
 taps <- pmap(mystr, get_taps, df = logf) %>% bind_rows()
-taps %>% head %>% kable
+taps %>% head() %>% kable()
 ```
 
 
 Do the mapping between notes and effectors
 ==================================
 
-
-This bit needs to be tested more thoroughly. It assumes that the notes and
-SamplePad IDs are constant and assigned consistently across participants.
-
 ```{r}
+# This bit needs to be tested more thoroughly. It assumes that the notes and
+# SamplePad IDs are constant and assigned consistently across participants.
+
 (note_mappings <- tibble(
   note     = c(45, 48, 49, 51),
   pad      = rep(paste("SamplePad", c(0, 1)), each = 2),
   side     = rep(c("R", "L"), 2),
   effector = rep(c("hands", "feet"), each = 2)
-)) %>% kable
-```
+)) %>% kable()
 
+# Join info:
 
-Join info:
-
-```{r}
-(taps <- taps %>%
+taps <- taps %>%
   left_join(cond_order) %>%
-  left_join(note_mappings)) %>%
-  head %>% kable
+  left_join(note_mappings)
+
+taps %>% head() %>% kable()
 ```
 
 
@@ -212,9 +214,10 @@ plot_taps <- function (df, rout, nomapping = TRUE)  {
 
 
 
-For the first practice trials there should be no tapping:
+For the first practice trials there should be no tapping, so if this plot is not
+empty there is a problem:
 
-```{r}
+```{r, fig.height=2}
 plot_taps(taps, "word_presentation_practice")
 ```
 
@@ -225,20 +228,14 @@ Block-specific training trials:
 plot_taps(taps, "word_presentation_training")
 ```
 
-```{r}
-plot_taps(taps, "word_presentation")
-```
-
-The same but make the figure longer:
+Real trials:
 
 ```{r, fig.height=10}
 plot_taps(taps, "word_presentation")
 ```
 
 
-Visualize with mapping
---------------------
-
 ```{r, fig.height=10}
-plot_taps(taps, "word_presentation", nomapping = FALSE)
+# Visualize with mapping
+# plot_taps(taps, "word_presentation", nomapping = FALSE)
 ```
