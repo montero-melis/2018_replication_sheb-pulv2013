@@ -10,8 +10,8 @@ import re
 
 def annotate(folder):
     # check if an tsv with annotations already exists and if so, load it into a df
-    if os.path.exists('data.tsv'):
-        df = pd.read_csv('data.tsv', sep='\t')
+    if os.path.exists('transcriptions.tsv'):
+        df = pd.read_csv('transcriptions.tsv', sep='\t')
     else:
         df = pd.DataFrame(columns=['filename', 'transcription', 'comment'])
 
@@ -32,6 +32,8 @@ def annotate(folder):
     # exclude some filenames
     # https://stackoverflow.com/questions/8006551/how-to-split-long-regular-expression-rules-to-multiple-lines-in-python
     regex = re.compile(r'(.*(practice|training).*$|'  # filter out practice and training trials
+                       # remove participant IDs used for testing (>= 900):
+                       r'9[0-9][0-9]_.*|'
                        # excluded participants:
                        r'9_sp13_replication_swe_2020_Nov_13_0848.*|'
                        r'2_sp13_replication_swe_2020_Nov_04_1038.*)')  
