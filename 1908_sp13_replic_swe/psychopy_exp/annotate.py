@@ -14,6 +14,16 @@ def annotate(folder):
     else:
         df = pd.DataFrame(columns=['filename', 'transcription', 'comment'])
 
+    # transcriber defines the number of seconds to play from each file
+    while True:
+        try:
+            loop_dur = int(input('seconds to be played: '))
+            if loop_dur < 0:
+                raise ValueError #this will send it to the print message and back to the input option
+            break
+        except ValueError:
+            print("Please indicate a positive integer for the number of seconds.")
+
     # read files from folder and select only .wav audio files
     fnames = sorted(os.listdir(folder))
     fnames = [fname for fname in os.listdir(folder) if fname.endswith('.wav')]
