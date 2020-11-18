@@ -28,14 +28,19 @@ def annotate(folder):
     # read files from folder and select only .wav audio files
     fnames = sorted(os.listdir(folder))
     fnames = [fname for fname in os.listdir(folder) if fname.endswith('.wav')]
-    print(fnames)
 
     # exclude some filenames
-    regex = re.compile(r"""(.*practice.*$)""")  # filter out practice trials
-        
+    # https://stackoverflow.com/questions/8006551/how-to-split-long-regular-expression-rules-to-multiple-lines-in-python
+    regex = re.compile(r'(.*(practice|training).*$|'  # filter out practice and training trials
+                       # excluded participants:
+                       r'9_sp13_replication_swe_2020_Nov_13_0848.*|'
+                       r'2_sp13_replication_swe_2020_Nov_04_1038.*)')  
+
+    # print("\nfilenames before exclusion:")
+    # print(fnames)
     fnames = [i for i in fnames if not regex.match(i)]
-    print("\nafter:")
-    print(fnames)
+    # print("\nafter exclusion:")
+    # print(fnames)
 
     # loop over audio files and check if each file is not already annotated in df
     for fname in fnames:
@@ -64,7 +69,7 @@ def annotate(folder):
 
             # write new entry to df and tsv
             df = df.append(entry, ignore_index=True)
-            df.to_csv('data.tsv', sep='\t', index=False)
+            df.to_csv('transcriptions.tsv', sep='\t', index=False)
 
     # end annotation routine and display df
     print('\n###\n')
