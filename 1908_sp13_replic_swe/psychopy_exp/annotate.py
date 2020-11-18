@@ -5,6 +5,7 @@ import sounddevice as sd
 import soundfile as sf
 import argparse
 import os
+import re
 
 
 def annotate(folder):
@@ -27,6 +28,14 @@ def annotate(folder):
     # read files from folder and select only .wav audio files
     fnames = sorted(os.listdir(folder))
     fnames = [fname for fname in os.listdir(folder) if fname.endswith('.wav')]
+    print(fnames)
+
+    # exclude some filenames
+    regex = re.compile(r"""(.*practice.*$)""")  # filter out practice trials
+        
+    fnames = [i for i in fnames if not regex.match(i)]
+    print("\nafter:")
+    print(fnames)
 
     # loop over audio files and check if each file is not already annotated in df
     for fname in fnames:
@@ -34,18 +43,19 @@ def annotate(folder):
 
             # read metadata from filename and set up data for df entry
             fname_parts = fname.replace('.wav', '').split('_')
+            print(fname_parts)
             entry = {
                 'filename': fname,
                 'participant': fname_parts[0],
                 'date_time': '/'.join(fname_parts[4:8]),
                 'block': fname_parts[9],
-                'block_type': fname_parts[12],
-                'trial': fname_parts[13],
+                # 'block_type': fname_parts[12],  # practice trials filtered out
+                'trial': fname_parts[12],
             }
 
             # read audio from .wav file and play on a loop
             wav, hz = sf.read(os.path.join(folder, fname))
-            sd.play(wav, hz, loop=True)
+            sd.play(wav[:hz*loop_dur], hz, loop=True)  # play for loop_dur seconds
 
             # get inputs for transcription and comment
             print(f'\nannotating file: {fname}')
