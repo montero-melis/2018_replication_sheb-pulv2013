@@ -35,6 +35,7 @@ def annotate(folder):
                        # remove participant IDs used for testing (>= 900):
                        r'9[0-9][0-9]_.*|'
                        # excluded participants:
+                       r'9_sp13_replication_swe_2020_Nov_25_1328.*|'
                        r'2_sp13_replication_swe_2020_Nov_20_0901.*|'
                        r'2_sp13_replication_swe_2020_Nov_04_1038.*)')  
 
