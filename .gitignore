@@ -8,6 +8,7 @@
 
 # psychopy-specific
 *_lastrun.py
+.idea/
 
 *.pdf
 # exceptions:
