@@ -67,7 +67,7 @@ valid_trials <- compute_valid_summary(trials)
 How many?
 
 ```{r}
-kable(valid_trials)
+kable(valid_trials, digits = 3)
 ```
 
 Which ones?
