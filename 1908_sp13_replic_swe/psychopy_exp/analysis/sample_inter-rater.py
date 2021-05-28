@@ -50,8 +50,9 @@ print("how many:")
 print(len(excluded_files))
 
 # Now get all sound files from target participants
+path_source = "../sound_recording/"
 sound_files = []
-for f in os.listdir("../sound_files"):
+for f in os.listdir(path_source):
     for target in target_files:
         m = re.match(target, f)
         if m:
@@ -66,8 +67,7 @@ random.seed(64478536)
 sound_files_sample = random.sample(sound_files, k=intended_length)
 
 # copy them to a separate directory for coding
-path_source = "../sound_files/"
-path_target = "../sound_files_interrater_agreement/"
+path_target = "../sound_recording_interrater_agreement/"
 if not os.path.exists(path_target):
     os.mkdir(path_target)
 for f in sound_files_sample:
