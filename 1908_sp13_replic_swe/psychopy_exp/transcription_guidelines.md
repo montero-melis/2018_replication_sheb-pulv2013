@@ -43,6 +43,8 @@ python .\annotate.py("sound_recording_interrater_agreement", "transcr_YourName")
 
 Replace YourName with your initials (e.g., "PI", "MB").
 
+Ctl+C to interrupt execution of the program.
+
 
 How to manually edit the transcriptions file
 --------------------------------------------
