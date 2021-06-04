@@ -36,6 +36,7 @@ def annotate(folder, dest_file = 'transcriptions'):
                        # remove participant IDs used for testing (>= 900):
                        r'9[0-9][0-9]_.*|'
                        # excluded participants:
+                       r'74_sp13_replication_swe_2021_Jun_04_1502.*|'
                        r'54_sp13_replication_swe_2021_Apr_14_1301.*|'
                        r'53_sp13_replication_swe_2021_Apr_09_1501.*|'
                        r'43_sp13_replication_swe_2021_Mar_03_1515.*|'
