@@ -9,7 +9,11 @@ import os
 import re
 
 
-def annotate(player_path, folder, dest_file='transcriptions'):
+def annotate(folder, dest_file, call_ext_player, player_path):
+
+    # hack bc I don't know how to pass booleans with argparse
+    call_ext_player=bool(call_ext_player)
+
     # check if a tsv with annotations already exists and if so, load it into a df
     dest_file = dest_file + '.tsv'
     if os.path.exists(dest_file):
@@ -65,13 +69,13 @@ def annotate(player_path, folder, dest_file='transcriptions'):
                 'trial': fname_parts[12],
             }
 
-            # we're no longer using this block
-            ### read audio from .wav file and play on a loop
-            ###wav, hz = sf.read(os.path.join(folder, fname))
-            ###sd.play(wav[:hz*loop_dur], hz, loop=True)  # play for loop_dur seconds
-
-            # instead, we're doing this:
-            sp.Popen([player_path, os.path.join(folder, fname)], stdin=None, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
+            # play the soundfile in one of two ways
+            if call_ext_player:
+                sp.Popen([player_path, os.path.join(folder, fname)], stdin=None, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
+            else:
+                # read audio from .wav file and play on a loop
+                wav, hz = sf.read(os.path.join(folder, fname))
+                sd.play(wav[:hz*loop_dur], hz, loop=True)  # play for loop_dur seconds
 
             # get inputs for transcription and comment
             print(f'\nannotating file: {fname}')
@@ -90,9 +94,11 @@ def annotate(player_path, folder, dest_file='transcriptions'):
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser('simple script for annotating/transcribing participant recordings')
-    argparser.add_argument('player_path', help='filepath for a media player (e.g. VLC)',
-                           default='C:\Program Files (x86)\VideoLAN\VLC\vlc.exe')
     argparser.add_argument('folder', help='folder containing audio files of participant recordings')
-    argparser.add_argument('dest_file', help='file where transcriptions will be written')
+    argparser.add_argument('dest_file', default='transcriptions', help='file where transcriptions will be written')
+    argparser.add_argument('call_ext_player', type=int, choices=[0, 1], default=0, nargs='?',
+                            help='Either 0 (=false) or 1 (=true): Should an external player be called for transcriptions? Default is 0.')
+    argparser.add_argument('player_path', default='C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe', nargs='?',
+                            help='filepath for a media player (e.g. VLC)')
     args = argparser.parse_args()
-    annotate(args.player_path, args.folder, args.dest_file)
+    annotate(args.folder, args.dest_file, args.call_ext_player, args.player_path)
