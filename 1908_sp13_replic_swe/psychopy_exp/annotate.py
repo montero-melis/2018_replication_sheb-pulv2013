@@ -3,12 +3,13 @@
 import pandas as pd
 import sounddevice as sd
 import soundfile as sf
+import subprocess as sp
 import argparse
 import os
 import re
 
 
-def annotate(folder, dest_file = 'transcriptions'):
+def annotate(player_path, folder, dest_file='transcriptions'):
     # check if a tsv with annotations already exists and if so, load it into a df
     dest_file = dest_file + '.tsv'
     if os.path.exists(dest_file):
@@ -64,9 +65,13 @@ def annotate(folder, dest_file = 'transcriptions'):
                 'trial': fname_parts[12],
             }
 
-            # read audio from .wav file and play on a loop
-            wav, hz = sf.read(os.path.join(folder, fname))
-            sd.play(wav[:hz*loop_dur], hz, loop=True)  # play for loop_dur seconds
+            # we're no longer using this block
+            ### read audio from .wav file and play on a loop
+            ###wav, hz = sf.read(os.path.join(folder, fname))
+            ###sd.play(wav[:hz*loop_dur], hz, loop=True)  # play for loop_dur seconds
+
+            # instead, we're doing this:
+            sp.Popen([player_path, os.path.join(folder, fname)], stdin=None, stdout=sp.DEVNULL, stderr=sp.DEVNULL)
 
             # get inputs for transcription and comment
             print(f'\nannotating file: {fname}')
@@ -85,7 +90,9 @@ def annotate(folder, dest_file = 'transcriptions'):
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser('simple script for annotating/transcribing participant recordings')
+    argparser.add_argument('player_path', help='filepath for a media player (e.g. VLC)',
+                           default='C:\Program Files (x86)\VideoLAN\VLC\vlc.exe')
     argparser.add_argument('folder', help='folder containing audio files of participant recordings')
     argparser.add_argument('dest_file', help='file where transcriptions will be written')
     args = argparser.parse_args()
-    annotate(args.folder, args.dest_file)
+    annotate(args.player_path, args.folder, args.dest_file)
