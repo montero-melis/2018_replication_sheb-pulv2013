@@ -2,6 +2,12 @@
 
 library("tidyverse")
 
+# NB: Below we call custom functions saved in a separate script for clarity.
+source("1908_sp13_replic_swe/psychopy_exp/analysis/myfunctions/extract_info_fncs.R")
+
+
+# Load transcription files for inter-rater agreement ----------------------
+
 pi <- read_tsv("1908_sp13_replic_swe/psychopy_exp/transcription_petrus.tsv") %>%
   arrange(filename)
 mb <- read_tsv("1908_sp13_replic_swe/psychopy_exp/transcription_MB.tsv") %>%
@@ -18,53 +24,23 @@ sum(! mb$filename %in% pi$filename)
 
 # Extract information -----------------------------------------------------
 
-# Function to extract information from transcribed file names
-extract_fileinfo <- function(fname) {
-  mypattern <- "^(\\d+)(_.*)_block_(\\d).*_(\\d+)\\.wav"
-  tibble(
-    basefile = gsub(mypattern, "\\1\\2", fname),
-    ID    = as.numeric(gsub(mypattern, "\\1", fname)),
-    block = as.numeric(gsub(mypattern, "\\3", fname)),
-    trial = as.numeric(gsub(mypattern, "\\4", fname))
-  )
-}
+# Extract information from transcribed file names
 f_info <- extract_fileinfo(pi$filename)
 # shows which trials have been transcribed and associated base files
 head(f_info)
 
 
-# function to extract the target words for each selected trial
-extract_trials <- function(basefile, ID, block, trial) {
-  path2folder <- "1908_sp13_replic_swe/psychopy_exp/data/"
-  df <- read_csv(paste0(path2folder, basefile, ".csv"))
-  df %>%
-    # select appropriate trial
-    filter(
-      block.thisN == block - 1,
-      word_presentation.thisN == trial
-      ) %>%
-    # include identifying info provided as arguments
-    mutate(participant = ID, block = block, trial = trial) %>%
-    # extract relevant info from the csv file
-    select(
-      participant, block, block_type = BlockType, word1:word4, trial, 
-      trial_type = type
-      ) %>%
-    # convert to long format, 1 row per word in a trial (i.e., 4 rows per trial)
-    pivot_longer(word1:word4, names_to = "word", values_to = "verb") %>%
-    mutate(word = gsub("word(\\d)", "\\1", word))
-}
+# Extract the target words for each selected trial.
 # pmap() allows us to apply a function taking each row as arguments, see
 # http://zevross.com/blog/2019/06/11/the-power-of-three-purrr-poseful-iteration-in-r-with-map-pmap-and-imap/
-targets <- pmap(f_info, extract_trials) %>%
+targets <- pmap(f_info, extract_trial_selection) %>%
   bind_rows()
 # NB: warnings are caused by an empty column in csv files
 
 head(targets)
 tail(targets)
 
-
-# arrange the transcriptions in more convenient format: for each trial,
+# arrange the transcriptions in a more convenient format: for each trial,
 # associate a character string that contains the transcribed words
 clean_transcriptions <- function(df, transcriber) {
   df <- df %>%
