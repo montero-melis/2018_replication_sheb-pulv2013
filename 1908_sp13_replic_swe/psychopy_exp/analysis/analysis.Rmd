@@ -1,0 +1,199 @@
+---
+title: "Analysis"
+author: '[Guillermo Montero-Melis](https://www.mpi.nl/people/montero-melis-guillermo)'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+    code_folding: show
+---
+
+Introduction
+============
+
+This script analyzes the results at the pre-registered time points, i.e. after
+collecting 60, 72, ... participants.
+
+
+Session set up
+==============
+
+Libraries:
+
+```{r setup, warning = FALSE, message = FALSE}
+library("knitr")
+library("tidyverse")
+library("brms")
+library("egg")  # theme_article()
+theme_set(theme_article())  # ggplot theme
+knitr::opts_chunk$set(fig.height=4)
+```
+
+Source file where functions are defined:
+
+```{r, message = FALSE}
+source("myfunctions/analysis_fncs.R")
+```
+
+Load data:
+
+```{r}
+d60_w_control <- read_csv("data60.csv") %>%
+  rename(subject = ID_unique)
+d60 <- d60_w_control %>% filter(block_type != "CONTROL")
+```
+
+
+Visualization of raw data
+========================
+
+```{r}
+d60_sbj <- d60_w_control %>%
+  group_by(subject, block_type, word_type) %>%
+  summarise(prop_error = mean(error))
+```
+
+
+```{r}
+my_dodge_w <- .2
+my_jitter_w <- .2
+my_alpha <- .4
+d60_sbj %>%
+  filter(block_type != "CONTROL") %>%
+  mutate(block_type = as.factor(block_type)) %>%
+  ggplot(
+    aes(x = block_type, y = prop_error, color = word_type, shape = word_type)
+    ) +
+  geom_point(
+    alpha = my_alpha,
+    position = position_jitterdodge(jitter.width = my_jitter_w, jitter.height = 0, 
+                                    dodge.width = my_dodge_w, seed = 6477)
+    ) +
+  stat_summary(
+    fun.data = "mean_cl_boot", position = position_dodge(width = my_dodge_w),
+    size = 1.5
+  ) +
+  stat_summary(
+    aes(x = as.numeric(block_type)),
+    fun = mean, 
+    geom = "line",
+    position = position_dodge(width = my_dodge_w),
+    size = 1.25
+    ) +
+  xlab("Block type") +
+  ylab("Proportion of errors") +
+  labs(color = "word type", shape = "word type") +
+  guides(color = guide_legend(override.aes = list(size = .75)))
+my_ggsave("SP13_replication_raw", 6, 4)
+```
+
+
+
+```{r}
+d60_sbj %>%
+  filter(block_type != "CONTROL") %>%
+  ggplot(aes(
+    x = block_type, y = prop_error, color = word_type, shape = word_type)
+    ) +
+    geom_point(
+      alpha = .3,
+      position = position_jitterdodge(
+        jitter.width = NULL, jitter.height = 0, dodge.width = 0.15, seed = 6477
+        )
+      ) +
+    stat_summary(
+      fun.data = "mean_cl_boot", position = position_dodge(width = .5)
+      )
+```
+
+With the control condition for comparison
+
+
+
+```{r}
+my_dodge_w <- .2
+my_jitter_w <- .2
+my_alpha <- .4
+d60_sbj %>%
+  filter(block_type != "CONTROL") %>%
+  mutate(block_type = as.factor(block_type)) %>%
+  ggplot(
+    aes(x = block_type, y = prop_error, color = word_type, shape = word_type)
+    ) +
+  geom_point(
+    alpha = my_alpha,
+    position = position_jitterdodge(jitter.width = my_jitter_w, jitter.height = 0, 
+                                    dodge.width = my_dodge_w, seed = 6477)
+    ) +
+  stat_summary(
+    fun.data = "mean_cl_boot", position = position_dodge(width = my_dodge_w),
+    size = 1.5
+  ) +
+  # stat_summary(
+  #   aes(x = as.numeric(block_type)),
+  #   fun = mean, 
+  #   geom = "line",
+  #   position = position_dodge(width = my_dodge_w),
+  #   size = 1.25
+  #   ) +
+  xlab("Block type") +
+  ylab("Proportion of errors") +
+  labs(color = "word type", shape = "word type") +
+  guides(color = guide_legend(override.aes = list(size = .75)))
+my_ggsave("SP13_replication_raw", 6, 4)
+```
+
+
+
+```{r}
+d60_sbj %>%
+  ggplot(aes(
+    x = block_type, y = prop_error, color = word_type, shape = word_type)
+    ) +
+    geom_point(
+      alpha = .3,
+      position = position_jitterdodge(
+        jitter.width = NULL, jitter.height = 0, dodge.width = 0.15, seed = 6477
+        )
+      ) +
+    stat_summary(
+      fun.data = "mean_cl_boot", position = position_dodge(width = .5)
+      )
+```
+
+
+Minor processing
+================
+
+Add nuisance variable `preced_error` (binary) which is 1 if an error
+was made on any of the preceding words in a trial, 0 otherwise:
+
+```{r}
+# Add nuisance variable "preced_error"
+preced_error <- function(x) {
+  cumsum <- cumsum(x)
+  shift_cumsum <- c(0, cumsum[1 : (length(cumsum) - 1)])
+  out <- ifelse(shift_cumsum > 0, 1, 0)
+  out
+}
+d60 <- d60 %>%
+  group_by(subject, trial_exp) %>%
+  mutate(preced_error = preced_error(error))
+```
+
+
+Analysis with pre-registered analysis pipeline
+========================================
+
+
+
+
+Session info
+============
+
+```{r}
+sessionInfo()
+```
+
