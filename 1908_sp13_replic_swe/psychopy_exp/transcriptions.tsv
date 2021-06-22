@@ -279,7 +279,7 @@ filename	transcription	comment	block	date_time	participant	trial
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_24.wav	nypa borsta skarva hoppa		2	2020/Nov/20/1331	13.0	24.0
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_25.wav	skyffla tvätta norpa		2	2020/Nov/20/1331	13.0	25.0
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_3.wav	pilla bulta klappa blocka		2	2020/Nov/20/1331	13.0	3.0
-13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_4.wav		2	2020/Nov/20/1331	13.0	4.0	
+13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_4.wav		2	2020/Nov/20/1331	13.0	4.0
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_5.wav	svaja ila stå vada		2	2020/Nov/20/1331	13.0	5.0
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_6.wav	skutta vassa promenera	låter som vassa	2	2020/Nov/20/1331	13.0	6.0
 13_sp13_replication_swe_2020_Nov_20_1331_block_2_word_presentation_7.wav	halka fly skejta snava		2	2020/Nov/20/1331	13.0	7.0
@@ -5260,7 +5260,7 @@ filename	transcription	comment	block	date_time	participant	trial
 66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_24.wav	banka pilla knuffa putta		3	2021/May/26/1302	66.0	24.0
 65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_9.wav	skala vika slunga peta		1	2021/May/26/1033	65.0	9.0
 69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_25.wav	knacka skrubba		1	2021/May/28/1031	69.0	25.0
-65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_11.wav	stiga ragla stå skrida		3	2021/May/26/1033	65.0	11.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_11.wav	stiga ragla stå skrida	hon lägger till glida efter mellanslag	3	2021/May/26/1033	65.0	11.0
 63_sp13_replication_swe_2021_May_21_1301_block_2_word_presentation_15.wav	vandra flanera svassa		2	2021/May/21/1301	63.0	15.0
 69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_19.wav	hacka sno knycka slipa		1	2021/May/28/1031	69.0	19.0
 64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_0.wav	tvätta rista hiva		2	2021/May/21/1502	64.0	0.0
@@ -5675,4 +5675,324 @@ filename	transcription	comment	block	date_time	participant	trial
 69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_4.wav	vada trippa snava		1	2021/May/28/1031	69.0	4.0
 70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_14.wav	ila skynda		1	2021/May/28/1301	70.0	14.0
 64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_21.wav	trampa		1	2021/May/21/1502	64.0	21.0
-67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_17.wav	sova		2	2021/May/26/1503	67	17
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_17.wav	sova		2	2021/May/26/1503	67.0	17.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_1.wav	bulta skyffla knipa klösa		3	2021/May/26/1302	66.0	1.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_16.wav	rota bulta skiva ösa		2	2021/May/26/1033	65.0	16.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_5.wav		inget ord	1	2021/May/21/1502	64.0	5.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_15.wav	grabba knacka		2	2021/May/28/1031	69.0	15.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_16.wav	grabba flanera		3	2021/May/21/1502	64.0	16.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_23.wav	knäa hosta		3	2021/May/28/1301	70.0	23.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_9.wav	pusta ösa		1	2021/May/26/1302	66.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_8.wav	pila bulta klappa	hon säger pila	1	2021/May/26/1302	66.0	8.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_22.wav	knäa sparka		3	2021/May/28/1301	70.0	22.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_17.wav	vira		3	2021/May/21/1502	64.0	17.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_4.wav	knycka		1	2021/May/21/1502	64.0	4.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_14.wav	norpa klippa		2	2021/May/28/1031	69.0	14.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_0.wav	jogga halta marschera rusa	50:55	3	2021/May/26/1302	66.0	0.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_17.wav	traska snubbla vingla vackla		2	2021/May/26/1033	65.0	17.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_16.wav	gripa dunka greppa	hon verkar ändra sig från grabba till greppa	2	2021/May/26/1503	67.0	16.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_20.wav		inget ord	1	2021/May/21/1502	64.0	20.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_15.wav	gå		1	2021/May/28/1301	70.0	15.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_5.wav	svabba nypa fila borsta		1	2021/May/28/1031	69.0	5.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_22.wav	klösa hacka fånga knacka		3	2021/May/28/0841	68.0	22.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_6.wav	skynda linka svassa kila		2	2021/May/28/1301	70.0	6.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_22.wav	tassa halta cykla skejta		2	2021/May/26/1302	66.0	22.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_3.wav	ragla marschera löpa		2	2021/May/26/1503	67.0	3.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_2.wav	nypa fila svabba		1	2021/May/28/0841	68.0	2.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_15.wav	klappa putta		1	2021/May/28/0841	68.0	15.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_17.wav	tvätta lunka		1	2021/May/28/0841	68.0	17.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_0.wav	vada trippa		1	2021/May/28/0841	68.0	0.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_1.wav	smyga hoppa knalla skrida		2	2021/May/26/1503	67.0	1.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_20.wav	traska snubbla vingla vackla		2	2021/May/26/1302	66.0	20.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_4.wav	signera gripa		2	2021/May/28/1301	70.0	4.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_7.wav	ösa snärta rota polera		1	2021/May/28/1031	69.0	7.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_20.wav	rota bulta ösa		3	2021/May/28/0841	68.0	20.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_8.wav	linda nypa pilla		3	2021/May/28/0841	68.0	8.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_14.wav	stappla glida kila stampa		2	2021/May/26/1503	67.0	14.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_17.wav	hiva rista		1	2021/May/28/1301	70.0	17.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_22.wav	trampa skejta cykla		1	2021/May/21/1502	64.0	22.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_15.wav	gå ströva snubbla		2	2021/May/26/1033	65.0	15.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_2.wav	löpa ränna skutta stanna		3	2021/May/26/1302	66.0	2.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_16.wav	kavla		2	2021/May/28/1031	69.0	16.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_6.wav	stövla		1	2021/May/21/1502	64.0	6.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_15.wav	flanera		3	2021/May/21/1502	64.0	15.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_20.wav	fila ränna		3	2021/May/28/1301	70.0	20.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_21.wav	pila	han säger pila	3	2021/May/28/1301	70.0	21.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_14.wav	skrida		3	2021/May/21/1502	64.0	14.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_17.wav	snava		2	2021/May/28/1031	69.0	17.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_7.wav	polera		1	2021/May/21/1502	64.0	7.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_14.wav	kasta skrubba fläta skyffla		2	2021/May/26/1033	65.0	14.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_3.wav	repa rycka daska dunka		3	2021/May/26/1302	66.0	3.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_23.wav	vira gnugga torka rycka		1	2021/May/21/1502	64.0	23.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_16.wav	putta		1	2021/May/28/1301	70.0	16.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_15.wav	linda nypa pilla putta		2	2021/May/26/1503	67.0	15.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_21.wav	fila snärta norpa	1:07:00	3	2021/May/28/0841	68.0	21.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_9.wav	rangla flanera marschera löpa		3	2021/May/28/0841	68.0	9.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_6.wav	löpa ränna skutta sparka		1	2021/May/28/1031	69.0	6.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_21.wav	peta snärta svabba fila		2	2021/May/26/1302	66.0	21.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_5.wav	svabba polera		2	2021/May/28/1301	70.0	5.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_0.wav	peta svabba fila snärta		2	2021/May/26/1503	67.0	0.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_1.wav	hissa		1	2021/May/28/0841	68.0	1.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_16.wav	tvätta		1	2021/May/28/0841	68.0	16.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_3.wav	svaja		3	2021/May/28/1031	69.0	3.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_10.wav	knycka hissa stövla slå		2	2021/May/26/1302	66.0	10.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_8.wav	grabba knacka hissa rota		2	2021/May/28/1301	70.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_4.wav	snuva ränna		3	2021/May/28/0841	68.0	4.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_10.wav	polera rispa gnugga piska		3	2021/May/28/0841	68.0	10.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_18.wav	gå ströva		2	2021/May/26/1503	67.0	18.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_12.wav	sno		1	2021/May/21/1502	64.0	12.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_2.wav	greppa		3	2021/May/21/1502	64.0	2.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_24.wav	fly pinna svassa		2	2021/May/26/1503	67.0	24.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_25.wav	ragla marschera löpa vanka		2	2021/May/26/1033	65.0	25.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_19.wav	snava skutta stega ränna		2	2021/May/26/1033	65.0	19.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_10.wav	glida		3	2021/May/28/1301	70.0	10.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_25.wav		inget ord	3	2021/May/21/1502	64.0	25.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_3.wav	klappa pilla klösa		2	2021/May/26/1033	65.0	3.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_6.wav	svaja ila stå vada	07:20	1	2021/May/26/1302	66.0	6.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_19.wav	cykla		3	2021/May/21/1502	64.0	19.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_18.wav	halta fly skejta snava		3	2021/May/21/1502	64.0	18.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_7.wav	ila svassa lunka		1	2021/May/26/1302	66.0	7.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_2.wav	linda putta klösa		2	2021/May/26/1033	65.0	2.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_24.wav	skutta smyga		3	2021/May/21/1502	64.0	24.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_11.wav	skutta		3	2021/May/28/1301	70.0	11.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_18.wav	tassa vackla skejta		2	2021/May/26/1033	65.0	18.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_24.wav	stövla vira		2	2021/May/26/1033	65.0	24.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_25.wav	tassa skejta cykla		2	2021/May/26/1503	67.0	25.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_3.wav	greppa skyffla		3	2021/May/21/1502	64.0	3.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_13.wav	stövla		1	2021/May/21/1502	64.0	13.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_19.wav	rota bulta slipa		2	2021/May/26/1503	67.0	19.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_11.wav	svaja		3	2021/May/28/0841	68.0	11.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_5.wav	fläta skyffla		3	2021/May/28/0841	68.0	5.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_9.wav		inget ord	2	2021/May/28/1301	70.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_11.wav	fly pinna		2	2021/May/26/1302	66.0	11.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_2.wav	bulta ösa		3	2021/May/28/1031	69.0	2.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_24.wav	jogga marschera		1	2021/May/28/0841	68.0	24.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_18.wav	bulta klösa skyffla		1	2021/May/28/0841	68.0	18.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_0.wav	repa norpa borsta karva	50:00	3	2021/May/28/1031	69.0	0.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_13.wav	vada trippa stå linka		2	2021/May/26/1302	66.0	13.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_8.wav	repa rycka daska dunka		1	2021/May/28/1031	69.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_7.wav	smyga hoppa		3	2021/May/28/0841	68.0	7.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_13.wav	tassa halka cykla skejta	hon säger halka	3	2021/May/28/0841	68.0	13.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_18.wav		inget ord	1	2021/May/28/1301	70.0	18.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_24.wav	trampa traska		1	2021/May/28/1301	70.0	24.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_1.wav	skutta		3	2021/May/21/1502	64.0	1.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_25.wav	snärta klösa putta		2	2021/May/28/1031	69.0	25.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_9.wav	klösa		1	2021/May/21/1502	64.0	9.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_19.wav	knäa springa		2	2021/May/28/1031	69.0	19.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_13.wav	stå		3	2021/May/28/1301	70.0	13.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_5.wav	skrida vackla hoppa stiga	07:10	1	2021/May/26/1302	66.0	5.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_0.wav	klösa hacka fånga		2	2021/May/26/1033	65.0	0.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_1.wav	trampa jogga lunka rusa		2	2021/May/26/1033	65.0	1.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_4.wav	slå sno repa fånga		1	2021/May/26/1302	66.0	4.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_12.wav	skutta		3	2021/May/28/1301	70.0	12.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_8.wav		inget ord	1	2021/May/21/1502	64.0	8.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_18.wav	vanka stappla		2	2021/May/28/1031	69.0	18.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_24.wav	putta daska ösa		2	2021/May/28/1031	69.0	24.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_0.wav	jogga knalla gå		3	2021/May/21/1502	64.0	0.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_25.wav	nypa borsta	39:20	1	2021/May/28/1301	70.0	25.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_19.wav	stava vada		1	2021/May/28/1301	70.0	19.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_12.wav	lunka vada stå		3	2021/May/28/0841	68.0	12.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_6.wav	trampa lunka rusa jogga		3	2021/May/28/0841	68.0	6.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_9.wav		inget ord	1	2021/May/28/1031	69.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_12.wav	skura signera stövla daska		2	2021/May/26/1302	66.0	12.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_1.wav	vingla vackla		3	2021/May/28/1031	69.0	1.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_19.wav	cykla sno		1	2021/May/28/0841	68.0	19.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_25.wav	springa ränna löpa		1	2021/May/28/0841	68.0	25.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_21.wav	fånga slunga		1	2021/May/28/0841	68.0	21.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_5.wav	stampa klia		3	2021/May/28/1031	69.0	5.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_16.wav	kliva tåga halka skynda		2	2021/May/26/1302	66.0	16.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_16.wav	greppa dunka banka		3	2021/May/28/0841	68.0	16.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_2.wav	vira gnugga torka		3	2021/May/28/0841	68.0	2.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_22.wav	vira gnugga torka		2	2021/May/26/1503	67.0	22.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_14.wav	vada		1	2021/May/21/1502	64.0	14.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_21.wav	plocka		1	2021/May/28/1301	70.0	21.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_4.wav	banka hiva piska knalla		3	2021/May/21/1502	64.0	4.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_8.wav	springa stövla svassa		3	2021/May/26/1302	66.0	8.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_23.wav	polera viska knycka	låter som viska	2	2021/May/26/1033	65.0	23.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_20.wav	polera grubbla		2	2021/May/28/1031	69.0	20.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_0.wav	strutta smyga		1	2021/May/26/1302	66.0	0.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_5.wav	knycka hissa slå		2	2021/May/26/1033	65.0	5.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_16.wav	vira torka		3	2021/May/28/1301	70.0	16.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_23.wav	nypa borsta kliva		3	2021/May/21/1502	64.0	23.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_22.wav		inget ord	3	2021/May/21/1502	64.0	22.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_17.wav			3	2021/May/28/1301	70.0	17.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_4.wav	vada trippa stå linka		2	2021/May/26/1033	65.0	4.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_1.wav	polera grubbla dunka		1	2021/May/26/1302	66.0	1.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_21.wav	skala		2	2021/May/28/1031	69.0	21.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_22.wav	vira gnugga torka räcka		2	2021/May/26/1033	65.0	22.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_9.wav	svabba fila nypa borsta		3	2021/May/26/1302	66.0	9.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_5.wav	gå		3	2021/May/21/1502	64.0	5.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_20.wav	flanera kila		1	2021/May/28/1301	70.0	20.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_15.wav	skura snava snubbla		1	2021/May/21/1502	64.0	15.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_23.wav	stövla springa skutta		2	2021/May/26/1503	67.0	23.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_3.wav	fly pinna vandra svalka	hon säger svalka	3	2021/May/28/0841	68.0	3.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_17.wav	greppa plocka hiva		3	2021/May/28/0841	68.0	17.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_17.wav	polera rista klippa		2	2021/May/26/1302	66.0	17.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_4.wav	svaja cykla skejta		3	2021/May/28/1031	69.0	4.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_20.wav	promenera cykla hoppa		1	2021/May/28/0841	68.0	20.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_22.wav	trampa traska		1	2021/May/28/0841	68.0	22.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_9.wav		inget ord	1	2021/May/28/0841	68.0	9.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_6.wav	sno plocka hiva		3	2021/May/28/1031	69.0	6.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_8.wav	sno greppa hiva		2	2021/May/26/1503	67.0	8.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_15.wav	stappla glida ila		2	2021/May/26/1302	66.0	15.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_15.wav	traska snubbla vaja		3	2021/May/28/0841	68.0	15.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_1.wav	kliva tåga skynda		3	2021/May/28/0841	68.0	1.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_17.wav		inget ord	1	2021/May/21/1502	64.0	17.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_22.wav	fly tåga strutta		1	2021/May/28/1301	70.0	22.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_7.wav	slå sno repa halka		3	2021/May/21/1502	64.0	7.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_21.wav	vada trippa gå		2	2021/May/26/1503	67.0	21.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_20.wav	skura signera vaska		2	2021/May/26/1033	65.0	20.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_23.wav	hacka		2	2021/May/28/1031	69.0	23.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_6.wav	promenera ila vanka		2	2021/May/26/1033	65.0	6.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_3.wav	jogga knalla stampa halta		1	2021/May/26/1302	66.0	3.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_15.wav	skejta cykla		3	2021/May/28/1301	70.0	15.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_20.wav	springa snubbla		3	2021/May/21/1502	64.0	20.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_21.wav	skala vika		3	2021/May/21/1502	64.0	21.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_14.wav	fläta skyffla		3	2021/May/28/1301	70.0	14.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_2.wav	vira fila signera gripa		1	2021/May/26/1302	66.0	2.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_7.wav	gripa dunka vabba vanka	hon säger vabba och vanka	2	2021/May/26/1033	65.0	7.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_22.wav		inget ord	2	2021/May/28/1031	69.0	22.0
+65_sp13_replication_swe_2021_May_26_1033_block_2_word_presentation_21.wav	stappla glida kila stampa		2	2021/May/26/1033	65.0	21.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_20.wav	promenera ila		2	2021/May/26/1503	67.0	20.0
+64_sp13_replication_swe_2021_May_21_1502_block_3_word_presentation_6.wav	putta		3	2021/May/21/1502	64.0	6.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_23.wav	norpa		1	2021/May/28/1301	70.0	23.0
+64_sp13_replication_swe_2021_May_21_1502_block_1_word_presentation_16.wav		inget ord	1	2021/May/21/1502	64.0	16.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_0.wav	skura signera vika daska		3	2021/May/28/0841	68.0	0.0
+68_sp13_replication_swe_2021_May_28_0841_block_3_word_presentation_14.wav	knyckla hissa slå	hon säger knyckla	3	2021/May/28/0841	68.0	14.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_14.wav	rota bulta ösa slita	hon velar lite mellan slita och slipa men säger slita sist 31:20	2	2021/May/26/1302	66.0	14.0
+67_sp13_replication_swe_2021_May_26_1503_block_2_word_presentation_9.wav	polera rista		2	2021/May/26/1503	67.0	9.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_7.wav	linka stå		3	2021/May/28/1031	69.0	7.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_8.wav	stiga ränna		1	2021/May/28/0841	68.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_1_word_presentation_23.wav	fläta kasta		1	2021/May/28/0841	68.0	23.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_20.wav	skutta tassa promenera sparka		1	2021/May/26/1302	66.0	20.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_8.wav	polera dunka skrubba		1	2021/May/26/1503	67.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_17.wav	marschera ränna		2	2021/May/28/0841	68.0	17.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_9.wav	vandra flanera vanka		2	2021/May/28/0841	68.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_17.wav	vandra stampa skejta ströva		3	2021/May/26/1302	66.0	17.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_5.wav	snubbla		3	2021/May/28/1301	70.0	5.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_0.wav	knacka gnugga skrubba		3	2021/May/26/1503	67.0	0.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_3.wav	promenera vanka ila		2	2021/May/26/1302	66.0	3.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_22.wav	promenera hoppa cykla		3	2021/May/26/1033	65.0	22.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_6.wav	fläta		1	2021/May/26/1033	65.0	6.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_16.wav	vika gripa slå torka		1	2021/May/28/1031	69.0	16.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_23.wav	ösa snärta rota polera		3	2021/May/26/1503	67.0	23.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_14.wav	putta daska ösa		1	2021/May/26/1503	67.0	14.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_22.wav	löpa ränna skutta sparka		2	2021/May/21/1502	64.0	22.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_17.wav	rista klicka slipa		2	2021/May/28/1301	70.0	17.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_21.wav	fly pinna		3	2021/May/28/1031	69.0	21.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_15.wav	pilla bulta plocka knappa	hon verkar ändra halta till knappa	1	2021/May/26/1033	65.0	15.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_14.wav	jogga knalla stampa halta		1	2021/May/26/1033	65.0	14.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_20.wav	smyga hoppa skrida		3	2021/May/28/1031	69.0	20.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_16.wav	pinna kliva ströva		2	2021/May/28/1301	70.0	16.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_23.wav	vada		2	2021/May/21/1502	64.0	23.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_15.wav	skutta tussa promenera stanna	hon säger tussa	1	2021/May/26/1503	67.0	15.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_22.wav	trampa traska skrida		3	2021/May/26/1503	67.0	22.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_17.wav	promenera knalla hoppa cykla		1	2021/May/28/1031	69.0	17.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_23.wav	klappa pilla banka putta		3	2021/May/26/1033	65.0	23.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_7.wav	slå sno repa fånga		1	2021/May/26/1033	65.0	7.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_2.wav	snava strutta		2	2021/May/26/1302	66.0	2.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_1.wav	promenera knalla hoppa cykla		3	2021/May/26/1503	67.0	1.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_4.wav	trampa klösa dunka		3	2021/May/28/1301	70.0	4.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_16.wav	linda knacka vira grabba		3	2021/May/26/1302	66.0	16.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_8.wav	springa snubbla tåga		2	2021/May/28/0841	68.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_16.wav	greppa		2	2021/May/28/0841	68.0	16.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_9.wav	vira fila signera		1	2021/May/26/1503	67.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_21.wav	torka fläta snärta klösa		1	2021/May/26/1302	66.0	21.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_23.wav	traska kliva stövla		1	2021/May/26/1302	66.0	23.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_14.wav	smyga traska lunka		2	2021/May/28/0841	68.0	14.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_6.wav	hoppa		3	2021/May/28/1301	70.0	6.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_14.wav	greppa slunga		3	2021/May/26/1302	66.0	14.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_3.wav	repa daska dunka		3	2021/May/26/1503	67.0	3.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_5.wav	rista kasta slipa klicka		1	2021/May/26/1033	65.0	5.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_21.wav	tvätta hiva peta rista		3	2021/May/26/1033	65.0	21.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_0.wav	klösa hacka fånga		2	2021/May/26/1302	66.0	0.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_15.wav	klappa pilla banka		1	2021/May/28/1031	69.0	15.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_20.wav	svabba nypa fila borsta		3	2021/May/26/1503	67.0	20.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_21.wav	springa stövla		2	2021/May/21/1502	64.0	21.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_14.wav	skyffla norpa		2	2021/May/28/1301	70.0	14.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_17.wav	springa snubbla glida		1	2021/May/26/1503	67.0	17.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_22.wav	signera daska		3	2021/May/28/1031	69.0	22.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_16.wav	svaja ila stå vada		1	2021/May/26/1033	65.0	16.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_17.wav	strutta smyga trippa lunka		1	2021/May/26/1033	65.0	17.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_23.wav	snava skrutta stega ränna	hon säger skrutta	3	2021/May/28/1031	69.0	23.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_16.wav	greppa linda		1	2021/May/26/1503	67.0	16.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_15.wav	greppa skura		2	2021/May/28/1301	70.0	15.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_20.wav	vika gripa slå		2	2021/May/21/1502	64.0	20.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_21.wav	klappa pilla banka putta		3	2021/May/26/1503	67.0	21.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_14.wav	staggla stå stiga	hon säger staggla	1	2021/May/28/1031	69.0	14.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_1.wav	kasta skrubba fläta klösa		2	2021/May/26/1302	66.0	1.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_4.wav	traska pinna kliva ströva		1	2021/May/26/1033	65.0	4.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_20.wav	linda grabba vira		3	2021/May/26/1033	65.0	20.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_2.wav	tassa lunka kliva halka		3	2021/May/26/1503	67.0	2.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_15.wav	trampa traska skrida vanka		3	2021/May/26/1302	66.0	15.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_7.wav	bulta		3	2021/May/28/1301	70.0	7.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_15.wav	polera gnugga		2	2021/May/28/0841	68.0	15.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_22.wav	marschera stövla ränna stega		1	2021/May/26/1302	66.0	22.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_8.wav	snubbla gå snava		2	2021/May/28/1031	69.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_11.wav	svaja vada		2	2021/May/28/0841	68.0	11.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_6.wav	vika gripa slå torka		3	2021/May/26/1503	67.0	6.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_3.wav	klösa		3	2021/May/28/1301	70.0	3.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_11.wav	fly tåga gripa		3	2021/May/26/1302	66.0	11.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_10.wav	springa stappla stövla		1	2021/May/28/1031	69.0	10.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_18.wav	skala signera hissa plocka		3	2021/May/26/1033	65.0	18.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_24.wav	gå knäa pilla lunka		3	2021/May/26/1033	65.0	24.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_0.wav	springa tåga snubbla glida		1	2021/May/26/1033	65.0	0.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_5.wav	skrida hoppa smyga		2	2021/May/26/1302	66.0	5.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_25.wav	svaja vackla flanera kila		3	2021/May/26/1503	67.0	25.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_19.wav	löpa ränna skutta sparka		3	2021/May/26/1503	67.0	19.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_9.wav		inget ord	2	2021/May/21/1502	64.0	9.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_18.wav	vackla flanera kila		2	2021/May/21/1502	64.0	18.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_24.wav	knappa grubbla skura		2	2021/May/21/1502	64.0	24.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_11.wav	trampa löpa gå		2	2021/May/28/1301	70.0	11.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_8.wav	jogga halta marschera rusa		3	2021/May/26/1033	65.0	8.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_12.wav	banka piska hiva hänga		1	2021/May/26/1503	67.0	12.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_13.wav	skrida vackla hoppa strida		1	2021/May/26/1033	65.0	13.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_12.wav	marschera ränna stövla stega		1	2021/May/26/1033	65.0	12.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_13.wav	trampa rusa gå springa		1	2021/May/26/1503	67.0	13.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_9.wav	repa rycka rusa		3	2021/May/26/1033	65.0	9.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_10.wav	torka fläta snärta öka	han säger öka	2	2021/May/28/1301	70.0	10.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_25.wav	skala signera hissa plocka		2	2021/May/21/1502	64.0	25.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_19.wav	promenera knalla hoppa cykla		2	2021/May/21/1502	64.0	19.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_18.wav	greppa slunga fånga norpa		3	2021/May/26/1503	67.0	18.0
+64_sp13_replication_swe_2021_May_21_1502_block_2_word_presentation_8.wav	gå knäa linka		2	2021/May/21/1502	64.0	8.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_24.wav	ila snubbla skynda smyga		3	2021/May/26/1503	67.0	24.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_4.wav	gripa		2	2021/May/26/1302	66.0	4.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_25.wav	greppa snurra fånga norpa	hon säger snurra	3	2021/May/26/1033	65.0	25.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_1.wav	banka piska hiva hacka		1	2021/May/26/1033	65.0	1.0
+65_sp13_replication_swe_2021_May_26_1033_block_3_word_presentation_19.wav	svaja vackla flanera hiva		3	2021/May/26/1033	65.0	19.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_11.wav	jogga halta marschera rusa		1	2021/May/28/1031	69.0	11.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_10.wav	vika gripa slå torka		3	2021/May/26/1302	66.0	10.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_2.wav	promenera ila		3	2021/May/28/1301	70.0	2.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_7.wav	vada trippa linka	hon säger något före linka men det låter inte som ett ord	3	2021/May/26/1503	67.0	7.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_10.wav	sno repa slå		2	2021/May/28/0841	68.0	10.0
+69_sp13_replication_swe_2021_May_28_1031_block_2_word_presentation_9.wav	gå		2	2021/May/28/1031	69.0	9.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_25.wav	nypa borsta karva svabba		1	2021/May/26/1302	66.0	25.0
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_19.wav	halka fly skejta snava		1	2021/May/26/1302	66.0	19.0
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_8.wav	tassa lunka		1	2021/May/28/1301	70.0	8.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_12.wav	nypa		2	2021/May/28/0841	68.0	12.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_5.wav	fly tåga skutta		3	2021/May/26/1503	67.0	5.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_12.wav	skala signera hissa plocka		3	2021/May/26/1302	66.0	12.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_0.wav	skura		3	2021/May/28/1301	70.0	0.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_13.wav	svaja vackla flanera		1	2021/May/28/1031	69.0	13.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_6.wav	ragla flanera marschera löpa		2	2021/May/26/1302	66.0	6.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_3.wav	vingla knäa ragla cykla		1	2021/May/26/1033	65.0	3.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_11.wav	sno repa slänga skada	hon säger slänga och skada	1	2021/May/26/1503	67.0	11.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_12.wav	banka piska hiva		2	2021/May/28/1301	70.0	12.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_10.wav	trampa löpa gå		1	2021/May/26/1033	65.0	10.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_18.wav	trampa jogga lunka rusa		3	2021/May/28/1031	69.0	18.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_24.wav	gripa gnugga greppa		3	2021/May/28/1031	69.0	24.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_25.wav	linda nypa putta		3	2021/May/28/1031	69.0	25.0
+69_sp13_replication_swe_2021_May_28_1031_block_3_word_presentation_19.wav	fila snärta		3	2021/May/28/1031	69.0	19.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_11.wav	putta daska rycka öka	hon säger öka	1	2021/May/26/1033	65.0	11.0
+70_sp13_replication_swe_2021_May_28_1301_block_2_word_presentation_13.wav	jogga stampa halta		2	2021/May/28/1301	70.0	13.0
+67_sp13_replication_swe_2021_May_26_1503_block_1_word_presentation_10.wav	svaja ila stå vada		1	2021/May/26/1503	67.0	10.0
+65_sp13_replication_swe_2021_May_26_1033_block_1_word_presentation_2.wav	nypa borsta karva svabba		1	2021/May/26/1033	65.0	2.0
+66_sp13_replication_swe_2021_May_26_1302_block_2_word_presentation_7.wav	vira torka gnugga		2	2021/May/26/1302	66.0	7.0
+69_sp13_replication_swe_2021_May_28_1031_block_1_word_presentation_12.wav	fläta kasta piska karva		1	2021/May/28/1031	69.0	12.0
+70_sp13_replication_swe_2021_May_28_1301_block_3_word_presentation_1.wav	halka skura		3	2021/May/28/1301	70.0	1.0
+66_sp13_replication_swe_2021_May_26_1302_block_3_word_presentation_13.wav	svaja vackla flanera vika		3	2021/May/26/1302	66.0	13.0
+67_sp13_replication_swe_2021_May_26_1503_block_3_word_presentation_4.wav	linda grabba vika		3	2021/May/26/1503	67.0	4.0
+68_sp13_replication_swe_2021_May_28_0841_block_2_word_presentation_13.wav	rusa löpa gå		2	2021/May/28/0841	68	13
+70_sp13_replication_swe_2021_May_28_1301_block_1_word_presentation_9.wav	lösa	han säger lösa	1	2021/May/28/1301	70	9
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_18.wav	skala vika slunga peta		1	2021/May/26/1302	66	18
+66_sp13_replication_swe_2021_May_26_1302_block_1_word_presentation_24.wav	torka skyvla	hon säger skyvla	1	2021/May/26/1302	66	24
