@@ -21,6 +21,10 @@ Applies the second exclusion criterion indicated in our Registered Report
 >
 > At the participant level, we will exclude participants for whom either of the above criteria or technical failure (e.g., recording not working) result in excluding more than 30% of the trials across blocks or more than 50% of trials in a single block. All exclusions will take place before the recall data is coded and analysed.
 
+A list of to-be-excluded trials is saved to disk to be read by data processing
+scripts before analysis.
+
+
 Session set up
 ==============
 
@@ -74,10 +78,11 @@ For exclusion, we *only* care about whether they started the paradiddle before
 3 seconds of the memory period had ellapsed. In this case, for instance, trials
 2 and 3 from the arm block would have to be excluded.
 
-The following function computes this:
+The following function computes this (we show only the 6 first trials of the
+arm block, which was the 2nd block):
 
 ```{r}
-compute_valid(log_ex) %>% kable(digits = 3) 
+compute_valid(log_ex) %>% head(6) %>% kable(digits = 3) 
 ```
 
 
@@ -96,7 +101,7 @@ logfiles <- list.files(path, pattern = ".*\\.log")  # select .log files
 logfiles_id <- gsub("^(\\d+)_.*", "\\1", logfiles)
 
 # load participant sheet where we've marked who needs to be excluded
-ppt_data <- read_csv("../participant_data_210526.csv") %>%
+ppt_data <- read_csv("../participant_data_210609.csv") %>%
   select(1:2)
 names(ppt_data)[2] <- "valid"
 # select valid participants and extract their ID
@@ -158,6 +163,33 @@ ppt_valid_trials_summary %>%
 **Conclusion**
 
 Only trial-level exclusion need to be done!
+
+
+Save a file to disk with the trials that need to be excluded
+===========================================================
+
+```{r}
+# rename columns for compatibility with the data processing script where this
+# is going to be used:
+excluded_trials <- ppt_valid_trials %>%
+  ungroup() %>%
+  filter(valid == 0) %>%
+  mutate(
+    # ID unique is participant number and DateTime as per log file
+    ID_unique = gsub(".*ta/(\\d+)_.*_(202\\d.*)\\.log", "\\1_\\2", ppt_file),
+    trial_block = trial + 1  # trial_block = 1, ..., 26
+  ) %>%
+  select(ID_unique, block, trial_block) %>%
+  arrange(ID_unique, block, trial_block)
+head(excluded_trials)
+```
+
+Save to disk:
+
+```{r}
+write_csv(excluded_trials, "excluded_trials_bc_of_paradiddle.csv")
+```
+
 
 
 Appendix: complete lists of invalid trials

@@ -1,0 +1,175 @@
+---
+title: "Analysis"
+author: '[Guillermo Montero-Melis](https://www.mpi.nl/people/montero-melis-guillermo)'
+output:
+  html_document:
+    depth: 2
+    number_sections: yes
+    theme: default
+    toc: yes
+    code_folding: show
+---
+
+Introduction
+============
+
+This script analyzes the results as specified in our Registered Report,
+see [here](https://osf.io/26fbh/).
+
+
+Session set up
+==============
+
+Libraries:
+
+```{r setup, warning = FALSE, message = FALSE}
+library("knitr")
+library("tidyverse")
+library("brms")
+library("egg")  # theme_article()
+theme_set(theme_article())  # ggplot theme
+knitr::opts_chunk$set(fig.height=4)
+```
+
+Source file where functions are defined:
+
+```{r, message = FALSE}
+source("myfunctions/analysis_fncs.R")
+```
+
+Load experiment data:
+
+```{r}
+d60_w_control <- read_csv("data60.csv") %>%
+  rename(subject = ID_unique)
+# Add nuisance variable "preced_error" (binary) which is 1 if an error was made
+# on any of the preceding words in a trial, 0 otherwise:
+preced_error <- function(x) {
+  cumsum <- cumsum(x)
+  shift_cumsum <- c(0, cumsum[1 : (length(cumsum) - 1)])
+  out <- ifelse(shift_cumsum > 0, 1, 0)
+  out
+}
+d60_w_control <- d60_w_control %>%
+  group_by(subject, trial_exp) %>%
+  mutate(preced_error = preced_error(error))
+# data frame with only the critical conditions
+d60 <- d60_w_control %>% filter(block_type != "CONTROL")
+kable(head(d60))
+```
+
+Load the model fitted to the original data (see re-analysis - Appendix B)
+and extract the posterior for the critical interaction effect for later use
+as the prior for the replication Bayes factor:
+
+```{r}
+# Load brms model fitted to original data. It's a list with three objects: the
+# full model is the first element of that list:
+bfm_orig <- readRDS("sp13_bfm_max.rds")[[1]]
+# Extract posterior estimates for the critical interaction effect from the brms
+# model (pull converts it to a numerical vector):
+beta_posterior <- pull(posterior_samples(bfm_orig, "b_mv_wt"))
+sp13_posterior <- c(mean(beta_posterior), sd(beta_posterior))
+names(sp13_posterior) <- c("M", "SD")
+sp13_posterior
+```
+
+
+Visualization of raw data
+========================
+
+```{r}
+d60_sbj <- d60_w_control %>%
+  group_by(subject, block_type, word_type) %>%
+  summarise(prop_error = mean(error))
+```
+
+Critical conditions:
+
+```{r}
+plot_raw_data(d60_w_control)
+my_ggsave("SP13_replication_raw", 6, 4)
+```
+
+Including the control condition for comparison:
+
+```{r}
+plot_raw_data(d60_w_control, excl_CONTROL = FALSE)
+my_ggsave("SP13_replication_raw_control", 6, 4)
+```
+
+
+Analysis with pre-registered analysis pipeline
+========================================
+
+
+Main analysis - with weakly informative priors
+-------------------------------------------
+
+Fit the models (or load if already fitted):
+
+```{r}
+ptm <- proc.time()
+# analysis_pipe() tries to load the models from disk and fits them if that fails
+results_brms_d60 <- analysis_pipe(d60)
+# Stop the clock
+time_models <- proc.time() - ptm
+time_models
+```
+
+Model summaries:
+
+```{r}
+# summary(results_brms_d60[[1]])  # full
+# summary(results_brms_d60[[2]])  # null
+```
+
+
+Compute Bayes Factor:
+
+```{r}
+ptm <- proc.time()
+results_brms_d60_BF <- my_BF_wrapper(results_brms_d60)
+time_bridge <- proc.time() - ptm
+time_bridge
+results_brms_d60_BF
+1 / results_brms_d60_BF$bf
+```
+
+
+Secondary analysis - replication BF using original results from SP13 as priors
+-------------------------------------------
+
+Fit the models:
+
+```{r}
+ptm <- proc.time()
+# results_brms_d60_repBF <- analysis_pipe(d60, repBF = TRUE, repBF_post = sp13_posterior)
+# Stop the clock
+time_models <- proc.time() - ptm
+time_models
+```
+
+
+Model summaries:
+
+```{r}
+# summary(results_brms_d60_repBF[[1]])  # full
+# summary(results_brms_d60_repBF[[2]])  # null
+```
+
+
+Compute Bayes Factor:
+
+```{r}
+# ...
+```
+
+
+Session info
+============
+
+```{r}
+sessionInfo()
+```
+
