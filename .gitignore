@@ -28,7 +28,7 @@ analysis/audiorecordings/*
 *.wav
 *.mp3
 
-myfigures/*
+*myfigures*
 
 *.xlsx
 *lbq_pilot-ppts.csv

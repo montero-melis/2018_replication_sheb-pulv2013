@@ -35,13 +35,22 @@ my_ggsave <- function(
   ggsave(filename = fname, plot = myplot, width = mywidth, height = myheight)
 }
 
+# Add nuisance variable "preced_error" (binary) which is 1 if an error was made
+# on any of the preceding words in a trial, 0 otherwise:
+preced_error <- function(x) {
+  cumsum <- cumsum(x)
+  shift_cumsum <- c(0, cumsum[1 : (length(cumsum) - 1)])
+  out <- ifelse(shift_cumsum > 0, 1, 0)
+  out
+}
+
 
 ###########################################################
 ## Plots
 ###########################################################
 
 # Plot raw data
-plot_raw_data <- function(df, excl_CONTROL = TRUE) {
+plot_raw_data <- function(df, mytitle = NULL, excl_CONTROL = TRUE) {
 
   if (excl_CONTROL) {
     df <- df %>% filter(block_type != "CONTROL")
@@ -72,7 +81,9 @@ plot_raw_data <- function(df, excl_CONTROL = TRUE) {
     xlab("Block type") +
     ylab("Proportion of errors") +
     labs(color = "word type", shape = "word type") +
-    guides(color = guide_legend(override.aes = list(size = .75)))
+    guides(color = guide_legend(override.aes = list(size = .75))) +
+    ggtitle(mytitle) +
+    theme(plot.title = element_text(hjust = 0.5))
   # add lines if CONTROL is excluded
   if (excl_CONTROL) {
     p <- p +
