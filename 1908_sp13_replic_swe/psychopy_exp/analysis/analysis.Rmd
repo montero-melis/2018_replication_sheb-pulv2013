@@ -13,8 +13,8 @@ output:
 Introduction
 ============
 
-This script analyzes the results at the pre-registered time points, i.e. after
-collecting 60, 72, ... participants.
+This script analyzes the results as specified in our Registered Report,
+see [here](https://osf.io/26fbh/).
 
 
 Session set up
@@ -37,12 +37,41 @@ Source file where functions are defined:
 source("myfunctions/analysis_fncs.R")
 ```
 
-Load data:
+Load experiment data:
 
 ```{r}
 d60_w_control <- read_csv("data60.csv") %>%
   rename(subject = ID_unique)
+# Add nuisance variable "preced_error" (binary) which is 1 if an error was made
+# on any of the preceding words in a trial, 0 otherwise:
+preced_error <- function(x) {
+  cumsum <- cumsum(x)
+  shift_cumsum <- c(0, cumsum[1 : (length(cumsum) - 1)])
+  out <- ifelse(shift_cumsum > 0, 1, 0)
+  out
+}
+d60_w_control <- d60_w_control %>%
+  group_by(subject, trial_exp) %>%
+  mutate(preced_error = preced_error(error))
+# data frame with only the critical conditions
 d60 <- d60_w_control %>% filter(block_type != "CONTROL")
+kable(head(d60))
+```
+
+Load the model fitted to the original data (see re-analysis - Appendix B)
+and extract the posterior for the critical interaction effect for later use
+as the prior for the replication Bayes factor:
+
+```{r}
+# Load brms model fitted to original data. It's a list with three objects: the
+# full model is the first element of that list:
+bfm_orig <- readRDS("sp13_bfm_max.rds")[[1]]
+# Extract posterior estimates for the critical interaction effect from the brms
+# model (pull converts it to a numerical vector):
+beta_posterior <- pull(posterior_samples(bfm_orig, "b_mv_wt"))
+sp13_posterior <- c(mean(beta_posterior), sd(beta_posterior))
+names(sp13_posterior) <- c("M", "SD")
+sp13_posterior
 ```
 
 
@@ -55,111 +84,44 @@ d60_sbj <- d60_w_control %>%
   summarise(prop_error = mean(error))
 ```
 
+Critical conditions:
 
 ```{r}
-my_dodge_w <- .2
-my_jitter_w <- .2
-my_alpha <- .3
-my_dotsize <- 1
-my_linesize <- 1
-d60_sbj %>%
-  filter(block_type != "CONTROL") %>%
-  mutate(block_type = as.factor(block_type)) %>%
-  ggplot(
-    aes(x = block_type, y = prop_error, color = word_type, shape = word_type)
-    ) +
-  geom_point(
-    alpha = my_alpha,
-    position = position_jitterdodge(jitter.width = my_jitter_w, jitter.height = 0, 
-                                    dodge.width = my_dodge_w, seed = 6477)
-    ) +
-  stat_summary(
-    fun.data = "mean_cl_boot", position = position_dodge(width = my_dodge_w),
-    size = my_dotsize
-  ) +
-  stat_summary(
-    aes(x = as.numeric(block_type)),
-    fun = mean, 
-    geom = "line",
-    position = position_dodge(width = my_dodge_w),
-    size = my_linesize
-    ) +
-  xlab("Block type") +
-  ylab("Proportion of errors") +
-  labs(color = "word type", shape = "word type") +
-  guides(color = guide_legend(override.aes = list(size = .75)))
+plot_raw_data(d60_w_control)
 my_ggsave("SP13_replication_raw", 6, 4)
 ```
 
-
-
-With the control condition for comparison
-
+Including the control condition for comparison:
 
 ```{r}
-d60_sbj %>%
-  mutate(block_type = as.factor(block_type)) %>%
-  ggplot(
-    aes(x = block_type, y = prop_error, color = word_type, shape = word_type)
-    ) +
-  geom_point(
-    alpha = my_alpha,
-    position = position_jitterdodge(jitter.width = my_jitter_w, jitter.height = 0, 
-                                    dodge.width = my_dodge_w, seed = 6477)
-    ) +
-  stat_summary(
-    fun.data = "mean_cl_boot", position = position_dodge(width = my_dodge_w),
-    size = my_dotsize
-  ) +
-  # stat_summary(
-  #   aes(x = as.numeric(block_type)),
-  #   fun = mean, 
-  #   geom = "line",
-  #   position = position_dodge(width = my_dodge_w),
-  #   size = my_linesize
-  #   ) +
-  xlab("Block type") +
-  ylab("Proportion of errors") +
-  labs(color = "word type", shape = "word type") +
-  guides(color = guide_legend(override.aes = list(size = .75)))
+plot_raw_data(d60_w_control, excl_CONTROL = FALSE)
 my_ggsave("SP13_replication_raw_control", 6, 4)
-```
-
-
-
-Minor processing
-================
-
-Add nuisance variable `preced_error` (binary) which is 1 if an error
-was made on any of the preceding words in a trial, 0 otherwise:
-
-```{r}
-# Add nuisance variable "preced_error"
-preced_error <- function(x) {
-  cumsum <- cumsum(x)
-  shift_cumsum <- c(0, cumsum[1 : (length(cumsum) - 1)])
-  out <- ifelse(shift_cumsum > 0, 1, 0)
-  out
-}
-d60 <- d60 %>%
-  group_by(subject, trial_exp) %>%
-  mutate(preced_error = preced_error(error))
 ```
 
 
 Analysis with pre-registered analysis pipeline
 ========================================
 
-Fit the models:
+
+Main analysis - with weakly informative priors
+-------------------------------------------
+
+Fit the models (or load if already fitted):
 
 ```{r}
 ptm <- proc.time()
+# analysis_pipe() tries to load the models from disk and fits them if that fails
 results_brms_d60 <- analysis_pipe(d60)
 # Stop the clock
 time_models <- proc.time() - ptm
 time_models
-summary(results_brms_d60[[1]])
-summary(results_brms_d60[[2]])
+```
+
+Model summaries:
+
+```{r}
+# summary(results_brms_d60[[1]])  # full
+# summary(results_brms_d60[[2]])  # null
 ```
 
 
@@ -167,14 +129,41 @@ Compute Bayes Factor:
 
 ```{r}
 ptm <- proc.time()
-BF_bfm_d60 <- brms::bayes_factor(
-  results_brms_d60[["d_60_bfm_full"]], results_brms_d60[["d_60_bfm_null"]]
-  )
-saveRDS(BF_bfm_d60, "BF_bfm_d60.rds")
+results_brms_d60_BF <- my_BF_wrapper(results_brms_d60)
 time_bridge <- proc.time() - ptm
 time_bridge
+results_brms_d60_BF
+1 / results_brms_d60_BF$bf
 ```
 
+
+Secondary analysis - replication BF using original results from SP13 as priors
+-------------------------------------------
+
+Fit the models:
+
+```{r}
+ptm <- proc.time()
+# results_brms_d60_repBF <- analysis_pipe(d60, repBF = TRUE, repBF_post = sp13_posterior)
+# Stop the clock
+time_models <- proc.time() - ptm
+time_models
+```
+
+
+Model summaries:
+
+```{r}
+# summary(results_brms_d60_repBF[[1]])  # full
+# summary(results_brms_d60_repBF[[2]])  # null
+```
+
+
+Compute Bayes Factor:
+
+```{r}
+# ...
+```
 
 
 Session info
