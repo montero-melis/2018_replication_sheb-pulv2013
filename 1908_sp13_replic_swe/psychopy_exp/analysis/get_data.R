@@ -25,11 +25,16 @@ head(fnames)
 # Select the first 60 (they are ordered by DateTime)
 fnames_60 <- fnames %>% head(60) %>% pull(filename)
 fnames_60
+# Select all
+fnames_all <- fnames %>% pull(filename)
 
 # Extract participants' design matrices
 data60 <- map(fnames_60, extract_design_matrix) %>%
   bind_rows()
 head(data60)
+
+data_all <- map(fnames_all, extract_design_matrix) %>%
+  bind_rows()
 
 # Verify that this contains exactly 26 x 4 = 104 trials per participant-block
 data60 %>%
@@ -37,6 +42,11 @@ data60 %>%
   count() %>%
   filter(n != 104)
 # Good! (Empty tibble means all have 104)
+
+data_all %>%
+  group_by(ID_unique, block) %>%
+  count() %>%
+  filter(n != 104)
 
 
 # Process transcriptions --------------------------------------------------
@@ -57,27 +67,30 @@ transcr %>%
   group_by(ID_unique) %>%
   count() %>%
   filter(n != 26 * 3)
-# These are not a problem: 9 is excluded and 60 not ready yet
+# Not a problem: 9 is excluded
 
 
 # Merge transcriptions into data file -------------------------------------
 
 # Check whether all trials in the data file have been transcribed
 data60_trials <- with(data60, unique(paste(ID_unique, block, trial_block, sep = "_")))
+data_all_trials <- with(data_all, unique(paste(ID_unique, block, trial_block, sep = "_")))
 transcr_trials <- with(transcr, paste(ID_unique, block, trial_block, sep = "_"))
 sum(! data60_trials %in% transcr_trials)  # Yes! (0 missing transcriptions)
+sum(! data_all_trials %in% transcr_trials)  # Yes! (0 missing transcriptions)
 
 # Merge
 data60_full <- left_join(data60, transcr)
 head(data60_full)
+data_all_full <- left_join(data_all, transcr)
 
 # We can check that there are no missing values among descriptions
 # NB: An empty description is an empty string (""), while a missing description
 # is NA.
-sum(is.na(data60_full$transcription))
+sum(is.na(data_all_full$transcription))
 
 # Any participants that don't have 312 observations at this point?
-data60_full %>%
+data_all_full %>%
   group_by(ID_unique) %>%
   count() %>%
   filter(n != 26 * 3 * 4)
@@ -91,10 +104,14 @@ data60_scored <- data60_full %>%
   mutate(error = map2_dbl(verb, transcr_list, ~ ! .x %in% .y))
 data60_scored
 
+data_all_scored <- data_all_full %>%
+  mutate(error = map2_dbl(verb, transcr_list, ~ ! .x %in% .y))
+data_all_scored
+
 
 # Exclusion based on paradiddles ------------------------------------------
 
-# load list of trials to be excluded:
+# load list of trials to be excluded (generated in "trial_exclusion.Rmd"):
 parad_excl <- read_csv("1908_sp13_replic_swe/psychopy_exp/analysis/excluded_trials_bc_of_paradiddle.csv")
 head(parad_excl)
 
@@ -108,10 +125,14 @@ parad_excl_trials <- with(parad_excl,
                           paste(ID_unique, block, trial_block, sep = "_"))
 data60_scored_trials <- with(data60_scored, 
                            paste(ID_unique, block, trial_block, sep = "_"))
+data_all_scored_trials <- with(data_all_scored, 
+                             paste(ID_unique, block, trial_block, sep = "_"))
 # number of excluded observations (recall: 1 trial = 4 observations)
 sum(data60_scored_trials %in% parad_excl_trials)  # these are the number of
+sum(data_all_scored_trials %in% parad_excl_trials)  # these are the number of
 # keep only trials that are not in the to-be-excluded list
 data60_scored <- data60_scored[! data60_scored_trials %in% parad_excl_trials, ]
+data_all_scored <- data_all_scored[! data_all_scored_trials %in% parad_excl_trials, ]
 
 
 # Manual exclusion for individual cases -----------------------------------
@@ -120,7 +141,7 @@ data60_scored <- data60_scored[! data60_scored_trials %in% parad_excl_trials, ]
 # trials needed to be excluded because of notes taking by the RA during data
 # collection, such as participants starting a trial before a beep.
 
-# Check handedness
+# Check handedness as reported by participants
 ppts <- read_csv("1908_sp13_replic_swe/psychopy_exp/participant_data.csv") %>%
   select(c(1, 13))
 names(ppts)[2] <- "handedness"
@@ -129,6 +150,19 @@ table(ppts$handedness)
 ppts %>%
   filter(handedness != "Högerhänt")
 
+# Handedness questionnaire
+hand <- read_csv("1908_sp13_replic_swe/psychopy_exp/handedness.csv")
+hand_quot <- hand %>%
+  group_by(Subject) %>%
+  summarise(HQ = 100 * sum(Response) / 20)
+
+# any non-right handed participants?
+hand_quot %>%
+  filter(HQ <= 0)
+
+# descriptives of handedness
+summary(hand_quot$HQ)
+
 
 # Save to disk ------------------------------------------------------------
 
@@ -136,3 +170,8 @@ data60_scored %>%
   select(-transcr_list) %>%
   rename(word_type = trial_type) %>%
   write_csv("1908_sp13_replic_swe/psychopy_exp/analysis/data60.csv")
+
+data_all_scored %>%
+  select(-transcr_list) %>%
+  rename(word_type = trial_type) %>%
+  write_csv("1908_sp13_replic_swe/psychopy_exp/analysis/data_all.csv")

@@ -101,7 +101,7 @@ logfiles <- list.files(path, pattern = ".*\\.log")  # select .log files
 logfiles_id <- gsub("^(\\d+)_.*", "\\1", logfiles)
 
 # load participant sheet where we've marked who needs to be excluded
-ppt_data <- read_csv("../participant_data_210609.csv") %>%
+ppt_data <- read_csv("../participant_data.csv") %>%
   select(1:2)
 names(ppt_data)[2] <- "valid"
 # select valid participants and extract their ID
