@@ -136,8 +136,6 @@ plot_interaction <- function(fm, mytitle) {
 }
 
 
-
-
 ###########################################################
 ## Analysis pipeline
 ###########################################################
@@ -198,8 +196,8 @@ analysis_pipe <- function(
   cat("FULL model formula:\n\n")
   print(formula_full)
   # Formula of the null model (remove the population-level interaction)
-  cat("\n\nNULL model formula:\n\n")
   formula_null <- update(formula_full, ~ . - block_type : word_type)
+  cat("\n\nNULL model formula:\n\n")
   print(formula_null)
   
   # Priors:
@@ -240,7 +238,7 @@ analysis_pipe <- function(
   }
 
   # fit null model (without interaction):
-  # NB: The prior for interaction is not defined in the null model:
+  # NB: The prior for interaction is not used in the null model:
   bfm_null <- brm(
     formula = formula_null,
     data = df,
@@ -249,7 +247,7 @@ analysis_pipe <- function(
     iter = 20000, warmup = 2000, chains = 4,  # https://discourse.mc-stan.org/t/bayes-factor-using-brms/4469/3
     save_all_pars = TRUE  # necessary for brms::bayes_factor() later
   )
-  # Model *without* interaction
+  # Model *with* interaction
   bfm_full <- update(
     bfm_null,
     formula = formula_full,
