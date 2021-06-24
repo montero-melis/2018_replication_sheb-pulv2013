@@ -84,7 +84,7 @@ plot_raw_data <- function(df, mytitle = NULL, excl_CONTROL = TRUE) {
     guides(color = guide_legend(override.aes = list(size = .75))) +
     ggtitle(mytitle) +
     theme(plot.title = element_text(hjust = 0.5))
-  # add lines if CONTROL is excluded
+  # add lines between conditions if CONTROL is excluded
   if (excl_CONTROL) {
     p <- p +
       stat_summary(
@@ -95,9 +95,46 @@ plot_raw_data <- function(df, mytitle = NULL, excl_CONTROL = TRUE) {
         size = my_linesize
         )
   }
-
   p
 }
+
+
+# A convenience function tailored to the specific models fitted here
+# The input fm should be the FULL model of the output of analysis_pipe().
+# See https://cran.r-project.org/web/packages/sjPlot/vignettes/plot_model_estimates.html
+plot_mymodel <- function(fm, mytitle) {
+  sjPlot::plot_model(
+  fm,  # the first element is the FULL model
+  transform = NULL, 
+  prob.outer = .95, 
+  vline.color = "gray",
+  order.terms = c(1, 2, 6, 3:5),
+  axis.title = "Log-Odds of error",
+  # axis.lim = c(-.5, .5),
+  title = mytitle,
+  axis.labels = c(  # Careful: the labels are blindly applied from bottom to top!
+    "Preceding error in trial",
+    "Word position in trial",
+    "Trial in experiment",
+    "Block type-by-word type interaction",
+    "Word type\n(arm- vs leg-related)",
+    "Block type\n(arm vs leg paradiddle)"
+    ),
+  ) +
+  # https://github.com/strengejacke/sjPlot/issues/440
+  ylim(-.25, .5)
+}
+
+
+# plot the interaction effect
+plot_interaction <- function(fm, mytitle) {
+  plot_model(
+    fm, type = "pred", terms = c("block_type", "word_type"),
+    title = mytitle,
+    axis.title = "Probability of error"
+    )
+}
+
 
 
 

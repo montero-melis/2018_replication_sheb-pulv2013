@@ -27,6 +27,7 @@ library("knitr")
 library("tidyverse")
 library("brms")
 library("egg")  # theme_article()
+library("sjPlot")
 theme_set(theme_article())  # ggplot theme
 knitr::opts_chunk$set(fig.height=4)
 ```
@@ -82,12 +83,6 @@ Main analysis with $N=60$
 Visualization of raw data
 ------------------------
 
-```{r}
-d60_sbj <- d60_w_control %>%
-  group_by(subject, block_type, word_type) %>%
-  summarise(prop_error = mean(error))
-```
-
 Critical conditions:
 
 ```{r}
@@ -119,13 +114,24 @@ time_models <- proc.time() - ptm
 time_models
 ```
 
+Visualization of the model estimates:
+
+```{r}
+plot_mymodel(results_brms_d60[[1]], "N = 60")
+my_ggsave("SP13_replication_model_estim_d60", 6, 4)
+plot_interaction(results_brms_d60[[1]], "N = 60")
+my_ggsave("SP13_replication_model_interact_d60", 6, 4)
+```
+
 Model summaries:
 
 ```{r}
-# summary(results_brms_d60[[1]])  # full
-# summary(results_brms_d60[[2]])  # null
+summary(results_brms_d60[[1]])  # full
+summary(results_brms_d60[[2]])  # null
 ```
 
+
+### Bayes factor
 
 Compute Bayes Factor:
 
@@ -150,11 +156,11 @@ results_brms_d60_BF
 Fit the models:
 
 ```{r}
-ptm <- proc.time()
+# ptm <- proc.time()
 # results_brms_d60_repBF <- analysis_pipe(d60, repBF = TRUE, repBF_post = sp13_posterior)
-# Stop the clock
-time_models <- proc.time() - ptm
-time_models
+# # Stop the clock
+# time_models <- proc.time() - ptm
+# time_models
 ```
 
 
@@ -187,15 +193,15 @@ Compute Bayes Factor:
 Exploratory analysis with $N=77$ (all participants)
 =========================
 
+We continued collecting participants while processing the data for our first
+pre-registered main analysis for $N=60$. We stopped data collection as soon
+as we obtained reliable evidence (based on Bayes factor). By then we had
+collected 77 participants in total. Here we report the results of the analysis
+for all $N=77$ participants.
+
 
 Visualization of raw data
 ------------------------
-
-```{r}
-d77_sbj <- d77_w_control %>%
-  group_by(subject, block_type, word_type) %>%
-  summarise(prop_error = mean(error))
-```
 
 Critical conditions:
 
@@ -228,6 +234,15 @@ time_models <- proc.time() - ptm
 time_models
 ```
 
+Visualization of the model estimates:
+
+```{r}
+plot_mymodel(results_brms_d77[[1]], "N = 77")
+my_ggsave("SP13_replication_model_estim_d77", 6, 4)
+plot_interaction(results_brms_d77[[1]], "N = 77")
+my_ggsave("SP13_replication_model_interact_d77", 6, 4)
+```
+
 Model summaries:
 
 ```{r}
@@ -235,6 +250,8 @@ summary(results_brms_d77[[1]])  # full
 summary(results_brms_d77[[2]])  # null
 ```
 
+
+### Bayes factor
 
 Compute Bayes Factor:
 
@@ -259,37 +276,37 @@ results_brms_d77_BF
 Fit the models:
 
 ```{r}
-ptm <- proc.time()
-results_brms_d77_repBF <- analysis_pipe(d77, repBF = TRUE, repBF_post = sp13_posterior)
-# Stop the clock
-time_models <- proc.time() - ptm
-time_models
+# ptm <- proc.time()
+# results_brms_d77_repBF <- analysis_pipe(d77, repBF = TRUE, repBF_post = sp13_posterior)
+# # Stop the clock
+# time_models <- proc.time() - ptm
+# time_models
 ```
 
 
 Model summaries:
 
 ```{r}
-summary(results_brms_d77_repBF[[1]])  # full
-summary(results_brms_d77_repBF[[2]])  # null
+# summary(results_brms_d77_repBF[[1]])  # full
+# summary(results_brms_d77_repBF[[2]])  # null
 ```
 
 
 Compute Bayes Factor:
 
 ```{r}
-ptm <- proc.time()
-results_brms_d77_repBF_BF <- my_BF_wrapper(results_brms_d77_repBF)
-time_bridge <- proc.time() - ptm
-time_bridge
+# ptm <- proc.time()
+# results_brms_d77_repBF_BF <- my_BF_wrapper(results_brms_d77_repBF)
+# time_bridge <- proc.time() - ptm
+# time_bridge
 ```
 
 
 **Bayes factor:**
 
 ```{r}
-results_brms_d77_repBF_BF
-1 / results_brms_d77_repBF_BF$bf
+# results_brms_d77_repBF_BF
+# 1 / results_brms_d77_repBF_BF$bf
 ```
 
 
